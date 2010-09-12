@@ -242,6 +242,52 @@ unsigned int rf12_rxdata_if_available(char *data, int *res) {
   return (bOk);
 }
 
+volatile char *g_buf;
+volatile int g_len;
+volatile uip_udp_conn_t *g_conn;
+
+void udpsend(char *buf, int len)
+{
+  g_buf = buf;
+  g_len = len;
+  uip_udp_periodic_conn(g_conn);
+  router_output();
+}
+
+
+
+//    static uip_udp_conn_t *conn, *old_conn;
+//    uip_ipaddr_t addr;
+//    unsigned char *old_uip_appdata = uip_appdata;
+//
+//    uip_ipaddr(&addr, 10,1,0,2);
+//    conn = uip_udp_new(&addr, HTONS(12345), NULL);
+//
+//    if (conn) {
+////      uip_ipaddr_t ip;
+////      set_CONF_ENC_IP(&ip);
+////      uip_sethostaddr(&ip);
+//
+//      old_conn = uip_udp_conn;
+//      uip_udp_conn = conn;
+//      uip_appdata = &uip_buf[UIP_LLH_LEN + UIP_IPUDPH_LEN];
+//      memcpy(uip_appdata, buf, size);
+//      uip_udp_send(size);
+//      uip_process(UIP_UDP_SEND_CONN);
+//
+//      memcpy(uip_appdata, buf, size);
+//      RFM12_DEBUG ("sending %d bytes\n", size);
+//      router_output_to(STACK_ENC);
+//
+//      uip_udp_remove(conn);
+//      uip_appdata = old_uip_appdata;
+//      uip_udp_conn = old_conn;
+//    }
+//    else
+//    {
+//      RFM12_DEBUG ("no conn\n");
+//    }
+
 void rfm12_int_process(void) {
   uint16_t status = rf12_trans(0x0000);
 
@@ -306,30 +352,38 @@ void rfm12_int_process(void) {
     _delay_ms(1);
     enable_rx();
 
-    static uip_udp_conn_t *conn, *old_conn;
-    uip_ipaddr_t addr;
-    unsigned char *old_uip_appdata = uip_appdata;
-
-    uip_ipaddr(&addr, 255,255,255,255);
-    conn = uip_udp_new(&addr, HTONS(12345), NULL);
-
-    if (conn) {
-      old_conn = uip_udp_conn;
-      uip_udp_conn = conn;
-      uip_appdata = &uip_buf[UIP_LLH_LEN + UIP_IPUDPH_LEN];
-      uip_udp_send(size);
-      uip_process(UIP_UDP_SEND_CONN);
-      memcpy(uip_appdata, buf, size);
-      RFM12_DEBUG ("sending %d bytes\n", size);
-      router_output();
-      uip_udp_remove(conn);
-      uip_appdata = old_uip_appdata;
-      uip_udp_conn = old_conn;
-    }
-    else
-    {
-      RFM12_DEBUG ("no conn\n");
-    }
+    udpsend(buf, size);
+//    static uip_udp_conn_t *conn, *old_conn;
+//    uip_ipaddr_t addr;
+//    unsigned char *old_uip_appdata = uip_appdata;
+//
+//    uip_ipaddr(&addr, 10,1,0,2);
+//    conn = uip_udp_new(&addr, HTONS(12345), NULL);
+//
+//    if (conn) {
+////      uip_ipaddr_t ip;
+////      set_CONF_ENC_IP(&ip);
+////      uip_sethostaddr(&ip);
+//
+//      old_conn = uip_udp_conn;
+//      uip_udp_conn = conn;
+//      uip_appdata = &uip_buf[UIP_LLH_LEN + UIP_IPUDPH_LEN];
+//      memcpy(uip_appdata, buf, size);
+//      uip_udp_send(size);
+//      uip_process(UIP_UDP_SEND_CONN);
+//
+//      memcpy(uip_appdata, buf, size);
+//      RFM12_DEBUG ("sending %d bytes\n", size);
+//      router_output_to(STACK_ENC);
+//
+//      uip_udp_remove(conn);
+//      uip_appdata = old_uip_appdata;
+//      uip_udp_conn = old_conn;
+//    }
+//    else
+//    {
+//      RFM12_DEBUG ("no conn\n");
+//    }
 
     switch (buf[4]) {
     case 'T': {
@@ -378,8 +432,22 @@ uint16_t rfm12_get_status(void) {
   return r;
 }
 
+void x()
+{
+  if(g_len)
+  {
+   uip_send(g_buf,g_len);
+  }
+  g_len = 0;
+}
+
 void rfm12_init(void) {
   rf12_init();
+
+  g_len = 0;
+  uip_ipaddr_t ip;
+  uip_ipaddr((ip), 10,1,0,255 );
+  g_conn = uip_udp_new(&ip, HTONS(12345), x);
 }
 
 /*

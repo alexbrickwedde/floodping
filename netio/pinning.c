@@ -201,29 +201,6 @@
 	BOOTLOADER_SECTION 0xe000	$7000	4096 words	*/
 
 /* port the enc28j60 is attached to */
-#define ONEWIRE_PORT D
-#define ONEWIRE_PIN 6
-#define HAVE_ONEWIRE 1
-
-
-#ifdef PD6_USED
-#  error Pinning Error: pinning/hardware/netio.m4:9: ONEWIRE has a double define on PD6
-#endif
-#define PD6_USED 1
-  
-
-
-
-
-
-
-
-
-
-
-/* port the rfm12 module CS is attached to */
-#define RFM12_USE_POLL 1
-
 #define SPI_CS_RFM12_PORT C
 #define SPI_CS_RFM12_PIN 2
 #define HAVE_SPI_CS_RFM12 1
@@ -257,13 +234,24 @@
 
 
 
-  /* onewire support */
-  
+
+
+
+
+
+
+
+
+
+/* port the rfm12 module CS is attached to */
+#define RFM12_USE_POLL 1
+
+
 
 #define PORTIO_MASK_A 255
 #define PORTIO_MASK_B 15
 #define PORTIO_MASK_C 251
-#define PORTIO_MASK_D 191
+#define PORTIO_MASK_D 255
 #define PORTIO_MASK_E 255
 #define PORTIO_MASK_F 255
 #define PORTIO_MASK_G 255
