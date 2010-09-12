@@ -1,0 +1,1 @@
+hardware/avr/dump_ecmd.dep hardware/avr/dump_ecmd.o hardware/avr/dump_ecmd.E hardware/avr/dump_ecmd.s: hardware/avr/dump_ecmd.c protocols/ecmd/ecmd-base.h

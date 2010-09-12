@@ -1,0 +1,2 @@
+core/spi.dep core/spi.o core/spi.E core/spi.s: core/spi.c core/spi.h config.h autoconf.h pinning.c core/spi.h \
+  core/debug.h core/global.h protocols/syslog/syslog_debug.h

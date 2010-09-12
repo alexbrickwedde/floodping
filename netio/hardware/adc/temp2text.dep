@@ -1,0 +1,1 @@
+hardware/adc/temp2text.dep hardware/adc/temp2text.o hardware/adc/temp2text.E hardware/adc/temp2text.s: hardware/adc/temp2text.c

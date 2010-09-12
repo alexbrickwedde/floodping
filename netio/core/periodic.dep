@@ -1,0 +1,2 @@
+core/periodic.dep core/periodic.o core/periodic.E core/periodic.s: core/periodic.c config.h autoconf.h pinning.c core/periodic.h \
+  core/debug.h core/global.h protocols/syslog/syslog_debug.h

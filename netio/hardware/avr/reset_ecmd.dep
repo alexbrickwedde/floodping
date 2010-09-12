@@ -1,0 +1,2 @@
+hardware/avr/reset_ecmd.dep hardware/avr/reset_ecmd.o hardware/avr/reset_ecmd.E hardware/avr/reset_ecmd.s: hardware/avr/reset_ecmd.c core/global.h \
+  protocols/ecmd/ecmd-base.h

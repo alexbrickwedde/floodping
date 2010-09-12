@@ -1,0 +1,76 @@
+etherrape dataflash filesystem description
+
+Resources
+---------
+
+* introduction about filesystems on flash mediums: http://sources.redhat.com/jffs2/jffs2.pdf
+* AT45DB161D datasheet: http://atmel.com/dyn/resources/prod_documents/doc3500.pdf
+
+Introduction
+------------
+
+The dataflash used in the etherrape consists of 4096 pages, 528 bytes each.
+Two 528 byte SRAM buffers can be used read, modify and write content.
+Additionally, data can directly be read from flash, circumventing the SRAM
+buffers.  See AT45DB161D datasheet for details.
+
+This filesystem and dataflash driver implementation has support for more
+than one dataflash, although this is not used up to now.
+
+Dataflash storage
+=================
+
+Defintions
+----------
+
+* page: physical memory unit on the dataflash (528 byte in this case)
+* inode: pointer to a page, whenever data is referenced, an inode is used
+
+
+Dataflash Driver Api
+--------------------
+
+Datatypes:
+
+df_buf_t: represents a buffer in a physical dataflash, values: DF_BUF1, DF_BUF2
+df_chip_t: pointer to a chip structure, unused ATM
+df_page_t: number of a page in flash, values: 0..4095
+df_size_t: amount of bytes used in a page, values: 0..528
+df_status_t: dataflash status byte
+
+Functions:
+
+df_init(chip): initialize a chip, configures chip-select line
+df_buf_load(chip, buf, page): loads page into either buffer 1 or 2
+df_buf_read(chip, buf, *ptr, offset, length): copies length bytes at offset
+    from dataflash buffer to ptr
+df_buf_write(chip, buf, *ptr, offset, length): copies length bytes from ptr
+    to dataflash buffer at offset
+df_buf_save(chip, buf, page): saves buffer to page in flash
+df_flash_read(chip, page, *ptr, offset, length): copies length bytes at
+    offset directly from flash to ptr
+df_erase(chip, page): erase page (done automatically at df_buf_write)
+df_status(chip): returns df_status_t byte for this dataflash
+df_wait(chip): busy-wait until the dataflash is idle again
+
+
+Filesystem Api
+--------------
+
+Datatypes:
+
+fs_version_t: 32 bit integer, represents the current filesystem version
+fs_inode_t: an inode number, values: 0..4095
+fs_index_t: index of a file within a directory, values: 0..65535
+fs_size_t: 32 bit signed integer, represents the filesize
+fs_status_t: status byte, returned by most functions, values:
+    FS_OK = 0,
+    FS_NOSUCHFILE = 1,
+    FS_EOF = 2,
+    FS_BADPAGE = 3,
+    FS_BADINODE = 4,
+    FS_DUPLICATE = 5,
+    FS_MEM = 6,
+    FS_BADSEEK = 7,
+fs_t: filesystem structure, contains df_chip_t structure, root node number,
+    root version and last_free page pointer

@@ -1,0 +1,3 @@
+hardware/adc/adc.dep hardware/adc/adc.o hardware/adc/adc.E hardware/adc/adc.s: hardware/adc/adc.c config.h autoconf.h pinning.c core/debug.h \
+  core/global.h protocols/syslog/syslog_debug.h \
+  protocols/ecmd/ecmd-base.h

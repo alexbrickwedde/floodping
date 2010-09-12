@@ -1,0 +1,2 @@
+hardware/avr/bootloader_ecmd.dep hardware/avr/bootloader_ecmd.o hardware/avr/bootloader_ecmd.E hardware/avr/bootloader_ecmd.s: hardware/avr/bootloader_ecmd.c core/global.h \
+  protocols/ecmd/ecmd-base.h

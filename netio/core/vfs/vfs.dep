@@ -1,0 +1,10 @@
+core/vfs/vfs.dep core/vfs/vfs.o core/vfs/vfs.E core/vfs/vfs.s: core/vfs/vfs.c core/debug.h core/global.h \
+  protocols/syslog/syslog_debug.h core/vfs/vfs.h config.h autoconf.h \
+  pinning.c hardware/storage/dataflash/vfs_df.h \
+  hardware/storage/dataflash/fs.h hardware/storage/dataflash/df.h \
+  hardware/storage/sd_reader/vfs_sd.h hardware/storage/sd_reader/fat.h \
+  hardware/storage/sd_reader/fat_config.h \
+  hardware/storage/sd_reader/sd_raw_config.h core/vfs/vfs_inline.h \
+  hardware/i2c/master/vfs_eeprom.h hardware/i2c/master/vfs_eeprom_raw.h \
+  hardware/i2c/master/vfs_eeprom.h hardware/camera/vfs_dc3840.h \
+  core/host/vfs.h core/vfs/vfs_teensy.h

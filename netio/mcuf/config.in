@@ -1,0 +1,85 @@
+dep_bool_menu "Blinkenlights - MicroControllerUnitFrame" MCUF_SUPPORT $UDP_SUPPORT $ARCH_AVR
+
+  usart_count_used
+	if [ "$MCUF_SERIAL_SUPPORT" = y -o $USARTS -gt $USARTS_USED ]; then
+		dep_bool "MCUF usart" MCUF_SERIAL_SUPPORT $MCUF_SUPPORT
+		choice '    MCUF usart select' "$(usart_choice MCUF)"
+		usart_process_choice MCUF
+		if [ "$MCUF_SERIAL_SUPPORT" = y ]; then
+			comment "MCUF serial screen configuration"
+			int "MCUF serial screen width" MCUF_SERIAL_SCREEN_WIDTH 18
+			int "MCUF serial screen height" MCUF_SERIAL_SCREEN_HEIGHT 8
+		fi
+	else
+		comment "MCUF usart not available. No free usart. ($USARTS_USED/$USARTS)"
+		define_bool MCUF_SERIAL_SUPPORT n
+	fi
+
+  dep_bool_menu "MCUF output" MCUF_OUTPUT_SUPPORT $MCUF_SUPPORT
+    if [ "$MCUF_OUTPUT_SUPPORT" = y ]; then
+      choice 'Output Device'\
+	"BlinkenLightsPro	BLP_SUPPORT\
+	 LED-Module16x16rg	LEDRG_SUPPORT"\
+	 BlinkenLightsPro
+      if [ "$BLP_SUPPORT" = y ]; then
+        comment "MCUF output screen is 18x8 pixels"
+        define_int MCUF_OUTPUT_SCREEN_WIDTH 18
+        define_int MCUF_OUTPUT_SCREEN_HEIGHT 8
+		define_bool BLP_SUPPORT y
+      elif [ "$LEDRG_SUPPORT" = y ]; then
+        comment "MCUF output screen is 16x16 pixels"
+        define_int MCUF_OUTPUT_SCREEN_WIDTH 16
+        define_int MCUF_OUTPUT_SCREEN_HEIGHT 16
+		define_bool LEDRG_SUPPORT y
+      fi
+    else
+      define_bool BLP_SUPPORT n
+      define_bool LEDRG_SUPPORT n
+    fi
+  endmenu
+
+  dep_bool "Workaround for MCUF-UDP-Packets with wrong max-value" MCUF_SERIAL_WORKAROUND_FOR_BAD_MCUF_UDP_PACKETS $MCUF_SUPPORT
+
+  comment "MCUF ecmd commandos"
+  dep_bool_menu "MCUF Scrolltext" MCUF_SCROLLTEXT_SUPPORT $MCUF_SUPPORT
+    string "Startup Message" CONF_MCUF_SCROLLTEXT_STARTUP "Hi  I am your ethersex        ;-)  "
+    int "Startup Message Color" CONF_MCUF_SCROLLTEXT_STARTUP_COLOR 240
+    int "Startup Message Background Color" CONF_MCUF_SCROLLTEXT_STARTUP_BG_COLOR 1
+    int "Startup Message Speed" CONF_MCUF_SCROLLTEXT_STARTUP_SPEED 2 
+  endmenu
+  dep_bool "MCUF Clock" MCUF_CLOCK_SUPPORT $MCUF_SUPPORT $CLOCK_SUPPORT
+  dep_bool "  Clock autostart" MCUF_CLOCK_AUTOSTART_SUPPORT $MCUF_SUPPORT $CLOCK_SUPPORT $MCUF_CLOCK_SUPPORT
+
+  comment "MCUF Module"
+  dep_bool_menu "MCUF Module" MCUF_MODUL_SUPPORT $MCUF_SUPPORT $MCUF_OUTPUT_SUPPORT $CONFIG_EXPERIMENTAL
+    dep_bool_menu "MCUF Module in Cron" MCUF_MODUL_CRON_SUPPORT $MCUF_SUPPORT $CRON_STATIC_SUPPORT
+    choice 'Modul Display Mode Cron' \
+     "sequence        MCUF_MODUL_DISPLAY_MODE_CRON_SEQUENCE \
+      random          MCUF_MODUL_DISPLAY_MODE_CRON_RANDOM" \
+      'random' MCUF_MODUL_DISPLAY_MODE_CRON
+    endmenu
+    dep_bool_menu "MCUF Module Display Mode" MCUF_MODUL_DISPLAY_MODE_SUPPORT $MCUF_SUPPORT $ECMD_PARSER_SUPPORT
+    choice 'ECMD Modul Display Mode' \
+     "sequence        MCUF_MODUL_DISPLAY_MODE_SEQUENCE \
+      random          MCUF_MODUL_DISPLAY_MODE_RANDOM \
+      manual          MCUF_MODUL_DISPLAY_MODE_MANUAL" \
+      'random' MCUF_MODUL_DISPLAY_MODE
+    endmenu
+    dep_bool "MCUF Game Input Test" MCUF_TEST_GAME_INPUT $MCUF_MODUL_SUPPORT $GAME_INPUT_SUPPORT
+    dep_bool "MCUF Chess" MCUF_CHESS_SUPPORT $MCUF_MODUL_SUPPORT
+    dep_bool "MCUF Box" MCUF_BOX_SUPPORT $MCUF_MODUL_SUPPORT
+    dep_bool "MCUF Clean" MCUF_CLEAN_SUPPORT $MCUF_MODUL_SUPPORT
+    dep_bool "MCUF Spiral" MCUF_SPIRAL_SUPPORT $MCUF_MODUL_SUPPORT
+    dep_bool "MCUF Image" MCUF_IMAGE_SUPPORT $MCUF_MODUL_SUPPORT
+    dep_bool_menu "MCUF Module Borg-16" MCUF_MODUL_BORG16_SUPPORT $MCUF_SUPPORT
+      dep_bool "MCUF Xoni Study1" MCUF_MODUL_BORG16_XONI_STUDY_SUPPORT $MCUF_MODUL_BORG16_SUPPORT
+      dep_bool "MCUF Snake" MCUF_MODUL_BORG16_SNAKE_SUPPORT $MCUF_MODUL_BORG16_SUPPORT
+      dep_bool "MCUF Snake Interactive" MCUF_MODUL_BORG16_SNAKE_INTERACTIVE_SUPPORT $MCUF_MODUL_BORG16_SUPPORT $GAME_INPUT_SUPPORT
+    endmenu
+  endmenu
+
+	comment  "Debugging Flags"
+	dep_bool 'MCUF' DEBUG_MCUF $DEBUG
+	
+endmenu
+

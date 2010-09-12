@@ -1,0 +1,3 @@
+dep_bool_menu "Moodlight" MOODLIGHT_SUPPORT $STELLA_SUPPORT
+	int "Gap between fades in ticks" MOODLIGHT_CHANGEGAP_INIT 120
+endmenu

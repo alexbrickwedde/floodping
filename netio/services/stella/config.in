@@ -1,0 +1,24 @@
+dep_bool_menu "StellaLight: Multichannel pwm" STELLA_SUPPORT $ARCH_AVR
+	dep_bool "Higher frequency" STELLA_HIGHFREQ
+	comment  '----- Initial -----'
+	if [ "$MOODLIGHT_SUPPORT" = "y" ]; then
+		choice 'Channels'			\
+		"0% stella_start_zero	\
+		100% stella_start_all	\
+		EEPROM stella_start_eeprom	\
+		Moodlight stella_start_moodlight"	\
+		'0%' STELLA_START
+	else
+		choice 'Channels'			\
+		"0% stella_start_zero	\
+		100% stella_start_all	\
+		EEPROM stella_start_eeprom"	\
+		'0%' STELLA_START
+	fi
+	int "Fade step" STELLA_FADE_STEP_INIT 10
+	choice 'Fade function'			\
+	"Normal stella_fade_func_0	\
+	Flashy stella_fade_func_1"	\
+	'Normal' STELLA_FADE_FUNCTION_INIT
+	dep_bool 'Debug' DEBUG_STELLA $DEBUG
+endmenu

@@ -1,0 +1,5 @@
+core/debug.dep core/debug.o core/debug.E core/debug.s: core/debug.c config.h autoconf.h pinning.c core/debug.h \
+  core/global.h protocols/syslog/syslog_debug.h protocols/ecmd/parser.h \
+  protocols/ecmd/ecmd-base.h hardware/lcd/s1d15g10/s1d15g10.h \
+  hardware/lcd/s1d15g10/bunnies.h core/usart.h core/bit-macros.h \
+  core/setbaud.h

@@ -1,0 +1,59 @@
+
+SW = AT = RFM
+--------------
+B5 = 17 = SDI
+B7 = 19 = SCK
+B4 = 16 = nSEL
+B6 = 18 = SDO
+
+
+SDO			nSEL
+nIRQ		SCK
+FSK			SDI
+DCLK		nINT
+CLK			GND
+nRES		VDD
+GND			Ant
+
+nSEL - 10k - VDD
+FSK - 10k - VDD
+
+
+
+
+ATtiny
+
+RESET - 10k - VDD
+VCC - 100n - GND
+
+
+1  -U- 20
+   | |
+10 --- 11
+
+1	(RESET/dW) PA2
+	(RXD) PD0
+	(TXD) PD1
+	(XTAL2) PA1
+	(XTAL1) PA0
+	(CKOUT/XCK/INT0) PD2
+	(INT1) PD3
+	(T0) PD4
+	(OC0B/T1) PD5
+10	GND
+
+20	VCC
+	PB7 (UCSK/SCL/PCINT7)
+	PB6 (MISO/DO/PCINT6)
+	PB5 (MOSI/DI/SDA/PCINT5)
+	PB4 (OC1B/PCINT4)	
+	PB3 (OC1A/PCINT3)
+	PB2 (OC0A/PCINT2)
+	PB1 (AIN1/PCINT1)
+	PB0 (AIN0/PCINT0)
+11	PD6 (ICP)
+
+
+
+
+

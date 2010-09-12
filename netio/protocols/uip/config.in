@@ -1,0 +1,5 @@
+	dep_bool 'TCP support' TCP_SUPPORT $UIP_SUPPORT
+	dep_bool 'UDP support' UDP_SUPPORT $UIP_SUPPORT
+	dep_bool 'UDP broadcast support' BROADCAST_SUPPORT $UDP_SUPPORT
+	dep_bool 'ICMP support' ICMP_SUPPORT $UIP_SUPPORT
+

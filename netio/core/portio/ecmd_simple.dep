@@ -1,0 +1,4 @@
+core/portio/ecmd_simple.dep core/portio/ecmd_simple.o core/portio/ecmd_simple.E core/portio/ecmd_simple.s: core/portio/ecmd_simple.c config.h autoconf.h pinning.c \
+  core/debug.h core/global.h protocols/syslog/syslog_debug.h \
+  core/portio/named_pin.h protocols/ecmd/ecmd-base.h \
+  core/portio/ecmd_base.c

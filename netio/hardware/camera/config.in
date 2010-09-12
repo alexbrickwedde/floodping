@@ -1,0 +1,41 @@
+dep_bool_menu "Camera support (EXPERIMENTAL)" CAMERA_SUPPORT $ARCH_AVR
+	usart_count_used
+	if [ "$DC3840_SUPPORT" = y -o $USARTS -gt $USARTS_USED ]; then
+  dep_bool_menu "DC3840 Serial camera" DC3840_SUPPORT $CAMERA_SUPPORT
+    choice "DC3840 resolution"		\
+    	"80x64		CONFIG_DC3840_RES80	\
+	 160x128	CONFIG_DC3840_RES160	\
+	 320x240	CONFIG_DC3840_RES320	\
+	 640x480	CONFIG_DC3840_RES640"	\
+      '160x120'
+
+    if [ "$CONFIG_DC3840_RES80" = "y" ]; then
+      define_int DC3840_RESOLUTION 1
+    elif [ "$CONFIG_DC3840_RES160" = "y" ]; then
+      define_int DC3840_RESOLUTION 3
+    elif [ "$CONFIG_DC3840_RES320" = "y" ]; then
+      define_int DC3840_RESOLUTION 5
+    elif [ "$CONFIG_DC3840_RES640" = "y" ]; then
+      define_int DC3840_RESOLUTION 7
+    fi
+
+    bool "Use high compression" DC3840_HIGH_COMPRESSION
+    bool "Black/White mode" DC3840_BLACK_WHITE
+
+    usart_count_used
+    comment "Usart Configuration ($USARTS_USED/$USARTS)"
+    choice 'DC3840 USART' "$(usart_choice DC3840)"
+    usart_process_choice DC3840
+
+	comment  "Debugging Flags"
+	dep_bool 'DC3840 UDP Debug' DC3840_UDP_DEBUG $DEBUG $DC3840_SUPPORT
+    if [ "$DC3840_UDP_DEBUG" = "y" ]; then
+	  int "DC3840 Port" DC3840_PORT 7676
+    fi
+  endmenu
+	else
+		define_bool DC3840_SUPPORT n
+		comment "DC3840 Serial camera not available. No free usart. ($USARTS_USED/$USARTS)"
+	fi
+
+endmenu

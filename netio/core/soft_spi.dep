@@ -1,0 +1,1 @@
+core/soft_spi.dep core/soft_spi.o core/soft_spi.E core/soft_spi.s: core/soft_spi.c config.h autoconf.h pinning.c

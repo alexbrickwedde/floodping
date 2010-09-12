@@ -1,0 +1,2 @@
+hardware/avr/hostname.dep hardware/avr/hostname.o hardware/avr/hostname.E hardware/avr/hostname.s: hardware/avr/hostname.c config.h autoconf.h pinning.c \
+  protocols/ecmd/ecmd-base.h

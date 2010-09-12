@@ -1,0 +1,284 @@
+source scripts/usart-config.sh
+source scripts/namedPinCopy.sh
+mainmenu_name "Ethersex Configuration"
+get_usart_count
+
+mainmenu_option next_comment
+comment "General Setup"
+	get_usart_count
+	bool 'Prompt for experimental code' CONFIG_EXPERIMENTAL
+
+	choice 'Target Architecture'			\
+		"AVR		ARCH_AVR		\
+		 Host		ARCH_HOST"		\
+		'AVR' ARCH
+
+if [ "$ARCH_AVR" = "y" ]; then
+	choice 'Target MCU'			\
+		"ATmega8      atmega8		\
+		 ATmega88     atmega88		\
+		 ATmega128    atmega128		\
+		 ATmega16     atmega16		\
+		 ATmega162    atmega162		\
+		 ATmega168    atmega168		\
+		 ATmega168p   atmega168p	\
+		 ATmega169    atmega169		\
+		 ATmega32     atmega32		\
+		 ATmega328p   atmega328p	\
+		 ATmega64     atmega64		\
+		 ATmega644    atmega644		\
+		 ATmega644p   atmega644p	\
+		 ATmega1284p   atmega1284p"	\
+		'ATmega644' MCU
+
+	int "MCU frequency" FREQ 20000000
+
+	choice 'Hardware/Periphery Class'	\
+			"$(scripts/pinning_hardware_list.sh)" \
+		'Etherrape' HARDWARE
+
+	dep_bool "Use CPU sleep (EXPERIMENTAL)" CPU_SLEEP $ARCH_AVR $CLOCK_CPU_SUPPORT $CONFIG_EXPERIMENTAL
+	source hardware/sram/config.in
+
+	bool "Build a bootloader" BOOTLOADER_SUPPORT
+fi
+
+	bool "Teensy build" TEENSY_SUPPORT
+	dep_bool "Use SPI Timeout" SPI_TIMEOUT $ARCH_AVR
+	dep_bool "Use Usart in SPI Mode" USART_SPI_SUPPORT $ARCH_AVR
+    if [ "$USART_SPI_SUPPORT" = y ]; then
+      choice '  SPI usart select' "$(usart_choice SPI)"
+      usart_process_choice SPI
+    else
+      dep_bool "Use Software-SPI" SOFT_SPI_SUPPORT $ARCH_AVR
+    fi
+
+	choice 'Version String'			\
+		"GIT-commit-hash       USE_GIT_VERSION	\
+		Release-Version       USE_RELEASE_VERSION	\
+		Build-Date-Time       USE_BUILDDATE_VERSION"	\
+		'Release-Version' VERSION_STRING_CHOICE
+	if [ "$VERSION_STRING_CHOICE" = "USE_GIT_VERSION" ]; then
+		define_string VERSION_GIT "$(scripts/get-git-version)"
+	fi
+
+	bool 'Debug: Discard some packets' DEBUG_DISCARD_SOME
+	dep_bool_menu "Enable Debugging" DEBUG y
+		int "UART Baudrate" DEBUG_BAUDRATE 115200
+		dep_bool 'Use SYSLOG instead UART' DEBUG_USE_SYSLOG $SYSLOG_SUPPORT $DEBUG
+		dep_bool 'Software Uart (Output only)' SOFT_UART_SUPPORT $DEBUG $ARCH_AVR
+		comment  '----- Debugging Flags -----'
+		dep_bool 'Hooks' DEBUG_HOOK $DEBUG
+		dep_bool 'Reset Reason' DEBUG_RESET_REASON $DEBUG
+	endmenu
+motorC
+	source core/config.in
+	source core/crypto/config.in
+	source core/vfs/config.in
+	source services/pam/config.in
+	source control6/config.in
+endmenu
+
+mainmenu_option next_comment
+	comment "Network"
+
+	string "Hostname" CONF_HOSTNAME "ethersex"
+	source hardware/ethernet/config.in
+	source core/host/tap-config.in
+	source hardware/radio/rfm12/config.in
+	dep_bool 'RFM12 raw' RFM12_RAW_SUPPORT $RFM12_IP_SUPPORT $ROUTER_SUPPORT $UDP_SUPPORT
+    if [ "$RFM12_RAW_SUPPORT" = y ]; then
+      int 'RFM12 raw UDP Port' RFM12_RAW_UDP_PORT 16962
+    fi
+	source protocols/usb/config.in
+	source protocols/zbus/config.in
+	dep_bool 'ZBUS raw' ZBUS_RAW_SUPPORT $ZBUS_SUPPORT $ROUTER_SUPPORT $UDP_SUPPORT
+	source scripts/ip-router-conf.sh
+
+	comment "IP configuration"
+	dep_bool 'IPv6 support'		IPV6_SUPPORT $UIP_SUPPORT
+	if [ "$IPV6_SUPPORT" = "y" ]; then
+		define_bool IPV4_SUPPORT n
+	else
+		define_bool IPV4_SUPPORT $UIP_SUPPORT
+	fi
+
+	dep_bool 'Enable IP forwarding' IP_FORWARDING_SUPPORT $ROUTER_SUPPORT
+
+	dep_bool 'Enable TCP inactivity timeout' UIP_TIMEOUT_SUPPORT $UIP_SUPPORT
+	if [ "$UIP_TIMEOUT_SUPPORT" = "y" ]; then
+		int "  TCP inactivity timeout (in minutes)" UIP_TIMEOUT_COUNT 10
+	fi
+
+        if [ "$IPV6_SUPPORT" != "y" -a "$BOOTP_SUPPORT" != "y" -o "$IPV6_STATIC_SUPPORT" = "y" ]; then
+		ip "Default gateway" CONF_ETHERRAPE_GATEWAY "192.168.23.1" "2001:6f8:1209:f0:0:0:0:1"
+	fi
+
+	define_bool UIP_MULTI_STACK $ROUTER_SUPPORT
+	source protocols/uip/ipchair/config.in
+	source protocols/uip/config.in
+	source protocols/dns/config.in
+
+	dep_bool 'BOOTP (DHCP-like) support' BOOTP_SUPPORT $BROADCAST_SUPPORT $ENC28J60_SUPPORT $IPV4_SUPPORT
+	dep_bool 'Write BOOTP data to EEPROM' BOOTP_TO_EEPROM_SUPPORT $BOOTLOADER_SUPPORT $BOOTP_SUPPORT
+
+	comment "Tunneling protocols"
+	dep_bool_menu "OpenVPN" OPENVPN_SUPPORT $UDP_SUPPORT
+		hex "OpenVPN key" CONF_OPENVPN_KEY "00000000000000000000000000000000"
+		hex "OpenVPN HMAC key" CONF_OPENVPN_HMAC_KEY "00000000000000000000000000000000"
+
+		comment "OpenVPN IP configuration"
+		ip "OpenVPN IP address" CONF_OPENVPN_IP "192.168.23.244" "2001:6f8:1209:F0:0:0:0:1"
+		if [ "$IPV6_SUPPORT" = "y" ]; then
+			int "IP prefix length" CONF_OPENVPN_IP6_PREFIX_LEN 64
+		else
+			ipv4 "OpenVPN netmask" CONF_OPENVPN_IP4_NETMASK "255.255.255.0"
+		fi
+
+		comment "OpenVPN Remote"
+		dep_bool "Static OpenVPN Remote" OPENVPN_STATIC_REMOTE $OPENVPN_SUPPORT
+		if [ "$OPENVPN_STATIC_REMOTE" = "y" ]; then
+			ip "Remote IP" CONF_OPENVPN_REMOTE_IP "192.168.23.254" "2001:6f8:1209:f0:230:5ff:fe23:3f8"
+		fi
+	endmenu
+
+	comment  "Debugging Flags"
+	dep_bool 'Networking' DEBUG_NET $DEBUG
+	dep_bool '  Config' DEBUG_NET_CONFIG $DEBUG_NET
+	dep_bool '  IPv6' DEBUG_NET_IP6 $DEBUG
+	dep_bool '  OpenVPN' DEBUG_OPENVPN $DEBUG
+	dep_bool '  Router' DEBUG_ROUTER $DEBUG
+	dep_bool '  uIP' DEBUG_UIP $DEBUG
+	dep_bool '  NTP' DEBUG_NTP $DEBUG
+	dep_bool '  Unknown packets' DEBUG_UNKNOWN_PACKETS $DEBUG_NET
+
+endmenu
+
+###############################################################################
+
+mainmenu_option next_comment
+comment "I/O"
+
+	if [ "$ARCH_HOST" = "y" ]; then
+		define_bool PORTIO_SUPPORT n
+		define_bool PORTIO_SIMPLE_SUPPORT n
+		define_bool NAMED_PIN_SUPPORT n
+	else
+		choice "I/O abstraction model (Port I/O)" \
+			"None			CONFIG_IO_NONE		\
+			 Simple			PORTIO_SIMPLE		\
+			 Full-featured		PORTIO_FULL_FEATURED"	\
+			Simple PORTIO_SCHEME
+
+		if [ x"$PORTIO_SCHEME" = x"PORTIO_SIMPLE" ]; then
+			define_bool PORTIO_SIMPLE_SUPPORT y;
+		elif [ x"$PORTIO_SCHEME" = x"PORTIO_FULL_FEATURED" ]; then
+			define_bool PORTIO_SUPPORT y;
+		fi
+
+		source core/portio/config.in
+	fi
+
+	source core/tty/config.in
+	source hardware/io_expander/config.in
+	source hardware/adc/config.in
+	source hardware/sms/config.in
+	source hardware/adc/kty/config.in
+	source hardware/adc/ads7822/config.in
+	source hardware/dac/config.in
+	source hardware/lcd/config.in
+	source hardware/i2c/master/config.in
+	source hardware/camera/config.in
+	source hardware/radio/fs20/config.in
+	source hardware/ir/rc5/config.in
+	source hardware/isdn/config.in
+	source hardware/pwm/config.in
+	source hardware/onewire/config.in
+	source hardware/input/config.in
+	source hardware/input/ps2/config.in
+	source hardware/input/buttons/config.in
+	source hardware/radio/rfm12/rfm12_ask-config.in
+	source hardware/sht/config.in
+	source hardware/zacwire/config.in
+	source hardware/ultrasonic/config.in
+	source hardware/hbridge/config.in
+	source mcuf/config.in
+	source core/config-usarts.in
+endmenu
+
+###############################################################################
+
+mainmenu_option next_comment
+comment "Protocols"
+
+source protocols/artnet/config.in
+source protocols/dmx/config.in
+source protocols/ecmd/config.in
+source protocols/httplog/config.in
+source protocols/irc/config.in
+source protocols/mdns_sd/config.in
+source protocols/modbus/config.in
+source protocols/mysql/config.in
+source protocols/netstat/config.in
+source protocols/soap/config.in
+source protocols/snmp/config.in
+source protocols/smtp/config.in
+source protocols/sms77/config.in
+source protocols/syslog/config.in
+source protocols/twitter/config.in
+source protocols/ustream/config.in
+source protocols/yport/config.in
+source protocols/msr1/config.in
+source protocols/to1/config.in
+source protocols/serial_line_log/config.in
+source protocols/nmea/config.in
+source protocols/udpstella/config.in
+source protocols/udpIO/config.in
+source protocols/udpcurtain/config.in
+source protocols/cw/config.in
+endmenu
+
+###############################################################################
+
+
+mainmenu_option next_comment
+comment "Applications"
+
+source services/appsample/config.in
+source services/bulbdial/config.in
+source services/clock/config.in
+source services/cron/config.in
+source services/dyndns/config.in
+source services/echo/config.in
+source services/wol/config.in
+source services/motd/config.in
+source services/httpd/config.in
+source services/jabber/config.in
+source services/moodlight/config.in
+source services/stella/config.in
+source services/curtain/config.in
+source services/tftp/config.in
+source services/upnp/config.in
+source services/watchcat/config.in
+source services/vnc/config.in
+source services/watchasync/config.in
+source services/glcdmenu/config.in
+endmenu
+
+###############################################################################
+
+if [ "$ZBUS_SUPPORT" = "y"		\
+	-o "$YPORT_SUPPORT" = "y"	\
+	-o "$MODBUS_SUPPORT" = "y" ]; then
+  define_bool USART_SUPPORT y
+fi
+
+if [ "$RFM12_IP_SUPPORT" = "y" -o "$RFM12_ASK_SUPPORT" = "y" -o "$RFM12_DISABLE" = "y" ]; then
+  define_bool RFM12_SUPPORT y
+else
+  define_bool RFM12_SUPPORT n
+fi
+
+if [ "$UIP_SUPPORT" = "y" -a "$IPV6_SUPPORT" != "y" ]; then
+  define_bool IPV4_SUPPORT y
+fi
