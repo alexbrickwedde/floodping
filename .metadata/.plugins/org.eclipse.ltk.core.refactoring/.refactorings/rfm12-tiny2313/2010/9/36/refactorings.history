@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;rfm12-tiny2313/rf12.c&apos; to &apos;OLDrf12.cOLD&apos;" description="Rename resource &apos;rf12.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="rf12.c" name="OLDrf12.cOLD" stamp="1283877721255" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;rfm12-tiny2313/rf12.h&apos; to &apos;OLDrf12.hold&apos;" description="Rename resource &apos;rf12.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="rf12.h" name="OLDrf12.hold" stamp="1283877726937" updateReferences="true"/>
+</session>

@@ -1,0 +1,19 @@
+#Tue Sep 07 19:08:36 CEST 2010
+avrdudepropertypage/weight_preview_expanded=20
+avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
+avrdude/configs/programmerconfig.1/programmer=siprog
+avrpaths//systempath/AVRGCC=/usr/bin
+avrdude/configs/programmerconfig.1/port=/dev/ttyS0
+avrdudepropertypage/weight_preview_collapsed=50
+eclipse.preferences.version=1
+avrdude/configs/programmerconfig.1/ppresetline=
+avrdude/configs/programmerconfig.1/ppvccline=
+avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
+avrdudepropertypage/previewexpanded=false
+avrdudepropertypage/weight_top_collapsed=950
+avrdudepropertypage/weight_top_expanded=80
+avrpaths//systempath/AVRINCLUDE=/usr/src/ethersex/ethersex-x/core/host
+avrdude/configs/programmerconfig.1/name=New Configuration
+avrdude/configs/programmerconfig.1/baudrate=
+avrpaths//systempath/AVRDUDE=/usr/bin
+avrpaths//systempath/MAKE=/usr/bin
