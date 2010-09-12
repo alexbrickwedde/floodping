@@ -4,9 +4,11 @@
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="de.innot.avreclipse.configuration.lib.debug.1663818426;de.innot.avreclipse.configuration.lib.debug.1663818426.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
@@ -114,16 +116,7 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
-<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="__AVR_ATmega16__=1"/>
-<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
-<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
-<definedSymbol symbol="__AVR_ENHANCED__=1"/>
-<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
-<definedSymbol symbol="__AVR_MEGA__=1"/>
-<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
-<definedSymbol symbol="F_CPU=1000000UL"/>
 </collector>
 </instance>
 <instance id="de.innot.avreclipse.configuration.lib.release.460633776;de.innot.avreclipse.configuration.lib.release.460633776.">
@@ -243,9 +236,11 @@
 </instance>
 <instance id="de.innot.avreclipse.configuration.lib.debug.1663818426;de.innot.avreclipse.configuration.lib.debug.1663818426.;de.innot.avreclipse.tool.compiler.winavr.lib.debug.1488584892;de.innot.avreclipse.compiler.winavr.input.1393357873">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
@@ -353,16 +348,7 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
-<definedSymbol symbol="__AVR_ARCH__=5"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="__AVR_ATmega16__=1"/>
-<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
-<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
-<definedSymbol symbol="__AVR_ENHANCED__=1"/>
-<definedSymbol symbol="__AVR_HAVE_MUL__=1"/>
-<definedSymbol symbol="__AVR_MEGA__=1"/>
-<definedSymbol symbol="__AVR_HAVE_JMP_CALL__=1"/>
-<definedSymbol symbol="F_CPU=1000000UL"/>
 </collector>
 </instance>
 </scannerInfo>

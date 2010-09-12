@@ -4,6 +4,11 @@
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="de.innot.avreclipse.configuration.app.release.1483682639;de.innot.avreclipse.configuration.app.release.1483682639.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>
@@ -124,6 +129,11 @@
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.release.1483682639;de.innot.avreclipse.configuration.app.release.1483682639.;de.innot.avreclipse.tool.compiler.winavr.app.release.34042475;de.innot.avreclipse.compiler.winavr.input.131771961">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
 <includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>

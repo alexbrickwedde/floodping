@@ -538,3 +538,216 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.345
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+!SESSION 2010-09-12 13:10:59.736 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.008
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.009
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.010
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.010
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.011
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.011
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.012
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.012
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.013
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.013
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.014
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.014
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.015
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.015
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.016
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.016
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.017
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.017
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.018
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.018
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.019
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.019
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.020
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.020
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.022
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.022
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.023
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.023
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.024
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.024
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+!SESSION 2010-09-12 13:26:45.520 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.240
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.264
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.266
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.269
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.270
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.271
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.272
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.273
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.273
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.274
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.275
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.280
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.281
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.282
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.283
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.283
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.284
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.285
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.286
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.287
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.288
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.289
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.290
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.291
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.292
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.293
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.294
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.295
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.295
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.296
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.297
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.298
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.319
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.egit.ui 4 0 2010-09-12 13:31:30.633
+!MESSAGE Can't connect to any repository: 
