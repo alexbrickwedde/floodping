@@ -5,8 +5,6 @@
 #ifndef _META_H
 #define _META_H
 
-#include "protocols/ecmd/via_tcp/ecmd_state.h"
-#include "services/httpd/httpd_state.h"
 /* uip appstate for udp */
 typedef union uip_udp_connection_state {
 #   ifdef CONTROL6_SUPPORT
@@ -26,8 +24,6 @@ typedef union uip_tcp_connection_state {
     } control6_tcp;
 #   endif
 
-    struct ecmd_connection_state_t ecmd;
-    struct httpd_connection_state_t httpd;
 } uip_tcp_appstate_t; /* end of tcp appstate */
 
 #endif /* _META_H */

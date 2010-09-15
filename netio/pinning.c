@@ -201,36 +201,18 @@
 	BOOTLOADER_SECTION 0xe000	$7000	4096 words	*/
 
 /* port the enc28j60 is attached to */
-#define ONEWIRE_PORT D
-#define ONEWIRE_PIN 6
-#define HAVE_ONEWIRE 1
-
-
-#ifdef PD6_USED
-#  error Pinning Error: pinning/hardware/netio.m4:12: ONEWIRE has a double define on PD6
-#endif
-#define PD6_USED 1
-  
-
-
-
-
-
-
-
-
-
-
-/* port the rfm12 module CS is attached to */
-#define RFM12_USE_POLL 1
-
 #define SPI_CS_RFM12_PORT C
 #define SPI_CS_RFM12_PIN 2
 #define HAVE_SPI_CS_RFM12 1
 
 
+<<<<<<< HEAD
+#ifdef PD6_USED
+#  error Pinning Error: pinning/hardware/netio.m4:12: ONEWIRE has a double define on PD6
+=======
 #ifdef PC2_USED
-#  error Pinning Error: pinning/hardware/netio.m4:54: SPI_CS_RFM12 has a double define on PC2
+#  error Pinning Error: pinning/hardware/netio.m4:50: SPI_CS_RFM12 has a double define on PC2
+>>>>>>> 19c3ca4839d209ab4f79825038f1811edcbf1309
 #endif
 #define PC2_USED 1
   
@@ -245,6 +227,19 @@
 
 
 
+<<<<<<< HEAD
+#define SPI_CS_RFM12_PORT C
+#define SPI_CS_RFM12_PIN 2
+#define HAVE_SPI_CS_RFM12 1
+
+
+#ifdef PC2_USED
+#  error Pinning Error: pinning/hardware/netio.m4:54: SPI_CS_RFM12 has a double define on PC2
+#endif
+#define PC2_USED 1
+  
+=======
+>>>>>>> 19c3ca4839d209ab4f79825038f1811edcbf1309
 
 
 
@@ -257,13 +252,24 @@
 
 
 
-  /* onewire support */
-  
+
+
+
+
+
+
+
+
+
+/* port the rfm12 module CS is attached to */
+#define RFM12_USE_POLL 1
+
+
 
 #define PORTIO_MASK_A 255
 #define PORTIO_MASK_B 15
 #define PORTIO_MASK_C 251
-#define PORTIO_MASK_D 191
+#define PORTIO_MASK_D 255
 #define PORTIO_MASK_E 255
 #define PORTIO_MASK_F 255
 #define PORTIO_MASK_G 255
