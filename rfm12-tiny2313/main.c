@@ -12,7 +12,7 @@
 
 #include <util/delay.h>
 
-#define AIRID "0003"
+#define AIRID "0005"
 
 void send(char bSend) {
 	if (bSend) {
