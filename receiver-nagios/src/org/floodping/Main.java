@@ -69,7 +69,7 @@ public class Main {
                                                                 ).toString();
                                                 System.out.println("" + airid + " T:" + t + "," + id);
                                                 Formatter cmdf = new Formatter();
-                                                String command = cmdf.format("/usr/bin/submit_check_result ned %s 0 %+3.1f°C", airid, t).toString();
+                                                String command = cmdf.format("/usr/bin/submit_check_result ned %s 0 %+3.1fdegC", airid, t).toString();
                                                 System.out.println("" + command);
                                                 Runtime.getRuntime().exec(command);
                                         }
