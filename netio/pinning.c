@@ -48,7 +48,7 @@
 
 
 #ifdef PB5_USED
-#  error Pinning Error: ./pinning/controllers/atmega644.m4:23: SPI_MOSI has a double define on PB5
+#  error Pinning Error: controllers/atmega644.m4:29: SPI_MOSI has a double define on PB5
 #endif
 #define PB5_USED 1
   
@@ -59,7 +59,7 @@
 
 
 #ifdef PB6_USED
-#  error Pinning Error: ./pinning/controllers/atmega644.m4:23: SPI_MISO has a double define on PB6
+#  error Pinning Error: controllers/atmega644.m4:29: SPI_MISO has a double define on PB6
 #endif
 #define PB6_USED 1
   
@@ -70,7 +70,7 @@
 
 
 #ifdef PB7_USED
-#  error Pinning Error: ./pinning/controllers/atmega644.m4:23: SPI_SCK has a double define on PB7
+#  error Pinning Error: controllers/atmega644.m4:29: SPI_SCK has a double define on PB7
 #endif
 #define PB7_USED 1
   
@@ -81,7 +81,7 @@
 
 
 #ifdef PB4_USED
-#  error Pinning Error: ./pinning/controllers/atmega644.m4:23: SPI_CS_HARDWARE has a double define on PB4
+#  error Pinning Error: controllers/atmega644.m4:29: SPI_CS_HARDWARE has a double define on PB4
 #endif
 #define PB4_USED 1
   
@@ -206,8 +206,13 @@
 #define HAVE_SPI_CS_RFM12 1
 
 
+<<<<<<< HEAD
+#ifdef PD6_USED
+#  error Pinning Error: pinning/hardware/netio.m4:12: ONEWIRE has a double define on PD6
+=======
 #ifdef PC2_USED
 #  error Pinning Error: pinning/hardware/netio.m4:50: SPI_CS_RFM12 has a double define on PC2
+>>>>>>> 19c3ca4839d209ab4f79825038f1811edcbf1309
 #endif
 #define PC2_USED 1
   
@@ -222,6 +227,19 @@
 
 
 
+<<<<<<< HEAD
+#define SPI_CS_RFM12_PORT C
+#define SPI_CS_RFM12_PIN 2
+#define HAVE_SPI_CS_RFM12 1
+
+
+#ifdef PC2_USED
+#  error Pinning Error: pinning/hardware/netio.m4:54: SPI_CS_RFM12 has a double define on PC2
+#endif
+#define PC2_USED 1
+  
+=======
+>>>>>>> 19c3ca4839d209ab4f79825038f1811edcbf1309
 
 
 

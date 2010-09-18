@@ -1,10 +1,11 @@
-#Tue Sep 07 19:08:36 CEST 2010
+#Sun Sep 12 13:26:26 CEST 2010
 avrdudepropertypage/weight_preview_expanded=20
 avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
 avrdude/configs/programmerconfig.1/programmer=siprog
-avrpaths//systempath/AVRGCC=/usr/bin
+avrpaths//systempath/AVRGCC=C\:\\WinAVR-20100110\\bin
 avrdude/configs/programmerconfig.1/port=/dev/ttyS0
 avrdudepropertypage/weight_preview_collapsed=50
+avrpaths//systempath/PDFPATH=
 eclipse.preferences.version=1
 avrdude/configs/programmerconfig.1/ppresetline=
 avrdude/configs/programmerconfig.1/ppvccline=
@@ -12,8 +13,8 @@ avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
 avrdudepropertypage/previewexpanded=false
 avrdudepropertypage/weight_top_collapsed=950
 avrdudepropertypage/weight_top_expanded=80
-avrpaths//systempath/AVRINCLUDE=/usr/src/ethersex/ethersex-x/core/host
+avrpaths//systempath/AVRINCLUDE=C\:\\WinAVR-20100110\\avr\\include
 avrdude/configs/programmerconfig.1/name=New Configuration
 avrdude/configs/programmerconfig.1/baudrate=
-avrpaths//systempath/AVRDUDE=/usr/bin
-avrpaths//systempath/MAKE=/usr/bin
+avrpaths//systempath/AVRDUDE=C\:\\WinAVR-20100110\\bin
+avrpaths//systempath/MAKE=C\:\\WinAVR-20100110\\utils\\bin

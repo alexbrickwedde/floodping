@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="CommitDialog.showUntracked"/>
+	<list key="CommitDialog.authorValues">
+		<item value="Alexander Brickwedde &lt;alex_github@brickwedde.de&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="SonAle &lt;SonAle@LAPTOP&gt;"/>
+	</list>
+</section>

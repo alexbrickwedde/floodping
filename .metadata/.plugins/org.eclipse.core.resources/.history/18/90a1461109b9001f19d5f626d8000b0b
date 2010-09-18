@@ -1,2 +1,0 @@
-void start_meas( void );
-int read_meas( void );
