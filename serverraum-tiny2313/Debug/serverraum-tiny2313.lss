@@ -1,0 +1,205 @@
+
+serverraum-tiny2313.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000f6  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000990  00000000  00000000  0000014c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      000004ae  00000000  00000000  00000adc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2a c0       	rjmp	.+84     	; 0x58 <__bad_interrupt>
+   4:	29 c0       	rjmp	.+82     	; 0x58 <__bad_interrupt>
+   6:	28 c0       	rjmp	.+80     	; 0x58 <__bad_interrupt>
+   8:	27 c0       	rjmp	.+78     	; 0x58 <__bad_interrupt>
+   a:	26 c0       	rjmp	.+76     	; 0x58 <__bad_interrupt>
+   c:	25 c0       	rjmp	.+74     	; 0x58 <__bad_interrupt>
+   e:	24 c0       	rjmp	.+72     	; 0x58 <__bad_interrupt>
+  10:	23 c0       	rjmp	.+70     	; 0x58 <__bad_interrupt>
+  12:	22 c0       	rjmp	.+68     	; 0x58 <__bad_interrupt>
+  14:	21 c0       	rjmp	.+66     	; 0x58 <__bad_interrupt>
+  16:	20 c0       	rjmp	.+64     	; 0x58 <__bad_interrupt>
+  18:	1f c0       	rjmp	.+62     	; 0x58 <__bad_interrupt>
+  1a:	1e c0       	rjmp	.+60     	; 0x58 <__bad_interrupt>
+  1c:	1d c0       	rjmp	.+58     	; 0x58 <__bad_interrupt>
+  1e:	1c c0       	rjmp	.+56     	; 0x58 <__bad_interrupt>
+  20:	1b c0       	rjmp	.+54     	; 0x58 <__bad_interrupt>
+  22:	1a c0       	rjmp	.+52     	; 0x58 <__bad_interrupt>
+  24:	19 c0       	rjmp	.+50     	; 0x58 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf ed       	ldi	r28, 0xDF	; 223
+  2c:	cd bf       	out	0x3d, r28	; 61
+
+0000002e <__do_copy_data>:
+  2e:	10 e0       	ldi	r17, 0x00	; 0
+  30:	a0 e6       	ldi	r26, 0x60	; 96
+  32:	b0 e0       	ldi	r27, 0x00	; 0
+  34:	e6 ef       	ldi	r30, 0xF6	; 246
+  36:	f0 e0       	ldi	r31, 0x00	; 0
+  38:	02 c0       	rjmp	.+4      	; 0x3e <.do_copy_data_start>
+
+0000003a <.do_copy_data_loop>:
+  3a:	05 90       	lpm	r0, Z+
+  3c:	0d 92       	st	X+, r0
+
+0000003e <.do_copy_data_start>:
+  3e:	a0 36       	cpi	r26, 0x60	; 96
+  40:	b1 07       	cpc	r27, r17
+  42:	d9 f7       	brne	.-10     	; 0x3a <.do_copy_data_loop>
+
+00000044 <__do_clear_bss>:
+  44:	10 e0       	ldi	r17, 0x00	; 0
+  46:	a0 e6       	ldi	r26, 0x60	; 96
+  48:	b0 e0       	ldi	r27, 0x00	; 0
+  4a:	01 c0       	rjmp	.+2      	; 0x4e <.do_clear_bss_start>
+
+0000004c <.do_clear_bss_loop>:
+  4c:	1d 92       	st	X+, r1
+
+0000004e <.do_clear_bss_start>:
+  4e:	a0 36       	cpi	r26, 0x60	; 96
+  50:	b1 07       	cpc	r27, r17
+  52:	e1 f7       	brne	.-8      	; 0x4c <.do_clear_bss_loop>
+  54:	3a d0       	rcall	.+116    	; 0xca <main>
+  56:	4d c0       	rjmp	.+154    	; 0xf2 <_exit>
+
+00000058 <__bad_interrupt>:
+  58:	d3 cf       	rjmp	.-90     	; 0x0 <__vectors>
+
+0000005a <_ZN4MainC2Ev>:
+ */
+
+
+#include "Main.h"
+
+Main::Main() {
+  5a:	df 93       	push	r29
+  5c:	cf 93       	push	r28
+  5e:	00 d0       	rcall	.+0      	; 0x60 <_ZN4MainC2Ev+0x6>
+  60:	cd b7       	in	r28, 0x3d	; 61
+  62:	de b7       	in	r29, 0x3e	; 62
+  64:	9a 83       	std	Y+2, r25	; 0x02
+  66:	89 83       	std	Y+1, r24	; 0x01
+}
+  68:	0f 90       	pop	r0
+  6a:	0f 90       	pop	r0
+  6c:	cf 91       	pop	r28
+  6e:	df 91       	pop	r29
+  70:	08 95       	ret
+
+00000072 <_ZN4MainC1Ev>:
+ */
+
+
+#include "Main.h"
+
+Main::Main() {
+  72:	df 93       	push	r29
+  74:	cf 93       	push	r28
+  76:	00 d0       	rcall	.+0      	; 0x78 <_ZN4MainC1Ev+0x6>
+  78:	cd b7       	in	r28, 0x3d	; 61
+  7a:	de b7       	in	r29, 0x3e	; 62
+  7c:	9a 83       	std	Y+2, r25	; 0x02
+  7e:	89 83       	std	Y+1, r24	; 0x01
+}
+  80:	0f 90       	pop	r0
+  82:	0f 90       	pop	r0
+  84:	cf 91       	pop	r28
+  86:	df 91       	pop	r29
+  88:	08 95       	ret
+
+0000008a <_ZN4MainD2Ev>:
+
+Main::~Main() {
+  8a:	df 93       	push	r29
+  8c:	cf 93       	push	r28
+  8e:	00 d0       	rcall	.+0      	; 0x90 <_ZN4MainD2Ev+0x6>
+  90:	cd b7       	in	r28, 0x3d	; 61
+  92:	de b7       	in	r29, 0x3e	; 62
+  94:	9a 83       	std	Y+2, r25	; 0x02
+  96:	89 83       	std	Y+1, r24	; 0x01
+}
+  98:	0f 90       	pop	r0
+  9a:	0f 90       	pop	r0
+  9c:	cf 91       	pop	r28
+  9e:	df 91       	pop	r29
+  a0:	08 95       	ret
+
+000000a2 <_ZN4MainD1Ev>:
+#include "Main.h"
+
+Main::Main() {
+}
+
+Main::~Main() {
+  a2:	df 93       	push	r29
+  a4:	cf 93       	push	r28
+  a6:	00 d0       	rcall	.+0      	; 0xa8 <_ZN4MainD1Ev+0x6>
+  a8:	cd b7       	in	r28, 0x3d	; 61
+  aa:	de b7       	in	r29, 0x3e	; 62
+  ac:	9a 83       	std	Y+2, r25	; 0x02
+  ae:	89 83       	std	Y+1, r24	; 0x01
+}
+  b0:	0f 90       	pop	r0
+  b2:	0f 90       	pop	r0
+  b4:	cf 91       	pop	r28
+  b6:	df 91       	pop	r29
+  b8:	08 95       	ret
+
+000000ba <_ZN4Main3runEv>:
+
+void Main::run() {
+  ba:	df 93       	push	r29
+  bc:	cf 93       	push	r28
+  be:	00 d0       	rcall	.+0      	; 0xc0 <_ZN4Main3runEv+0x6>
+  c0:	cd b7       	in	r28, 0x3d	; 61
+  c2:	de b7       	in	r29, 0x3e	; 62
+  c4:	9a 83       	std	Y+2, r25	; 0x02
+  c6:	89 83       	std	Y+1, r24	; 0x01
+  c8:	ff cf       	rjmp	.-2      	; 0xc8 <_ZN4Main3runEv+0xe>
+
+000000ca <main>:
+	while(1);
+}
+
+
+int main()
+  ca:	df 93       	push	r29
+  cc:	cf 93       	push	r28
+  ce:	0f 92       	push	r0
+  d0:	cd b7       	in	r28, 0x3d	; 61
+  d2:	de b7       	in	r29, 0x3e	; 62
+{
+	Main x;
+  d4:	ce 01       	movw	r24, r28
+  d6:	01 96       	adiw	r24, 0x01	; 1
+  d8:	cc df       	rcall	.-104    	; 0x72 <_ZN4MainC1Ev>
+	x.run();
+  da:	ce 01       	movw	r24, r28
+  dc:	01 96       	adiw	r24, 0x01	; 1
+  de:	ed df       	rcall	.-38     	; 0xba <_ZN4Main3runEv>
+  e0:	ce 01       	movw	r24, r28
+  e2:	01 96       	adiw	r24, 0x01	; 1
+  e4:	de df       	rcall	.-68     	; 0xa2 <_ZN4MainD1Ev>
+  e6:	80 e0       	ldi	r24, 0x00	; 0
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+}
+  ea:	0f 90       	pop	r0
+  ec:	cf 91       	pop	r28
+  ee:	df 91       	pop	r29
+  f0:	08 95       	ret
+
+000000f2 <_exit>:
+  f2:	f8 94       	cli
+
+000000f4 <__stop_program>:
+  f4:	ff cf       	rjmp	.-2      	; 0xf4 <__stop_program>

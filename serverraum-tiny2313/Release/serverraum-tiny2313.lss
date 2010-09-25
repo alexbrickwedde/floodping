@@ -1,0 +1,118 @@
+
+serverraum-tiny2313.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000008e  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000006b4  00000000  00000000  000000e4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000054  00000000  00000000  00000798  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2a c0       	rjmp	.+84     	; 0x58 <__bad_interrupt>
+   4:	29 c0       	rjmp	.+82     	; 0x58 <__bad_interrupt>
+   6:	28 c0       	rjmp	.+80     	; 0x58 <__bad_interrupt>
+   8:	27 c0       	rjmp	.+78     	; 0x58 <__bad_interrupt>
+   a:	26 c0       	rjmp	.+76     	; 0x58 <__bad_interrupt>
+   c:	25 c0       	rjmp	.+74     	; 0x58 <__bad_interrupt>
+   e:	24 c0       	rjmp	.+72     	; 0x58 <__bad_interrupt>
+  10:	23 c0       	rjmp	.+70     	; 0x58 <__bad_interrupt>
+  12:	22 c0       	rjmp	.+68     	; 0x58 <__bad_interrupt>
+  14:	21 c0       	rjmp	.+66     	; 0x58 <__bad_interrupt>
+  16:	20 c0       	rjmp	.+64     	; 0x58 <__bad_interrupt>
+  18:	1f c0       	rjmp	.+62     	; 0x58 <__bad_interrupt>
+  1a:	1e c0       	rjmp	.+60     	; 0x58 <__bad_interrupt>
+  1c:	1d c0       	rjmp	.+58     	; 0x58 <__bad_interrupt>
+  1e:	1c c0       	rjmp	.+56     	; 0x58 <__bad_interrupt>
+  20:	1b c0       	rjmp	.+54     	; 0x58 <__bad_interrupt>
+  22:	1a c0       	rjmp	.+52     	; 0x58 <__bad_interrupt>
+  24:	19 c0       	rjmp	.+50     	; 0x58 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf ed       	ldi	r28, 0xDF	; 223
+  2c:	cd bf       	out	0x3d, r28	; 61
+
+0000002e <__do_copy_data>:
+  2e:	10 e0       	ldi	r17, 0x00	; 0
+  30:	a0 e6       	ldi	r26, 0x60	; 96
+  32:	b0 e0       	ldi	r27, 0x00	; 0
+  34:	ee e8       	ldi	r30, 0x8E	; 142
+  36:	f0 e0       	ldi	r31, 0x00	; 0
+  38:	02 c0       	rjmp	.+4      	; 0x3e <.do_copy_data_start>
+
+0000003a <.do_copy_data_loop>:
+  3a:	05 90       	lpm	r0, Z+
+  3c:	0d 92       	st	X+, r0
+
+0000003e <.do_copy_data_start>:
+  3e:	a0 36       	cpi	r26, 0x60	; 96
+  40:	b1 07       	cpc	r27, r17
+  42:	d9 f7       	brne	.-10     	; 0x3a <.do_copy_data_loop>
+
+00000044 <__do_clear_bss>:
+  44:	10 e0       	ldi	r17, 0x00	; 0
+  46:	a0 e6       	ldi	r26, 0x60	; 96
+  48:	b0 e0       	ldi	r27, 0x00	; 0
+  4a:	01 c0       	rjmp	.+2      	; 0x4e <.do_clear_bss_start>
+
+0000004c <.do_clear_bss_loop>:
+  4c:	1d 92       	st	X+, r1
+
+0000004e <.do_clear_bss_start>:
+  4e:	a0 36       	cpi	r26, 0x60	; 96
+  50:	b1 07       	cpc	r27, r17
+  52:	e1 f7       	brne	.-8      	; 0x4c <.do_clear_bss_loop>
+  54:	10 d0       	rcall	.+32     	; 0x76 <main>
+  56:	19 c0       	rjmp	.+50     	; 0x8a <_exit>
+
+00000058 <__bad_interrupt>:
+  58:	d3 cf       	rjmp	.-90     	; 0x0 <__vectors>
+
+0000005a <_ZN4MainC2Ev>:
+  5a:	08 95       	ret
+
+0000005c <_ZN4MainC1Ev>:
+  5c:	08 95       	ret
+
+0000005e <_ZN4MainD2Ev>:
+  5e:	08 95       	ret
+
+00000060 <_ZN4MainD1Ev>:
+  60:	08 95       	ret
+
+00000062 <_ZN4Main3runEv>:
+  62:	81 b3       	in	r24, 0x11	; 17
+  64:	88 62       	ori	r24, 0x28	; 40
+  66:	81 bb       	out	0x11, r24	; 17
+  68:	98 e0       	ldi	r25, 0x08	; 8
+  6a:	82 b3       	in	r24, 0x12	; 18
+  6c:	89 27       	eor	r24, r25
+  6e:	82 bb       	out	0x12, r24	; 18
+  70:	95 9a       	sbi	0x12, 5	; 18
+  72:	95 98       	cbi	0x12, 5	; 18
+  74:	fa cf       	rjmp	.-12     	; 0x6a <_ZN4Main3runEv+0x8>
+
+00000076 <main>:
+  76:	81 b3       	in	r24, 0x11	; 17
+  78:	88 62       	ori	r24, 0x28	; 40
+  7a:	81 bb       	out	0x11, r24	; 17
+  7c:	98 e0       	ldi	r25, 0x08	; 8
+  7e:	82 b3       	in	r24, 0x12	; 18
+  80:	89 27       	eor	r24, r25
+  82:	82 bb       	out	0x12, r24	; 18
+  84:	95 9a       	sbi	0x12, 5	; 18
+  86:	95 98       	cbi	0x12, 5	; 18
+  88:	fa cf       	rjmp	.-12     	; 0x7e <main+0x8>
+
+0000008a <_exit>:
+  8a:	f8 94       	cli
+
+0000008c <__stop_program>:
+  8c:	ff cf       	rjmp	.-2      	; 0x8c <__stop_program>
