@@ -3,9 +3,22 @@ Archive member included because of file (symbol)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o (exit)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
-                              ./Main.o (__do_copy_data)
+                              ./main.o (__do_copy_data)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                              ./Main.o (__do_clear_bss)
+                              ./main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+usb_tx_len          0x1               ./usb.o
+usb_tx_buf          0xb               ./usb.o
+usb_new_address     0x1               ./usb.o
+usb_rx_token        0x1               ./usb.o
+usb_rx_len          0x1               ./usb.o
+usb_rx_off          0x1               ./usb.o
+xdata               0x8               ./main.o
+usb_rx_buf          0x16              ./usb.o
+usb_address         0x1               ./usb.o
 
 Memory Configuration
 
@@ -21,7 +34,10 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
-LOAD ./Main.o
+LOAD ./crc.o
+LOAD ./int.o
+LOAD ./main.o
+LOAD ./usb.o
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libm.a
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
@@ -118,7 +134,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0x8e
+.text           0x00000000      0x7da
  *(.vectors)
  .vectors       0x00000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000000                __vectors
@@ -126,40 +142,45 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.vectors)
  *(.progmem.gcc*)
  *(.progmem*)
-                0x00000026                . = ALIGN (0x2)
-                0x00000026                __trampolines_start = .
+ .progmem.crc   0x00000026       0x10 ./crc.o
+ .progmem.data  0x00000036       0x5e ./usb.o
+                0x00000052                string_device
+                0x00000062                string_serial
+                0x00000036                string_vendor
+                0x00000094                . = ALIGN (0x2)
+                0x00000094                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000026        0x0 linker stubs
+ .trampolines   0x00000094        0x0 linker stubs
  *(.trampolines*)
-                0x00000026                __trampolines_end = .
+                0x00000094                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000026                __ctors_start = .
+                0x00000094                __ctors_start = .
  *(.ctors)
-                0x00000026                __ctors_end = .
-                0x00000026                __dtors_start = .
+                0x00000094                __ctors_end = .
+                0x00000094                __dtors_start = .
  *(.dtors)
-                0x00000026                __dtors_end = .
+                0x00000094                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000026        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
-                0x00000026                __init
+ .init0         0x00000094        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+                0x00000094                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000026        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .init2         0x00000094        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000002e       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
-                0x0000002e                __do_copy_data
- .init4         0x00000044       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                0x00000044                __do_clear_bss
+ .init4         0x0000009c       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+                0x0000009c                __do_copy_data
+ .init4         0x000000b2       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -170,49 +191,60 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000054        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .init9         0x000000c2        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init9)
  *(.text)
- .text          0x00000058        0x2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
-                0x00000058                __vector_1
-                0x00000058                __vector_12
-                0x00000058                __bad_interrupt
-                0x00000058                __vector_6
-                0x00000058                __vector_3
-                0x00000058                __vector_11
-                0x00000058                __vector_13
-                0x00000058                __vector_17
-                0x00000058                __vector_7
-                0x00000058                __vector_5
-                0x00000058                __vector_4
-                0x00000058                __vector_9
-                0x00000058                __vector_2
-                0x00000058                __vector_15
-                0x00000058                __vector_8
-                0x00000058                __vector_14
-                0x00000058                __vector_10
-                0x00000058                __vector_16
-                0x00000058                __vector_18
- .text          0x0000005a       0x30 ./Main.o
-                0x0000005c                Main::Main()
-                0x0000005e                Main::~Main()
-                0x00000062                Main::run()
-                0x00000060                Main::~Main()
-                0x0000005a                Main::Main()
-                0x00000076                main
- .text          0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                0x0000008a                . = ALIGN (0x2)
+ .text          0x000000c6        0x2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+                0x000000c6                __vector_12
+                0x000000c6                __bad_interrupt
+                0x000000c6                __vector_6
+                0x000000c6                __vector_3
+                0x000000c6                __vector_11
+                0x000000c6                __vector_13
+                0x000000c6                __vector_17
+                0x000000c6                __vector_7
+                0x000000c6                __vector_5
+                0x000000c6                __vector_4
+                0x000000c6                __vector_9
+                0x000000c6                __vector_2
+                0x000000c6                __vector_15
+                0x000000c6                __vector_8
+                0x000000c6                __vector_14
+                0x000000c6                __vector_10
+                0x000000c6                __vector_16
+                0x000000c6                __vector_18
+ .text          0x000000c8       0x4a ./crc.o
+                0x000000c8                crc
+ .text          0x00000112      0x2ae ./int.o
+                0x00000112                __vector_1
+ .text          0x000003c0      0x256 ./main.o
+                0x00000560                usb_in
+                0x000003f0                w1_bit_io
+                0x0000043c                w1_rom_search
+                0x00000566                main
+                0x00000564                usb_out
+                0x00000436                w1_byte_rd
+                0x000004ca                w1_command
+                0x000003c0                w1_reset
+                0x00000510                usb_setup
+                0x000004fe                start_meas
+                0x00000414                w1_byte_wr
+ .text          0x00000616      0x1c0 ./usb.o
+                0x00000626                usb_poll
+                0x00000616                usb_init
+ .text          0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x000007d6                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                0x0000008a                . = ALIGN (0x2)
+ .text.libgcc   0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x000007d6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x0000008a                exit
-                0x0000008a                _exit
+ .fini9         0x000007d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x000007d6                exit
+                0x000007d6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -231,46 +263,64 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000008a        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x000007d6        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000008e                _etext = .
+                0x000007da                _etext = .
 
-.data           0x00800060        0x0 load address 0x0000008e
+.data           0x00800060        0x2 load address 0x000007da
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
- .data          0x00800060        0x0 ./Main.o
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .data          0x00800060        0x0 ./crc.o
+ .data          0x00800060        0x2 ./int.o
+ .data          0x00800062        0x0 ./main.o
+ .data          0x00800062        0x0 ./usb.o
+ .data          0x00800062        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .data          0x00800062        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .data          0x00800062        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x00800062                . = ALIGN (0x2)
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x0
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x00800062       0x38
+                0x00800062                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
- .bss           0x00800060        0x0 ./Main.o
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .bss           0x00800062        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .bss           0x00800062        0x0 ./crc.o
+ .bss           0x00800062        0x1 ./int.o
+ .bss           0x00800063        0x4 ./main.o
+                0x00800063                x1
+ .bss           0x00800067        0x4 ./usb.o
+ .bss           0x0080006b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .bss           0x0080006b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .bss           0x0080006b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800060                PROVIDE (__bss_end, .)
-                0x0000008e                __data_load_start = LOADADDR (.data)
-                0x0000008e                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080006b        0x8 ./main.o
+                0x0080006b                xdata
+ COMMON         0x00800073       0x27 ./usb.o
+                0x00800073                usb_tx_len
+                0x00800074                usb_tx_buf
+                0x0080007f                usb_new_address
+                0x00800080                usb_rx_token
+                0x00800081                usb_rx_len
+                0x00800082                usb_rx_off
+                0x00800083                usb_rx_buf
+                0x00800099                usb_address
+                0x0080009a                PROVIDE (__bss_end, .)
+                0x000007da                __data_load_start = LOADADDR (.data)
+                0x000007dc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800060        0x0
-                0x00800060                PROVIDE (__noinit_start, .)
+.noinit         0x0080009a        0x0
+                0x0080009a                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800060                PROVIDE (__noinit_end, .)
-                0x00800060                _end = .
-                0x00800060                PROVIDE (__heap_start, .)
+                0x0080009a                PROVIDE (__noinit_end, .)
+                0x0080009a                _end = .
+                0x0080009a                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -356,11 +406,6 @@ LOAD linker stubs
 Cross Reference Table
 
 Symbol                                            File
-Main::Main()                                      ./Main.o
-Main::Main()                                      ./Main.o
-Main::run()                                       ./Main.o
-Main::~Main()                                     ./Main.o
-Main::~Main()                                     ./Main.o
 __bad_interrupt                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __bss_end                                         /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
 __bss_start                                       /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
@@ -368,13 +413,16 @@ __data_end                                        /opt/cross/avr/lib/gcc/avr/4.3
 __data_load_start                                 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __data_start                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __do_clear_bss                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                                                  ./Main.o
+                                                  ./usb.o
+                                                  ./main.o
 __do_copy_data                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
-                                                  ./Main.o
+                                                  ./usb.o
+                                                  ./main.o
 __heap_end                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __init                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __stack                                           /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
-__vector_1                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+__vector_1                                        ./int.o
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __vector_10                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __vector_11                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __vector_12                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
@@ -395,7 +443,45 @@ __vector_9                                        /opt/cross/avr/lib/gcc/avr/4.3
 __vector_default                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 __vectors                                         /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 _exit                                             /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+crc                                               ./crc.o
+                                                  ./usb.o
 exit                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
-main                                              ./Main.o
+main                                              ./main.o
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+start_meas                                        ./main.o
+string_device                                     ./usb.o
+string_serial                                     ./usb.o
+string_vendor                                     ./usb.o
+usb_address                                       ./usb.o
+                                                  ./int.o
+usb_in                                            ./main.o
+usb_init                                          ./usb.o
+                                                  ./main.o
+usb_new_address                                   ./usb.o
+                                                  ./int.o
+usb_out                                           ./main.o
+usb_poll                                          ./usb.o
+                                                  ./main.o
+usb_rx_buf                                        ./usb.o
+                                                  ./int.o
+usb_rx_len                                        ./usb.o
+                                                  ./int.o
+usb_rx_off                                        ./usb.o
+                                                  ./int.o
+usb_rx_token                                      ./usb.o
+                                                  ./int.o
+usb_setup                                         ./main.o
+                                                  ./usb.o
+usb_tx_buf                                        ./usb.o
+                                                  ./int.o
+usb_tx_len                                        ./usb.o
+                                                  ./int.o
+w1_bit_io                                         ./main.o
+w1_byte_rd                                        ./main.o
+w1_byte_wr                                        ./main.o
+w1_command                                        ./main.o
+w1_reset                                          ./main.o
+w1_rom_search                                     ./main.o
+x1                                                ./main.o
+xdata                                             ./main.o

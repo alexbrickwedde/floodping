@@ -3,21 +3,41 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
-CPP_SRCS += \
-../Main.cpp 
+C_SRCS += \
+../main.c \
+../usb.c 
+
+S_UPPER_SRCS += \
+../crc.S \
+../int.S 
 
 OBJS += \
-./Main.o 
+./crc.o \
+./int.o \
+./main.o \
+./usb.o 
 
-CPP_DEPS += \
-./Main.d 
+C_DEPS += \
+./main.d \
+./usb.d 
+
+S_UPPER_DEPS += \
+./crc.d \
+./int.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-%.o: ../%.cpp
+%.o: ../%.S
 	@echo 'Building file: $<'
-	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -Wall -Os -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=attiny2313 -DF_CPU=12000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o"$@" "$<"
+	@echo 'Invoking: AVR Assembler'
+	avr-gcc -x assembler-with-cpp -mmcu=attiny2313 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+%.o: ../%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny2313 -DF_CPU=12000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
