@@ -140,10 +140,11 @@ public class Main {
 
 					aValues.put(airid, new Integer(new Double(z).intValue()).toString());
 
-					Formatter cmdf = new Formatter();
-					String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, z).toString();
-					System.out.println("" + command);
+					
 					try {
+						Formatter cmdf = new Formatter();
+						String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, z).toString();
+						System.out.println("" + command);
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
 						System.err.println("Errore: " + e.getMessage());
@@ -153,7 +154,7 @@ public class Main {
 						String sFile = "/tmp/airid" + airid;
 						FileWriter fstream = new FileWriter(sFile);
 						BufferedWriter out = new BufferedWriter(fstream);
-						cmdf = new Formatter();
+						Formatter cmdf = new Formatter();
 						out.write(cmdf.format("%+3.1f", z).toString());
 						out.close();
 					} catch (Exception e) {// Catch exception if any
@@ -172,10 +173,10 @@ public class Main {
 					String id = f.format("%02x-%02x %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x", x1, x2, dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte()).toString();
 					System.out.println("" + airid + " T:" + t + "," + id);
 					aValues.put(airid, new Double(t).toString());
-					Formatter cmdf = new Formatter();
-					String command = cmdf.format("/usr/bin/submit_check_result ned %s 0 %+3.1fdegC", airid, t).toString();
-					System.out.println("" + command);
 					try {
+						Formatter cmdf = new Formatter();
+						String command = cmdf.format("/usr/bin/submit_check_result ned %s 0 %+3.1fdegC", airid, t).toString();
+						System.out.println("" + command);
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
 						System.err.println("Errore: " + e.getMessage());
@@ -185,7 +186,7 @@ public class Main {
 						String sFile = "/tmp/airid" + airid;
 						FileWriter fstream = new FileWriter(sFile);
 						BufferedWriter out = new BufferedWriter(fstream);
-						cmdf = new Formatter();
+						Formatter cmdf = new Formatter();
 						out.write(cmdf.format("%+3.1f", t).toString());
 						out.close();
 					} catch (Exception e) {// Catch exception if any
