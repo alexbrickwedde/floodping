@@ -146,6 +146,7 @@ public class Main {
 					try {
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
+						System.err.println("Errore: " + e.getMessage());
 					}
 
 					try {
@@ -177,6 +178,7 @@ public class Main {
 					try {
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
+						System.err.println("Errore: " + e.getMessage());
 					}
 					
 					try {
