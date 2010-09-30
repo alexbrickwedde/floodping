@@ -152,6 +152,7 @@ public class Main {
 						String sFile = "/tmp/airid" + airid;
 						FileWriter fstream = new FileWriter(sFile);
 						BufferedWriter out = new BufferedWriter(fstream);
+						cmdf = new Formatter();
 						out.write(cmdf.format("%+3.1f", z).toString());
 						out.close();
 					} catch (Exception e) {// Catch exception if any
@@ -182,6 +183,7 @@ public class Main {
 						String sFile = "/tmp/airid" + airid;
 						FileWriter fstream = new FileWriter(sFile);
 						BufferedWriter out = new BufferedWriter(fstream);
+						cmdf = new Formatter();
 						out.write(cmdf.format("%+3.1f", t).toString());
 						out.close();
 					} catch (Exception e) {// Catch exception if any
