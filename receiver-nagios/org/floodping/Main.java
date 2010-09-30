@@ -1,8 +1,9 @@
 package org.floodping;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Formatter;
@@ -136,7 +137,9 @@ public class Main {
 					double z = (z1 * 1.0) / 4.6;
 					int res = z < -9 ? (z < -13 ? 2 : 1) : 0;
 					System.out.println("" + airid + " g:" + x + "," + y + "," + z);
+
 					aValues.put(airid, new Integer(new Double(z).intValue()).toString());
+
 					Formatter cmdf = new Formatter();
 					String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, z).toString();
 					System.out.println("" + command);
@@ -144,6 +147,17 @@ public class Main {
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
 					}
+
+					try {
+						String sFile = "/tmp/airid" + airid;
+						FileWriter fstream = new FileWriter(sFile);
+						BufferedWriter out = new BufferedWriter(fstream);
+						out.write(cmdf.format("%+3.1f", z).toString());
+						out.close();
+					} catch (Exception e) {// Catch exception if any
+						System.err.println("Error: " + e.getMessage());
+					}
+
 				}
 					break;
 				case 'T': {
@@ -162,6 +176,16 @@ public class Main {
 					try {
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
+					}
+					
+					try {
+						String sFile = "/tmp/airid" + airid;
+						FileWriter fstream = new FileWriter(sFile);
+						BufferedWriter out = new BufferedWriter(fstream);
+						out.write(cmdf.format("%+3.1f", t).toString());
+						out.close();
+					} catch (Exception e) {// Catch exception if any
+						System.err.println("Error: " + e.getMessage());
 					}
 				}
 					break;
