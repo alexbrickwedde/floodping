@@ -84,7 +84,7 @@ public class Main {
 				System.exit(1);
 			}
 			try {
-				connection.login("zuhause@nfsroot.de", "nonenone");
+				connection.login("XYZ@googlemail.com", "XYZ");
 				System.out.println("Logged in as " + connection.getUser());
 
 				Presence presence = new Presence(Presence.Type.available);
