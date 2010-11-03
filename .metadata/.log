@@ -1,1694 +1,838 @@
-!SESSION 2010-09-04 15:27:20.344 -----------------------------------------------
-eclipse.buildId=M20090917-0800
-java.version=1.6.0_20
-java.vendor=Sun Microsystems Inc.
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.524
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.524
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.525
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.526
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.527
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.528
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.528
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.528
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-04 15:27:26.528
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-04 15:28:23.811
-!MESSAGE Indexed 'bma020-tiny2313' (3 sources, 31 headers) in 1,28 sec: 694 declarations; 988 references; 5 unresolved inclusions; 7 syntax errors; 42 unresolved names (2,44 %)
-!SESSION 2010-09-05 12:47:47.160 -----------------------------------------------
-eclipse.buildId=M20090917-0800
-java.version=1.6.0_20
-java.vendor=Sun Microsystems Inc.
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.836
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.849
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.850
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.850
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.850
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.850
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.851
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.852
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.853
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.854
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.854
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-05 12:48:01.854
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-05 17:38:26.821
-!MESSAGE Indexed 'rfm12-tiny2313' (5 sources, 34 headers) in 0,46 sec: 734 declarations; 1.052 references; 5 unresolved inclusions; 7 syntax errors; 85 unresolved names (4,54 %)
-!SESSION 2010-09-07 18:25:12.736 -----------------------------------------------
-eclipse.buildId=M20090917-0800
-java.version=1.6.0_20
-java.vendor=Sun Microsystems Inc.
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.746
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.768
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.769
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.770
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.771
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.772
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.772
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.772
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.772
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-07 18:25:29.772
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-07 18:39:13.441
-!MESSAGE Indexed 'librfm12' (0 sources, 7 headers) in 0,02 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
-
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-07 18:56:18.351
-!MESSAGE Indexed 'ethersex' (0 sources, 7 headers) in 0,01 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
-
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-07 18:58:52.066
-!MESSAGE Indexed 'netio' (0 sources, 7 headers) in 0,01 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
-!SESSION 2010-09-10 19:45:38.007 -----------------------------------------------
-eclipse.buildId=M20090917-0800
-java.version=1.6.0_20
-java.vendor=Sun Microsystems Inc.
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.635
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.681
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.682
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.682
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.682
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.683
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.684
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.684
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.684
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.684
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.684
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.685
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.686
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.687
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.687
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.687
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.687
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-10 19:45:53.687
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-!SESSION 2010-09-11 13:46:47.315 -----------------------------------------------
-eclipse.buildId=M20090917-0800
-java.version=1.6.0_20
-java.vendor=Sun Microsystems Inc.
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.316
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.340
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.341
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.341
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.341
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.341
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.342
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.343
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.344
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.345
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-11 13:46:54.345
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-!SESSION 2010-09-12 13:10:59.736 -----------------------------------------------
+!SESSION 2010-09-23 21:53:22.450 -----------------------------------------------
 eclipse.buildId=M20090917-0800
 java.version=1.6.0_18
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
 Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.008
-!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.009
-!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.010
-!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.010
-!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.011
-!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.011
-!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.012
-!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.012
-!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.013
-!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.013
-!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.014
-!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.014
-!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.015
-!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.015
-!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.016
-!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.016
-!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.017
-!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.017
-!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.018
-!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.018
-!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.019
-!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.019
-!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.020
-!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.020
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
-!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.021
-!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.022
-!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.022
-!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.023
-!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.023
-!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.024
-!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:11:22.024
-!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-!SESSION 2010-09-12 13:26:45.520 -----------------------------------------------
+This is a continuation of log file C:\Users\SonAle\workspace\floodping\.metadata\.bak_0.log
+Created Time: 2010-09-23 21:53:46.133
+!SESSION 2010-09-23 21:53:22.450 -----------------------------------------------
 eclipse.buildId=M20090917-0800
 java.version=1.6.0_18
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
 Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.240
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.134
 !MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.264
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.135
 !MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.266
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.136
 !MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.269
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.136
 !MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.270
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.137
 !MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.271
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.138
 !MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.272
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.138
 !MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.273
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.139
 !MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.273
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.140
 !MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.274
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.140
 !MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.275
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.141
 !MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.280
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.141
 !MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.281
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.142
 !MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.282
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.142
 !MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.283
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.143
 !MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.283
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.144
 !MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.284
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.144
 !MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.285
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.145
 !MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.286
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.145
 !MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.287
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.146
 !MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.288
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.147
 !MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.289
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.147
 !MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.290
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.148
 !MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.291
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.148
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.292
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.149
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.293
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.150
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.294
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.150
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.295
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.151
 !MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.295
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.151
 !MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.296
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.152
 !MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.297
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.153
 !MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.298
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.154
 !MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-12 13:27:00.319
+!ENTRY org.eclipse.osgi 2 1 2010-09-23 21:53:46.154
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
-
-!ENTRY org.eclipse.egit.ui 4 0 2010-09-12 13:31:30.633
-!MESSAGE Can't connect to any repository: 
-!SESSION 2010-09-15 22:10:03.920 -----------------------------------------------
+!SESSION 2010-09-25 20:39:39.409 -----------------------------------------------
 eclipse.buildId=M20090917-0800
 java.version=1.6.0_18
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
 Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:58.985
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.237
 !MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.069
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.313
 !MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.071
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.314
 !MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.072
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.315
 !MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.073
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.315
 !MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.075
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.316
 !MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.076
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.317
 !MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.077
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.317
 !MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.079
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.318
 !MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.080
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.319
 !MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.081
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.319
 !MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.083
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.320
 !MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.084
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.320
 !MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.085
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.321
 !MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.086
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.321
 !MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.088
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.322
 !MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.089
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.322
 !MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.090
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.323
 !MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.092
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.323
 !MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.093
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.324
 !MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.094
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.324
 !MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.095
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.325
 !MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.097
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.326
 !MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.098
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.326
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.099
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.327
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.100
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.327
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.100
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.328
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.101
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.328
 !MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.102
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.329
 !MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.102
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.329
 !MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.103
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.330
 !MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.104
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.331
 !MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-15 22:10:59.104
+!ENTRY org.eclipse.osgi 2 1 2010-09-25 20:40:02.331
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-15 22:11:54.854
-!MESSAGE Indexed 'kerze' (0 sources, 7 headers) in 2,05 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+!ENTRY org.eclipse.cdt.core 1 0 2010-09-25 20:41:43.107
+!MESSAGE Indexed 'serverraum-tiny2313' (0 sources, 11 headers) in 1,22 sec: 23 declarations; 160 references; 7 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
 
-!ENTRY org.eclipse.core.filebuffers 4 2 2010-09-15 22:12:00.659
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.filebuffers".
+!ENTRY org.eclipse.core.jobs 4 2 2010-09-25 21:18:50.333
+!MESSAGE An internal error occurred during: "Child Node Computation".
 !STACK 0
 java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.createProjDescriptionForDescriptor(CConfigBasedDescriptorManager.java:374)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.findDescriptor(CConfigBasedDescriptorManager.java:341)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(CConfigBasedDescriptorManager.java:238)
-	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:639)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.load(ProjectMap.java:117)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.<init>(ProjectMap.java:58)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getProjectMap(DocCommentOwnerManager.java:212)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getCommentOwner(DocCommentOwnerManager.java:129)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.getDocumentationCommentOwner(CTextTools.java:157)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.setupCDocument(CTextTools.java:118)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentSetupParticipant.setup(CDocumentSetupParticipant.java:48)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager$1.run(ResourceTextFileBufferManager.java:151)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager.createEmptyDocument(ResourceTextFileBufferManager.java:166)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.initializeFileBufferContent(ResourceTextFileBuffer.java:293)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:245)
-	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:113)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:856)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:778)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
-	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
-	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
-	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:166)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1357)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
-	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
-	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2579)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
-	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.core.filebuffers 4 0 2010-09-15 22:12:00.716
-!MESSAGE A document setup participant failed to setup the document.
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.createProjDescriptionForDescriptor(CConfigBasedDescriptorManager.java:374)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.findDescriptor(CConfigBasedDescriptorManager.java:341)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(CConfigBasedDescriptorManager.java:238)
-	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:639)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.load(ProjectMap.java:117)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.<init>(ProjectMap.java:58)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getProjectMap(DocCommentOwnerManager.java:212)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getCommentOwner(DocCommentOwnerManager.java:129)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.getDocumentationCommentOwner(CTextTools.java:157)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.setupCDocument(CTextTools.java:118)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentSetupParticipant.setup(CDocumentSetupParticipant.java:48)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager$1.run(ResourceTextFileBufferManager.java:151)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager.createEmptyDocument(ResourceTextFileBufferManager.java:166)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.initializeFileBufferContent(ResourceTextFileBuffer.java:293)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:245)
-	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:113)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:856)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:778)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
-	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
-	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
-	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:166)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1357)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
-	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
-	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2579)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
-	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.core.filebuffers 4 2 2010-09-15 22:12:00.719
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.filebuffers".
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.createProjDescriptionForDescriptor(CConfigBasedDescriptorManager.java:374)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.findDescriptor(CConfigBasedDescriptorManager.java:341)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(CConfigBasedDescriptorManager.java:238)
-	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:639)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.load(ProjectMap.java:117)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.<init>(ProjectMap.java:58)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getProjectMap(DocCommentOwnerManager.java:212)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getCommentOwner(DocCommentOwnerManager.java:129)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.getDocumentationCommentOwner(CTextTools.java:157)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.setupCDocument(CTextTools.java:118)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentSetupParticipant.setup(CDocumentSetupParticipant.java:48)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager$1.run(ResourceTextFileBufferManager.java:151)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager.createEmptyDocument(ResourceTextFileBufferManager.java:166)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.initializeFileBufferContent(ResourceTextFileBuffer.java:293)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:245)
-	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:113)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:856)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:778)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
-	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
-	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
-	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:166)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1357)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
-	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
-	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2579)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
-	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.core.filebuffers 4 0 2010-09-15 22:12:00.721
-!MESSAGE A document setup participant failed to setup the document.
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.createProjDescriptionForDescriptor(CConfigBasedDescriptorManager.java:374)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.findDescriptor(CConfigBasedDescriptorManager.java:341)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(CConfigBasedDescriptorManager.java:238)
-	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:639)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.load(ProjectMap.java:117)
-	at org.eclipse.cdt.internal.ui.text.doctools.ProjectMap.<init>(ProjectMap.java:58)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getProjectMap(DocCommentOwnerManager.java:212)
-	at org.eclipse.cdt.internal.ui.text.doctools.DocCommentOwnerManager.getCommentOwner(DocCommentOwnerManager.java:129)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.getDocumentationCommentOwner(CTextTools.java:157)
-	at org.eclipse.cdt.internal.ui.text.CTextTools.setupCDocument(CTextTools.java:118)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentSetupParticipant.setup(CDocumentSetupParticipant.java:48)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager$1.run(ResourceTextFileBufferManager.java:151)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBufferManager.createEmptyDocument(ResourceTextFileBufferManager.java:166)
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.initializeFileBufferContent(ResourceTextFileBuffer.java:293)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:245)
-	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:113)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:559)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:856)
-	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
-	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:778)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
-	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
-	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
-	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:166)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1357)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
-	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
-	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2579)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
-	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.ui 4 0 2010-09-15 22:12:01.155
-!MESSAGE Unable to create editor ID org.eclipse.cdt.ui.editor.CEditor: Editor could not be initialized.
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.createProjDescriptionForDescriptor(CConfigBasedDescriptorManager.java:374)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.findDescriptor(CConfigBasedDescriptorManager.java:341)
-	at org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(CConfigBasedDescriptorManager.java:238)
-	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:639)
-	at org.eclipse.cdt.internal.core.language.LanguageMappingStore.getProjectDescription(LanguageMappingStore.java:110)
-	at org.eclipse.cdt.internal.core.language.LanguageMappingStore.decodeMappings(LanguageMappingStore.java:75)
-	at org.eclipse.cdt.core.model.LanguageManager.getLanguageConfiguration(LanguageManager.java:447)
-	at org.eclipse.cdt.internal.core.language.LanguageMappingResolver.computeLanguage(LanguageMappingResolver.java:57)
-	at org.eclipse.cdt.core.model.LanguageManager.getLanguageForFile(LanguageManager.java:587)
-	at org.eclipse.cdt.internal.core.model.TranslationUnit.getLanguage(TranslationUnit.java:767)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1369)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
-	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
-	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2579)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
-	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
-	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.ui 2 2 2010-09-15 22:12:01.411
-!MESSAGE Ignored attempt to add saveable that was already registered
-!STACK 0
-org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse.ui.internal.DefaultSaveable@181bd16 from part: org.eclipse.ui.internal.ErrorEditorPart@181bd16
-	at org.eclipse.ui.internal.SaveablesList.logWarning(SaveablesList.java:187)
-	at org.eclipse.ui.internal.SaveablesList.addModel(SaveablesList.java:117)
-	at org.eclipse.ui.internal.SaveablesList.addModels(SaveablesList.java:289)
-	at org.eclipse.ui.internal.SaveablesList.postOpen(SaveablesList.java:684)
-	at org.eclipse.ui.internal.PartList.partOpened(PartList.java:234)
-	at org.eclipse.ui.internal.PartList.access$0(PartList.java:210)
-	at org.eclipse.ui.internal.PartList$1.propertyChanged(PartList.java:40)
-	at org.eclipse.ui.internal.WorkbenchPartReference.fireInternalPropertyChange(WorkbenchPartReference.java:375)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:610)
-	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
-	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
-	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
-	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
-	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
-	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
-	at org.eclipse.ui.internal.PartStack.handleDeferredEvents(PartStack.java:1224)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.PartSashContainer.handleDeferredEvents(PartSashContainer.java:1409)
-	at org.eclipse.ui.internal.LayoutPart.deferUpdates(LayoutPart.java:400)
-	at org.eclipse.ui.internal.WorkbenchPage.handleDeferredEvents(WorkbenchPage.java:1416)
-	at org.eclipse.ui.internal.WorkbenchPage.deferUpdates(WorkbenchPage.java:1406)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1380)
-	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1444)
-	at org.eclipse.ui.texteditor.AbstractTextEditor$23.run(AbstractTextEditor.java:4234)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
-	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
-
-!ENTRY org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE A handler conflict occurred.  This may disable some commands.
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences':
-HandlerActivation(commandId=org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences,
-	handler=ActionHandler(org.eclipse.cdt.internal.ui.editor.ToggleMarkOccurrencesAction@c92449),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences,
-	handler=ActionHandler(org.eclipse.cdt.internal.ui.editor.ToggleMarkOccurrencesAction@16d632f),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.refactor.extract.constant':
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.constant,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractConstantAction@8ac958),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.constant,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractConstantAction@1a8ef42),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.edit.text.rename.element':
-HandlerActivation(commandId=org.eclipse.cdt.ui.edit.text.rename.element,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.CRenameAction@1f3ed79),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.edit.text.rename.element,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.CRenameAction@16bba80),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.refactor.extract.local.variable':
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.local.variable,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractLocalVariableAction@1a15f92),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.local.variable,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractLocalVariableAction@1897a77),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.ui.navigate.previous':
-HandlerActivation(commandId=org.eclipse.ui.navigate.previous,
-	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@c728c0),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.ui.navigate.previous,
-	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@14485dc),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.ui.edit.text.toggleShowSelectedElementOnly':
-HandlerActivation(commandId=org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,
-	handler=ActionHandler(org.eclipse.cdt.internal.ui.editor.TogglePresentationAction@1b06274),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,
-	handler=ActionHandler(org.eclipse.cdt.internal.ui.editor.TogglePresentationAction@10fea09),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.ui.file.refresh':
-HandlerActivation(commandId=org.eclipse.ui.file.refresh,
-	handler=ActionHandler(org.eclipse.ui.internal.editors.text.RefreshEditorAction@1cdfc98),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.ui.file.refresh,
-	handler=ActionHandler(org.eclipse.ui.internal.editors.text.RefreshEditorAction@828f44),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.refactor.extract.function':
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.function,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractFunctionAction@18bfa3f),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.extract.function,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.ExtractFunctionAction@da5575),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.ui.navigate.next':
-HandlerActivation(commandId=org.eclipse.ui.navigate.next,
-	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@209596),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.ui.navigate.next,
-	handler=ActionHandler(org.eclipse.ui.texteditor.GotoAnnotationAction@13ccab7),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-09-15 22:38:31.190
-!MESSAGE Conflict for 'org.eclipse.cdt.ui.refactor.hide.method':
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.hide.method,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.HideMethodAction@20dbfe),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.hide.method,
-	handler=ActionHandler(org.eclipse.cdt.ui.refactoring.actions.HideMethodAction@14b2ad1),
-	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1d9e279)),sourcePriority=4210689)
-
-!ENTRY org.eclipse.core.jobs 4 2 2010-09-15 22:39:22.850
-!MESSAGE An internal error occurred during: "Open Declaration".
-!STACK 0
-java.lang.ClassCastException: org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclSpecifier cannot be cast to org.eclipse.cdt.core.dom.ast.cpp.ICPPASTDeclSpecifier
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.findDeclarationOwner(CPPVisitor.java:2062)
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.findNameOwner(CPPVisitor.java:2038)
-	at org.eclipse.cdt.internal.core.dom.parser.ProblemBinding.getOwner(ProblemBinding.java:249)
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.getQualifiedName(CPPVisitor.java:1898)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.removeSecondaryBindings(OpenDeclarationsJob.java:635)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.navigationFallBack(OpenDeclarationsJob.java:596)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.runOnAST(OpenDeclarationsJob.java:232)
-	at org.eclipse.cdt.internal.core.model.ASTCache.runOnAST(ASTCache.java:221)
-	at org.eclipse.cdt.internal.ui.editor.ASTProvider.runOnAST(ASTProvider.java:344)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.performNavigation(OpenDeclarationsJob.java:136)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.run(OpenDeclarationsJob.java:112)
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHQueries.findCalledBy(CHQueries.java:59)
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHContentProvider.asyncronouslyComputeReferencedBy(CHContentProvider.java:145)
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHContentProvider.asyncronouslyComputeChildren(CHContentProvider.java:99)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider.runJob(AsyncTreeContentProvider.java:223)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider.access$0(AsyncTreeContentProvider.java:218)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider$1.run(AsyncTreeContentProvider.java:63)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.core.jobs 4 2 2010-09-15 22:39:24.699
-!MESSAGE An internal error occurred during: "Open Declaration".
+!ENTRY org.eclipse.core.jobs 4 2 2010-09-25 21:18:50.338
+!MESSAGE An internal error occurred during: "Child Node Computation".
 !STACK 0
-java.lang.ClassCastException: org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclSpecifier cannot be cast to org.eclipse.cdt.core.dom.ast.cpp.ICPPASTDeclSpecifier
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.findDeclarationOwner(CPPVisitor.java:2062)
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.findNameOwner(CPPVisitor.java:2038)
-	at org.eclipse.cdt.internal.core.dom.parser.ProblemBinding.getOwner(ProblemBinding.java:249)
-	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.getQualifiedName(CPPVisitor.java:1898)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.removeSecondaryBindings(OpenDeclarationsJob.java:635)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.navigationFallBack(OpenDeclarationsJob.java:596)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.runOnAST(OpenDeclarationsJob.java:232)
-	at org.eclipse.cdt.internal.core.model.ASTCache.runOnAST(ASTCache.java:221)
-	at org.eclipse.cdt.internal.ui.editor.ASTProvider.runOnAST(ASTProvider.java:344)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.performNavigation(OpenDeclarationsJob.java:136)
-	at org.eclipse.cdt.internal.ui.search.actions.OpenDeclarationsJob.run(OpenDeclarationsJob.java:112)
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHQueries.findCalledBy(CHQueries.java:59)
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHContentProvider.asyncronouslyComputeReferencedBy(CHContentProvider.java:145)
+	at org.eclipse.cdt.internal.ui.callhierarchy.CHContentProvider.asyncronouslyComputeChildren(CHContentProvider.java:99)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider.runJob(AsyncTreeContentProvider.java:223)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider.access$0(AsyncTreeContentProvider.java:218)
+	at org.eclipse.cdt.internal.ui.viewsupport.AsyncTreeContentProvider$1.run(AsyncTreeContentProvider.java:63)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 1 0 2010-09-15 22:50:38.635
-!MESSAGE Indexed 'kerze-tiny2313' (0 sources, 7 headers) in 0,05 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
-
-!ENTRY org.eclipse.egit.ui 4 0 2010-09-15 22:52:13.622
-!MESSAGE Cannot work with other stages than zero right now. Won't write corrupt index.
-!STACK 1
-org.eclipse.core.runtime.CoreException: Cannot work with other stages than zero right now. Won't write corrupt index.
-	at org.eclipse.egit.core.op.UpdateOperation.execute(UpdateOperation.java:140)
-	at org.eclipse.egit.ui.internal.actions.AbstractResourceOperationAction$1.run(AbstractResourceOperationAction.java:85)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Caused by: org.eclipse.jgit.errors.NotSupportedException: Cannot work with other stages than zero right now. Won't write corrupt index.
-	at org.eclipse.jgit.lib.GitIndex.checkWriteOk(GitIndex.java:326)
-	at org.eclipse.jgit.lib.GitIndex.write(GitIndex.java:268)
-	at org.eclipse.egit.core.op.UpdateOperation.execute(UpdateOperation.java:137)
-	... 2 more
-!SUBENTRY 1 org.eclipse.egit.core 4 0 2010-09-15 22:52:13.622
-!MESSAGE Cannot work with other stages than zero right now. Won't write corrupt index.
-!STACK 0
-org.eclipse.jgit.errors.NotSupportedException: Cannot work with other stages than zero right now. Won't write corrupt index.
-	at org.eclipse.jgit.lib.GitIndex.checkWriteOk(GitIndex.java:326)
-	at org.eclipse.jgit.lib.GitIndex.write(GitIndex.java:268)
-	at org.eclipse.egit.core.op.UpdateOperation.execute(UpdateOperation.java:137)
-	at org.eclipse.egit.ui.internal.actions.AbstractResourceOperationAction$1.run(AbstractResourceOperationAction.java:85)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-!SESSION 2010-09-18 21:35:20.044 -----------------------------------------------
+!ENTRY org.eclipse.cdt.core 1 0 2010-09-25 22:22:57.374
+!MESSAGE Indexed 'vusb' (0 sources, 7 headers) in 0,02 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+!SESSION 2010-09-29 19:04:21.780 -----------------------------------------------
 eclipse.buildId=M20090917-0800
 java.version=1.6.0_18
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
 Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.828
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.018
 !MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.851
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.063
 !MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.853
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.066
 !MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.853
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.067
 !MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.854
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.069
 !MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.854
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.070
 !MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.855
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.071
 !MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.856
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.073
 !MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.857
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.074
 !MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.857
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.076
 !MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.858
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.077
 !MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.858
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.079
 !MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.859
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.080
 !MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.860
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.082
 !MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.860
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.083
 !MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.861
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.085
 !MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.861
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.086
 !MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.862
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.088
 !MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.863
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.089
 !MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.864
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.091
 !MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.865
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.092
 !MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.866
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.094
 !MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.866
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.095
 !MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.867
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.097
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.867
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.098
 !MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.868
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.099
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.869
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.101
 !MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.870
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.102
 !MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.871
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.109
 !MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.872
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.110
 !MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.873
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.112
 !MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.874
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.113
 !MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.osgi 2 1 2010-09-18 21:35:51.875
+!ENTRY org.eclipse.osgi 2 1 2010-09-29 19:04:52.114
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
 
-!ENTRY org.eclipse.core.resources 4 567 2010-09-18 21:36:02.413
-!MESSAGE Failure occurred reading .project file.
-!SUBENTRY 1 org.eclipse.core.resources 4 567 2010-09-18 21:36:02.413
-!MESSAGE Could not read metadata for 'receiver-nagios'.
+!ENTRY org.eclipse.jdt.core 4 4 2010-09-29 19:09:34.746
+!MESSAGE Exception while reading /receiver-nagios/.classpath
 !STACK 0
-org.xml.sax.SAXParseException: The markup in the document preceding the root element must be well-formed.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at org.eclipse.core.internal.resources.ProjectDescriptionReader.read(ProjectDescriptionReader.java:599)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:706)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
-	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:702)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:908)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:947)
-	at org.eclipse.ui.actions.OpenResourceAction$1.doOpenWithReferences(OpenResourceAction.java:246)
-	at org.eclipse.ui.actions.OpenResourceAction$1.runInWorkspace(OpenResourceAction.java:259)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-!SUBENTRY 1 org.eclipse.core.resources 2 567 2010-09-18 21:36:02.414
-!MESSAGE Could not read metadata for 'receiver-nagios'.
-!STACK 0
-org.xml.sax.SAXParseException: The markup in the document preceding the root element must be well-formed.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at org.eclipse.core.internal.resources.ProjectDescriptionReader.read(ProjectDescriptionReader.java:599)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:706)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
-	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:702)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:908)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:947)
-	at org.eclipse.ui.actions.OpenResourceAction$1.doOpenWithReferences(OpenResourceAction.java:246)
-	at org.eclipse.ui.actions.OpenResourceAction$1.runInWorkspace(OpenResourceAction.java:259)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+java.io.IOException: Bad format
+	at org.eclipse.jdt.internal.core.JavaProject.decodeClasspath(JavaProject.java:861)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntriesWithException(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntries(JavaProject.java:2434)
+	at org.eclipse.jdt.internal.core.JavaProject.readOutputLocation(JavaProject.java:2452)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.init(BuildPathsBlock.java:314)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createWithJava(BuildPathsPropertyPage.java:163)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createContents(BuildPathsPropertyPage.java:86)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:232)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createControl(BuildPathsPropertyPage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1501)
+	at org.eclipse.jface.preference.PreferenceDialog$14.run(PreferenceDialog.java:1258)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:48)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1252)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:679)
+	at org.eclipse.jface.preference.PreferenceDialog$10.run(PreferenceDialog.java:708)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.preference.PreferenceDialog$9.selectionChanged(PreferenceDialog.java:704)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:864)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:48)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:862)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1175)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1200)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:251)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:245)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:419)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.dialogs.PropertyDialogAction.run(PropertyDialogAction.java:157)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3880)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3473)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
 
-!ENTRY org.eclipse.core.resources 4 567 2010-09-18 21:36:02.433
-!MESSAGE Failed to read the project description file (.project) for 'receiver-nagios'.  The file has been changed on disk, and it now contains invalid information.  The project will not function properly until the description file is restored to a valid state.
-
-!ENTRY org.eclipse.core.resources 4 567 2010-09-18 21:36:02.436
-!MESSAGE Failure occurred reading .project file.
-!SUBENTRY 1 org.eclipse.core.resources 4 567 2010-09-18 21:36:02.436
-!MESSAGE Could not read metadata for 'receiver-nagios'.
+!ENTRY org.eclipse.jdt.core 4 4 2010-09-29 19:09:34.771
+!MESSAGE Exception while reading /receiver-nagios/.classpath
 !STACK 0
-org.xml.sax.SAXParseException: The markup in the document preceding the root element must be well-formed.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at org.eclipse.core.internal.resources.ProjectDescriptionReader.read(ProjectDescriptionReader.java:599)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:706)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
-	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:702)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:908)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:947)
-	at org.eclipse.ui.actions.OpenResourceAction.invokeOperation(OpenResourceAction.java:153)
-	at org.eclipse.ui.actions.WorkspaceAction.execute(WorkspaceAction.java:162)
-	at org.eclipse.ui.actions.WorkspaceAction$2.runInWorkspace(WorkspaceAction.java:483)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-!SUBENTRY 1 org.eclipse.core.resources 2 567 2010-09-18 21:36:02.436
-!MESSAGE Could not read metadata for 'receiver-nagios'.
-!STACK 0
-org.xml.sax.SAXParseException: The markup in the document preceding the root element must be well-formed.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at org.eclipse.core.internal.resources.ProjectDescriptionReader.read(ProjectDescriptionReader.java:599)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:706)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
-	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:702)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:908)
-	at org.eclipse.core.internal.resources.Project.open(Project.java:947)
-	at org.eclipse.ui.actions.OpenResourceAction.invokeOperation(OpenResourceAction.java:153)
-	at org.eclipse.ui.actions.WorkspaceAction.execute(WorkspaceAction.java:162)
-	at org.eclipse.ui.actions.WorkspaceAction$2.runInWorkspace(WorkspaceAction.java:483)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+java.io.IOException: Bad format
+	at org.eclipse.jdt.internal.core.JavaProject.decodeClasspath(JavaProject.java:861)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntriesWithException(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntries(JavaProject.java:2434)
+	at org.eclipse.jdt.internal.core.JavaProject.readRawClasspath(JavaProject.java:2472)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.init(BuildPathsBlock.java:316)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createWithJava(BuildPathsPropertyPage.java:163)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createContents(BuildPathsPropertyPage.java:86)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:232)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage.createControl(BuildPathsPropertyPage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1501)
+	at org.eclipse.jface.preference.PreferenceDialog$14.run(PreferenceDialog.java:1258)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:48)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1252)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:679)
+	at org.eclipse.jface.preference.PreferenceDialog$10.run(PreferenceDialog.java:708)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.preference.PreferenceDialog$9.selectionChanged(PreferenceDialog.java:704)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:864)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:48)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:862)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1175)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1200)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:251)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:245)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:419)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.dialogs.PropertyDialogAction.run(PropertyDialogAction.java:157)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3880)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3473)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
 
-!ENTRY org.eclipse.ui.ide 4 4 2010-09-18 21:36:02.439
-!MESSAGE Problems occurred opening the selected resources.
-!SUBENTRY 1 org.eclipse.core.resources 4 567 2010-09-18 21:36:02.439
-!MESSAGE Failed to read the project description file (.project) for 'receiver-nagios'.  The file has been changed on disk, and it now contains invalid information.  The project will not function properly until the description file is restored to a valid state.
+!ENTRY org.eclipse.jdt.core 4 4 2010-09-29 19:09:48.478
+!MESSAGE Exception while reading /receiver-nagios/.classpath
+!STACK 0
+java.io.IOException: Bad format
+	at org.eclipse.jdt.internal.core.JavaProject.decodeClasspath(JavaProject.java:861)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntriesWithException(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.JavaProject.readFileEntries(JavaProject.java:2434)
+	at org.eclipse.jdt.internal.core.JavaProject.writeFileEntries(JavaProject.java:2718)
+	at org.eclipse.jdt.internal.core.JavaModelManager$PerProjectInfo.writeAndCacheClasspath(JavaModelManager.java:1263)
+	at org.eclipse.jdt.internal.core.SetClasspathOperation.executeOperation(SetClasspathOperation.java:65)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:2890)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:2906)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.flush(BuildPathsBlock.java:911)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:735)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.configureJavaProject(BuildPathsBlock.java:731)
+	at org.eclipse.jdt.internal.ui.preferences.BuildPathsPropertyPage$1.run(BuildPathsPropertyPage.java:214)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:4694)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter$1.run(WorkbenchRunnableAdapter.java:121)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-09-30 20:05:19.542 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.148
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.175
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.176
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.177
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.177
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.178
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.179
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.180
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.180
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.181
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.181
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.182
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.182
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.183
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.183
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.184
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.185
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.185
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.186
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.187
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.187
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.188
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.188
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.189
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.189
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.190
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.191
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.191
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.192
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.193
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.193
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.194
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-09-30 20:05:33.194
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+!SESSION 2010-10-16 18:42:05.713 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.581
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.607
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.608
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.608
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.609
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.609
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.610
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.611
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.611
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.612
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.612
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.613
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.613
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.614
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.614
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.615
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.615
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.616
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.616
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.617
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.617
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.618
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.618
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.619
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.619
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.620
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.620
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.621
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.621
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.622
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.622
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:32.623
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-10-16 18:42:33.109
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+!SESSION 2010-11-03 18:42:46.570 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.271
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.331
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.332
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.333
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.334
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.334
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.335
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.336
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.336
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.337
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.337
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.338
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.338
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.339
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.339
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.340
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.341
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.341
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.342
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.343
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.344
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.344
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.345
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.345
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.346
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.346
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.347
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.347
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.348
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.349
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.349
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.350
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-11-03 18:43:15.350
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts

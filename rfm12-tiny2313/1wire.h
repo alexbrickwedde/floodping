@@ -1,3 +1,4 @@
+
 #ifndef _1wire_h_
 #define _1wire_h_
 #define MATCH_ROM	0x55
@@ -16,7 +17,7 @@
 #define LAST_DEVICE	0x00		// last device found
 //			0x01 ... 0x40: continue searching
 
-bit w1_reset(void);
+uchar w1_reset(void);
 
 uint w1_byte_wr( uchar b );
 uint w1_byte_rd( void );

@@ -171,6 +171,14 @@ public class Main {
 					double t = (temp * 1.0) / 16;
 					Formatter f = new Formatter();
 					String id = f.format("%02x-%02x %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x", x1, x2, dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte(), dis.readByte()).toString();
+					x1 = dis.readByte();
+					x2 = dis.readByte();
+					short temp2 = (short) ((x2 & 0xff) << 8 | (x1 & 0xff));
+					if(temp != temp2)
+					{
+					  break;
+					}
+
 					System.out.println("" + airid + " T:" + t + "," + id);
 					aValues.put(airid, new Double(t).toString());
 					try {

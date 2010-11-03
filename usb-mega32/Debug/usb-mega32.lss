@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          0000003e  0080006c  0080006c  000017ea  2**0
                   ALLOC
-  3 .stab         00001b78  00000000  00000000  000017ec  2**2
+  3 .stab         000014b8  00000000  00000000  000017ec  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000010d0  00000000  00000000  00003364  2**0
+  4 .stabstr      0000102f  00000000  00000000  00002ca4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  00004434  2**0
+  5 .debug_aranges 00000140  00000000  00000000  00003cd3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  00004574  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  00003e13  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  000046e4  2**0
+  7 .debug_info   00001c49  00000000  00000000  00003f83  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  0000632d  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  00005bcc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dce  00000000  00000000  00007218  2**0
+  9 .debug_line   00000dad  00000000  00000000  00006ab7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  00007fe8  2**2
+ 10 .debug_frame  00000160  00000000  00000000  00007864  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    00000293  00000000  00000000  00008148  2**0
+ 11 .debug_str    0000028d  00000000  00000000  000079c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  000083db  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  00007c51  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  00008ba9  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000841f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -412,10 +412,6 @@ _delay_ms(double __ms)
      2f8:	98 87       	std	Y+8, r25	; 0x08
      2fa:	a9 87       	std	Y+9, r26	; 0x09
      2fc:	ba 87       	std	Y+10, r27	; 0x0a
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
      2fe:	6f 81       	ldd	r22, Y+7	; 0x07
      300:	78 85       	ldd	r23, Y+8	; 0x08
@@ -583,12 +579,6 @@ _delay_loop_2(uint16_t __count)
      3f4:	ed cf       	rjmp	.-38     	; 0x3d0 <main+0x140>
 
 000003f6 <usbGenericSetInterrupt>:
-/* ------------------------------------------------------------------------- */
-
-#if !USB_CFG_SUPPRESS_INTR_CODE
-#if USB_CFG_HAVE_INTRIN_ENDPOINT
-static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStatus)
-{
      3f6:	df 93       	push	r29
      3f8:	cf 93       	push	r28
      3fa:	cd b7       	in	r28, 0x3d	; 61
@@ -604,12 +594,6 @@ static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStat
      40e:	6e 83       	std	Y+6, r22	; 0x06
      410:	58 87       	std	Y+8, r21	; 0x08
      412:	4f 83       	std	Y+7, r20	; 0x07
-
-#if USB_CFG_IMPLEMENT_HALT
-    if(usbTxLen1 == USBPID_STALL)
-        return;
-#endif
-    if(txStatus->len & 0x10){   /* packet buffer was empty */
      414:	ef 81       	ldd	r30, Y+7	; 0x07
      416:	f8 85       	ldd	r31, Y+8	; 0x08
      418:	80 81       	ld	r24, Z
@@ -619,7 +603,6 @@ static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStat
      420:	90 70       	andi	r25, 0x00	; 0
      422:	00 97       	sbiw	r24, 0x00	; 0
      424:	49 f0       	breq	.+18     	; 0x438 <usbGenericSetInterrupt+0x42>
-        txStatus->buffer[0] ^= USBPID_DATA0 ^ USBPID_DATA1; /* toggle token */
      426:	ef 81       	ldd	r30, Y+7	; 0x07
      428:	f8 85       	ldd	r31, Y+8	; 0x08
      42a:	91 81       	ldd	r25, Z+1	; 0x01
@@ -629,24 +612,17 @@ static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStat
      432:	f8 85       	ldd	r31, Y+8	; 0x08
      434:	81 83       	std	Z+1, r24	; 0x01
      436:	04 c0       	rjmp	.+8      	; 0x440 <usbGenericSetInterrupt+0x4a>
-    }else{
-        txStatus->len = USBPID_NAK; /* avoid sending outdated (overwritten) interrupt data */
      438:	ef 81       	ldd	r30, Y+7	; 0x07
      43a:	f8 85       	ldd	r31, Y+8	; 0x08
      43c:	8a e5       	ldi	r24, 0x5A	; 90
      43e:	80 83       	st	Z, r24
-    }
-    p = txStatus->buffer + 1;
      440:	8f 81       	ldd	r24, Y+7	; 0x07
      442:	98 85       	ldd	r25, Y+8	; 0x08
      444:	02 96       	adiw	r24, 0x02	; 2
      446:	9b 83       	std	Y+3, r25	; 0x03
      448:	8a 83       	std	Y+2, r24	; 0x02
-    i = len;
      44a:	8e 81       	ldd	r24, Y+6	; 0x06
      44c:	89 83       	std	Y+1, r24	; 0x01
-    do{                         /* if len == 0, we still copy 1 byte, but that's no problem */
-        *p++ = *data++;
      44e:	ec 81       	ldd	r30, Y+4	; 0x04
      450:	fd 81       	ldd	r31, Y+5	; 0x05
      452:	80 81       	ld	r24, Z
@@ -663,27 +639,22 @@ static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStat
      468:	01 96       	adiw	r24, 0x01	; 1
      46a:	9d 83       	std	Y+5, r25	; 0x05
      46c:	8c 83       	std	Y+4, r24	; 0x04
-    }while(--i > 0);            /* loop control at the end is 2 bytes shorter than at beginning */
      46e:	89 81       	ldd	r24, Y+1	; 0x01
      470:	81 50       	subi	r24, 0x01	; 1
      472:	89 83       	std	Y+1, r24	; 0x01
      474:	89 81       	ldd	r24, Y+1	; 0x01
      476:	88 23       	and	r24, r24
      478:	51 f7       	brne	.-44     	; 0x44e <usbGenericSetInterrupt+0x58>
-    usbCrc16Append(&txStatus->buffer[1], len);
      47a:	8f 81       	ldd	r24, Y+7	; 0x07
      47c:	98 85       	ldd	r25, Y+8	; 0x08
      47e:	02 96       	adiw	r24, 0x02	; 2
      480:	6e 81       	ldd	r22, Y+6	; 0x06
      482:	0e 94 d4 04 	call	0x9a8	; 0x9a8 <usbCrc16Append>
-    txStatus->len = len + 4;    /* len must be given including sync byte */
      486:	8e 81       	ldd	r24, Y+6	; 0x06
      488:	8c 5f       	subi	r24, 0xFC	; 252
      48a:	ef 81       	ldd	r30, Y+7	; 0x07
      48c:	f8 85       	ldd	r31, Y+8	; 0x08
      48e:	80 83       	st	Z, r24
-    DBG2(0x21 + (((int)txStatus >> 3) & 3), txStatus->buffer, len + 3);
-}
      490:	28 96       	adiw	r28, 0x08	; 8
      492:	0f b6       	in	r0, 0x3f	; 63
      494:	f8 94       	cli
@@ -695,6 +666,9 @@ static void usbGenericSetInterrupt(uchar *data, uchar len, usbTxStatus_t *txStat
      4a0:	08 95       	ret
 
 000004a2 <usbSetInterrupt>:
+    txStatus->len = len + 4;    /* len must be given including sync byte */
+    DBG2(0x21 + (((int)txStatus >> 3) & 3), txStatus->buffer, len + 3);
+}
 
 USB_PUBLIC void usbSetInterrupt(uchar *data, uchar len)
 {
