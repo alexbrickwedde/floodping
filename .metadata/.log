@@ -941,3 +941,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86
 
 !ENTRY org.eclipse.osgi 2 1 2010-11-03 19:34:15.788
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.ui 4 4 2010-11-03 19:36:35.624
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
