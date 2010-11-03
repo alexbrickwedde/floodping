@@ -84,6 +84,7 @@ public class Main {
 				System.exit(1);
 			}
 			try {
+				System.out.println("Logging in as " + args[0]);
 				connection.login(args[0], args[1]);
 				System.out.println("Logged in as " + connection.getUser());
 
@@ -99,8 +100,6 @@ public class Main {
 			ChatManager chatmanager = connection.getChatManager();
 			MessageParrot parrot = new MessageParrot();
 			chatmanager.addChatListener(parrot);
-			// Chat chat = chatmanager.createChat("alex@nfsroot.de", new
-			// MessageParrot());
 
 			DatagramSocket serverSocket;
 			serverSocket = new DatagramSocket(12345);
