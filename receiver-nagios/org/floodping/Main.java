@@ -137,9 +137,8 @@ public class Main {
 					int res = z < -9 ? (z < -13 ? 2 : 1) : 0;
 					System.out.println("" + airid + " g:" + x + "," + y + "," + z);
 
-					aValues.put(airid, new Integer(new Double(z).intValue()).toString());
+					aValues.put(airid, new Integer(new Double(x).intValue()).toString());
 
-					
 					try {
 						Formatter cmdf = new Formatter();
 						String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, z).toString();
@@ -154,7 +153,7 @@ public class Main {
 						FileWriter fstream = new FileWriter(sFile);
 						BufferedWriter out = new BufferedWriter(fstream);
 						Formatter cmdf = new Formatter();
-						out.write(cmdf.format("%+3.1f", z).toString());
+						out.write(cmdf.format("%+3.1f", x).toString());
 						out.close();
 					} catch (Exception e) {// Catch exception if any
 						System.err.println("Error: " + e.getMessage());
