@@ -131,17 +131,19 @@ public class Main {
 						System.out.println("error: " + x1 + "!=" + x2 + " || " + y1 + "!=" + y2 + " || " + z1 + "!=" + z2 + "");
 						break;
 					}
-					double x = (x1 * 1.0) / 4.6;
-					double y = (y1 * 1.0) / 4.6;
-					double z = (z1 * 1.0) / 4.6;
-					int res = z < -9 ? (z < -13 ? 2 : 1) : 0;
-					System.out.println("" + airid + " g:" + x + "," + y + "," + z);
+					double xx = (x1 * 1.0) / 4.6;
+					double yx = (y1 * 1.0) / 4.6;
+					double zx = (z1 * 1.0) / 4.6;
+					
+					double x = xx;
+					int res = x < -9 ? (x < -13 ? 2 : 1) : 0;
+					System.out.println("" + airid + " g:" + xx + "," + yx + "," + zx);
 
 					aValues.put(airid, new Integer(new Double(x).intValue()).toString());
 
 					try {
 						Formatter cmdf = new Formatter();
-						String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, z).toString();
+						String command = cmdf.format("/usr/bin/submit_check_result ned %s %d %+3.1fcm", airid, res, x).toString();
 						System.out.println("" + command);
 						Runtime.getRuntime().exec(command);
 					} catch (Exception e) {
