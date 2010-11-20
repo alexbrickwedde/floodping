@@ -3,7 +3,9 @@
 #include <avr/wdt.h>
 #include <util/delay.h>
 #include <stdlib.h>
+#include <stdio.h>
 
+#include "ldr.h"
 #include "i2c-rtc.h"
 
 # define cli()  __asm__ __volatile__ ("cli" ::)

@@ -21,7 +21,9 @@
 #include <inttypes.h>
 #include <compat/twi.h>
 #include <util/delay.h>
+#include <stdio.h>
 
+#include "uart.h"
 #include "i2c-master.h"
 
 #define SCL_CLOCK  400000L                                                      // I2C clock in Hz, usually 100 kHz
@@ -222,7 +224,6 @@ i2c_master_start_wait (uint8_t address)
 
       continue;
     }
-    SetColor(0x0f, 0x01, 0xf1);
 
     // if (twst != TW_MT_SLA_ACK) return 1;
     break;
