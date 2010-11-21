@@ -246,7 +246,7 @@ int main() {
 				uartPuts("Hour++\r\n");
 				int res = i2c_rtc_read(&time, 0);
 				SetColor(bright, uiR, uiG, uiB);
-				time.hh++;
+				add_hour(time);
 				if (time.hh > 23)
 					time.hh = 0;
 				res = i2c_rtc_write(&time);
@@ -267,7 +267,7 @@ int main() {
 //				uartPuts("Min++\r\n");
 //				res = i2c_rtc_read(&time, 1);
 //				SetColor(bright, uiR, uiG, uiB);
-//				time.mm++;
+//				add_minute(time);
 //				time.ss = 0;
 //				if (time.mm > 59)
 //					time.mm = 0;
@@ -304,9 +304,9 @@ int main() {
 			}
 		}
 
-		if (!(time.ss % 1)) {
+		if (time.ss != 0) {
 			char s[100];
-			sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm, time.ss);
+			sprintf(s, "time : %02d:%02d:%02d %02d.%02d.%4d\r\n", time.hh, time.mm, time.ss, time.DD, time.MM, time.YY+2000);
 			uartPuts(s);
 		}
 

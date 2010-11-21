@@ -134,6 +134,45 @@ uint8_t i2c_rtc_write(const DATETIME * datetime) {
 	return rtc;
 }
 
+
+void add_hour(DATETIME * datetime)
+{
+	datetime->hh++;
+	if (datetime->hh > 23) {
+		datetime->hh = 0;
+		datetime->DD++;
+		uint8_t days = 31;
+		switch (datetime->MM) {
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			days = 30;
+			break;
+		case 2:
+			days = ((datetime->YY % 4 == 0) && (!(datetime->YY % 100 == 0))) ? 29 : 28;
+			break;
+		}
+		if (datetime->DD > days) {
+			datetime->DD = 1;
+			datetime->MM++;
+			if (datetime->MM > 12)
+			{
+				datetime->MM = 1;
+			}
+		}
+
+	}
+}
+
+void add_minute(DATETIME * datetime)
+{
+	datetime->mm++;
+	if (datetime->mm > 59) {
+		add_hour(datetime);
+	}
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Read date & time
  *  @details  Reads date & time from rtc
@@ -157,31 +196,7 @@ uint8_t i2c_rtc_read(DATETIME * datetime, uint8_t bDST) {
 			rtc = 1;
 		}
 		if (rtc_dstactive && (bDST != 0)) {
-			datetime->hh++;
-			if (datetime->hh > 23) {
-				datetime->hh = 0;
-				uint8_t days = 31;
-				switch (datetime->MM) {
-				case 4:
-				case 6:
-				case 9:
-				case 11:
-					days = 30;
-					break;
-				case 2:
-					days = ((datetime->YY % 4 == 0) && (!(datetime->YY % 100 == 0))) ? 29 : 28;
-					break;
-				}
-				if (datetime->DD > days) {
-					datetime->DD = 1;
-					datetime->MM++;
-					if (datetime->MM > 12)
-					{
-						datetime->MM = 1;
-					}
-				}
-
-			}
+			add_hour(datetime);
 		}
 	}
 	return rtc;
