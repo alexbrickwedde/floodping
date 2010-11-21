@@ -39,7 +39,9 @@ extern "C"
 {
 #endif
 
+extern void set_dst(uint8_t newstate);
 
+extern uint8_t				   rtc_dstactive;
 /**
  *  Get I2C status
  *  @details  Returns I2C status
@@ -61,7 +63,7 @@ extern uint8_t                i2c_rtc_write (const DATETIME * datetime);
  *  @param    datetime  date & time
  *  @return    TRUE = successful, FALSE = failed
  */
-extern uint8_t                i2c_rtc_read (DATETIME * datetime);
+extern uint8_t                i2c_rtc_read (DATETIME * datetime, uint8_t bDST);
 
 /**
  *  Write data into SRAM

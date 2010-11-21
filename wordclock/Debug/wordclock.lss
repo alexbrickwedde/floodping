@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000049  0080014c  0080014c  00002ce2  2**0
                   ALLOC
-  3 .stab         00002598  00000000  00000000  00002ce4  2**2
+  3 .stab         00003210  00000000  00000000  00002ce4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000012fd  00000000  00000000  0000527c  2**0
+  4 .stabstr      00001452  00000000  00000000  00005ef4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  00006579  2**0
+  5 .debug_aranges 000001a0  00000000  00000000  00007346  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  000066b9  2**0
+  6 .debug_pubnames 000001c9  00000000  00000000  000074e6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  00006829  2**0
+  7 .debug_info   000022af  00000000  00000000  000076af  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  00008472  2**0
+  8 .debug_abbrev 00001267  00000000  00000000  0000995e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  0000935d  2**0
+  9 .debug_line   0000140d  00000000  00000000  0000abc5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  0000a10c  2**2
+ 10 .debug_frame  000001c0  00000000  00000000  0000bfd4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  0000a26c  2**0
+ 11 .debug_str    000003c6  00000000  00000000  0000c194  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  0000a4f9  2**0
+ 12 .debug_loc    00000c9d  00000000  00000000  0000c55a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  0000acc7  2**0
+ 13 .debug_ranges 000000b0  00000000  00000000  0000d1f7  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2360,6 +2360,10 @@ _delay_ms(double __ms)
      da8:	91 83       	std	Z+1, r25	; 0x01
      daa:	a2 83       	std	Z+2, r26	; 0x02
      dac:	b3 83       	std	Z+3, r27	; 0x03
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+#else
 	if (__tmp < 1.0)
      dae:	fe 01       	movw	r30, r28
      db0:	ff 96       	adiw	r30, 0x3f	; 63
@@ -2519,6 +2523,10 @@ _delay_ms(double __ms)
      eaa:	9a ab       	std	Y+50, r25	; 0x32
      eac:	ab ab       	std	Y+51, r26	; 0x33
      eae:	bc ab       	std	Y+52, r27	; 0x34
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+#else
 	if (__tmp < 1.0)
      eb0:	69 a9       	ldd	r22, Y+49	; 0x31
      eb2:	7a a9       	ldd	r23, Y+50	; 0x32
@@ -2899,6 +2907,10 @@ _delay_ms(double __ms)
     112c:	9c a3       	std	Y+36, r25	; 0x24
     112e:	ad a3       	std	Y+37, r26	; 0x25
     1130:	be a3       	std	Y+38, r27	; 0x26
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+#else
 	if (__tmp < 1.0)
     1132:	6b a1       	ldd	r22, Y+35	; 0x23
     1134:	7c a1       	ldd	r23, Y+36	; 0x24
@@ -3580,6 +3592,10 @@ _delay_ms(double __ms)
     15ee:	9e 8b       	std	Y+22, r25	; 0x16
     15f0:	af 8b       	std	Y+23, r26	; 0x17
     15f2:	b8 8f       	std	Y+24, r27	; 0x18
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+#else
 	if (__tmp < 1.0)
     15f4:	6d 89       	ldd	r22, Y+21	; 0x15
     15f6:	7e 89       	ldd	r23, Y+22	; 0x16
@@ -3724,6 +3740,10 @@ _delay_ms(double __ms)
     16de:	98 87       	std	Y+8, r25	; 0x08
     16e0:	a9 87       	std	Y+9, r26	; 0x09
     16e2:	ba 87       	std	Y+10, r27	; 0x0a
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+#else
 	if (__tmp < 1.0)
     16e4:	6f 81       	ldd	r22, Y+7	; 0x07
     16e6:	78 85       	ldd	r23, Y+8	; 0x08

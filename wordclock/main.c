@@ -138,11 +138,25 @@ int main() {
 	uartPuts("\r\n... PWM");
 	InitPWM();
 	SetColor(0xFF, 0xFF, 0x01, 0x01);
+
 	uartPuts("\r\n... Shifter");
 	shift_init();
 	SetColor(0xFF, 0xFF, 0xFF, 0x01);
+
 	uartPuts("\r\n... LDR ADC");
 	ldr_init();
+	SetColor(0xFF, 0x01, 0xFF, 0xFF);
+
+//	uartPuts("\r\n... DCF77");
+//	uartPuts("...PON-Hi");
+//	DDRD |= ( 1 << PD3);
+//	PORTD |= ( 1 << PD3);
+//	_delay_ms(1000);
+//	uartPuts("...PON-Lo");
+//	PORTD &= 0xff ^ ( 1 << PD3 );
+//
+//	while(1){}
+
 	SetColor(0xFF, 0x01, 0xFF, 0xFF);
 	uartPuts("\r\n... RTC");
 	DATETIME time;
@@ -157,22 +171,6 @@ int main() {
 			SetColor(0xFF, 0xff, 0xff, 0xff);
 			_delay_ms(20);
 		}
-	}
-
-	uint8_t dst = 0;
-	int res = i2c_rtc_sram_read(0x10, &dst, 1);
-	if (!res) {
-		uartPuts("RTC error\r\n");
-	} else {
-		if (dst != 1 && dst != 2) {
-			dst = 1;
-			res = i2c_rtc_sram_write(0x10, &dst, 1);
-		}
-		char s[100];
-		char *state = ((dst == 1) ? "inactive" : "active");
-		sprintf(s, "\r\nDST: %s\r\n", state);
-		uartPuts(s);
-
 	}
 
 	SetColor(0xFF, 0xFF, 0xFF, 0xFF);
@@ -246,12 +244,12 @@ int main() {
 		if (Button1 > 1) {
 			if (((Button1 + 10) % 12) == 0 || Button1 > 36) {
 				uartPuts("Hour++\r\n");
-				res = i2c_rtc_read(&time);
+				int res = i2c_rtc_read(&time, 0);
 				SetColor(bright, uiR, uiG, uiB);
 				time.hh++;
 				if (time.hh > 23)
 					time.hh = 0;
-				i2c_rtc_write(&time);
+				res = i2c_rtc_write(&time);
 				char s[100];
 				sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm,
 						time.ss);
@@ -259,28 +257,42 @@ int main() {
 			}
 		}
 
-		if (Button2 > 1) {
-			if (((Button2 + 10) % 12) == 0 || Button2 > 36) {
-				uartPuts("Min++\r\n");
-				res = i2c_rtc_read(&time);
-				SetColor(bright, uiR, uiG, uiB);
-				time.mm++;
-				time.ss = 0;
-				if (time.mm > 59)
-					time.mm = 0;
-				i2c_rtc_write(&time);
-				char s[100];
-				sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm,
-						time.ss);
-				uartPuts(s);
-			}
+		if(Button2 == 2) {
+			uartPuts("toggle DST\r\n");
+			set_dst((rtc_dstactive == 0) ? 1 : 0);
 		}
+
+//		if (Button2 > 1) {
+//			if (((Button2 + 10) % 12) == 0 || Button2 > 36) {
+//				uartPuts("Min++\r\n");
+//				res = i2c_rtc_read(&time, 1);
+//				SetColor(bright, uiR, uiG, uiB);
+//				time.mm++;
+//				time.ss = 0;
+//				if (time.mm > 59)
+//					time.mm = 0;
+//				i2c_rtc_write(&time);
+//				char s[100];
+//				sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm,
+//						time.ss);
+//				uartPuts(s);
+//			}
+//		}
+
+//		if(PIND & (1<< PD2))
+//		{
+//			uartPuts("1\r\n");
+//		}
+//		else
+//		{
+//			uartPuts("0\r\n");
+//		}
 
 		if (uiCount % 100) {
 			continue;
 		}
 
-		res = i2c_rtc_read(&time);
+		int res = i2c_rtc_read(&time, 1);
 		SetColor(bright, uiR, uiG, uiB);
 		if (!res) {
 			uartPuts("RTC error\r\n");
@@ -292,7 +304,7 @@ int main() {
 			}
 		}
 
-		if (!(time.ss % 10)) {
+		if (!(time.ss % 1)) {
 			char s[100];
 			sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm, time.ss);
 			uartPuts(s);
