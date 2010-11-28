@@ -13,9 +13,7 @@
  *   the Free Software Foundation; either version 2 of the License, or
  *   (at your option) any later version.
  */
- /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _WC_I2C_RTC_H_
 #define _WC_I2C_RTC_H_
@@ -25,13 +23,20 @@
 
 typedef struct
 {
-  unsigned char  YY;   ///< year     0-99
-  unsigned char  MM;   ///< month    1-12
-  unsigned char  DD;   ///< day      0-31
-  unsigned char  hh;   ///< hour     0-23
-  unsigned char  mm;   ///< minutes  0-59
-  unsigned char  ss;   ///< seconds  0-59
-  unsigned char  wd;   ///< weekday  0-6, 0 = sunday
+  unsigned char YY; ///< year     0-99
+  char MM; ///< month    1-12
+  char DD; ///< day      0-31
+  char hh; ///< hour     0-23
+  char mm; ///< minutes  0-59
+  char ss; ///< seconds  0-59
+  char wd; ///< weekday  0-6, 0 = sunday
+  char dst; ///< weekday  0-6, 0 = sunday
+
+  char sunrise; // sunrise
+  char sunrisehh;
+  char sunrisemm;
+  char sunfallhh;
+  char sunfallmm;
 } DATETIME;
 
 #ifdef __cplusplus
@@ -39,64 +44,99 @@ extern "C"
 {
 #endif
 
-extern void set_dst(uint8_t newstate);
+  extern void
+  add_hour(DATETIME * datetime);
+  extern void
+  add_minute(DATETIME * datetime);
+  extern void
+  add_day(DATETIME * datetime);
+  extern void
+  add_month(DATETIME * datetime);
+  extern void
+  add_year(DATETIME * datetime);
+  extern void
+  sub_hour(DATETIME * datetime);
+  extern void
+  sub_minute(DATETIME * datetime);
+  extern void
+  sub_day(DATETIME * datetime);
+  extern void
+  sub_month(DATETIME * datetime);
+  extern void
+  sub_year(DATETIME * datetime);
 
-extern uint8_t				   rtc_dstactive;
-/**
- *  Get I2C status
- *  @details  Returns I2C status
- *  @return    i2c rtc status
- */
-extern uint8_t                i2c_rtc_get_status (void);
+  extern void
+  save_byte(uint8_t var, uint8_t value);
+  extern void
+  read_byte(uint8_t var, uint8_t *value);
 
-/**
- *  Write date & time
- *  @details  Writes date & time into RTC
- *  @param    datetime   date & time
- *  @return    TRUE = successful, FALSE = failed
- */
-extern uint8_t                i2c_rtc_write (const DATETIME * datetime);
+#define cRTCOffset      0x1
+#define cBrightControl  0x2
 
-/**
- *  Read date & time
- *  @details  Reads date & time from rtc
- *  @param    datetime  date & time
- *  @return    TRUE = successful, FALSE = failed
- */
-extern uint8_t                i2c_rtc_read (DATETIME * datetime, uint8_t bDST);
+  extern void
+  set_offset(uint8_t newoffset);
 
-/**
- *  Write data into SRAM
- *  @details  Writes data into SRAM
- *  @param    addr         address
- *  @param    void_valuep  pointer to buffer
- *  @param    length       length of buffer
- *  @return    TRUE = successful, FALSE = failed
- */
-extern uint8_t                i2c_rtc_sram_write (uint8_t addr, void * void_valuep, uint8_t length);
+  extern int8_t rtc_offset;
+  /**
+   *  Get I2C status
+   *  @details  Returns I2C status
+   *  @return    i2c rtc status
+   */
+  extern uint8_t
+  i2c_rtc_get_status(void);
 
-/**
- *  Read data into SRAM
- *  @details  Reads data into SRAM
- *  @param    addr         address
- *  @param    void_valuep  pointer to buffer
- *  @param    length      length of buffer
- *  @return    TRUE = successful, FALSE = failed
- */
-extern uint8_t                i2c_rtc_sram_read (uint8_t addr, void * void_valuep, uint8_t length);
+  /**
+   *  Write date & time
+   *  @details  Writes date & time into RTC
+   *  @param    datetime   date & time
+   *  @return    TRUE = successful, FALSE = failed
+   */
+  extern uint8_t
+  i2c_rtc_write(const DATETIME * datetime);
 
-/**
- *  Initialize RTC
- *  @details  Initializes & configures RTC
- *  @param    errorcode_p   pointer to byte in order to store errorcode
- *  @param    status_p      pointer to byte in order to store I2C status
- *  @return    TRUE = successful, FALSE = failed
- */
-extern uint8_t                i2c_rtc_init (uint8_t * errorcode_p, uint8_t * status_p);
+  /**
+   *  Read date & time
+   *  @details  Reads date & time from rtc
+   *  @param    datetime  date & time
+   *  @return    TRUE = successful, FALSE = failed
+   */
+  extern uint8_t
+  i2c_rtc_read(DATETIME * datetime, uint8_t bDST);
+
+  /**
+   *  Write data into SRAM
+   *  @details  Writes data into SRAM
+   *  @param    addr         address
+   *  @param    void_valuep  pointer to buffer
+   *  @param    length       length of buffer
+   *  @return    TRUE = successful, FALSE = failed
+   */
+  extern uint8_t
+  i2c_rtc_sram_write(uint8_t addr, void * void_valuep, uint8_t length);
+
+  /**
+   *  Read data into SRAM
+   *  @details  Reads data into SRAM
+   *  @param    addr         address
+   *  @param    void_valuep  pointer to buffer
+   *  @param    length      length of buffer
+   *  @return    TRUE = successful, FALSE = failed
+   */
+  extern uint8_t
+  i2c_rtc_sram_read(uint8_t addr, void * void_valuep, uint8_t length);
+
+  /**
+   *  Initialize RTC
+   *  @details  Initializes & configures RTC
+   *  @param    errorcode_p   pointer to byte in order to store errorcode
+   *  @param    status_p      pointer to byte in order to store I2C status
+   *  @return    TRUE = successful, FALSE = failed
+   */
+  extern uint8_t
+  i2c_rtc_init(uint8_t * errorcode_p, uint8_t * status_p);
 
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* _WC_I2C_RTC_H_ */
