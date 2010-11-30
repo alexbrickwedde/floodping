@@ -151,6 +151,8 @@ public class WCRemote extends Activity {
         mConversationArrayAdapter = new ArrayAdapter<String>(this, R.layout.message);
         mConversationView = (ListView) findViewById(R.id.in);
         mConversationView.setAdapter(mConversationArrayAdapter);
+        mConversationView.getLayoutParams().height = 1200;
+        mConversationView.requestLayout();
         
         ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
         tb.setChecked(true);
@@ -313,24 +315,24 @@ public class WCRemote extends Activity {
                     break;
                 }
                 break;
-            case MESSAGE_WRITE:
-                byte[] writeBuf = (byte[]) msg.obj;
-                // construct a string from the buffer
-//                String writeMessage = new String(writeBuf);
-//                mConversationArrayAdapter.add("Me:  " + writeMessage);
-                break;
+//            case MESSAGE_WRITE:
+//                byte[] writeBuf = (byte[]) msg.obj;
+//                // construct a string from the buffer
+////                String writeMessage = new String(writeBuf);
+////                mConversationArrayAdapter.add("Me:  " + writeMessage);
+//                break;
             case MESSAGE_READ:
                 byte[] readBuf = (byte[]) msg.obj;
-                // construct a string from the valid bytes in the buffer
                 String readMessage = new String(readBuf, 0, msg.arg1);
                 m_sMessage += readMessage;
                 if(m_sMessage.indexOf("\r")>0)
                 {
-                	String s = m_sMessage.substring(0, m_sMessage.indexOf("\r"));
-                	m_sMessage = m_sMessage.substring(m_sMessage.indexOf("\r")+1);
-                    Toast.makeText(getApplicationContext(), mConnectedDeviceName+":  " + s, Toast.LENGTH_SHORT).show();
+                	String s = m_sMessage.substring(0, m_sMessage.lastIndexOf("\r"));
+                	m_sMessage = m_sMessage.substring(m_sMessage.lastIndexOf("\r")+1);
+                	s = s.trim();
+//                    Toast.makeText(getApplicationContext(), mConnectedDeviceName+":  " + s, Toast.LENGTH_SHORT).show();
+                    mConversationArrayAdapter.insert(s,0);
                 }
-//                mConversationArrayAdapter.add(mConnectedDeviceName+":  " + readMessage);
                 break;
             case MESSAGE_DEVICE_NAME:
                 // save the connected device's name

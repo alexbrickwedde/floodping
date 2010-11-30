@@ -13,14 +13,15 @@
 <ScrollView android:id="@+id/widget54" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 	<LinearLayout android:orientation="vertical"
-		android:layout_width="match_parent" android:layout_height="wrap_content">
+		android:layout_width="match_parent" android:layout_height="wrap_content"><LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+			<EditText android:id="@+id/edit_text_out" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:layout_gravity="bottom" />
+			<Button android:id="@+id/button_send" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/send" />
+		</LinearLayout>
 		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_height="fill_parent" android:layout_width="fill_parent"
 			android:background="#000044">
 			<TableRow>
-				<ListView android:id="@+id/in" android:layout_width="match_parent"
-					android:layout_height="match_parent" android:stackFromBottom="true"
-					android:transcriptMode="alwaysScroll" android:layout_weight="1" />
+				
 			</TableRow>
 
 			<TableRow>
@@ -57,13 +58,6 @@
 				</LinearLayout>
 			</TableRow>
 		</TableLayout>
-		<LinearLayout android:orientation="horizontal"
-			android:layout_width="match_parent" android:layout_height="wrap_content">
-			<EditText android:id="@+id/edit_text_out"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_weight="1" android:layout_gravity="bottom" />
-			<Button android:id="@+id/button_send" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:text="@string/send" />
-		</LinearLayout>
+		<ListView android:id="@+id/in" android:layout_width="match_parent" android:transcriptMode="alwaysScroll" android:layout_weight="1" android:layout_height="wrap_content" android:stackFromBottom="false" android:dividerHeight="0px"/>
 	</LinearLayout>
 </ScrollView>

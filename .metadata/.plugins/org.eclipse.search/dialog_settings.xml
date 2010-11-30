@@ -9,8 +9,8 @@
 	<section name="DialogBounds_SearchDialog">
 		<item value="507" key="DIALOG_WIDTH"/>
 		<item value="222" key="DIALOG_Y_ORIGIN"/>
-		<item value="571" key="DIALOG_X_ORIGIN"/>
 		<item value="427" key="DIALOG_HEIGHT"/>
+		<item value="571" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
@@ -35,7 +35,7 @@
 		<item value="12" key="HISTORY_SIZE"/>
 		<section name="HISTORY11">
 			<item value="false" key="isRegExSearch"/>
-			<item value="1wire.c" key="textPattern"/>
+			<item value="F_CPU" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -46,7 +46,7 @@
 		</section>
 		<section name="HISTORY2">
 			<item value="false" key="isRegExSearch"/>
-			<item value="w1_reset" key="textPattern"/>
+			<item value="edit_text_out" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -57,18 +57,7 @@
 		</section>
 		<section name="HISTORY3">
 			<item value="false" key="isRegExSearch"/>
-			<item value="W1_DDR" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY10">
-			<item value="false" key="isRegExSearch"/>
-			<item value="usbPoll" key="textPattern"/>
+			<item value="AnalogClock01" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -79,7 +68,7 @@
 		</section>
 		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>
-			<item value="edit_text_out" key="textPattern"/>
+			<item value="mConversationArrayAdapter" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -88,29 +77,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY1">
-			<item value="false" key="isRegExSearch"/>
-			<item value="AnalogClock01" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY9">
-			<item value="false" key="isRegExSearch"/>
-			<item value="F_CPU" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY8">
+		<section name="HISTORY10">
 			<item value="false" key="isRegExSearch"/>
 			<item value="USB_CFG_CLOCK_KHZ" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -121,9 +88,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY5">
+		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
-			<item value="usbHidReportDescriptor" key="textPattern"/>
+			<item value="MESSAGE_WRITE" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -132,18 +99,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY4">
-			<item value="false" key="isRegExSearch"/>
-			<item value="usbDescriptorHidReport" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY7">
+		<section name="HISTORY9">
 			<item value="false" key="isRegExSearch"/>
 			<item value="USB_CFG_DESCR_PROPS_HID_REPORT" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -154,9 +110,53 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY6">
+		<section name="HISTORY8">
 			<item value="false" key="isRegExSearch"/>
 			<item value="USB_CFG_DESCR_PROPS_UNKNOWN" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isRegExSearch"/>
+			<item value="W1_DDR" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item value="false" key="isRegExSearch"/>
+			<item value="w1_reset" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
+			<item value="usbHidReportDescriptor" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="usbDescriptorHidReport" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">

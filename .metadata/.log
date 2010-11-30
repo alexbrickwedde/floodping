@@ -2470,3 +2470,111 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 21:52:13.018
 !MESSAGE Failed to load properties file for project 'wordclock'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:07:21.693
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:14:21.097
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:17:19.779
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:20:33.265
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:23:46.013
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:26:01.579
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:30:46.789
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:32:29.030
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2010-11-30 22:43:58.133
+!MESSAGE No command output when running: 'am start -D -n org.floodping.WCR/org.floodping.WCR.WCRemote -a android.intent.action.MAIN -c android.intent.category.LAUNCHER' on device HT94VKF09109
+!STACK 0
+com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:408)
+	at com.android.ddmlib.Device.executeShellCommand(Device.java:277)
+	at com.android.ide.eclipse.adt.internal.launch.ActivityLaunchAction.doLaunchAction(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.launchApp(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
