@@ -347,11 +347,36 @@ main()
         break;
       case 'b':
         {
-          uiBrightControl = uiBrightControl != 0 ? 0 : 1;
-          save_byte(cBrightControl, uiBrightControl);
-          char s[100];
-          sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-          uartPuts(s);
+            switch (uart_string[1])
+            {
+            case '+':
+              {
+                  uiBrightControl = 1;
+                  save_byte(cBrightControl, uiBrightControl);
+                  char s[100];
+                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                  uartPuts(s);
+              }
+              break;
+            case '-':
+              {
+                  uiBrightControl = 0;
+                  save_byte(cBrightControl, uiBrightControl);
+                  char s[100];
+                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                  uartPuts(s);
+              }
+              break;
+            default:
+              {
+                  uiBrightControl = uiBrightControl != 0 ? 0 : 1;
+                  save_byte(cBrightControl, uiBrightControl);
+                  char s[100];
+                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                  uartPuts(s);
+              }
+              break;
+            }
         }
         break;
       case 'c':

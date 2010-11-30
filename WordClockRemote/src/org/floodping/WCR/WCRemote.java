@@ -34,12 +34,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AnalogClock;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DigitalClock;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 /**
  * This is the main Activity that displays the current chat session.
@@ -148,6 +151,49 @@ public class WCRemote extends Activity {
         mConversationArrayAdapter = new ArrayAdapter<String>(this, R.layout.message);
         mConversationView = (ListView) findViewById(R.id.in);
         mConversationView.setAdapter(mConversationArrayAdapter);
+        
+        ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
+        tb.setChecked(true);
+        tb.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	if(((ToggleButton)v).isChecked())
+            	{
+                    sendMessage("b+");
+            	}
+            	else
+            	{
+                    sendMessage("b-");
+            	}
+            }
+        });
+
+        Button b = (Button)findViewById(R.id.ButtonHM);
+        b.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	sendMessage("h-");
+            }
+        });
+
+        b = (Button)findViewById(R.id.ButtonHP);
+        b.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	sendMessage("h+");
+            }
+        });
+
+        b = (Button)findViewById(R.id.ButtonMM);
+        b.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	sendMessage("m-");
+            }
+        });
+
+        b = (Button)findViewById(R.id.ButtonMP);
+        b.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	sendMessage("m+");
+            }
+        });
 
         // Initialize the compose field with a listener for the return key
         mOutEditText = (EditText) findViewById(R.id.edit_text_out);
@@ -244,6 +290,9 @@ public class WCRemote extends Activity {
 
     // The Handler that gets information back from the WordClockRemoteService
     private final Handler mHandler = new Handler() {
+    	
+    	public String m_sMessage = "";
+    	
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -267,14 +316,21 @@ public class WCRemote extends Activity {
             case MESSAGE_WRITE:
                 byte[] writeBuf = (byte[]) msg.obj;
                 // construct a string from the buffer
-                String writeMessage = new String(writeBuf);
-                mConversationArrayAdapter.add("Me:  " + writeMessage);
+//                String writeMessage = new String(writeBuf);
+//                mConversationArrayAdapter.add("Me:  " + writeMessage);
                 break;
             case MESSAGE_READ:
                 byte[] readBuf = (byte[]) msg.obj;
                 // construct a string from the valid bytes in the buffer
                 String readMessage = new String(readBuf, 0, msg.arg1);
-                mConversationArrayAdapter.add(mConnectedDeviceName+":  " + readMessage);
+                m_sMessage += readMessage;
+                if(m_sMessage.indexOf("\r")>0)
+                {
+                	String s = m_sMessage.substring(0, m_sMessage.indexOf("\r"));
+                	m_sMessage = m_sMessage.substring(m_sMessage.indexOf("\r")+1);
+                    Toast.makeText(getApplicationContext(), mConnectedDeviceName+":  " + s, Toast.LENGTH_SHORT).show();
+                }
+//                mConversationArrayAdapter.add(mConnectedDeviceName+":  " + readMessage);
                 break;
             case MESSAGE_DEVICE_NAME:
                 // save the connected device's name

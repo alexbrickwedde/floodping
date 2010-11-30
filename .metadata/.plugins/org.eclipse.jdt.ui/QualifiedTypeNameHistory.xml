@@ -28,4 +28,7 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="android.widget.AnalogClock"/>
+<fullyQualifiedTypeName name="android.widget.DigitalClock"/>
+<fullyQualifiedTypeName name="android.widget.ToggleButton"/>
 </qualifiedTypeNameHistroy>
