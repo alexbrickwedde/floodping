@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="27" version="2.0">
+<workbench progressCount="11" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="334" y="31">
 <fastViewData fastViewLocation="1024"/>
@@ -8,53 +8,44 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="99" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="140" y="40"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="38" y="22"/>
-<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="22"/>
-<coolItem id="de.innot.avreclipse.actionset.avrdude" itemType="typeToolBarContribution" x="46" y="30"/>
-<coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="167" y="30"/>
-<coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="89" y="30"/>
-<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="42" y="40"/>
+<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="98" y="40"/>
+<coolItem id="de.innot.avreclipse.actionset.avrdude" itemType="typeToolBarContribution" x="50" y="40"/>
+<coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="158" y="40"/>
+<coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="84" y="40"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.asm.AsmEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="122" y="40"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="106" y="32"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="78" y="40"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="40"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="186" y="40"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1283606844759" focus="true" label="Workspace - Java">
+<page aggregateWorkingSetId="Aggregate for window 1283606844759" focus="true" label="Workspace - C/C++">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" partName="main.xml" path="C:/Users/SonAle/workspace/floodping/WordClockRemote/res/layout/main.xml" title="main.xml" tooltip="WordClockRemote/res/layout/main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WordClockRemote/res/layout/main.xml"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WCRemote.java" partName="WCRemote.java" path="C:/Users/SonAle/workspace/floodping/WordClockRemote/src/org/floodping/WCR/WCRemote.java" title="WCRemote.java" tooltip="WordClockRemote/src/org/floodping/WCR/WCRemote.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WordClockRemote/src/org/floodping/WCR/WCRemote.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5631" selectionTopPixel="1734"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WordClockRemoteService.java" partName="WordClockRemoteService.java" path="C:/Users/SonAle/workspace/floodping/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java" title="WordClockRemoteService.java" tooltip="WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4768" selectionTopPixel="1700"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/root/floodping/captaster/main.c" title="main.c" tooltip="captaster/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/captaster/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="568" selectionTopPixel="25"/>
 </editor>
 </editors>
 <views>
@@ -109,7 +100,6 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (3 items)"/>
 <category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
@@ -123,9 +113,6 @@
 </view>
 <view id="org.eclipse.cdt.ui.callHierarchy" partName="Call Hierarchy">
 <viewState showFilesInLabels="false" variableFilter="false"/>
-</view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
@@ -154,12 +141,15 @@
 </customFilters>
 </viewState>
 </view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
 <viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.ui.views.ContentOutline" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -251,6 +241,9 @@
 <alwaysOnActionSet id="org.eclipse.cdt.ui.OpenActionSet"/>
 <alwaysOnActionSet id="org.eclipse.cdt.ui.CodingActionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.presentation"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
 <show_view_action id="org.eclipse.ui.console.ConsoleView"/>
 <show_view_action id="org.eclipse.search.ui.views.SearchView"/>
 <show_view_action id="org.eclipse.ui.views.ContentOutline"/>
@@ -288,21 +281,30 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <fastViewBars/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
 <page content="org.eclipse.cdt.ui.CView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1254" ratioRight="418" relationship="2" relative="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1254" ratioRight="418" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24492653" ratioLeft="350" ratioRight="1079" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.6495845" ratioLeft="469" ratioRight="253" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<info folder="true" part="bottom" ratio="0.6495845" ratioLeft="469" ratioRight="253" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="de.innot.avreclipse.views.AVRDeviceView" label="AVR Device Explorer"/>
@@ -310,7 +312,8 @@
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="6"/>
@@ -321,9 +324,12 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.7496013" ratioLeft="940" ratioRight="314" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="topRight" ratio="0.7496013" ratioLeft="940" ratioRight="314" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.cdt.make.ui.views.MakeView" label="Make Targets"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
@@ -417,7 +423,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.17284815" ratioLeft="247" ratioRight="1182" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.65753424" ratioLeft="480" ratioRight="250" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.6898096" ratioLeft="616" ratioRight="277" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -573,133 +579,148 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/WordClockRemote/res/layout/main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/WordClockRemote/src/org/floodping/WCR/WCRemote.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/WordClockRemote/src/org/floodping/WCR/WCRemote.java"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=WordClockRemote/C:\/android\/platforms\/android-8\/android.jar&lt;android.widget(ArrayAdapter.class"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/WordClockRemote/res/layout/main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-rtc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/ldr.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/main.c"/>
 </editors>
-<item historyLabel="main.xml" index="0"/>
 <item historyLabel="WCRemote.java" index="1">
-<position info="not_deleted" x="5791" y="0"/>
-</item>
-<item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="1">
-<position info="not_deleted" x="5791" y="0"/>
+<position/>
 </item>
 <item historyLabel="WCRemote.java" index="1">
-<position info="not_deleted" x="5634" y="0"/>
-</item>
-<item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="3" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="5969" y="0"/>
-</item>
-<item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="6545" y="0"/>
-</item>
-<item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="6647" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="6434" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position/>
-</item>
-<item historyLabel="ArrayAdapter.class" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="2666" y="25"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="5454" y="0"/>
-</item>
-<item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="5454" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="11916" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="19247" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="8257" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="11628" y="13"/>
-</item>
-<item historyLabel="WordClockRemoteService.java" index="5">
-<position info="not_deleted" x="15134" y="0"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position info="not_deleted" x="11628" y="13"/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
-<position/>
-</item>
-<item historyLabel="WCRemote.java" index="2">
 <position info="not_deleted" x="11147" y="25"/>
 </item>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12378" y="0"/>
 </item>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="5401" y="17"/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="5573" y="3"/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="5575" y="0"/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="5430" y="0"/>
 </item>
-<item historyLabel="WordClockRemoteService.java" index="5">
+<item historyLabel="WordClockRemoteService.java" index="2">
 <position info="not_deleted" x="4768" y="0"/>
 </item>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12178" y="0"/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12178" y="0"/>
 </item>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position/>
 </item>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12375" y="122"/>
 </item>
 <item historyLabel="main.xml" index="0"/>
-<item historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12375" y="0"/>
 </item>
-<item historyLabel="WordClockRemoteService.java" index="5">
+<item historyLabel="WordClockRemoteService.java" index="2">
 <position info="not_deleted" x="4768" y="0"/>
 </item>
-<item active="true" historyLabel="WCRemote.java" index="2">
+<item historyLabel="WCRemote.java" index="1">
 <position info="not_deleted" x="12375" y="0"/>
+</item>
+<item historyLabel="main.xml" index="3"/>
+<item historyLabel="i2c-rtc.c" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="ldr.c" index="6">
+<position info="not_deleted" x="1784" y="8"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="ldr.c" index="6">
+<position info="not_deleted" x="1784" y="8"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="ldr.c" index="6">
+<position info="not_deleted" x="3866" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="683" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="450" y="1"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="232" y="25"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="0" y="188"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="68" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="970" y="155"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="68" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="3020" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="68" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="472" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="372" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="7">
+<position info="not_deleted" x="675" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -707,14 +728,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="left"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="bottom"/>
-<trimItem IMemento.internal.id="right"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -727,11 +740,20 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WordClockRemoteService.java" tooltip="WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java">
-<persistable path="/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
 <persistable path="/wordclock/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="captaster/main.c">
+<persistable path="/captaster/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ldr.c" tooltip="wordclock/ldr.c">
+<persistable path="/wordclock/ldr.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
+<persistable path="/wordclock/i2c-rtc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WordClockRemoteService.java" tooltip="WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java">
+<persistable path="/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ArrayAdapter.class" tooltip="android.widget.ArrayAdapter">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=WordClockRemote/C:\/android\/platforms\/android-8\/android.jar&lt;android.widget(ArrayAdapter.class"/>
@@ -741,12 +763,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="WordClockRemote/res/layout/main.xml">
 <persistable path="/WordClockRemote/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ldr.c" tooltip="wordclock/ldr.c">
-<persistable path="/wordclock/ldr.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
-<persistable path="/wordclock/i2c-rtc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
 <persistable path="/wordclock/uart.h"/>
@@ -768,9 +784,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tempmeas.c" tooltip="rfm12-tiny2313/tempmeas.c">
 <persistable path="/rfm12-tiny2313/tempmeas.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="receiver-nagios/org/floodping/Main.java">
-<persistable path="/receiver-nagios/org/floodping/Main.java"/>
 </file>
 </mruList>
 </workbench>
