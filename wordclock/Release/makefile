@@ -64,7 +64,7 @@ all: wordclock.elf secondary-outputs
 wordclock.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32  $(OBJS) $(USER_OBJS) $(LIBS) -o"wordclock.elf"
+	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o"wordclock.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
