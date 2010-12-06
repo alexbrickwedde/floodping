@@ -1,0 +1,23 @@
+#include <avr/io.h>
+#include <avr/sleep.h>
+#include <util/delay.h>
+
+#define BIT(a) (1 << a)
+
+#ifndef cbi
+#define cbi(sfr, bit)     (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+
+int main()
+{
+	while(1)
+	{
+		sbi(PORTB, 3);
+		_delay_ms(1000);
+		cbi(PORTB, 3);
+		_delay_ms(1000);
+	}
+}

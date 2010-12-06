@@ -1,0 +1,55 @@
+#include <avr/io.h>
+#include <avr/sleep.h>
+#include <util/delay.h>
+
+#define BIT(a) (1 << a)
+
+#ifndef cbi
+#define cbi(sfr, bit)     (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+
+
+
+static int sense(void)
+{
+    unsigned char i=0;
+    DDRC  = 0x00;
+    PORTC = 0x00;
+
+    DDRC |= _BV(PC1);
+    DDRC |= _BV(PC0);
+    _delay_us(5);
+    DDRC &= ~_BV(PC1);
+    DDRC &= ~_BV(PC0);
+
+    PORTC |= _BV(PC0);
+    for(i=0; i<255 && !(PINC & _BV(PC0)); i++)
+    {
+        DDRC |=  _BV(PC0);
+        _delay_us(5);
+        DDRC &= ~_BV(PC0);
+        DDRC |=  _BV(PC1);
+        _delay_us(20);
+        DDRC &= ~_BV(PC1);
+    }
+    DDRC |= _BV(PC1);
+    DDRC |= _BV(PC0);
+    PORTC = 0x00;
+
+    return i;
+}
+
+
+int main()
+{
+	while(1)
+	{
+		PORTB |= (1<< PB3);
+		_delay_ms(10);
+		PORTB &= 0xff ^ (1<< PB3);
+		_delay_ms(10);
+	}
+}
