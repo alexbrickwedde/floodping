@@ -1,15 +1,11 @@
 Archive member included because of file (symbol)
 
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
-                              ./main.o (__divmodhi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o (exit)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
                               ./main.o (__do_copy_data)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
                               ./main.o (__do_clear_bss)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o) (__udivmodhi4)
 
 Memory Configuration
 
@@ -122,7 +118,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x134
+.text           0x00000000       0xf6
  *(.vectors)
  .vectors       0x00000000       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
                 0x00000000                __vectors
@@ -187,35 +183,28 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x00000054                __vector_13
                 0x00000054                __vector_7
                 0x00000054                __vector_5
-                0x00000054                __vector_4
                 0x00000054                __vector_9
                 0x00000054                __vector_2
                 0x00000054                __vector_8
                 0x00000054                __vector_14
                 0x00000054                __vector_10
- .text          0x00000056       0x8c ./main.o
-                0x00000056                getcap
-                0x0000007e                main
- .text          0x000000e2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
- .text          0x000000e2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x000000e2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x000000e2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x000000e2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                0x000000e2                . = ALIGN (0x2)
+ .text          0x00000056       0x9c ./main.o
+                0x000000c0                ioinit
+                0x000000d2                main
+                0x00000056                __vector_4
+ .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x000000f2                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000000e2       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
-                0x000000e2                __divmodhi4
-                0x000000e2                _div
- .text.libgcc   0x00000108        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x00000108        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000108        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000108       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                0x00000108                __udivmodhi4
-                0x00000130                . = ALIGN (0x2)
+ .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x000000f2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000130        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x00000130                exit
-                0x00000130                _exit
+ .fini9         0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x000000f2                exit
+                0x000000f2                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -234,20 +223,18 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000130        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x000000f2        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000134                _etext = .
+                0x000000f6                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000134
+.data           0x00800060        0x0 load address 0x000000f6
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
  .data          0x00800060        0x0 ./main.o
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
@@ -256,28 +243,26 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x00800060                _edata = .
                 0x00800060                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x0
+.bss            0x00800060        0x3
                 0x00800060                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
- .bss           0x00800060        0x0 ./main.o
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
+ .bss           0x00800060        0x3 ./main.o
+ .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800060                PROVIDE (__bss_end, .)
-                0x00000134                __data_load_start = LOADADDR (.data)
-                0x00000134                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800063                PROVIDE (__bss_end, .)
+                0x000000f6                __data_load_start = LOADADDR (.data)
+                0x000000f6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800060        0x0
-                0x00800060                PROVIDE (__noinit_start, .)
+.noinit         0x00800063        0x0
+                0x00800063                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800060                PROVIDE (__noinit_end, .)
-                0x00800060                _end = .
-                0x00800060                PROVIDE (__heap_start, .)
+                0x00800063                PROVIDE (__noinit_end, .)
+                0x00800063                _end = .
+                0x00800063                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -369,8 +354,6 @@ __bss_start                                       /opt/cross/avr/lib/gcc/avr/4.3
 __data_end                                        /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __data_load_start                                 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __data_start                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
-__divmodhi4                                       /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
-                                                  ./main.o
 __do_clear_bss                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
                                                   ./main.o
 __do_copy_data                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
@@ -378,8 +361,6 @@ __do_copy_data                                    /opt/cross/avr/lib/gcc/avr/4.3
 __heap_end                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __init                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __stack                                           /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-__udivmodhi4                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
 __vector_1                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_10                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_11                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
@@ -388,7 +369,8 @@ __vector_13                                       /opt/cross/avr/lib/gcc/avr/4.3
 __vector_14                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_2                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_3                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-__vector_4                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__vector_4                                        ./main.o
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_5                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_6                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_7                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
@@ -396,10 +378,9 @@ __vector_8                                        /opt/cross/avr/lib/gcc/avr/4.3
 __vector_9                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_default                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vectors                                         /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-_div                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodhi4.o)
 _exit                                             /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
 exit                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-getcap                                            ./main.o
+ioinit                                            ./main.o
 main                                              ./main.o
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
