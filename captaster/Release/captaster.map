@@ -1,11 +1,34 @@
 Archive member included because of file (symbol)
 
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+                              ./pff.o (__mulsi3)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                              ./main.o (__udivmodsi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o (exit)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
                               ./main.o (__do_copy_data)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
                               ./main.o (__do_clear_bss)
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+                              ./main.o (strcat)
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+                              ./main.o (strcpy)
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
+                              ./main.o (strstr)
+
+Allocating common symbols
+Common symbol       size              file
+
+FifoWi              0x1               ./main.o
+CardType            0x1               ./mmc.o
+FifoRi              0x1               ./main.o
+Fno                 0x16              ./main.o
+rb                  0x2               ./main.o
+Buff                0x100             ./main.o
+Dir                 0x10              ./main.o
+FifoCt              0x1               ./main.o
+Fs                  0x2c              ./main.o
 
 Memory Configuration
 
@@ -21,7 +44,10 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+LOAD ./asmfunc.o
 LOAD ./main.o
+LOAD ./mmc.o
+LOAD ./pff.o
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libm.a
 LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
@@ -118,7 +144,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0xf6
+.text           0x00000000     0x1a2e
  *(.vectors)
  .vectors       0x00000000       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
                 0x00000000                __vectors
@@ -175,7 +201,6 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.text)
  .text          0x00000054        0x2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
                 0x00000054                __vector_1
-                0x00000054                __vector_12
                 0x00000054                __bad_interrupt
                 0x00000054                __vector_6
                 0x00000054                __vector_3
@@ -183,28 +208,63 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x00000054                __vector_13
                 0x00000054                __vector_7
                 0x00000054                __vector_5
+                0x00000054                __vector_4
                 0x00000054                __vector_9
                 0x00000054                __vector_2
                 0x00000054                __vector_8
                 0x00000054                __vector_14
-                0x00000054                __vector_10
- .text          0x00000056       0x9c ./main.o
-                0x000000c0                ioinit
-                0x000000d2                main
-                0x00000056                __vector_4
- .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                0x000000f2                . = ALIGN (0x2)
+ .text          0x00000056      0x170 ./asmfunc.o
+                0x000000a6                xmit_spi
+                0x00000076                init_spi
+                0x00000068                delay_us
+                0x00000056                delay_ms
+                0x000000c0                fwd_blk_part
+                0x00000190                __vector_10
+                0x0000007e                rcv_spi
+ .text          0x000001c6      0x45e ./main.o
+                0x000001c6                __vector_12
+                0x000001c8                main
+ .text          0x00000624      0x244 ./mmc.o
+                0x000006a8                disk_readp
+                0x00000714                disk_initialize
+ .text          0x00000868     0x10f4 ./pff.o
+                0x00000f06                pf_readdir
+                0x00000c98                pf_lseek
+                0x00001470                pf_read
+                0x000013a4                pf_open
+                0x000012fc                pf_opendir
+                0x00001722                pf_mount
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+ .text          0x0000195c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
+                0x0000195c                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
-                0x000000f2                . = ALIGN (0x2)
+ .text.libgcc   0x0000195c       0x32 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+                0x0000195c                __mulsi3
+ .text.libgcc   0x0000198e       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                0x0000198e                __udivmodsi4
+ .text.libgcc   0x000019d2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x000019d2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000019d2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x000019d2       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+                0x000019d2                strcat
+ .text.avr-libc
+                0x000019e8        0xe /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+                0x000019e8                strcpy
+ .text.avr-libc
+                0x000019f6       0x34 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
+                0x000019f6                strstr
+                0x00001a2a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000f2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x000000f2                exit
-                0x000000f2                _exit
+ .fini9         0x00001a2a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x00001a2a                exit
+                0x00001a2a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -223,46 +283,73 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000f2        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x00001a2a        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x000000f6                _etext = .
+                0x00001a2e                _etext = .
 
-.data           0x00800060        0x0 load address 0x000000f6
+.data           0x00800060        0xc load address 0x00001a2e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
- .data          0x00800060        0x0 ./main.o
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .data          0x00800060        0x0 ./asmfunc.o
+ .data          0x00800060        0xc ./main.o
+ .data          0x0080006c        0x0 ./mmc.o
+ .data          0x0080006c        0x0 ./pff.o
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+ .data          0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x0080006c                . = ALIGN (0x2)
+                0x0080006c                _edata = .
+                0x0080006c                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x3
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x0080006c      0x15a
+                0x0080006c                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
- .bss           0x00800060        0x3 ./main.o
- .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .bss           0x00800063        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .bss           0x0080006c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+ .bss           0x0080006c        0x0 ./asmfunc.o
+ .bss           0x0080006c        0x0 ./main.o
+ .bss           0x0080006c        0x0 ./mmc.o
+ .bss           0x0080006c        0x2 ./pff.o
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+ .bss           0x0080006e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
  *(.bss*)
  *(COMMON)
-                0x00800063                PROVIDE (__bss_end, .)
-                0x000000f6                __data_load_start = LOADADDR (.data)
-                0x000000f6                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080006e      0x157 ./main.o
+                0x0080006e                FifoWi
+                0x0080006f                FifoRi
+                0x00800070                Fno
+                0x00800086                rb
+                0x00800088                Buff
+                0x00800188                Dir
+                0x00800198                FifoCt
+                0x00800199                Fs
+ COMMON         0x008001c5        0x1 ./mmc.o
+                0x008001c5                CardType
+                0x008001c6                PROVIDE (__bss_end, .)
+                0x00001a2e                __data_load_start = LOADADDR (.data)
+                0x00001a3a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800063        0x0
-                0x00800063                PROVIDE (__noinit_start, .)
+.noinit         0x008001c6        0x0
+                0x008001c6                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800063                PROVIDE (__noinit_end, .)
-                0x00800063                _end = .
-                0x00800063                PROVIDE (__heap_start, .)
+                0x008001c6                PROVIDE (__noinit_end, .)
+                0x008001c6                _end = .
+                0x008001c6                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -280,13 +367,19 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x6cc
+.stab           0x00000000      0x924
  *(.stab)
  .stab          0x00000000      0x6cc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+ .stab          0x000006cc       0x9c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+                                 0xa8 (size before relaxing)
+ .stab          0x00000768       0x6c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+                                 0x78 (size before relaxing)
+ .stab          0x000007d4      0x150 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
+                                0x15c (size before relaxing)
 
-.stabstr        0x00000000       0x54
+.stabstr        0x00000000       0xde
  *(.stabstr)
- .stabstr       0x00000000       0x54 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+ .stabstr       0x00000000       0xde /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 
 .stab.excl
  *(.stab.excl)
@@ -348,6 +441,18 @@ LOAD linker stubs
 Cross Reference Table
 
 Symbol                                            File
+Buff                                              ./main.o
+                                                  ./asmfunc.o
+CardType                                          ./mmc.o
+Dir                                               ./main.o
+FifoCt                                            ./main.o
+                                                  ./asmfunc.o
+FifoRi                                            ./main.o
+                                                  ./asmfunc.o
+FifoWi                                            ./main.o
+                                                  ./asmfunc.o
+Fno                                               ./main.o
+Fs                                                ./main.o
 __bad_interrupt                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __bss_end                                         /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
 __bss_start                                       /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
@@ -355,22 +460,32 @@ __data_end                                        /opt/cross/avr/lib/gcc/avr/4.3
 __data_load_start                                 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __data_start                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
 __do_clear_bss                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                                                  ./pff.o
+                                                  ./mmc.o
                                                   ./main.o
 __do_copy_data                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+                                                  ./pff.o
+                                                  ./mmc.o
                                                   ./main.o
 __heap_end                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __init                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__mulsi3                                          /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulsi3.o)
+                                                  ./pff.o
 __stack                                           /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__udivmodsi4                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                                                  ./pff.o
+                                                  ./main.o
 __vector_1                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-__vector_10                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__vector_10                                       ./asmfunc.o
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_11                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-__vector_12                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__vector_12                                       ./main.o
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_13                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_14                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_2                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_3                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-__vector_4                                        ./main.o
-                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+__vector_4                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_5                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_6                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vector_7                                        /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
@@ -379,8 +494,41 @@ __vector_9                                        /opt/cross/avr/lib/gcc/avr/4.3
 __vector_default                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 __vectors                                         /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
 _exit                                             /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+delay_ms                                          ./asmfunc.o
+delay_us                                          ./asmfunc.o
+                                                  ./main.o
+disk_initialize                                   ./mmc.o
+                                                  ./pff.o
+disk_readp                                        ./mmc.o
+                                                  ./pff.o
 exit                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-ioinit                                            ./main.o
+fwd_blk_part                                      ./asmfunc.o
+                                                  ./mmc.o
+init_spi                                          ./asmfunc.o
+                                                  ./mmc.o
 main                                              ./main.o
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+pf_lseek                                          ./pff.o
+                                                  ./main.o
+pf_mount                                          ./pff.o
+                                                  ./main.o
+pf_open                                           ./pff.o
+                                                  ./main.o
+pf_opendir                                        ./pff.o
+                                                  ./main.o
+pf_read                                           ./pff.o
+                                                  ./main.o
+pf_readdir                                        ./pff.o
+                                                  ./main.o
+rb                                                ./main.o
+rcv_spi                                           ./asmfunc.o
+                                                  ./mmc.o
+strcat                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcat.o)
+                                                  ./main.o
+strcpy                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strcpy.o)
+                                                  ./main.o
+strstr                                            /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(strstr.o)
+                                                  ./main.o
+xmit_spi                                          ./asmfunc.o
+                                                  ./mmc.o

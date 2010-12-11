@@ -40,25 +40,40 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/root/floodping/captaster/main.c" title="main.c" tooltip="captaster/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/captaster/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="961" selectionTopPixel="570"/>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="stdlib.h" partName="stdlib.h" title="stdlib.h" tooltip="/opt/cross/avr/avr/include/stdlib.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="/opt/cross/avr/avr/include/stdlib.h" project="captaster"/>
 <editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="13927" selectionTopPixel="5265"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/root/floodping/wordclock/main.c" title="main.c" tooltip="wordclock/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="22" selectionOffset="10823" selectionTopPixel="6760"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" partName="i2c-rtc.c" path="/root/floodping/wordclock/i2c-rtc.c" title="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/i2c-rtc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="1208" selectionTopPixel="115"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" partName="uart.h" path="/root/floodping/wordclock/uart.h" title="uart.h" tooltip="wordclock/uart.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/uart.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.h" partName="i2c-rtc.h" path="/root/floodping/wordclock/i2c-rtc.h" title="i2c-rtc.h" tooltip="wordclock/i2c-rtc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/i2c-rtc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2122" selectionTopPixel="915"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy"/>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 <view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
@@ -567,167 +582,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/ldr.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/sound.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/sound.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/invent8.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/songs.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/captaster/timer0.c"/>
 <editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/opt/cross/avr/avr/include/stdlib.h" project="captaster"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/captaster/asmfunc.S"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/opt/cross/avr/avr/include/stdlib.h" project="captaster"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-rtc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/uart.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-rtc.h"/>
 </editors>
-<item historyLabel="ldr.c" index="1">
-<position info="not_deleted" x="3866" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="683" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="450" y="1"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="232" y="25"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="0" y="188"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="68" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="970" y="155"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="68" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3020" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="68" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="472" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="372" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="364" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="325" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="16549" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position/>
-</item>
-<item historyLabel="main.c" index="3">
-<position/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="16659" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="13589" y="0"/>
-</item>
-<item historyLabel="sound.h" index="4">
-<position info="not_deleted" x="4480" y="0"/>
-</item>
-<item historyLabel="sound.c" index="5">
-<position info="not_deleted" x="1065" y="0"/>
-</item>
-<item historyLabel="invent8.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="songs.c" index="7">
+<item historyLabel="songs.c" index="0">
 <position info="not_deleted" x="105" y="0"/>
 </item>
-<item historyLabel="sound.c" index="5">
-<position info="not_deleted" x="3191" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
+<item historyLabel="main.c" index="1">
 <position info="not_deleted" x="1591" y="646"/>
 </item>
-<item historyLabel="songs.c" index="7">
-<position info="not_deleted" x="105" y="0"/>
-</item>
-<item historyLabel="invent8.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="sound.c" index="5">
-<position info="not_deleted" x="3575" y="0"/>
-</item>
-<item historyLabel="timer0.c" index="9">
-<position info="not_deleted" x="1241" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="1591" y="646"/>
-</item>
-<item historyLabel="songs.c" index="7">
-<position info="not_deleted" x="105" y="0"/>
-</item>
-<item historyLabel="invent8.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="sound.c" index="5">
-<position info="not_deleted" x="3625" y="0"/>
-</item>
-<item historyLabel="invent8.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="songs.c" index="7">
-<position info="not_deleted" x="105" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="1591" y="646"/>
-</item>
-<item historyLabel="timer0.c" index="9">
+<item historyLabel="timer0.c" index="2">
 <position info="not_deleted" x="1291" y="0"/>
 </item>
-<item historyLabel="main.c" index="8">
+<item historyLabel="main.c" index="1">
 <position info="not_deleted" x="2100" y="0"/>
 </item>
-<item historyLabel="main.c" index="8">
+<item historyLabel="main.c" index="1">
 <position info="not_deleted" x="2161" y="0"/>
 </item>
-<item historyLabel="main.c" index="8">
+<item historyLabel="main.c" index="1">
 <position info="not_deleted" x="1570" y="0"/>
 </item>
-<item historyLabel="stdlib.h" index="10">
+<item historyLabel="stdlib.h" index="3">
 <position info="not_deleted" x="13927" y="4"/>
 </item>
-<item active="true" historyLabel="main.c" index="8">
-<position info="not_deleted" x="1570" y="0"/>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="asmfunc.S" index="4">
+<position info="not_deleted" x="1894" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="asmfunc.S" index="4">
+<position info="not_deleted" x="1894" y="0"/>
+</item>
+<item historyLabel="stdlib.h" index="5">
+<position info="not_deleted" x="13927" y="4"/>
+</item>
+<item historyLabel="asmfunc.S" index="4">
+<position info="not_deleted" x="301" y="0"/>
+</item>
+<item historyLabel="stdlib.h" index="5">
+<position info="not_deleted" x="13927" y="4"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="stdlib.h" index="5">
+<position info="not_deleted" x="13927" y="4"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="17471" y="8"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="7274" y="67"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="17471" y="8"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="6230" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="15264" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="18986" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="18955" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="7911" y="12"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="13746" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="7909" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="13746" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="11285" y="16"/>
+</item>
+<item historyLabel="uart.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="11285" y="16"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="11224" y="14"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="7869" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="8297" y="4"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="8216" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.h" index="9">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="i2c-rtc.h" index="9">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="i2c-rtc.h" index="9">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="i2c-rtc.h" index="9">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="i2c-rtc.h" index="9">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="7">
+<position info="not_deleted" x="1208" y="9"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="8216" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="6">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -747,14 +761,29 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.h" tooltip="wordclock/i2c-rtc.h">
+<persistable path="/wordclock/i2c-rtc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
+<persistable path="/wordclock/uart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
+<persistable path="/wordclock/i2c-rtc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="captaster/main.c">
+<persistable path="/captaster/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
+<persistable path="/wordclock/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="asmfunc.S" tooltip="captaster/asmfunc.S">
+<persistable path="/captaster/asmfunc.S"/>
+</file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdlib.h" tooltip="/opt/cross/avr/avr/include/stdlib.h">
 <persistable path="/opt/cross/avr/avr/include/stdlib.h" project="captaster"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer0.c" tooltip="captaster/timer0.c">
 <persistable path="/captaster/timer0.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="captaster/main.c">
-<persistable path="/captaster/main.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="songs.c" tooltip="captaster/songs.c">
 <persistable path="/captaster/songs.c"/>
@@ -768,29 +797,14 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sound.h" tooltip="captaster/sound.h">
 <persistable path="/captaster/sound.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
-<persistable path="/wordclock/main.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ldr.c" tooltip="wordclock/ldr.c">
 <persistable path="/wordclock/ldr.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
-<persistable path="/wordclock/i2c-rtc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WordClockRemoteService.java" tooltip="WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java">
 <persistable path="/WordClockRemote/src/org/floodping/WCR/WordClockRemoteService.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ArrayAdapter.class" tooltip="android.widget.ArrayAdapter">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=WordClockRemote/C:\/android\/platforms\/android-8\/android.jar&lt;android.widget(ArrayAdapter.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WCRemote.java" tooltip="WordClockRemote/src/org/floodping/WCR/WCRemote.java">
-<persistable path="/WordClockRemote/src/org/floodping/WCR/WCRemote.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="WordClockRemote/res/layout/main.xml">
-<persistable path="/WordClockRemote/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
-<persistable path="/wordclock/uart.h"/>
 </file>
 </mruList>
 </workbench>
