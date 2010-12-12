@@ -1,9 +1,0 @@
-#Sat Dec 04 19:28:32 CET 2010
-avrtarget/ClockFrequency=8000000
-avrtarget/ExtRAMSize=0
-avrtarget/ExtendedRAM=false
-avrtarget/MCUType=attiny85
-avrtarget/UseEEPROM=false
-avrtarget/UseExtendedRAMforHeap=true
-avrtarget/perConfig=false
-eclipse.preferences.version=1

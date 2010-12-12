@@ -245,6 +245,9 @@ main()
   UCSRB |= _BV(TXEN) | _BV(RXEN) | _BV(RXCIE);
   UCSRC |= _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);
 
+  PORTC &= ~(1<<PC7);
+  DDRC |= (1<<PC7);
+
   UBRRH = 0x00;
   UBRRL = 0x08;
 
@@ -274,17 +277,33 @@ main()
   }
   MCUCSR = 0;
 
+  uartPuts("\r\n... switch on RTC");
+  _delay_ms(500);
+  PORTC |= (1<<PC7);
+  _delay_ms(500);
+
+  uartPuts("\r\n... WDT enable");
+  WDTCR = _BV(WDE) | 0b101;
+
+  sei();
+
   uartPuts("\r\n... PWM");
   InitPWM();
-  SetColor(0xFF, 0xFF, 0x00, 0x00);
+  SetColor(0xF, 0xFF, 0x00, 0x00);
+
+  wdt_reset();
 
   uartPuts("\r\n... Shifter");
   shift_init();
-  SetColor(0xFF, 0xFF, 0xFF, 0x00);
+  SetColor(0xF, 0xFF, 0xFF, 0x00);
+
+  wdt_reset();
 
   uartPuts("\r\n... LDR ADC");
   ldr_init();
-  SetColor(0xFF, 0x00, 0xFF, 0xFF);
+  SetColor(0xF, 0x00, 0xFF, 0xFF);
+
+  wdt_reset();
 
   uartPuts("\r\n... RTC");
   DATETIME time;
@@ -294,11 +313,11 @@ main()
   if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) // initialize rtc
   {
     uartPuts(" FAILED !!!\r\n");
-    for (int uiCount = 0; uiCount < 10; uiCount++)
+    for (;;)
     {
-      SetColor(0xFF, 0x00, 0x00, 0x00);
+      SetColor(0xF, 0x00, 0x00, 0x00);
       _delay_ms(20);
-      SetColor(0xFF, 0xff, 0xff, 0xff);
+      SetColor(0xF, 0xff, 0xff, 0xff);
       _delay_ms(20);
     }
   }
@@ -316,32 +335,50 @@ main()
   uartPuts("\r\n... LED Check");
   SetColor(0xFF, 0xFF, 0xFF, 0xFF);
 
+  wdt_reset();
+
   unsigned long uiScrollingBit = 0x80000000;
   while (uiScrollingBit)
   {
+    wdt_reset();
     shift32_output(uiScrollingBit);
     uiScrollingBit >>= 1;
     _delay_ms(20);
   }
   shift32_output(uiScrollingBit);
-  _delay_ms(500);
+  _delay_ms(100);
+  wdt_reset();
+  _delay_ms(100);
+  wdt_reset();
+  _delay_ms(100);
+  wdt_reset();
+  _delay_ms(100);
+  wdt_reset();
+  _delay_ms(100);
   uiScrollingBit = 1;
   while (uiScrollingBit)
   {
+    wdt_reset();
     shift32_output(uiScrollingBit);
     uiScrollingBit <<= 1;
     _delay_ms(20);
   }
 
+  wdt_reset();
+
   uartPuts("\r\n... RGB Check");
   shift32_output(0xffffffff);
   SetColor(0xFF, 0xFF, 0x00, 0x00);
   _delay_ms(200);
+  wdt_reset();
   SetColor(0xFF, 0x00, 0xFF, 0x00);
   _delay_ms(200);
+  wdt_reset();
   SetColor(0xFF, 0x00, 0x00, 0xFF);
   _delay_ms(200);
   SetColor(0x00, 0xFF, 0xFF, 0xFF);
+
+  wdt_reset();
 
   uint8_t uiBrightControl = 1;
   read_byte(cBrightControl, &uiBrightControl);
@@ -369,11 +406,6 @@ main()
   {
     uartPuts("\r\n... RGB Auto");
   }
-
-  uartPuts("\r\n... WDT enable");
-  WDTCR = _BV(WDE) | 0b101;
-
-  sei();
 
   uartPuts("\r\nReady...\r\n");
 
