@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="match_parent" android:layout_height="match_parent">
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="match_parent" android:layout_height="wrap_content">
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent" android:layout_height="wrap_content">
+			<EditText android:id="@+id/edit_text_out"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_weight="1" android:layout_gravity="bottom" />
+			<Button android:id="@+id/button_send" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/send" />
+		</LinearLayout>
+	</LinearLayout>
+	<android.gesture.GestureOverlayView
+		xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/gestures"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+
+		android:gestureStrokeType="multiple"
+		android:eventsInterceptionEnabled="true" android:orientation="vertical">
+
+	</android.gesture.GestureOverlayView>
+	<ScrollView android:id="@+id/widget54" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+		<!--
+			TableLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_height="fill_parent"
+			android:layout_width="fill_parent" android:background="#000044">
+			<TableRow> </TableRow> <TableRow> <TextView android:text="Stunden:"
+			android:width="120px" /> <LinearLayout> <Button
+			android:id="@+id/ButtonHP" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="+"
+			android:width="50px"></Button> <Button android:id="@+id/ButtonHM"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="-"
+			android:width="50px"></Button> </LinearLayout> </TableRow> <TableRow>
+			<TextView android:text="Minuten:" android:width="120px" />
+
+			<LinearLayout> <Button android:id="@+id/ButtonMP"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="+"
+			android:width="50px"></Button> <Button android:id="@+id/ButtonMM"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="-"
+			android:width="50px"></Button> </LinearLayout> </TableRow> <TableRow>
+			<TextView android:text="Helligkeitregelung" android:width="120px" />
+			<LinearLayout> <ToggleButton android:text="@+id/ToggleButton01"
+			android:id="@+id/ToggleHelligkeit"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></ToggleButton> </LinearLayout>
+			</TableRow> </TableLayout
+		-->
+		<ListView android:id="@+id/in" android:layout_width="match_parent"
+			android:transcriptMode="alwaysScroll" android:layout_weight="1"
+			android:layout_height="wrap_content" android:stackFromBottom="false"
+			android:dividerHeight="0px" />
+	</ScrollView>
+</LinearLayout>
