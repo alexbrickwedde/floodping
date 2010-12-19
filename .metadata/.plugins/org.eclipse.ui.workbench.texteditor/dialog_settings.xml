@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="layout" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value=".add"/>
+			<item value="&quot;b+&quot;"/>
+			<item value="&quot;b&quot;"/>
+			<item value="toast"/>
 			<item value="Layout"/>
 			<item value="lastInd"/>
-			<item value="toast"/>
 			<item value="mConversationArrayAdapter"/>
 			<item value="digit"/>
-			<item value="USB_RX_USER_HOOK"/>
-			<item value="DBG"/>
-			<item value="advanceCircleByFixedAngle"/>
 		</list>
 		<list key="replacehistory">
 		</list>

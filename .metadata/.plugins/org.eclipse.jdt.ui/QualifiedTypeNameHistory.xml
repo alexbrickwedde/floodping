@@ -31,4 +31,8 @@
 <fullyQualifiedTypeName name="android.widget.AnalogClock"/>
 <fullyQualifiedTypeName name="android.widget.DigitalClock"/>
 <fullyQualifiedTypeName name="android.widget.ToggleButton"/>
+<fullyQualifiedTypeName name="android.gesture.GestureLibraries"/>
+<fullyQualifiedTypeName name="android.gesture.GestureOverlayView"/>
+<fullyQualifiedTypeName name="android.gesture.Prediction"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

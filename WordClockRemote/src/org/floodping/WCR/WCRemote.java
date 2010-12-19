@@ -16,12 +16,20 @@
 
 package org.floodping.WCR;
 
+import java.util.ArrayList;
+
 import org.floodping.WCR.R;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.gesture.Gesture;
+import android.gesture.GestureLibraries;
+import android.gesture.GestureLibrary;
+import android.gesture.GestureOverlayView;
+import android.gesture.Prediction;
+import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -34,20 +42,17 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AnalogClock;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DigitalClock;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
-
+  
 /**
  * This is the main Activity that displays the current chat session.
  */
-public class WCRemote extends Activity {
+public class WCRemote extends Activity implements OnGesturePerformedListener {
     // Debugging
     private static final String TAG = "WCRemote";
     private static final boolean D = true;
@@ -84,6 +89,7 @@ public class WCRemote extends Activity {
     // Member object for the chat services
     private WordClockRemoteService mChatService = null;
 
+    private GestureLibrary mLibrary = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +106,13 @@ public class WCRemote extends Activity {
         mTitle.setText(R.string.app_name);
         mTitle = (TextView) findViewById(R.id.title_right_text);
 
+        mLibrary = GestureLibraries.fromRawResource(this, R.raw.gestures);
+        if (!mLibrary.load()) {
+            finish();
+        } 
+        GestureOverlayView gestures = (GestureOverlayView) findViewById(R.id.gestures);
+        gestures.addOnGesturePerformedListener(this);
+        
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -145,57 +158,66 @@ public class WCRemote extends Activity {
     }
 
     private void setupChat() {
-        Log.d(TAG, "setupChat()");
+        Log.d(TAG, "setup()");
 
         // Initialize the array adapter for the conversation thread
         mConversationArrayAdapter = new ArrayAdapter<String>(this, R.layout.message);
         mConversationView = (ListView) findViewById(R.id.in);
         mConversationView.setAdapter(mConversationArrayAdapter);
-        mConversationView.getLayoutParams().height = 1200;
+//        mConversationView.getLayoutParams().height = 1000;
         mConversationView.requestLayout();
-        
-        ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
-        tb.setChecked(true);
-        tb.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	if(((ToggleButton)v).isChecked())
-            	{
-                    sendMessage("b+");
-            	}
-            	else
-            	{
-                    sendMessage("b-");
-            	}
-            }
-        });
 
-        Button b = (Button)findViewById(R.id.ButtonHM);
-        b.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	sendMessage("h-");
-            }
-        });
+        mConversationArrayAdapter.insert("WordClockRemote initializing...",0);
+        mConversationArrayAdapter.insert("1",0);
+        mConversationArrayAdapter.insert("2",0);
+        mConversationArrayAdapter.insert("3",0);
+        mConversationArrayAdapter.insert("4",0);
+        mConversationArrayAdapter.insert("5",0);
+        mConversationArrayAdapter.insert("6",0);
 
-        b = (Button)findViewById(R.id.ButtonHP);
-        b.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	sendMessage("h+");
-            }
-        });
-
-        b = (Button)findViewById(R.id.ButtonMM);
-        b.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	sendMessage("m-");
-            }
-        });
-
-        b = (Button)findViewById(R.id.ButtonMP);
-        b.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	sendMessage("m+");
-            }
-        });
+         
+//        ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
+//        tb.setChecked(true);
+//        tb.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//            	if(((ToggleButton)v).isChecked())
+//            	{
+//                    sendMessage("b+");
+//            	}
+//            	else
+//            	{
+//                    sendMessage("b-");
+//            	}
+//            }
+//        });
+//
+//        Button b = (Button)findViewById(R.id.ButtonHM);
+//        b.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//            	sendMessage("h-");
+//            }
+//        });
+//
+//        b = (Button)findViewById(R.id.ButtonHP);
+//        b.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//            	sendMessage("h+");
+//            }
+//        });
+//
+//        b = (Button)findViewById(R.id.ButtonMM);
+//        b.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//            	sendMessage("m-");
+//            }
+//        });
+//
+//        b = (Button)findViewById(R.id.ButtonMP);
+//        b.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//            	sendMessage("m+");
+//            }
+//        });
 
         // Initialize the compose field with a listener for the return key
         mOutEditText = (EditText) findViewById(R.id.edit_text_out);
@@ -332,6 +354,10 @@ public class WCRemote extends Activity {
                 	s = s.trim();
 //                    Toast.makeText(getApplicationContext(), mConnectedDeviceName+":  " + s, Toast.LENGTH_SHORT).show();
                     mConversationArrayAdapter.insert(s,0);
+                    while(mConversationArrayAdapter.getCount()>20)
+                    {
+                    	mConversationArrayAdapter.remove(mConversationArrayAdapter.getItem(mConversationArrayAdapter.getCount()-1));
+                    }
                 }
                 break;
             case MESSAGE_DEVICE_NAME:
@@ -399,5 +425,63 @@ public class WCRemote extends Activity {
         }
         return false;
     }
+
+	@Override
+	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
+		ArrayList<Prediction> predictions = mLibrary.recognize(gesture);
+
+	    // We want at least one prediction
+	    if (predictions.size() > 0) {
+	        Prediction prediction = predictions.get(0);
+	        // We want at least some confidence in the result
+	        if (prediction.score > 1.0) {
+	        	if(prediction.name.equals("Brightness"))
+	        	{
+                    sendMessage("b");
+		            Toast.makeText(this, "Toggle Brightness", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("Party"))
+	        	{
+                    sendMessage("p");
+		            Toast.makeText(this, "Party Light", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("Light"))
+	        	{
+                    sendMessage("l");
+		            Toast.makeText(this, "Light Mode", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("Off"))
+	        	{
+                    sendMessage("o");
+		            Toast.makeText(this, "Light Off", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("HourPlus"))
+	        	{
+                    sendMessage("h+");
+		            Toast.makeText(this, "Hour Plus", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("HourMinus"))
+	        	{
+                    sendMessage("h-");
+		            Toast.makeText(this, "Hour Minus", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("MinutePlus"))
+	        	{
+                    sendMessage("m+");
+		            Toast.makeText(this, "Minute Plus", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("MinuteMinus"))
+	        	{
+                    sendMessage("m-");
+		            Toast.makeText(this, "Minute Minus", Toast.LENGTH_SHORT).show();
+	        	}
+	        	else if(prediction.name.equals("Reset"))
+	        	{
+                    sendMessage("r");
+		            Toast.makeText(this, "Reset", Toast.LENGTH_SHORT).show();
+	        	}
+	        }
+	    }
+	}
 
 }
