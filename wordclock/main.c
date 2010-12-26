@@ -241,6 +241,7 @@ TimeInfo(DATETIME time)
 int
 main()
 {
+  wdt_reset();
   cli();
   UCSRB |= _BV(TXEN) | _BV(RXEN) | _BV(RXCIE);
   UCSRC |= _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);
@@ -278,9 +279,18 @@ main()
   MCUCSR = 0;
 
   uartPuts("\r\n... switch on RTC");
-  _delay_ms(500);
+
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
   PORTC |= (1<<PC7);
-  _delay_ms(500);
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
 
   uartPuts("\r\n... WDT enable");
   WDTCR = _BV(WDE) | 0b101;
@@ -321,6 +331,7 @@ main()
       _delay_ms(20);
     }
   }
+  wdt_reset();
   int res1 = i2c_rtc_read(&time, 1);
   if (res1)
   {
@@ -333,6 +344,7 @@ main()
   }
 
   uartPuts("\r\n... LED Check");
+  shift32_output(0);
   SetColor(0xFF, 0xFF, 0xFF, 0xFF);
 
   wdt_reset();
@@ -346,15 +358,11 @@ main()
     _delay_ms(20);
   }
   shift32_output(uiScrollingBit);
-  _delay_ms(100);
-  wdt_reset();
-  _delay_ms(100);
-  wdt_reset();
-  _delay_ms(100);
-  wdt_reset();
-  _delay_ms(100);
-  wdt_reset();
-  _delay_ms(100);
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
   uiScrollingBit = 1;
   while (uiScrollingBit)
   {
@@ -368,14 +376,24 @@ main()
 
   uartPuts("\r\n... RGB Check");
   shift32_output(0xffffffff);
-  SetColor(0xFF, 0xFF, 0x00, 0x00);
-  _delay_ms(200);
-  wdt_reset();
-  SetColor(0xFF, 0x00, 0xFF, 0x00);
-  _delay_ms(200);
-  wdt_reset();
-  SetColor(0xFF, 0x00, 0x00, 0xFF);
-  _delay_ms(200);
+  SetColor(0x7F, 0xFF, 0x00, 0x00);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  SetColor(0x7F, 0x00, 0xFF, 0x00);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  SetColor(0x7F, 0x00, 0x00, 0xFF);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
   SetColor(0x00, 0xFF, 0xFF, 0xFF);
 
   wdt_reset();
@@ -893,12 +911,18 @@ main()
       lLEDs |= pgm_read_dword(words+def_mp1);
       break;
     case 2:
+      lLEDs |= pgm_read_dword(words+def_mp1);
       lLEDs |= pgm_read_dword(words+def_mp2);
       break;
     case 3:
+      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp2);
       lLEDs |= pgm_read_dword(words+def_mp3);
       break;
     case 4:
+      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp2);
+      lLEDs |= pgm_read_dword(words+def_mp3);
       lLEDs |= pgm_read_dword(words+def_mp4);
       break;
     }
