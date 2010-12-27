@@ -1,43 +1,17 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.InstallWizard.WizardSettings">
-		<item value="612" key="DIALOG_WIDTH"/>
-		<item value="24" key="DIALOG_Y_ORIGIN"/>
-		<item value="429" key="DIALOG_X_ORIGIN"/>
-		<item value="605" key="DIALOG_HEIGHT"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="750" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="609" key="DIALOG_HEIGHT"/>
+		<item value="398" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
-	<section name="AvailableIUsPage">
-		<item value="800" key="AvailableListSashWeight"/>
-		<item value="true" key="ResolveInstallWithAllSites"/>
-		<item value="240" key="AvailableVersionColumnWidth"/>
-		<item value="false" key="HideInstalledContent"/>
-		<item value="240" key="AvailableNameColumnWidth"/>
-		<item value="1" key="AvailableViewType"/>
-		<item value="200" key="AvailableDetailsSashWeight"/>
-		<item value="true" key="ShowLatestVersionsOnly"/>
+	<section name="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.UninstallWizard.WizardSettings">
+		<item value="525" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="57" key="DIALOG_X_ORIGIN"/>
+		<item value="473" key="DIALOG_HEIGHT"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<section name="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.InstallWizard.WizardSettings">
-		<item value="643" key="DIALOG_WIDTH"/>
-		<item value="108" key="DIALOG_Y_ORIGIN"/>
-		<item value="610" key="DIALOG_HEIGHT"/>
-		<item value="522" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Sans Serif|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-	</section>
-	<section name="AvailableIUsPage">
-		<item value="800" key="AvailableListSashWeight"/>
-		<item value="true" key="ResolveInstallWithAllSites"/>
-		<item value="383" key="AvailableVersionColumnWidth"/>
-		<item value="false" key="HideInstalledContent"/>
-		<item value="240" key="AvailableNameColumnWidth"/>
-		<item value="1" key="AvailableViewType"/>
-		<item value="200" key="AvailableDetailsSashWeight"/>
-		<item value="true" key="ShowLatestVersionsOnly"/>
-	</section>
-</section>
->>>>>>> bb384ebc799cd622282f3c869908e44b4d2a878a

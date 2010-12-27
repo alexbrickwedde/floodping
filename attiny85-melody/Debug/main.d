@@ -1,1 +1,3 @@
-main.d main.o: ../main.c
+main.d main.o: ../main.c ../lied.h
+
+../lied.h:
