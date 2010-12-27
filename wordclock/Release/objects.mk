@@ -4,4 +4,4 @@
 
 USER_OBJS :=
 
-LIBS := -lprintf_flt -lm
+LIBS :=

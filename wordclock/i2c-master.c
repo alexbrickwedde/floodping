@@ -204,8 +204,6 @@ i2c_master_start_wait (uint8_t address)
 
     if ((twst != TW_START) && (twst != TW_REP_START))
     {
-        sprintf(s,"error cont1 : %d\r\n", twst);
-        uartPuts(s);
       continue;
     }
 
@@ -218,9 +216,6 @@ i2c_master_start_wait (uint8_t address)
     {
       TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);                               // device busy, send stop condition to terminate write operation
       WAIT_UNTIL_STOP_CONDITION_EXECUTED;                                       // wait until stop condition is executed and bus released
-
-      sprintf(s,"error cont2 : %d\r\n", twst);
-      uartPuts(s);
 
       continue;
     }

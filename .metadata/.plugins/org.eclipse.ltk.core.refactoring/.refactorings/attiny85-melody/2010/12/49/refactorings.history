@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;captaster/Klingel-ATTINY45.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;Klingel-ATTINY45.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Klingel-ATTINY45.c" name="main.c" stamp="1292092054575" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;captaster/LIED.H&apos; to &apos;lied.h&apos;" description="Rename resource &apos;LIED.H&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="LIED.H" name="lied.h" stamp="1292092058932" updateReferences="true"/>
+</session>

@@ -1,11 +1,15 @@
 Archive member included because of file (symbol)
 
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+                              ./main.o (__mulsi3)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
-                              ./main.o (__udivmodqi4)
+                              ./i2c-rtc.o (__udivmodqi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
                               ./main.o (__udivmodhi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
-                              ./main.o (__divmodhi4)
+                              ./i2c-rtc.o (__divmodhi4)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
+                              ./main.o (__divmodsi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
@@ -28,6 +32,8 @@ Archive member included because of file (symbol)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o) (__fixsfsi)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o) (__thenan_sf)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o) (__udivmodsi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o) (__prologue_saves__)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
@@ -166,7 +172,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2b62
+.text           0x00000000     0x5320
  *(.vectors)
  .vectors       0x00000000       0x54 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -174,40 +180,42 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a
  *(.vectors)
  *(.progmem.gcc*)
  *(.progmem*)
-                0x00000054                . = ALIGN (0x2)
-                0x00000054                __trampolines_start = .
+ .progmem.data  0x00000054       0x78 ./main.o
+                0x00000054                words
+                0x000000cc                . = ALIGN (0x2)
+                0x000000cc                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000054        0x0 linker stubs
+ .trampolines   0x000000cc        0x0 linker stubs
  *(.trampolines*)
-                0x00000054                __trampolines_end = .
+                0x000000cc                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000054                __ctors_start = .
+                0x000000cc                __ctors_start = .
  *(.ctors)
-                0x00000054                __ctors_end = .
-                0x00000054                __dtors_start = .
+                0x000000cc                __ctors_end = .
+                0x000000cc                __dtors_start = .
  *(.dtors)
-                0x00000054                __dtors_end = .
+                0x000000cc                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000054        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x00000054                __init
+ .init0         0x000000cc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x000000cc                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000054        0xc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init2         0x000000cc        0xc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000060       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
-                0x00000060                __do_copy_data
- .init4         0x00000076       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
-                0x00000076                __do_clear_bss
+ .init4         0x000000d8       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
+                0x000000d8                __do_copy_data
+ .init4         0x000000ee       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
+                0x000000ee                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -218,138 +226,163 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000086        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init9         0x000000fe        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init9)
  *(.text)
- .text          0x0000008e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x0000008e                __vector_1
-                0x0000008e                __vector_12
-                0x0000008e                __bad_interrupt
-                0x0000008e                __vector_6
-                0x0000008e                __vector_3
-                0x0000008e                __vector_11
-                0x0000008e                __vector_13
-                0x0000008e                __vector_17
-                0x0000008e                __vector_19
-                0x0000008e                __vector_7
-                0x0000008e                __vector_5
-                0x0000008e                __vector_4
-                0x0000008e                __vector_9
-                0x0000008e                __vector_2
-                0x0000008e                __vector_15
-                0x0000008e                __vector_8
-                0x0000008e                __vector_14
-                0x0000008e                __vector_10
-                0x0000008e                __vector_16
-                0x0000008e                __vector_18
-                0x0000008e                __vector_20
- .text          0x00000092      0x31c ./i2c-master.o
-                0x00000388                i2c_master_read_nak
-                0x00000302                i2c_master_write
-                0x000000a8                i2c_master_init
-                0x0000017e                i2c_master_start_wait
-                0x000002b0                i2c_master_rep_start
-                0x00000362                i2c_master_read_ack
-                0x000002da                i2c_master_stop
-                0x000000e2                i2c_master_start
- .text          0x000003ae      0x4a2 ./i2c-rtc.o
-                0x00000550                i2c_rtc_read
-                0x000004ac                i2c_rtc_write
-                0x000005f4                i2c_rtc_sram_write
-                0x000003ae                bcdtoi
-                0x000006b2                i2c_rtc_sram_read
-                0x0000049a                i2c_rtc_get_status
-                0x000007ac                i2c_rtc_init
-                0x000003ee                itobcd
- .text          0x00000850      0x188 ./ldr.o
-                0x00000850                ldr_init
-                0x00000930                ldr_read
-                0x00000906                ldr_get_brightness
- .text          0x000009d8     0x10bc ./main.o
-                0x00000b70                shift32_output
-                0x00000a52                SetColor
-                0x00000c3a                shift_init
-                0x00000a1c                SetPWMOutput
-                0x000009d8                InitPWM
-                0x00000c94                main
-                0x00000b1a                uartPuts
-                0x00000aec                uartPutc
- .text          0x00001a94        0x0 ./timer.o
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
- .text          0x00001a94        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
- .text          0x00001a94       0x58 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
-                0x00001a94                __fixunssfsi
- .text          0x00001aec      0x354 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
-                0x00001d84                __subsf3
-                0x00001de6                __addsf3
- .text          0x00001e40      0x1f4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
-                0x00001e40                __mulsf3
- .text          0x00002034       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
-                0x00002034                __gtsf2
- .text          0x00002094       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
-                0x00002094                __gesf2
- .text          0x000020f4       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
-                0x000020f4                __ltsf2
- .text          0x00002154       0xa8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
-                0x00002154                __fixsfsi
- .text          0x000021fc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
- .text          0x000021fc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
- .text          0x000021fc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
- .text          0x000021fc      0x1aa /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
-                0x000021fc                __pack_f
- .text          0x000023a6       0xf0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
-                0x000023a6                __unpack_f
- .text          0x00002496       0xb2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
-                0x00002496                __fpcmp_parts_f
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
- .text          0x00002548        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
-                0x00002548                . = ALIGN (0x2)
+ .text          0x00000106        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000106                __vector_1
+                0x00000106                __vector_12
+                0x00000106                __bad_interrupt
+                0x00000106                __vector_6
+                0x00000106                __vector_3
+                0x00000106                __vector_11
+                0x00000106                __vector_17
+                0x00000106                __vector_19
+                0x00000106                __vector_7
+                0x00000106                __vector_5
+                0x00000106                __vector_4
+                0x00000106                __vector_9
+                0x00000106                __vector_2
+                0x00000106                __vector_15
+                0x00000106                __vector_8
+                0x00000106                __vector_14
+                0x00000106                __vector_10
+                0x00000106                __vector_16
+                0x00000106                __vector_18
+                0x00000106                __vector_20
+ .text          0x0000010a      0x31c ./i2c-master.o
+                0x00000400                i2c_master_read_nak
+                0x0000037a                i2c_master_write
+                0x00000120                i2c_master_init
+                0x000001f6                i2c_master_start_wait
+                0x00000328                i2c_master_rep_start
+                0x000003da                i2c_master_read_ack
+                0x00000352                i2c_master_stop
+                0x0000015a                i2c_master_start
+ .text          0x00000426      0xe4c ./i2c-rtc.o
+                0x000006d0                add_year
+                0x00000a50                i2c_rtc_read
+                0x00000426                save_byte
+                0x0000079c                add_day
+                0x0000062c                i2c_rtc_write
+                0x0000100a                i2c_rtc_sram_write
+                0x000006f6                sub_year
+                0x0000052e                bcdtoi
+                0x0000047e                set_offset
+                0x00000950                add_hour
+                0x000010c8                i2c_rtc_sram_read
+                0x0000061a                i2c_rtc_get_status
+                0x00000450                read_byte
+                0x00000874                sub_day
+                0x000011c2                i2c_rtc_init
+                0x0000056e                itobcd
+                0x0000098e                sub_hour
+                0x0000075c                sub_month
+                0x0000071c                add_month
+                0x000009d0                add_minute
+                0x00000a0e                sub_minute
+ .text          0x00001272      0x188 ./ldr.o
+                0x00001272                ldr_init
+                0x00001352                ldr_read
+                0x00001328                ldr_get_brightness
+ .text          0x000013fa     0x2da0 ./main.o
+                0x000015bc                shift32_output
+                0x00001474                SetColor
+                0x000016e0                __vector_13
+                0x00001686                shift_init
+                0x0000143e                SetPWMOutput
+                0x000013fa                InitPWM
+                0x00001ad6                main
+                0x00001566                uartPuts
+                0x0000186c                TimeInfo
+                0x00001770                hex2dez_c
+                0x000017e4                hex2dez
+                0x00001538                uartPutc
+ .text          0x0000419a        0x0 ./timer.o
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
+ .text          0x0000419a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
+ .text          0x0000419a       0x58 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
+                0x0000419a                __fixunssfsi
+ .text          0x000041f2      0x354 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
+                0x0000448a                __subsf3
+                0x000044ec                __addsf3
+ .text          0x00004546      0x1f4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
+                0x00004546                __mulsf3
+ .text          0x0000473a       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
+                0x0000473a                __gtsf2
+ .text          0x0000479a       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
+                0x0000479a                __gesf2
+ .text          0x000047fa       0x60 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
+                0x000047fa                __ltsf2
+ .text          0x0000485a       0xa8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
+                0x0000485a                __fixsfsi
+ .text          0x00004902        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
+ .text          0x00004902        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+ .text          0x00004902        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
+ .text          0x00004902        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
+ .text          0x00004902      0x1aa /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
+                0x00004902                __pack_f
+ .text          0x00004aac       0xf0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
+                0x00004aac                __unpack_f
+ .text          0x00004b9c       0xb2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
+                0x00004b9c                __fpcmp_parts_f
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .text          0x00004c4e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                0x00004c4e                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00002548       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
-                0x00002548                __udivmodqi4
- .text.libgcc   0x00002560       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
-                0x00002560                __udivmodhi4
- .text.libgcc   0x00002588       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
-                0x00002588                __divmodhi4
-                0x00002588                _div
- .text.libgcc   0x000025ae        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
- .text.libgcc   0x000025ae        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
- .text.libgcc   0x000025ae        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
- .text.libgcc   0x000025ae       0x38 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
-                0x000025ae                __prologue_saves__
- .text.libgcc   0x000025e6       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
-                0x000025e6                __epilogue_restores__
+ .text.libgcc   0x00004c4e       0x3e /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+                0x00004c4e                __mulsi3
+ .text.libgcc   0x00004c8c       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
+                0x00004c8c                __udivmodqi4
+ .text.libgcc   0x00004ca4       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
+                0x00004ca4                __udivmodhi4
+ .text.libgcc   0x00004ccc       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
+                0x00004ccc                __divmodhi4
+                0x00004ccc                _div
+ .text.libgcc   0x00004cf2       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
+                0x00004cf2                __divmodsi4
+ .text.libgcc   0x00004d28        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x00004d28        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00004d28        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00004d28       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+                0x00004d28                __udivmodsi4
+ .text.libgcc   0x00004d6c       0x38 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
+                0x00004d6c                __prologue_saves__
+ .text.libgcc   0x00004da4       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
+                0x00004da4                __epilogue_restores__
  .text.avr-libc
-                0x0000261c       0x48 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
-                0x0000261c                sprintf
+                0x00004dda       0x48 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                0x00004dda                sprintf
  .text.avr-libc
-                0x00002664      0x3ba /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
-                0x00002664                vfprintf
+                0x00004e22      0x3ba /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                0x00004e22                vfprintf
  .text.avr-libc
-                0x00002a1e       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
-                0x00002a1e                strnlen_P
+                0x000051dc       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                0x000051dc                strnlen_P
  .text.avr-libc
-                0x00002a34       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
-                0x00002a34                strnlen
+                0x000051f2       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                0x000051f2                strnlen
  .text.avr-libc
-                0x00002a4a       0x58 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
-                0x00002a4a                fputc
+                0x00005208       0x58 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
+                0x00005208                fputc
  .text.avr-libc
-                0x00002aa2       0xbc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
-                0x00002aa2                __ultoa_invert
-                0x00002b5e                . = ALIGN (0x2)
+                0x00005260       0xbc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                0x00005260                __ultoa_invert
+                0x0000531c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002b5e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
-                0x00002b5e                exit
-                0x00002b5e                _exit
+ .fini9         0x0000531c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+                0x0000531c                exit
+                0x0000531c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -368,100 +401,113 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002b5e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+ .fini0         0x0000531c        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x00002b62                _etext = .
+                0x00005320                _etext = .
 
-.data           0x00800060       0xec load address 0x00002b62
+.data           0x00800060      0x32a load address 0x00005320
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .data          0x00800060       0x26 ./i2c-master.o
- .data          0x00800086        0x0 ./i2c-rtc.o
- .data          0x00800086        0x0 ./ldr.o
- .data          0x00800086       0xbd ./main.o
- .data          0x00800143        0x0 ./timer.o
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
- .data          0x00800143        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
- .data          0x00800143        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
-                0x00800143                __thenan_sf
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
- .data          0x0080014b        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .data          0x00800086       0x55 ./i2c-rtc.o
+                0x008000c1                afall
+                0x008000a7                arise
+                0x0080009b                amziffer
+ .data          0x008000db        0x0 ./ldr.o
+ .data          0x008000db      0x2a6 ./main.o
+                0x008000db                uart_string
+ .data          0x00800381        0x0 ./timer.o
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
+ .data          0x00800381        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
+ .data          0x00800381        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
+                0x00800381                __thenan_sf
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .data          0x00800389        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0080014c                . = ALIGN (0x2)
- *fill*         0x0080014b        0x1 00
-                0x0080014c                _edata = .
-                0x0080014c                PROVIDE (__data_end, .)
+                0x0080038a                . = ALIGN (0x2)
+ *fill*         0x00800389        0x1 00
+                0x0080038a                _edata = .
+                0x0080038a                PROVIDE (__data_end, .)
 
-.bss            0x0080014c       0x49
-                0x0080014c                PROVIDE (__bss_start, .)
+.bss            0x0080038a       0x4c
+                0x0080038a                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080014c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x0080014c        0x1 ./i2c-master.o
- .bss           0x0080014d        0x5 ./i2c-rtc.o
- .bss           0x00800152       0x43 ./ldr.o
- .bss           0x00800195        0x0 ./main.o
- .bss           0x00800195        0x0 ./timer.o
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
- .bss           0x00800195        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .bss           0x0080038a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080038a        0x1 ./i2c-master.o
+ .bss           0x0080038b        0x6 ./i2c-rtc.o
+                0x0080038b                rtc_offset
+ .bss           0x00800391       0x43 ./ldr.o
+ .bss           0x008003d4        0x2 ./main.o
+                0x008003d4                uart_str_complete
+                0x008003d5                uart_str_count
+ .bss           0x008003d6        0x0 ./timer.o
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodhi4.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fixunssfsi.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_gt_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_ge_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_lt_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_sf_to_si.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_thenan_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_prologue.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_epilogue.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .bss           0x008003d6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
  *(.bss*)
  *(COMMON)
-                0x00800195                PROVIDE (__bss_end, .)
-                0x00002b62                __data_load_start = LOADADDR (.data)
-                0x00002c4e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008003d6                PROVIDE (__bss_end, .)
+                0x00005320                __data_load_start = LOADADDR (.data)
+                0x0000564a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800195        0x0
-                0x00800195                PROVIDE (__noinit_start, .)
+.noinit         0x008003d6        0x0
+                0x008003d6                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800195                PROVIDE (__noinit_end, .)
-                0x00800195                _end = .
-                0x00800195                PROVIDE (__heap_start, .)
+                0x008003d6                PROVIDE (__noinit_end, .)
+                0x008003d6                _end = .
+                0x008003d6                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -479,29 +525,29 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x3210
+.stab           0x00000000     0x4d94
  *(.stab)
  .stab          0x00000000      0x6cc /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .stab          0x000006cc      0x870 ./i2c-master.o
                                 0x87c (size before relaxing)
- .stab          0x00000f3c      0x8d0 ./i2c-rtc.o
-                                0xa80 (size before relaxing)
- .stab          0x0000180c      0x3a8 ./ldr.o
+ .stab          0x00000f3c     0x120c ./i2c-rtc.o
+                               0x1410 (size before relaxing)
+ .stab          0x00002148      0x3a8 ./ldr.o
                                 0x570 (size before relaxing)
- .stab          0x00001bb4      0xfcc ./main.o
-                               0x11dc (size before relaxing)
- .stab          0x00002b80       0xd8 ./timer.o
+ .stab          0x000024f0     0x2214 ./main.o
+                               0x24b4 (size before relaxing)
+ .stab          0x00004704       0xd8 ./timer.o
                                  0xe4 (size before relaxing)
- .stab          0x00002c58       0x9c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .stab          0x000047dc       0x9c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
                                  0xa8 (size before relaxing)
- .stab          0x00002cf4       0x9c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .stab          0x00004878       0x9c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
                                  0xa8 (size before relaxing)
- .stab          0x00002d90      0x480 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .stab          0x00004914      0x480 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
                                 0x48c (size before relaxing)
 
-.stabstr        0x00000000     0x1452
+.stabstr        0x00000000     0x18a6
  *(.stabstr)
- .stabstr       0x00000000     0x1452 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .stabstr       0x00000000     0x18a6 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 
 .stab.excl
  *(.stab.excl)
@@ -722,6 +768,7 @@ Symbol                                            File
 InitPWM                                           ./main.o
 SetColor                                          ./main.o
 SetPWMOutput                                      ./main.o
+TimeInfo                                          ./main.o
 __addsf3                                          /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
 __bad_interrupt                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __bss_end                                         /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
@@ -730,6 +777,9 @@ __data_end                                        /opt/cross/avr/lib/gcc/avr/4.3
 __data_load_start                                 /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
 __data_start                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_copy_data.o)
 __divmodhi4                                       /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
+                                                  ./main.o
+                                                  ./i2c-rtc.o
+__divmodsi4                                       /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
                                                   ./main.o
 __do_clear_bss                                    /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_clear_bss.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
@@ -798,6 +848,8 @@ __ltsf2                                           /opt/cross/avr/lib/gcc/avr/4.3
                                                   ./main.o
 __mulsf3                                          /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
                                                   ./main.o
+__mulsi3                                          /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mulsi3.o)
+                                                  ./main.o
 __pack_f                                          /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_pack_sf.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_mul_sf.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_addsub_sf.o)
@@ -821,6 +873,9 @@ __udivmodhi4                                      /opt/cross/avr/lib/gcc/avr/4.3
                                                   ./main.o
 __udivmodqi4                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodqi4.o)
                                                   ./main.o
+                                                  ./i2c-rtc.o
+__udivmodsi4                                      /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_udivmodsi4.o)
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodsi4.o)
 __ultoa_invert                                    /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
 __unpack_f                                        /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_unpack_sf.o)
@@ -834,7 +889,8 @@ __vector_1                                        /opt/cross/avr/lib/gcc/avr/4.3
 __vector_10                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vector_11                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vector_12                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-__vector_13                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+__vector_13                                       ./main.o
+                                                  /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vector_14                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vector_15                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vector_16                                       /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -854,11 +910,26 @@ __vector_default                                  /opt/cross/avr/lib/gcc/avr/4.3
 __vectors                                         /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 _div                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_divmodhi4.o)
 _exit                                             /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
+add_day                                           ./i2c-rtc.o
+                                                  ./main.o
+add_hour                                          ./i2c-rtc.o
+                                                  ./main.o
+add_minute                                        ./i2c-rtc.o
+                                                  ./main.o
+add_month                                         ./i2c-rtc.o
+                                                  ./main.o
+add_year                                          ./i2c-rtc.o
+                                                  ./main.o
+afall                                             ./i2c-rtc.o
+amziffer                                          ./i2c-rtc.o
+arise                                             ./i2c-rtc.o
 bcdtoi                                            ./i2c-rtc.o
 exit                                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr5/libgcc.a(_exit.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 fputc                                             /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(fputc.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+hex2dez                                           ./main.o
+hex2dez_c                                         ./main.o
 i2c_master_init                                   ./i2c-master.o
                                                   ./i2c-rtc.o
 i2c_master_read_ack                               ./i2c-master.o
@@ -880,9 +951,7 @@ i2c_rtc_init                                      ./i2c-rtc.o
 i2c_rtc_read                                      ./i2c-rtc.o
                                                   ./main.o
 i2c_rtc_sram_read                                 ./i2c-rtc.o
-                                                  ./main.o
 i2c_rtc_sram_write                                ./i2c-rtc.o
-                                                  ./main.o
 i2c_rtc_write                                     ./i2c-rtc.o
                                                   ./main.o
 itobcd                                            ./i2c-rtc.o
@@ -894,17 +963,41 @@ ldr_read                                          ./ldr.o
                                                   ./main.o
 main                                              ./main.o
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+read_byte                                         ./i2c-rtc.o
+                                                  ./main.o
+rtc_offset                                        ./i2c-rtc.o
+                                                  ./main.o
+save_byte                                         ./i2c-rtc.o
+                                                  ./main.o
+set_offset                                        ./i2c-rtc.o
+                                                  ./main.o
 shift32_output                                    ./main.o
 shift_init                                        ./main.o
 sprintf                                           /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
                                                   ./main.o
+                                                  ./i2c-rtc.o
                                                   ./i2c-master.o
 strnlen                                           /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
 strnlen_P                                         /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+sub_day                                           ./i2c-rtc.o
+                                                  ./main.o
+sub_hour                                          ./i2c-rtc.o
+                                                  ./main.o
+sub_minute                                        ./i2c-rtc.o
+                                                  ./main.o
+sub_month                                         ./i2c-rtc.o
+                                                  ./main.o
+sub_year                                          ./i2c-rtc.o
+                                                  ./main.o
 uartPutc                                          ./main.o
 uartPuts                                          ./main.o
+                                                  ./i2c-rtc.o
                                                   ./i2c-master.o
+uart_str_complete                                 ./main.o
+uart_str_count                                    ./main.o
+uart_string                                       ./main.o
 vfprintf                                          /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
                                                   /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/libc.a(sprintf.o)
+words                                             ./main.o

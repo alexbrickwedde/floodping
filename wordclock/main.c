@@ -10,29 +10,22 @@
 #include "ldr.h"
 #include "i2c-rtc.h"
 
-#define BIT(a) (1 << a)
+#ifndef cbi
+#define cbi(sfr, bit)     (_SFR_BYTE(sfr) &= ~_BV(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
 
 void
 InitPWM()
 {
-  DDRD = 0xfc; //(1 << PD4) || (1 << PD5) || (1 << PD7);
-
-
-  TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM10);
-  TCCR1B = (1 << CS10);
-  TCCR2 = (1 << CS20) | (1 << WGM20) | (1 << COM21);
-  TCCR0 = (1 << WGM01) | (1 << WGM00) | (1 << COM01) | (01 << COM00) | (1 << CS00) | (1 << CS02);
-
+  DDRD = 0xfc;
+  TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM10);
+  TCCR1B = _BV(CS10);
+  TCCR2 = _BV(CS20) | _BV(WGM20) | _BV(COM21);
+  TCCR0 = _BV(WGM01) | _BV(WGM00) | _BV(COM01) | _BV(COM00) | _BV(CS00) | _BV(CS02);
   TIMSK &= ~0x3c;
-}
-
-void
-SetPWMOutput(uint8_t duty)
-{
-  OCR1AL = duty;
-  OCR1BL = 255 - duty;
-  OCR0 = duty;
-  OCR2 = duty;
 }
 
 void
@@ -46,17 +39,10 @@ SetColor(uint8_t bright, uint8_t uiR, uint8_t uiG, uint8_t uiB)
   OCR2 = b;
 }
 
-#ifndef cbi
-#define cbi(sfr, bit)     (_SFR_BYTE(sfr) &= ~_BV(bit))
-#endif
-#ifndef sbi
-#define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
-#endif
-
 void
 uartPutc(char c)
 {
-  while (!(UCSRA & (1 << UDRE)))
+  while (!(UCSRA & _BV(UDRE)))
     ;
   UDR = c;
 }
@@ -88,38 +74,39 @@ shift32_output(uint32_t value)
   uint8_t u3 = (uint8_t) (value >> 24);
 
   SPDR = u3;
-  while (!(SPSR & (1 << SPIF)))
+  while (!(SPSR & _BV(SPIF)))
     ;
 
   SPDR = u2;
-  while (!(SPSR & (1 << SPIF)))
+  while (!(SPSR & _BV(SPIF)))
     ;
 
   SPDR = u1;
-  while (!(SPSR & (1 << SPIF)))
+  while (!(SPSR & _BV(SPIF)))
     ;
 
   SPDR = u0;
-  while (!(SPSR & (1 << SPIF)))
+  while (!(SPSR & _BV(SPIF)))
     ;
 
   /* latch data */
-  SHIFT_SR_SPI_PORT &= ~(1 << SHIFT_SR_SPI_RCLK);
-  SHIFT_SR_SPI_PORT |= (1 << SHIFT_SR_SPI_RCLK);
+  SHIFT_SR_SPI_PORT &= ~_BV(SHIFT_SR_SPI_RCLK);
+  SHIFT_SR_SPI_PORT |= _BV(SHIFT_SR_SPI_RCLK);
 }
 
 void
 shift_init(void)
 {
-  SHIFT_SR_SPI_DDR |= (1 << SHIFT_SR_SPI_MOSI) | (1 << SHIFT_SR_SPI_RCLK) | (1 << SHIFT_SR_SPI_SCK);
-  SHIFT_SR_SPI_DDR &= ~(1 << SHIFT_SR_SPI_MISO); /* MISO muss eingang sein */
-  SHIFT_SR_SPI_PORT |= (1 << SHIFT_SR_SPI_RCLK) | (1 << SHIFT_SR_SPI_MISO);
+  SHIFT_SR_SPI_DDR |= _BV(SHIFT_SR_SPI_MOSI) | _BV(SHIFT_SR_SPI_RCLK) | _BV(SHIFT_SR_SPI_SCK);
+  SHIFT_SR_SPI_DDR &= ~_BV(SHIFT_SR_SPI_MISO); /* MISO muss eingang sein */
+  SHIFT_SR_SPI_PORT |= _BV(SHIFT_SR_SPI_RCLK) | _BV(SHIFT_SR_SPI_MISO);
 
-  SPCR = (1 << SPE) | (1 << MSTR) | (1 << CPOL) | (1 << SPR0) | (1 << SPR1);
+  SPCR = _BV(SPE) | _BV(MSTR) | _BV(CPOL) | _BV(SPR0) | _BV(SPR1);
 
-  SPSR |= (1 << SPI2X);
+  SPSR |= _BV(SPI2X);
 
-  shift32_output(0); /* send dummybytes to intialize */
+  shift32_output(0xFFFFFFFF);
+  shift32_output(0xFFFFFFFF);
 }
 
 #define UART_MAXSTRLEN 100
@@ -208,72 +195,125 @@ hex2dez(char *h)
 #define def_mp4      26
 
 const long words[30] PROGMEM =
-{ 0b10000000000000000000000000000000, // es
-0b01000000000000000000000000000000, // ist
-0b00100000000000000000000000000000, // fünf
-0b00010000000000000000000000000000, // zehn
-0b00001000000000000000000000000000, // zwanzig
-0b00000100000000000000000000000000, // drei
-0b00000010000000000000000000000000, // viertel
-0b00000001000000000000000000000000, // nach
-0b00000000100000000000000000000000, // vor
-0b00000000010000000000000000000000, // halb
-0b00000000001000000000000000000000, // zwölf
-0b00000000000110000000000000000000, // zwei
-0b00000000000011000000000000000000, // ein
-0b00000000000000100000000000000000, // sieben
-0b00000000000000010000000000000000, // drei
-0b00000000000000001000000000000000, // fünf
-0b00000000000000000100000000000000, // elf
-0b00000000000000000010000000000000, // neun
-0b00000000000000000001000000000000, // vier
-0b00000000000000000000100000000000, // acht
-0b00000000000000000000010000000000, // zehn
-0b00000000000000000000001000000000, // sechs
-0b00000000000000000000000100000000, // uhr
-0b00000000000000000000000010000000, // m+1
-0b00000000000000000000000001000000, // m+2
-0b00000000000000000000000000100000, // m+3
-0b00000000000000000000000000010000, // m+4
-0b00000000000000000000000000001000, //
-0b00000000000000000000000000000100, //
-0b00000000000000000000000000000010 //
+  { 0b00000000000000000000000000000001, // es
+      0b00000000000000000000000000000010, // ist
+      0b00000000000000000000000000000100, // fünf
+      0b00000000000000000000000000001000, // zehn
+      0b00000000000000000000000000010000, // zwanzig
+      0b00000000000000000000000000100000, // drei
+      0b00000000000000000000000001000000, // viertel
+      0b00000000000000000000000010000000, // nach
+      0b00000000000000000000000100000000, // vor
+      0b00000000000000000000001000000000, // halb
+      0b00000000000000000000010000000000, // zwölf
+      0b00000000000000000001100000000000, // zwei
+      0b00000000000000000011000000000000, // ein
+      0b00000000000000000100000000000000, // sieben
+      0b00000000000000001000000000000000, // drei
+      0b00000000000000010000000000000000, // fünf
+      0b00000000000000100000000000000000, // elf
+      0b00000000000001000000000000000000, // neun
+      0b00000000000010000000000000000000, // vier
+      0b00000000000100000000000000000000, // acht
+      0b00000000001000000000000000000000, // zehn
+      0b00000000010000000000000000000000, // sechs
+      0b00000000100000000000000000000000, // uhr
+      0b00000001000000000000000000000000, // m+1
+      0b00000010000000000000000000000000, // m+2
+      0b00000100000000000000000000000000, // m+3
+      0b00001000000000000000000000000000, // m+4
+      0b00010000000000000000000000000000, //
+      0b00100000000000000000000000000000, //
+      0b01000000000000000000000000000000 //
     };
 
 void
 TimeInfo(DATETIME time)
 {
   char s[100];
-  sprintf(s, "time :  %02d:%02d:%02d %s %02d.%02d.%4d UTC%+d %s\r\n", time.hh, time.mm, time.ss, "x", time.DD, time.MM, time.YY + 2000, rtc_offset, time.dst != 0 ? "DST" : "");
+  sprintf(s, "NOW:  %02d:%02d:%02d %s %02d.%02d.%4d UTC%+d %s\r\n", time.hh, time.mm, time.ss, "x", time.DD, time.MM, time.YY + 2000, rtc_offset, time.dst != 0 ? "DST" : "");
   uartPuts(s);
-  sprintf(s, "Sun: %%%d %02d:%02d - %02d:%02d\r\n", time.sunrise, time.sunrisehh, time.sunrisemm, time.sunfallhh, time.sunfallmm);
-  uartPuts(s);
+  //	sprintf(s, "Sun: %%%d %02d:%02d - %02d:%02d\r\n", time.sunrise,
+  //			time.sunrisehh, time.sunrisemm, time.sunfallhh, time.sunfallmm);
+  //	uartPuts(s);
 }
 
 int
 main()
 {
+  wdt_reset();
   cli();
+  UCSRB |= _BV(TXEN) | _BV(RXEN) | _BV(RXCIE);
+  UCSRC |= _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);
 
-  UCSRB |= (1 << TXEN) | (1 << RXEN) | (1 << RXCIE);
-  UCSRC |= (1 << URSEL) | (1 << UCSZ1) | (1 << UCSZ0);
+  PORTC &= ~(1<<PC7);
+  DDRC |= (1<<PC7);
 
   UBRRH = 0x00;
   UBRRL = 0x08;
 
-  uartPuts("WordClock V0.1 initializing...\r\n");
+  uartPuts("\r\n\r\n\r\n\r\n\r\n\r\n\r\nWordClock V0.1 initializing...\r\n\r\n");
+
+  uartPuts("\r\nReset-Cause:");
+  switch (MCUCSR & 0x1f)
+  {
+  case 1:
+    uartPuts("Power-On Reset\r\n");
+    break;
+  case 2:
+    uartPuts("External Reset\r\n");
+    break;
+  case 4:
+    uartPuts("Brown-Out Reset\r\n");
+    break;
+  case 8:
+    uartPuts("Watchdog Reset\r\n");
+    break;
+  case 16:
+    uartPuts("JTAG Reset\r\n");
+    break;
+  default:
+    uartPuts("unknown\r\n");
+    break;
+  }
+  MCUCSR = 0;
+
+  uartPuts("\r\n... switch on RTC");
+
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  PORTC |= (1<<PC7);
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+
+  uartPuts("\r\n... WDT enable");
+  WDTCR = _BV(WDE) | 0b101;
+
+  sei();
 
   uartPuts("\r\n... PWM");
   InitPWM();
-  SetColor(0xFF, 0xFF, 0x00, 0x00);
+  SetColor(0xF, 0xFF, 0x00, 0x00);
+
+  wdt_reset();
 
   uartPuts("\r\n... Shifter");
   shift_init();
-  SetColor(0xFF, 0xFF, 0xFF, 0x00);
+  SetColor(0xF, 0xFF, 0xFF, 0x00);
+
+  wdt_reset();
 
   uartPuts("\r\n... LDR ADC");
   ldr_init();
-  SetColor(0xFF, 0x00, 0xFF, 0xFF);
+  SetColor(0xF, 0x00, 0xFF, 0xFF);
+
+  wdt_reset();
 
   uartPuts("\r\n... RTC");
   DATETIME time;
@@ -283,40 +323,125 @@ main()
   if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) // initialize rtc
   {
     uartPuts(" FAILED !!!\r\n");
-    for (int uiCount = 0; uiCount < 10; uiCount++)
+    for (;;)
     {
-      SetColor(0xFF, 0x00, 0x00, 0x00);
+      SetColor(0xF, 0x00, 0x00, 0x00);
       _delay_ms(20);
-      SetColor(0xFF, 0xff, 0xff, 0xff);
+      SetColor(0xF, 0xff, 0xff, 0xff);
       _delay_ms(20);
     }
   }
+  wdt_reset();
+  int res1 = i2c_rtc_read(&time, 1);
+  if (res1)
+  {
+    uartPuts("\r\n");
+    TimeInfo(time);
+  }
+  else
+  {
+    uartPuts(" ... RTC error!!!\r\n");
+  }
 
+  uartPuts("\r\n... LED Check");
+  shift32_output(0);
   SetColor(0xFF, 0xFF, 0xFF, 0xFF);
-  sei();
 
-  uartPuts("\r\nReady...\r\n");
+  wdt_reset();
 
-  int uiR = 0x00;
-  int uiG = 0x00;
-  int uiB = 0x00;
-  int uiRGB = 1;
+  unsigned long uiScrollingBit = 0x80000000;
+  while (uiScrollingBit)
+  {
+    wdt_reset();
+    shift32_output(uiScrollingBit);
+    uiScrollingBit >>= 1;
+    _delay_ms(20);
+  }
+  shift32_output(uiScrollingBit);
+  for(int cyx=0;cyx<50;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  uiScrollingBit = 1;
+  while (uiScrollingBit)
+  {
+    wdt_reset();
+    shift32_output(uiScrollingBit);
+    uiScrollingBit <<= 1;
+    _delay_ms(20);
+  }
+
+  wdt_reset();
+
+  uartPuts("\r\n... RGB Check");
+  shift32_output(0xffffffff);
+  SetColor(0x7F, 0xFF, 0x00, 0x00);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  SetColor(0x7F, 0x00, 0xFF, 0x00);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  SetColor(0x7F, 0x00, 0x00, 0xFF);
+  for(int cyx=0;cyx<20;cyx++)
+  {
+    wdt_reset();
+    _delay_ms(10);
+  }
+  SetColor(0x00, 0xFF, 0xFF, 0xFF);
+
+  wdt_reset();
 
   uint8_t uiBrightControl = 1;
   read_byte(cBrightControl, &uiBrightControl);
 
+  char s[100];
+  sprintf(s, "%d", uiBrightControl);
+  uartPuts("\r\n... Brightness:");
+  uartPuts(s);
+
+  unsigned char uiR;
+  unsigned char uiG;
+  unsigned char uiB;
+  unsigned char uiRGB;
+  read_byte(cRGB_R, &uiR);
+  read_byte(cRGB_G, &uiG);
+  read_byte(cRGB_B, &uiB);
+  read_byte(cRGB_Mode, &uiRGB);
+
+  if (!uiRGB)
+  {
+    sprintf(s, "\r\n... RGB color: #%02x%02x%02x", uiR, uiG, uiB);
+    uartPuts(s);
+  }
+  else
+  {
+    uartPuts("\r\n... RGB Auto");
+  }
+
+  uartPuts("\r\nReady...\r\n");
+
   unsigned long lLEDs_LastValue = 0;
 
-  int uiCount = 0;
+  long uiCount = -1;
 
   uint16_t Button1 = 0;
   uint16_t Button2 = 0;
+  uint16_t Button3 = 0;
 
   while (1)
   {
-
-    _delay_ms(10);
+    wdt_reset();
+    _delay_ms(1);
     uiCount++;
+
+    // alle 1ms
 
     ldr_read();
 
@@ -336,47 +461,100 @@ main()
       continue;
     }
 
+    // ca. alle 10ms
+
     if (uart_str_complete)
     {
       switch (uart_string[0])
       {
       case '?':
         {
-//          TimeInfo(time);
+          //          TimeInfo(time);
         }
+        break;
+      case 'p':
+        uartPuts("\r\nParty-Mode...\r\n");
+        shift32_output(0xffffffff);
+        uart_str_complete = 0;
+        while (!uart_str_complete)
+        {
+          SetColor(0xFF, 0x80, 0x00, 0x00);
+          wdt_reset();
+          _delay_ms(20);
+          SetColor(0xFF, 0xFF, 0x00, 0x00);
+          wdt_reset();
+          _delay_ms(200);
+          SetColor(0xFF, 0x00, 0x80, 0x00);
+          wdt_reset();
+          _delay_ms(20);
+          SetColor(0xFF, 0x00, 0xFF, 0x00);
+          wdt_reset();
+          _delay_ms(200);
+          SetColor(0xFF, 0x00, 0x00, 0x80);
+          wdt_reset();
+          _delay_ms(20);
+          SetColor(0xFF, 0x00, 0x00, 0xFF);
+          wdt_reset();
+          _delay_ms(200);
+          SetColor(0xFF, 0xFF, 0xFF, 0xFF);
+          wdt_reset();
+          _delay_ms(200);
+        }
+        wdt_reset();
+        SetColor(0, 0, 0, 0);
+        lLEDs_LastValue = 0xffffffff;
+        break;
+      case 'l':
+        uartPuts("\r\nLight-Mode...\r\n");
+        shift32_output(0xffffffff);
+        uart_str_complete = 0;
+        SetColor(0xFF, 0xFF, 0xFF, 0xFF);
+        while (!uart_str_complete)
+        {
+          wdt_reset();
+          _delay_ms(20);
+        }
+        wdt_reset();
+        SetColor(0, 0, 0, 0);
+        lLEDs_LastValue = 0xffffffff;
+        break;
+      case 'r':
+        uartPuts("\r\nRebooting via Watchdog...\r\n");
+        while (1)
+          ;
         break;
       case 'b':
         {
-            switch (uart_string[1])
+          switch (uart_string[1])
+          {
+          case '+':
             {
-            case '+':
-              {
-                  uiBrightControl = 1;
-                  save_byte(cBrightControl, uiBrightControl);
-                  char s[100];
-                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-                  uartPuts(s);
-              }
-              break;
-            case '-':
-              {
-                  uiBrightControl = 0;
-                  save_byte(cBrightControl, uiBrightControl);
-                  char s[100];
-                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-                  uartPuts(s);
-              }
-              break;
-            default:
-              {
-                  uiBrightControl = uiBrightControl != 0 ? 0 : 1;
-                  save_byte(cBrightControl, uiBrightControl);
-                  char s[100];
-                  sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-                  uartPuts(s);
-              }
-              break;
+              uiBrightControl = 1;
+              save_byte(cBrightControl, uiBrightControl);
+              char s[100];
+              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+              uartPuts(s);
             }
+            break;
+          case '-':
+            {
+              uiBrightControl = 0;
+              save_byte(cBrightControl, uiBrightControl);
+              char s[100];
+              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+              uartPuts(s);
+            }
+            break;
+          default:
+            {
+              uiBrightControl = uiBrightControl != 0 ? 0 : 1;
+              save_byte(cBrightControl, uiBrightControl);
+              char s[100];
+              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+              uartPuts(s);
+            }
+            break;
+          }
         }
         break;
       case 'c':
@@ -386,7 +564,11 @@ main()
           int b = hex2dez((char*) &uart_string[5]);
           if (r < 0 || g < 0 || b < 0)
           {
-            uiRGB = 1;
+            if (uiRGB)
+              uiRGB = 0;
+            else
+              uiRGB = 1;
+            save_byte(cRGB_Mode, uiRGB);
             break;
           }
           uiRGB = 0;
@@ -394,6 +576,22 @@ main()
           uiG = g;
           uiB = b;
           SetColor(uiBright, uiR, uiG, uiB);
+          save_byte(cRGB_R, uiR);
+          save_byte(cRGB_G, uiG);
+          save_byte(cRGB_B, uiB);
+          save_byte(cRGB_Mode, uiRGB);
+        }
+        break;
+      case 't':
+        {
+          if (uiScrollingBit)
+          {
+            uiScrollingBit = 0;
+          }
+          else
+          {
+            uiScrollingBit = 0x80000000;
+          }
         }
         break;
       case '+':
@@ -422,7 +620,7 @@ main()
           break;
         case '-':
           {
-            if (rtc_offset < 11)
+            if (rtc_offset < -11)
               rtc_offset = 13;
             set_offset(rtc_offset - 1);
           }
@@ -577,11 +775,31 @@ main()
       }
       int res1 = i2c_rtc_read(&time, 1);
       int res2 = i2c_rtc_read(&utctime, 0);
+      if (!res1 || !res2)
+      {
+        uartPuts("RTC error\r\n");
+        for (uiCount = 0; uiCount < 40; uiCount++)
+        {
+          SetColor(0x01, 0x01, 0x01, 0x01);
+          _delay_ms(50);
+          SetColor(0xff, 0xff, 0xff, 0xff);
+          _delay_ms(50);
+        }
+        while (1)
+          ;
+      }
       TimeInfo(time);
       uart_str_complete = 0;
     }
 
-    if (!(PINA & (1 << PA7)))
+    if (uiCount % 100)
+    {
+      continue;
+    }
+
+    // ca. alle 100ms
+
+    if (!(PINA & _BV(PA7)))
     {
       Button1++;
     }
@@ -590,7 +808,7 @@ main()
       Button1 = 0;
     }
 
-    if (!(PINA & (1 << PA6)))
+    if (!(PINA & _BV(PA6)))
     {
       Button2++;
     }
@@ -599,12 +817,26 @@ main()
       Button2 = 0;
     }
 
+    if (!(PINA & _BV(PA6)))
+    {
+      Button3++;
+    }
+    else
+    {
+      Button3 = 0;
+    }
+
     if (Button1 > 1)
     {
       if (((Button1 + 10) % 12) == 0 || Button1 > 36)
       {
         uartPuts("Hour++\r\n");
         int res = i2c_rtc_read(&time, 0);
+        if (!res)
+        {
+          while (1)
+            ;
+        }
         add_hour(&time);
         res = i2c_rtc_write(&time);
         char s[100];
@@ -613,36 +845,41 @@ main()
       }
     }
 
-    //		if (Button2 > 1) {
-    //			if (((Button2 + 10) % 12) == 0 || Button2 > 36) {
-    //				uartPuts("Min++\r\n");
-    //				res = i2c_rtc_read(&time, 1);
-    //				SetColor(bright, uiR, uiG, uiB);
-    //				add_minute(time);
-    //				time.ss = 0;
-    //				if (time.mm > 59)
-    //					time.mm = 0;
-    //				i2c_rtc_write(&time);
-    //				char s[100];
-    //				sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm,
-    //						time.ss);
-    //				uartPuts(s);
-    //			}
-    //		}
+    if (Button2 > 1)
+    {
+      if (((Button2 + 10) % 12) == 0 || Button2 > 36)
+      {
+        uartPuts("Min++\r\n");
+        int res = i2c_rtc_read(&time, 0);
+        if (!res)
+        {
+          while (1)
+            ;
+        }
+        add_minute(&time);
+        i2c_rtc_write(&time);
+        char s[100];
+        sprintf(s, "time : %02d:%02d:%02d\r\n", time.hh, time.mm, time.ss);
+        uartPuts(s);
+      }
+    }
 
-    //		if(PIND & (1<< PD2))
-    //		{
-    //			uartPuts("1\r\n");
-    //		}
-    //		else
-    //		{
-    //			uartPuts("0\r\n");
-    //		}
+    if (uiScrollingBit)
+    {
+      uiScrollingBit >>= 1;
+      if (!uiScrollingBit)
+      {
+        uiScrollingBit = 0x80000000;
+      }
+      shift32_output(uiScrollingBit);
+    }
 
-    if (uiCount % 100)
+    if (uiCount % 1000)
     {
       continue;
     }
+
+    // alle 1s
 
     int res1 = i2c_rtc_read(&time, 1);
     int res2 = i2c_rtc_read(&utctime, 0);
@@ -657,7 +894,8 @@ main()
         SetColor(0xff, 0xff, 0xff, 0xff);
         _delay_ms(50);
       }
-      continue;
+      while (1)
+        ;
     }
 
     long lLEDs = 0;
@@ -673,12 +911,18 @@ main()
       lLEDs |= pgm_read_dword(words+def_mp1);
       break;
     case 2:
+      lLEDs |= pgm_read_dword(words+def_mp1);
       lLEDs |= pgm_read_dword(words+def_mp2);
       break;
     case 3:
+      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp2);
       lLEDs |= pgm_read_dword(words+def_mp3);
       break;
     case 4:
+      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp2);
+      lLEDs |= pgm_read_dword(words+def_mp3);
       lLEDs |= pgm_read_dword(words+def_mp4);
       break;
     }
@@ -750,15 +994,20 @@ main()
       hoffset = 1;
     }
 
-    int
-        def_h[25] =
-        { def_zwoelfH, def_einsH, def_zweiH, def_dreiH, def_vierH, def_fuenfH, def_sechsH, def_siebenH, def_achtH, def_neunH, def_zehnH, def_elfH, def_zwoelfH, def_einsH, def_zweiH, def_dreiH, def_vierH, def_fuenfH, def_sechsH, def_siebenH, def_achtH, def_neunH, def_zehnH, def_elfH, def_zwoelfH };
+    int def_h[25] =
+      { def_zwoelfH, def_einsH, def_zweiH, def_dreiH, def_vierH, def_fuenfH, def_sechsH, def_siebenH, def_achtH, def_neunH, def_zehnH, def_elfH, def_zwoelfH, def_einsH, def_zweiH, def_dreiH, def_vierH, def_fuenfH, def_sechsH, def_siebenH, def_achtH, def_neunH, def_zehnH, def_elfH, def_zwoelfH };
     lLEDs |= pgm_read_dword(words + def_h[time.hh + hoffset]);
 
-    if (lLEDs_LastValue != lLEDs)
+    if (!uiScrollingBit)
     {
-      shift32_output(lLEDs);
-      lLEDs_LastValue = lLEDs;
+      if (lLEDs_LastValue != lLEDs)
+      {
+        //		    	char s[100];
+        //		    	sprintf(s,"lLEDs = 0x%lx", lLEDs);
+        //		    	uartPuts(s);
+        shift32_output(lLEDs);
+        lLEDs_LastValue = lLEDs;
+      }
     }
 
     if (time.ss == 0)
@@ -795,10 +1044,7 @@ main()
       }
     }
 
-    if (uiCount % 1000)
-    {
-      uiCount = 0;
-    }
+    uiCount = 0;
   }
   return 0;
 }

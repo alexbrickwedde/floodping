@@ -72,6 +72,11 @@ extern "C"
 
 #define cRTCOffset      0x1
 #define cBrightControl  0x2
+#define cRGB_Mode  	     0x3
+#define cRGB_R     	     0x4
+#define cRGB_G     	     0x5
+#define cRGB_B     	     0x6
+
 
   extern void
   set_offset(uint8_t newoffset);
