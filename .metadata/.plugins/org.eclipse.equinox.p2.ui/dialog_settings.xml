@@ -3,8 +3,8 @@
 	<section name="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.InstallWizard.WizardSettings">
 		<item value="612" key="DIALOG_WIDTH"/>
 		<item value="24" key="DIALOG_Y_ORIGIN"/>
-		<item value="605" key="DIALOG_HEIGHT"/>
 		<item value="429" key="DIALOG_X_ORIGIN"/>
+		<item value="605" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="AvailableIUsPage">

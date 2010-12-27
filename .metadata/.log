@@ -6590,3 +6590,489 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.simpleLaunch(Unknown Source)
 	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.access$3(Unknown Source)
 	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$3.run(Unknown Source)
+!SESSION 2010-12-27 18:16:30.646 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.002
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.029
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.031
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.032
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.047
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.048
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.050
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.053
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.053
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.054
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.055
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.055
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.056
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.056
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.057
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.057
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.058
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.059
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.059
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.060
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.060
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.061
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.061
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.062
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.062
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.063
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.064
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.064
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.065
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.065
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.066
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.066
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:16:59.067
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.core.resources 8 2 2010-12-27 18:17:01.596
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Project target not loaded yet.
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.stopBuild(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:17:01.597
+!MESSAGE Project target not loaded yet.
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:17:01.597
+!MESSAGE Project target not loaded yet.
+
+!ENTRY org.eclipse.core.resources 8 2 2010-12-27 18:17:01.715
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Project target not loaded yet.
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.stopBuild(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:17:01.716
+!MESSAGE Project target not loaded yet.
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:17:01.716
+!MESSAGE Project target not loaded yet.
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.051
+!MESSAGE Bundle file URL not found at path '/gscripts/IViewRule.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.053
+!MESSAGE Bundle file URL not found at path '/gscripts/String.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.056
+!MESSAGE Bundle file URL not found at path '/gscripts/Map.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.058
+!MESSAGE Bundle file URL not found at path '/gscripts/INode.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.060
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.062
+!MESSAGE Bundle file URL not found at path '/gscripts/List.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.065
+!MESSAGE Bundle file URL not found at path '/gscripts/IMenuCallback.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.068
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Action.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.072
+!MESSAGE Bundle file URL not found at path '/gscripts/Boolean.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.073
+!MESSAGE Bundle file URL not found at path '/gscripts/INodeHandler.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.076
+!MESSAGE Bundle file URL not found at path '/gscripts/Set.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.080
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Choices.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.083
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Group.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.086
+!MESSAGE Bundle file URL not found at path '/gscripts/IAttributeInfo.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.093
+!MESSAGE Bundle file URL not found at path '/gscripts/IGraphics.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.096
+!MESSAGE Bundle file URL not found at path '/gscripts/Rect.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.097
+!MESSAGE Bundle file URL not found at path '/gscripts/DrawingStyle.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.101
+!MESSAGE Bundle file URL not found at path '/gscripts/IDragElement.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.103
+!MESSAGE Bundle file URL not found at path '/gscripts/DropFeedback.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.105
+!MESSAGE Bundle file URL not found at path '/gscripts/Point.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.107
+!MESSAGE Bundle file URL not found at path '/gscripts/_rules_engine.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.167
+!MESSAGE Bundle file URL not found at path '/gscripts/ANDROID_URI.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.173
+!MESSAGE Bundle file URL not found at path '/gscripts/ATTR_ID.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.183
+!MESSAGE Bundle file URL not found at path '/gscripts/Closure.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.188
+!MESSAGE Bundle file URL not found at path '/gscripts/ATTR_TEXT.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.367
+!MESSAGE Bundle file URL not found at path '/gscripts/AndroidViewViewRuleBeanInfo.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:17:22.369
+!MESSAGE Bundle file URL not found at path '/gscripts/BaseViewBeanInfo.groovy'
+!SESSION 2010-12-27 18:21:59.845 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.380
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\com.yoxos.yim_4.2.2.20091030170142.jar
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.419
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\org.eclipse.cdt.gnu.build_6.0.0.200909110608.jar
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.436
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\org.eclipse.cdt.gnu.debug_6.0.0.200909110608.jar
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.448
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\org.eclipse.cdt.gnu.dsf_2.0.0.200909110608.jar
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.454
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\org.eclipse.cdt.platform_6.0.0.200909110608.jar
+
+!ENTRY org.eclipse.update.configurator 4 0 2010-12-27 18:22:04.488
+!MESSAGE Unable to find feature.xml in directory: C:\eclipse\features\org.eclipse.cdt_6.0.0.200909110608.jar
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.222
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.223
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.224
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.225
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.225
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.226
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.226
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.227
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.227
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.228
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.228
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.229
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.230
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.230
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.231
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.231
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.232
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.233
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.233
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.234
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.234
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.235
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.236
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.236
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.237
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.285
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.286
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.287
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.288
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.289
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.290
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.291
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2010-12-27 18:22:53.292
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.core.resources 8 2 2010-12-27 18:22:53.904
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Project target not loaded yet.
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.stopBuild(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:22:53.904
+!MESSAGE Project target not loaded yet.
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:22:53.905
+!MESSAGE Project target not loaded yet.
+
+!ENTRY org.eclipse.core.resources 8 2 2010-12-27 18:22:53.935
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Project target not loaded yet.
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.stopBuild(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:22:53.935
+!MESSAGE Project target not loaded yet.
+!SUBENTRY 1 com.android.ide.eclipse.adt 8 0 2010-12-27 18:22:53.935
+!MESSAGE Project target not loaded yet.
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.161
+!MESSAGE Bundle file URL not found at path '/gscripts/IViewRule.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.163
+!MESSAGE Bundle file URL not found at path '/gscripts/String.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.167
+!MESSAGE Bundle file URL not found at path '/gscripts/Map.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.170
+!MESSAGE Bundle file URL not found at path '/gscripts/INode.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.172
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.174
+!MESSAGE Bundle file URL not found at path '/gscripts/List.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.177
+!MESSAGE Bundle file URL not found at path '/gscripts/IMenuCallback.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.179
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Action.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.182
+!MESSAGE Bundle file URL not found at path '/gscripts/Boolean.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.184
+!MESSAGE Bundle file URL not found at path '/gscripts/INodeHandler.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.187
+!MESSAGE Bundle file URL not found at path '/gscripts/Set.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.189
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Choices.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.192
+!MESSAGE Bundle file URL not found at path '/gscripts/MenuAction.Group.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.194
+!MESSAGE Bundle file URL not found at path '/gscripts/IAttributeInfo.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.198
+!MESSAGE Bundle file URL not found at path '/gscripts/IGraphics.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.200
+!MESSAGE Bundle file URL not found at path '/gscripts/Rect.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.201
+!MESSAGE Bundle file URL not found at path '/gscripts/DrawingStyle.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.203
+!MESSAGE Bundle file URL not found at path '/gscripts/IDragElement.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.204
+!MESSAGE Bundle file URL not found at path '/gscripts/DropFeedback.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.206
+!MESSAGE Bundle file URL not found at path '/gscripts/Point.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.208
+!MESSAGE Bundle file URL not found at path '/gscripts/_rules_engine.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.266
+!MESSAGE Bundle file URL not found at path '/gscripts/ANDROID_URI.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.272
+!MESSAGE Bundle file URL not found at path '/gscripts/ATTR_ID.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.281
+!MESSAGE Bundle file URL not found at path '/gscripts/Closure.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.285
+!MESSAGE Bundle file URL not found at path '/gscripts/ATTR_TEXT.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.424
+!MESSAGE Bundle file URL not found at path '/gscripts/AndroidViewViewRuleBeanInfo.groovy'
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2010-12-27 18:23:04.426
+!MESSAGE Bundle file URL not found at path '/gscripts/BaseViewBeanInfo.groovy'
