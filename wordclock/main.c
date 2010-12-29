@@ -502,7 +502,7 @@ main()
         case '?':
           {
             char s[200];
-            sprintf(s,"\r\nBrightness: %d\r\nPWM-Color: #%02x%02x%02x\r\n", uiBright, g_cPWMr, g_cPWMg, g_cPWMb);
+            sprintf(s, "\r\nBrightness: %d\r\nPWM-Color: #%02x%02x%02x\r\n", uiBright, g_cPWMr, g_cPWMg, g_cPWMb);
             uartPuts(s);
           }
           break;
@@ -536,6 +536,25 @@ main()
           }
           wdt_reset();
           SetColor(0, 0, 0, 0);
+          break;
+        case 'q':
+          {
+            long q1 = hex2dez((char*) &uart_string[2]);
+            q1 <<= 8;
+            q1 |= hex2dez((char*) &uart_string[4]);
+            q1 <<= 8;
+            q1 |= hex2dez((char*) &uart_string[6]);
+            q1 <<= 8;
+            q1 |= hex2dez((char*) &uart_string[8]);
+            shift32_output(q1);
+            uart_str_complete = 0;
+            while (!uart_str_complete)
+            {
+              wdt_reset();
+              _delay_ms(200);
+            }
+            SetColor(0, 0, 0, 0);
+          }
           break;
         case 'l':
           uartPuts("\r\nLight-Mode...\r\n");
