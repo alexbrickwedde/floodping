@@ -316,9 +316,9 @@ const uint8_t amziffer[12] =
 { 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5 };
 
 const int arise[] =
-{ 675, 650, 560, 450, 330, 230, 240, 300, 400, 490, 570, 650, 675 };
+{ 0, 675, 650, 560, 450, 330, 230, 240, 300, 400, 490, 570, 650, 675 };
 const int afall[] =
-{ 1530, 1620, 1700, 1800, 1880, 1970, 1990, 1920, 1820, 1700, 1600, 1530, 1540 };
+{ 0, 1530, 1620, 1700, 1800, 1880, 1970, 1990, 1920, 1820, 1700, 1600, 1530, 1540 };
 
 uint8_t
 i2c_rtc_read(DATETIME * datetime, uint8_t bLocal)
@@ -384,7 +384,7 @@ i2c_rtc_read(DATETIME * datetime, uint8_t bLocal)
       }
       else if (now >= fall && now < fall + riseduration)
       {
-        datetime->sunrise = ((now - fall) * 100 / riseduration);
+        datetime->sunrise = 100 - ((now - fall) * 100 / riseduration);
       }
       else
       {
@@ -593,7 +593,7 @@ i2c_rtc_init(uint8_t * errorcode_p, uint8_t * status_p)
           (void) i2c_rtc_sram_write(0x00, &seconds, 1);
         }
       }
-      read_byte(cRTCOffset, &rtc_offset);
+      read_byte(cRTCOffset, (uint8_t*)&rtc_offset);
     }
     else
     {

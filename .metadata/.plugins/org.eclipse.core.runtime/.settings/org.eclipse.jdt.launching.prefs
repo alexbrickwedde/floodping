@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-#Sat Dec 18 23:38:41 CET 2010
+#Wed Dec 29 18:13:34 CET 2010
+>>>>>>>=bb384ebc799cd622282f3c869908e44b4d2a878a
 eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1292710232517" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1284289894190" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="jre6" path\="C\:\\Program Files\\Java\\jre6"/>\r\n<vm id\="1292710232517" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="jdk1.6.0_18" path\="C\:\\Program Files\\Java\\jdk1.6.0_18"/>\r\n</vmType>\r\n</vmSettings>\r\n
-=======
-#Sat Dec 04 21:48:35 CET 2010
-eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1291483610379" defaultVMConnector\="">\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n<vm id\="1291483610379" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="java-1.6.0-sun-1.6.0" path\="/usr/lib64/jvm/java-1.6.0-sun-1.6.0"/>\n</vmType>\n</vmSettings>\n
->>>>>>> bb384ebc799cd622282f3c869908e44b4d2a878a
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1293629994486" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1293629994486" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="jre6" path\="C\:\\Program Files\\Java\\jre6"/>\r\n</vmType>\r\n</vmSettings>\r\n
+<<<<<<<=HEAD
+=\=\=\=\=\=\=

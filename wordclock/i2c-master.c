@@ -200,8 +200,6 @@ i2c_master_start_wait (uint8_t address)
     WAIT_UNTIL_TRANSMISSION_COMPLETED;                                          // wait until transmission completed
     twst = TW_STATUS & 0xF8;                                                    // check value of TWI Status Register. Mask prescaler bits.
 
-    char s[100];
-
     if ((twst != TW_START) && (twst != TW_REP_START))
     {
       continue;

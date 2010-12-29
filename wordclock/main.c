@@ -28,12 +28,26 @@ InitPWM()
   TIMSK &= ~0x3c;
 }
 
+uint8_t
+LinearizeForEye(uint8_t x)
+{
+  if (x >= 0 && x < 5)
+  {
+    return (x);
+  }
+  else if (x >= 5 && x < 50)
+  {
+    return (x / 5);
+  }
+  return (((uint16_t) x) * x) >> 8;
+}
+
 void
 SetColor(uint8_t bright, uint8_t uiR, uint8_t uiG, uint8_t uiB)
 {
-  char r = ((((uint16_t) bright) * uiR) / 255);
-  char g = ((((uint16_t) bright) * uiG) / 255);
-  char b = ((((uint16_t) bright) * uiB) / 255);
+  char r = ((((uint16_t) bright) * LinearizeForEye(uiR)) / 255);
+  char g = ((((uint16_t) bright) * LinearizeForEye(uiG)) / 255);
+  char b = ((((uint16_t) bright) * LinearizeForEye(uiB)) / 255);
   OCR1BL = r;
   OCR1AL = g;
   OCR2 = b;
@@ -65,9 +79,16 @@ uartPuts(char *s)
 #define SHIFT_SR_SPI_RCLK PIN4
 #define SHIFT_SR_SPI_SCK  PIN7
 
+uint32_t lLEDs_LastValue = 0;
+
 void
 shift32_output(uint32_t value)
 {
+  if (value == lLEDs_LastValue)
+  {
+    return;
+  }
+  lLEDs_LastValue = value;
   uint8_t u0 = (uint8_t) (value);
   uint8_t u1 = (uint8_t) (value >> 8);
   uint8_t u2 = (uint8_t) (value >> 16);
@@ -105,7 +126,6 @@ shift_init(void)
 
   SPSR |= _BV(SPI2X);
 
-  shift32_output(0xFFFFFFFF);
   shift32_output(0xFFFFFFFF);
 }
 
@@ -228,14 +248,24 @@ const long words[30] PROGMEM =
     };
 
 void
-TimeInfo(DATETIME time)
+TimeInfo(DATETIME time, int bSun, int bInitformat)
 {
   char s[100];
-  sprintf(s, "NOW:  %02d:%02d:%02d %s %02d.%02d.%4d UTC%+d %s\r\n", time.hh, time.mm, time.ss, "x", time.DD, time.MM, time.YY + 2000, rtc_offset, time.dst != 0 ? "DST" : "");
-  uartPuts(s);
-  //	sprintf(s, "Sun: %%%d %02d:%02d - %02d:%02d\r\n", time.sunrise,
-  //			time.sunrisehh, time.sunrisemm, time.sunfallhh, time.sunfallmm);
-  //	uartPuts(s);
+  if (!bInitformat)
+  {
+    sprintf(s, "NOW:  %02d:%02d:%02d %s %02d.%02d.%4d UTC%+d %s\r\n", time.hh, time.mm, time.ss, "x", time.DD, time.MM, time.YY + 2000, rtc_offset, time.dst != 0 ? "DST" : "");
+    uartPuts(s);
+    if (bSun)
+    {
+      sprintf(s, "Sun: %%%d %02d:%02d - %02d:%02d\r\n", time.sunrise, time.sunrisehh, time.sunrisemm, time.sunfallhh, time.sunfallmm);
+      uartPuts(s);
+    }
+  }
+  else
+  {
+    sprintf(s, " %02d:%02d:%02d %s %02d.%02d.%4d UTC%+d %s", time.hh, time.mm, time.ss, "x", time.DD, time.MM, time.YY + 2000, rtc_offset, time.dst != 0 ? "DST" : "");
+    uartPuts(s);
+  }
 }
 
 int
@@ -246,8 +276,8 @@ main()
   UCSRB |= _BV(TXEN) | _BV(RXEN) | _BV(RXCIE);
   UCSRC |= _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);
 
-  PORTC &= ~(1<<PC7);
-  DDRC |= (1<<PC7);
+  PORTC &= ~(1 << PC7);
+  DDRC |= (1 << PC7);
 
   UBRRH = 0x00;
   UBRRL = 0x08;
@@ -280,13 +310,13 @@ main()
 
   uartPuts("\r\n... switch on RTC");
 
-  for(int cyx=0;cyx<50;cyx++)
+  for (int cyx = 0; cyx < 50; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
   }
-  PORTC |= (1<<PC7);
-  for(int cyx=0;cyx<50;cyx++)
+  PORTC |= (1 << PC7);
+  for (int cyx = 0; cyx < 50; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
@@ -335,8 +365,7 @@ main()
   int res1 = i2c_rtc_read(&time, 1);
   if (res1)
   {
-    uartPuts("\r\n");
-    TimeInfo(time);
+    TimeInfo(time, 0, 1);
   }
   else
   {
@@ -358,7 +387,7 @@ main()
     _delay_ms(20);
   }
   shift32_output(uiScrollingBit);
-  for(int cyx=0;cyx<50;cyx++)
+  for (int cyx = 0; cyx < 50; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
@@ -377,19 +406,19 @@ main()
   uartPuts("\r\n... RGB Check");
   shift32_output(0xffffffff);
   SetColor(0x7F, 0xFF, 0x00, 0x00);
-  for(int cyx=0;cyx<20;cyx++)
+  for (int cyx = 0; cyx < 20; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
   }
   SetColor(0x7F, 0x00, 0xFF, 0x00);
-  for(int cyx=0;cyx<20;cyx++)
+  for (int cyx = 0; cyx < 20; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
   }
   SetColor(0x7F, 0x00, 0x00, 0xFF);
-  for(int cyx=0;cyx<20;cyx++)
+  for (int cyx = 0; cyx < 20; cyx++)
   {
     wdt_reset();
     _delay_ms(10);
@@ -427,8 +456,6 @@ main()
 
   uartPuts("\r\nReady...\r\n");
 
-  unsigned long lLEDs_LastValue = 0;
-
   long uiCount = -1;
 
   uint16_t Button1 = 0;
@@ -465,204 +492,157 @@ main()
 
     if (uart_str_complete)
     {
-      switch (uart_string[0])
+      if (uart_string[0] == '>')
       {
-      case '?':
+        switch (uart_string[1])
         {
-          //          TimeInfo(time);
-        }
-        break;
-      case 'p':
-        uartPuts("\r\nParty-Mode...\r\n");
-        shift32_output(0xffffffff);
-        uart_str_complete = 0;
-        while (!uart_str_complete)
-        {
-          SetColor(0xFF, 0x80, 0x00, 0x00);
+        case '?':
+          {
+            //          TimeInfo(time);
+          }
+          break;
+        case 'p':
+          uartPuts("\r\nParty-Mode...\r\n");
+          shift32_output(0xffffffff);
+          uart_str_complete = 0;
+          while (!uart_str_complete)
+          {
+            SetColor(0xFF, 0x80, 0x00, 0x00);
+            wdt_reset();
+            _delay_ms(20);
+            SetColor(0xFF, 0xFF, 0x00, 0x00);
+            wdt_reset();
+            _delay_ms(200);
+            SetColor(0xFF, 0x00, 0x80, 0x00);
+            wdt_reset();
+            _delay_ms(20);
+            SetColor(0xFF, 0x00, 0xFF, 0x00);
+            wdt_reset();
+            _delay_ms(200);
+            SetColor(0xFF, 0x00, 0x00, 0x80);
+            wdt_reset();
+            _delay_ms(20);
+            SetColor(0xFF, 0x00, 0x00, 0xFF);
+            wdt_reset();
+            _delay_ms(200);
+            SetColor(0xFF, 0xFF, 0xFF, 0xFF);
+            wdt_reset();
+            _delay_ms(200);
+          }
           wdt_reset();
-          _delay_ms(20);
-          SetColor(0xFF, 0xFF, 0x00, 0x00);
-          wdt_reset();
-          _delay_ms(200);
-          SetColor(0xFF, 0x00, 0x80, 0x00);
-          wdt_reset();
-          _delay_ms(20);
-          SetColor(0xFF, 0x00, 0xFF, 0x00);
-          wdt_reset();
-          _delay_ms(200);
-          SetColor(0xFF, 0x00, 0x00, 0x80);
-          wdt_reset();
-          _delay_ms(20);
-          SetColor(0xFF, 0x00, 0x00, 0xFF);
-          wdt_reset();
-          _delay_ms(200);
+          SetColor(0, 0, 0, 0);
+          break;
+        case 'l':
+          uartPuts("\r\nLight-Mode...\r\n");
+          shift32_output(0xffffffff);
+          uart_str_complete = 0;
           SetColor(0xFF, 0xFF, 0xFF, 0xFF);
-          wdt_reset();
-          _delay_ms(200);
-        }
-        wdt_reset();
-        SetColor(0, 0, 0, 0);
-        lLEDs_LastValue = 0xffffffff;
-        break;
-      case 'l':
-        uartPuts("\r\nLight-Mode...\r\n");
-        shift32_output(0xffffffff);
-        uart_str_complete = 0;
-        SetColor(0xFF, 0xFF, 0xFF, 0xFF);
-        while (!uart_str_complete)
-        {
-          wdt_reset();
-          _delay_ms(20);
-        }
-        wdt_reset();
-        SetColor(0, 0, 0, 0);
-        lLEDs_LastValue = 0xffffffff;
-        break;
-      case 'r':
-        uartPuts("\r\nRebooting via Watchdog...\r\n");
-        while (1)
-          ;
-        break;
-      case 'b':
-        {
-          switch (uart_string[1])
+          while (!uart_str_complete)
           {
-          case '+':
-            {
-              uiBrightControl = 1;
-              save_byte(cBrightControl, uiBrightControl);
-              char s[100];
-              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-              uartPuts(s);
-            }
-            break;
-          case '-':
-            {
-              uiBrightControl = 0;
-              save_byte(cBrightControl, uiBrightControl);
-              char s[100];
-              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-              uartPuts(s);
-            }
-            break;
-          default:
-            {
-              uiBrightControl = uiBrightControl != 0 ? 0 : 1;
-              save_byte(cBrightControl, uiBrightControl);
-              char s[100];
-              sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
-              uartPuts(s);
-            }
-            break;
+            wdt_reset();
+            _delay_ms(20);
           }
-        }
-        break;
-      case 'c':
-        {
-          int r = hex2dez((char*) &uart_string[1]);
-          int g = hex2dez((char*) &uart_string[3]);
-          int b = hex2dez((char*) &uart_string[5]);
-          if (r < 0 || g < 0 || b < 0)
+          wdt_reset();
+          SetColor(0, 0, 0, 0);
+          lLEDs_LastValue = 0xffffffff;
+          break;
+        case 'r':
+          uartPuts("\r\nRebooting via Watchdog...\r\n");
+          while (1)
+            ;
+          break;
+        case 'b':
           {
-            if (uiRGB)
-              uiRGB = 0;
-            else
-              uiRGB = 1;
+            switch (uart_string[2])
+            {
+            case '+':
+              {
+                uiBrightControl = 1;
+                save_byte(cBrightControl, uiBrightControl);
+                char s[100];
+                sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                uartPuts(s);
+              }
+              break;
+            case '-':
+              {
+                uiBrightControl = 0;
+                save_byte(cBrightControl, uiBrightControl);
+                char s[100];
+                sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                uartPuts(s);
+              }
+              break;
+            default:
+              {
+                uiBrightControl = uiBrightControl != 0 ? 0 : 1;
+                save_byte(cBrightControl, uiBrightControl);
+                char s[100];
+                sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                uartPuts(s);
+              }
+              break;
+            }
+          }
+          break;
+        case 'c':
+          {
+            int r = hex2dez((char*) &uart_string[2]);
+            int g = hex2dez((char*) &uart_string[4]);
+            int b = hex2dez((char*) &uart_string[6]);
+            if (r < 0 || g < 0 || b < 0)
+            {
+              if (uiRGB)
+                uiRGB = 0;
+              else
+                uiRGB = 1;
+              save_byte(cRGB_Mode, uiRGB);
+              break;
+            }
+            uiRGB = 0;
+            uiR = r;
+            uiG = g;
+            uiB = b;
+            SetColor(uiBright, uiR, uiG, uiB);
+            save_byte(cRGB_R, uiR);
+            save_byte(cRGB_G, uiG);
+            save_byte(cRGB_B, uiB);
             save_byte(cRGB_Mode, uiRGB);
-            break;
-          }
-          uiRGB = 0;
-          uiR = r;
-          uiG = g;
-          uiB = b;
-          SetColor(uiBright, uiR, uiG, uiB);
-          save_byte(cRGB_R, uiR);
-          save_byte(cRGB_G, uiG);
-          save_byte(cRGB_B, uiB);
-          save_byte(cRGB_Mode, uiRGB);
-        }
-        break;
-      case 't':
-        {
-          if (uiScrollingBit)
-          {
-            uiScrollingBit = 0;
-          }
-          else
-          {
-            uiScrollingBit = 0x80000000;
-          }
-        }
-        break;
-      case '+':
-        {
-          int res = i2c_rtc_read(&time, 0);
-          add_minute(&time);
-          res = i2c_rtc_write(&time);
-        }
-        break;
-      case '-':
-        {
-          int res = i2c_rtc_read(&time, 0);
-          sub_minute(&time);
-          res = i2c_rtc_write(&time);
-        }
-        break;
-      case 'z':
-        switch (uart_string[1])
-        {
-        case '+':
-          {
-            if (rtc_offset > 11)
-              rtc_offset = -13;
-            set_offset(rtc_offset + 1);
           }
           break;
-        case '-':
+        case 'u':
           {
-            if (rtc_offset < -11)
-              rtc_offset = 13;
-            set_offset(rtc_offset - 1);
+            int h = hex2dez((char*) &uart_string[2]);
+            int m = hex2dez((char*) &uart_string[4]);
+            int s = hex2dez((char*) &uart_string[6]);
+            int D = hex2dez((char*) &uart_string[8]);
+            int M = hex2dez((char*) &uart_string[10]);
+            int Y = hex2dez((char*) &uart_string[12]);
+            if (h < 0 || m < 0 || s < 0 || D < 0 || M < 0 || Y < 0)
+            {
+              break;
+            }
+            time.hh = h;
+            time.mm = m;
+            time.ss = s;
+            time.DD = D;
+            time.MM = M;
+            time.YY = Y;
+            i2c_rtc_write(&time);
           }
           break;
-        default:
+        case 't':
           {
-            char s[100];
-            sprintf(s, "z macht keinen sinn mit '%c'...\r\n", uart_string[1]);
-            uartPuts(s);
+            if (uiScrollingBit)
+            {
+              uiScrollingBit = 0;
+            }
+            else
+            {
+              uiScrollingBit = 0x80000000;
+            }
           }
           break;
-        }
-        break;
-      case 'h':
-        switch (uart_string[1])
-        {
-        case '+':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            add_hour(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        case '-':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            sub_hour(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        default:
-          {
-            char s[100];
-            sprintf(s, "h macht keinen sinn mit '%c'...\r\n", uart_string[1]);
-            uartPuts(s);
-          }
-          break;
-        }
-        break;
-      case 'm':
-        switch (uart_string[1])
-        {
         case '+':
           {
             int res = i2c_rtc_read(&time, 0);
@@ -677,100 +657,170 @@ main()
             res = i2c_rtc_write(&time);
           }
           break;
+        case 'z':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              if (rtc_offset > 11)
+                rtc_offset = -13;
+              set_offset(rtc_offset + 1);
+            }
+            break;
+          case '-':
+            {
+              if (rtc_offset < -11)
+                rtc_offset = 13;
+              set_offset(rtc_offset - 1);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "z macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+            }
+            break;
+          }
+          break;
+        case 'h':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              add_hour(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          case '-':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              sub_hour(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "h macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+            }
+            break;
+          }
+          break;
+        case 'm':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              add_minute(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          case '-':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              sub_minute(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "m macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+
+            }
+            break;
+          }
+          break;
+        case 'D':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              add_day(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          case '-':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              sub_day(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "D macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+            }
+            break;
+          }
+          break;
+        case 'M':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              add_month(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          case '-':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              sub_month(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "M macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+            }
+            break;
+          }
+          break;
+        case 'Y':
+          switch (uart_string[2])
+          {
+          case '+':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              add_year(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          case '-':
+            {
+              int res = i2c_rtc_read(&time, 0);
+              sub_year(&time);
+              res = i2c_rtc_write(&time);
+            }
+            break;
+          default:
+            {
+              char s[100];
+              sprintf(s, "Y macht keinen sinn mit '%c'...\r\n", uart_string[2]);
+              uartPuts(s);
+            }
+            break;
+          }
+          break;
         default:
           {
             char s[100];
-            sprintf(s, "m macht keinen sinn mit '%c'...\r\n", uart_string[1]);
+            sprintf(s, "was soll ich mit '%s' anfangen?\r\n", uart_string);
             uartPuts(s);
 
           }
-          break;
-        }
-        break;
-      case 'D':
-        switch (uart_string[1])
-        {
-        case '+':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            add_day(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        case '-':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            sub_day(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        default:
-          {
-            char s[100];
-            sprintf(s, "D macht keinen sinn mit '%c'...\r\n", uart_string[1]);
-            uartPuts(s);
-          }
-          break;
-        }
-        break;
-      case 'M':
-        switch (uart_string[1])
-        {
-        case '+':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            add_month(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        case '-':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            sub_month(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        default:
-          {
-            char s[100];
-            sprintf(s, "M macht keinen sinn mit '%c'...\r\n", uart_string[1]);
-            uartPuts(s);
-          }
-          break;
-        }
-        break;
-      case 'Y':
-        switch (uart_string[1])
-        {
-        case '+':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            add_year(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        case '-':
-          {
-            int res = i2c_rtc_read(&time, 0);
-            sub_year(&time);
-            res = i2c_rtc_write(&time);
-          }
-          break;
-        default:
-          {
-            char s[100];
-            sprintf(s, "Y macht keinen sinn mit '%c'...\r\n", uart_string[1]);
-            uartPuts(s);
-          }
-          break;
-        }
-        break;
-      default:
-        {
-          char s[100];
-          sprintf(s, "was soll ich mit '%s' anfangen?\r\n", uart_string);
-          uartPuts(s);
-
         }
       }
       int res1 = i2c_rtc_read(&time, 1);
@@ -788,7 +838,7 @@ main()
         while (1)
           ;
       }
-      TimeInfo(time);
+      TimeInfo(time, 1, 0);
       uart_str_complete = 0;
     }
 
@@ -879,7 +929,7 @@ main()
       continue;
     }
 
-    // alle 1s
+    // ca. alle 1s
 
     int res1 = i2c_rtc_read(&time, 1);
     int res2 = i2c_rtc_read(&utctime, 0);
@@ -908,22 +958,22 @@ main()
     case 0:
       break;
     case 1:
-      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp4);
       break;
     case 2:
-      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp4);
       lLEDs |= pgm_read_dword(words+def_mp2);
       break;
     case 3:
-      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp4);
       lLEDs |= pgm_read_dword(words+def_mp2);
-      lLEDs |= pgm_read_dword(words+def_mp3);
+      lLEDs |= pgm_read_dword(words+def_mp1);
       break;
     case 4:
-      lLEDs |= pgm_read_dword(words+def_mp1);
-      lLEDs |= pgm_read_dword(words+def_mp2);
-      lLEDs |= pgm_read_dword(words+def_mp3);
       lLEDs |= pgm_read_dword(words+def_mp4);
+      lLEDs |= pgm_read_dword(words+def_mp2);
+      lLEDs |= pgm_read_dword(words+def_mp1);
+      lLEDs |= pgm_read_dword(words+def_mp3);
       break;
     }
     uint8_t hoffset = 0;
@@ -1000,19 +1050,12 @@ main()
 
     if (!uiScrollingBit)
     {
-      if (lLEDs_LastValue != lLEDs)
-      {
-        //		    	char s[100];
-        //		    	sprintf(s,"lLEDs = 0x%lx", lLEDs);
-        //		    	uartPuts(s);
-        shift32_output(lLEDs);
-        lLEDs_LastValue = lLEDs;
-      }
+      shift32_output(lLEDs);
     }
 
     if (time.ss == 0)
     {
-      TimeInfo(time);
+      TimeInfo(time, 0, 0);
     }
 
     if (uiRGB)
@@ -1027,7 +1070,7 @@ main()
       {
         uiR = 0xff;
         uiG = 0xff;
-        uiB = 0xc0;
+        uiB = 0x80;
       }
       else if (time.sunrise < 50)
       {
@@ -1040,7 +1083,7 @@ main()
         uiR = 0xff;
         long x = (time.sunrise - 50);
         uiG = 0x33 + ((0xcc * (x)) / 50);
-        uiB = 0x33 + ((0xac * (x)) / 50);
+        uiB = 0x33 + ((0x4d * (x)) / 50);
       }
     }
 

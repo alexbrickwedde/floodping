@@ -1,66 +1,30 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="250" key="DIALOG_Y_ORIGIN"/>
-		<item value="695" key="DIALOG_X_ORIGIN"/>
+		<item value="174" key="DIALOG_Y_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="i2c_rtc_write" key="selection"/>
 		<list key="findhistory">
-			<item value=".add"/>
-			<item value="&quot;b+&quot;"/>
-			<item value="&quot;b&quot;"/>
-			<item value="toast"/>
-			<item value="Layout"/>
-			<item value="lastInd"/>
-			<item value="mConversationArrayAdapter"/>
-			<item value="digit"/>
+			<item value="i2c_rtc_write"/>
+			<item value="&apos;u&apos;"/>
+			<item value="&quot;r&quot;"/>
+			<item value="month"/>
+			<item value="addmo"/>
+			<item value="RTC"/>
+			<item value="uart_string"/>
+			<item value="lLEDs_LastValue"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 </section>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="297" key="DIALOG_WIDTH"/>
-		<item value="250" key="DIALOG_Y_ORIGIN"/>
-		<item value="695" key="DIALOG_X_ORIGIN"/>
-		<item value="396" key="DIALOG_HEIGHT"/>
-		<item value="1|Sans Serif|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-	</section>
-	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="false" key="wrap"/>
-		<item value="false" key="casesensitive"/>
-		<item value="false" key="isRegEx"/>
-		<item value="false" key="incremental"/>
-		<item value="false" key="wholeword"/>
-		<item value="OCR1B" key="selection"/>
-		<list key="findhistory">
-			<item value="ocr1b"/>
-			<item value="tonein"/>
-			<item value="ADCSRA"/>
-			<item value="adcsr"/>
-			<item value="MyRandGet"/>
-			<item value="hex2dez"/>
-			<item value="BIT("/>
-			<item value="(1 &lt;&lt; "/>
-		</list>
-		<list key="replacehistory">
-			<item value="_BV("/>
-			<item value="BIT("/>
-			<item value=""/>
-		</list>
-	</section>
-</section>
->>>>>>> bb384ebc799cd622282f3c869908e44b4d2a878a

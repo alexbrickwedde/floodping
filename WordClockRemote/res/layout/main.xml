@@ -15,8 +15,8 @@
 			<Button android:id="@+id/button_send" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:text="@string/send" />
 		</LinearLayout>
-	
-</LinearLayout>
+
+	</LinearLayout>
 	<android.gesture.GestureOverlayView
 		xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/gestures"
 		android:gestureStrokeType="multiple"
@@ -27,11 +27,14 @@
 		<ImageView android:tint="#55ff0000" android:background="@drawable/zifferblatt"
 			android:layout_height="200px" android:layout_width="200px" />
 	</android.gesture.GestureOverlayView>
-		<ListView android:layout_width="wrap_content" android:id="@+id/in"
-			android:layout_height="200px"></ListView>
-	<!-- ScrollView android:id="@+id/widget54" android:layout_width="fill_parent"
+	<ListView android:layout_width="wrap_content" android:id="@+id/in"
+		android:layout_height="200px"></ListView>
+	<!--
+		ScrollView android:id="@+id/widget54"
+		android:layout_width="fill_parent"
 		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:scrollbarAlwaysDrawHorizontalTrack="true" android:scrollbars="horizontal"
-		android:layout_height="200px">
-	</ScrollView -->
+		android:scrollbarAlwaysDrawHorizontalTrack="true"
+		android:scrollbars="horizontal" android:layout_height="200px">
+		</ScrollView
+	-->
 </LinearLayout>

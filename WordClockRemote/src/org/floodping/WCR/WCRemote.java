@@ -17,6 +17,11 @@
 package org.floodping.WCR;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Formatter;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import org.floodping.WCR.R;
 
@@ -48,440 +53,480 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-  
+
 /**
  * This is the main Activity that displays the current chat session.
  */
 public class WCRemote extends Activity implements OnGesturePerformedListener {
-    // Debugging
-    private static final String TAG = "WCRemote";
-    private static final boolean D = true;
+	// Debugging
+	private static final String TAG = "WCRemote";
+	private static final boolean D = true;
 
-    // Message types sent from the WordClockRemoteService Handler
-    public static final int MESSAGE_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_WRITE = 3;
-    public static final int MESSAGE_DEVICE_NAME = 4;
-    public static final int MESSAGE_TOAST = 5;
+	// Message types sent from the WordClockRemoteService Handler
+	public static final int MESSAGE_STATE_CHANGE = 1;
+	public static final int MESSAGE_READ = 2;
+	public static final int MESSAGE_WRITE = 3;
+	public static final int MESSAGE_DEVICE_NAME = 4;
+	public static final int MESSAGE_TOAST = 5;
 
-    // Key names received from the WordClockRemoteService Handler
-    public static final String DEVICE_NAME = "device_name";
-    public static final String TOAST = "toast";
+	// Key names received from the WordClockRemoteService Handler
+	public static final String DEVICE_NAME = "device_name";
+	public static final String TOAST = "toast";
 
-    // Intent request codes
-    private static final int REQUEST_CONNECT_DEVICE = 1;
-    private static final int REQUEST_ENABLE_BT = 2;
+	// Intent request codes
+	private static final int REQUEST_CONNECT_DEVICE = 1;
+	private static final int REQUEST_ENABLE_BT = 2;
 
-    // Layout Views
-    private TextView mTitle;
-    private ListView mConversationView;
-    private EditText mOutEditText;
-    private Button mSendButton;
+	// Layout Views
+	private TextView mTitle;
+	private ListView mConversationView;
+	private EditText mOutEditText;
+	private Button mSendButton;
 
-    // Name of the connected device
-    private String mConnectedDeviceName = null;
-    // Array adapter for the conversation thread
-    private ArrayAdapter<String> mConversationArrayAdapter;
-    // String buffer for outgoing messages
-    private StringBuffer mOutStringBuffer;
-    // Local Bluetooth adapter
-    private BluetoothAdapter mBluetoothAdapter = null;
-    // Member object for the chat services
-    private WordClockRemoteService mChatService = null;
+	// Name of the connected device
+	private String mConnectedDeviceName = null;
+	// Array adapter for the conversation thread
+	private ArrayAdapter<String> mConversationArrayAdapter;
+	// String buffer for outgoing messages
+	private StringBuffer mOutStringBuffer;
+	// Local Bluetooth adapter
+	private BluetoothAdapter mBluetoothAdapter = null;
+	// Member object for the chat services
+	private WordClockRemoteService mChatService = null;
 
-    private GestureLibrary mLibrary = null;
+	private GestureLibrary mLibrary = null;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if(D) Log.e(TAG, "+++ ON CREATE +++");
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (D)
+			Log.e(TAG, "+++ ON CREATE +++");
 
-        // Set up the window layout
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        setContentView(R.layout.main);
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+		// Set up the window layout
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		setContentView(R.layout.main);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+				R.layout.custom_title);
 
-        // Set up the custom title
-        mTitle = (TextView) findViewById(R.id.title_left_text);
-        mTitle.setText(R.string.app_name);
-        mTitle = (TextView) findViewById(R.id.title_right_text);
+		// Set up the custom title
+		mTitle = (TextView) findViewById(R.id.title_left_text);
+		mTitle.setText(R.string.app_name);
+		mTitle = (TextView) findViewById(R.id.title_right_text);
 
-        mLibrary = GestureLibraries.fromRawResource(this, R.raw.gestures);
-        if (!mLibrary.load()) {
-            finish();
-        } 
-        GestureOverlayView gestures = (GestureOverlayView) findViewById(R.id.gestures);
-        gestures.addOnGesturePerformedListener(this);
-        
-        // Get local Bluetooth adapter
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		mLibrary = GestureLibraries.fromRawResource(this, R.raw.gestures);
+		if (!mLibrary.load()) {
+			finish();
+		}
+		GestureOverlayView gestures = (GestureOverlayView) findViewById(R.id.gestures);
+		gestures.addOnGesturePerformedListener(this);
 
-        // If the adapter is null, then Bluetooth is not supported
-        if (mBluetoothAdapter == null) {
-            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
-    }
+		// Get local Bluetooth adapter
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        if(D) Log.e(TAG, "++ ON START ++");
+		// If the adapter is null, then Bluetooth is not supported
+		if (mBluetoothAdapter == null) {
+			Toast.makeText(this, "Bluetooth is not available",
+					Toast.LENGTH_LONG).show();
+			finish();
+			return;
+		}
+	}
 
-        // If BT is not on, request that it be enabled.
-        // setupChat() will then be called during onActivityResult
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-        // Otherwise, setup the chat session
-        } else {
-            if (mChatService == null) setupChat();
-        }
-    }
+	@Override
+	public void onStart() {
+		super.onStart();
+		if (D)
+			Log.e(TAG, "++ ON START ++");
 
-    @Override
-    public synchronized void onResume() {
-        super.onResume();
-        if(D) Log.e(TAG, "+ ON RESUME +");
+		// If BT is not on, request that it be enabled.
+		// setupChat() will then be called during onActivityResult
+		if (!mBluetoothAdapter.isEnabled()) {
+			Intent enableIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+			// Otherwise, setup the chat session
+		} else {
+			if (mChatService == null)
+				setupChat();
+		}
+	}
 
-        // Performing this check in onResume() covers the case in which BT was
-        // not enabled during onStart(), so we were paused to enable it...
-        // onResume() will be called when ACTION_REQUEST_ENABLE activity returns.
-        if (mChatService != null) {
-            // Only if the state is STATE_NONE, do we know that we haven't started already
-            if (mChatService.getState() == WordClockRemoteService.STATE_NONE) {
-              // Start the Bluetooth chat services
-              mChatService.start();
-            }
-        }
-    }
+	@Override
+	public synchronized void onResume() {
+		super.onResume();
+		if (D)
+			Log.e(TAG, "+ ON RESUME +");
 
-    private void setupChat() {
-        Log.d(TAG, "setup()");
+		// Performing this check in onResume() covers the case in which BT was
+		// not enabled during onStart(), so we were paused to enable it...
+		// onResume() will be called when ACTION_REQUEST_ENABLE activity
+		// returns.
+		if (mChatService != null) {
+			// Only if the state is STATE_NONE, do we know that we haven't
+			// started already
+			if (mChatService.getState() == WordClockRemoteService.STATE_NONE) {
+				// Start the Bluetooth chat services
+				mChatService.start();
+			}
+		}
+	}
 
-        // Initialize the array adapter for the conversation thread
-        mConversationArrayAdapter = new ArrayAdapter<String>(this, R.layout.message);
-        mConversationView = (ListView) findViewById(R.id.in);
-        mConversationView.setAdapter(mConversationArrayAdapter);
-//        mConversationView.getLayoutParams().height = 1000;
-        mConversationView.requestLayout();
+	private void setupChat() {
+		Log.d(TAG, "setup()");
 
-        mConversationArrayAdapter.insert("WordClockRemote initializing...",0);
-        mConversationArrayAdapter.insert("1",0);
-        mConversationArrayAdapter.insert("2",0);
-        mConversationArrayAdapter.insert("3",0);
-        mConversationArrayAdapter.insert("4",0);
-        mConversationArrayAdapter.insert("5",0);
-        mConversationArrayAdapter.insert("6",0);
+		// Initialize the array adapter for the conversation thread
+		mConversationArrayAdapter = new ArrayAdapter<String>(this,
+				R.layout.message);
+		mConversationView = (ListView) findViewById(R.id.in);
+		mConversationView.setAdapter(mConversationArrayAdapter);
+		// mConversationView.getLayoutParams().height = 1000;
+		mConversationView.requestLayout();
 
-         
-//        ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
-//        tb.setChecked(true);
-//        tb.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//            	if(((ToggleButton)v).isChecked())
-//            	{
-//                    sendMessage("b+");
-//            	}
-//            	else
-//            	{
-//                    sendMessage("b-");
-//            	}
-//            }
-//        });
-//
-//        Button b = (Button)findViewById(R.id.ButtonHM);
-//        b.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//            	sendMessage("h-");
-//            }
-//        });
-//
-//        b = (Button)findViewById(R.id.ButtonHP);
-//        b.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//            	sendMessage("h+");
-//            }
-//        });
-//
-//        b = (Button)findViewById(R.id.ButtonMM);
-//        b.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//            	sendMessage("m-");
-//            }
-//        });
-//
-//        b = (Button)findViewById(R.id.ButtonMP);
-//        b.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//            	sendMessage("m+");
-//            }
-//        });
+		mConversationArrayAdapter.insert("WordClockRemote initializing...", 0);
+		mConversationArrayAdapter.insert("1", 0);
+		mConversationArrayAdapter.insert("2", 0);
+		mConversationArrayAdapter.insert("3", 0);
+		mConversationArrayAdapter.insert("4", 0);
+		mConversationArrayAdapter.insert("5", 0);
+		mConversationArrayAdapter.insert("6", 0);
 
-        // Initialize the compose field with a listener for the return key
-        mOutEditText = (EditText) findViewById(R.id.edit_text_out);
-        mOutEditText.setOnEditorActionListener(mWriteListener);
+		// ToggleButton tb = (ToggleButton)findViewById(R.id.ToggleHelligkeit);
+		// tb.setChecked(true);
+		// tb.setOnClickListener(new OnClickListener() {
+		// public void onClick(View v) {
+		// if(((ToggleButton)v).isChecked())
+		// {
+		// sendMessage("b+");
+		// }
+		// else
+		// {
+		// sendMessage("b-");
+		// }
+		// }
+		// });
+		//
+		// Button b = (Button)findViewById(R.id.ButtonHM);
+		// b.setOnClickListener(new OnClickListener() {
+		// public void onClick(View v) {
+		// sendMessage("h-");
+		// }
+		// });
+		//
+		// b = (Button)findViewById(R.id.ButtonHP);
+		// b.setOnClickListener(new OnClickListener() {
+		// public void onClick(View v) {
+		// sendMessage("h+");
+		// }
+		// });
+		//
+		// b = (Button)findViewById(R.id.ButtonMM);
+		// b.setOnClickListener(new OnClickListener() {
+		// public void onClick(View v) {
+		// sendMessage("m-");
+		// }
+		// });
+		//
+		// b = (Button)findViewById(R.id.ButtonMP);
+		// b.setOnClickListener(new OnClickListener() {
+		// public void onClick(View v) {
+		// sendMessage("m+");
+		// }
+		// });
 
-        // Initialize the send button with a listener that for click events
-        mSendButton = (Button) findViewById(R.id.button_send);
-        mSendButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                // Send a message using content of the edit text widget
-                TextView view = (TextView) findViewById(R.id.edit_text_out);
-                String message = view.getText().toString();
-                sendMessage(message);
-            }
-        });
+		// Initialize the compose field with a listener for the return key
+		mOutEditText = (EditText) findViewById(R.id.edit_text_out);
+		mOutEditText.setOnEditorActionListener(mWriteListener);
 
-        // Initialize the WordClockRemoteService to perform bluetooth connections
-        mChatService = new WordClockRemoteService(this, mHandler);
+		// Initialize the send button with a listener that for click events
+		mSendButton = (Button) findViewById(R.id.button_send);
+		mSendButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// Send a message using content of the edit text widget
+				TextView view = (TextView) findViewById(R.id.edit_text_out);
+				String message = view.getText().toString();
+				sendMessage(message);
+			}
+		});
 
-        // Initialize the buffer for outgoing messages
-        mOutStringBuffer = new StringBuffer("");
+		// Initialize the WordClockRemoteService to perform bluetooth
+		// connections
+		mChatService = new WordClockRemoteService(this, mHandler);
 
-        Intent serverIntent = new Intent(this, DeviceListActivity.class);
-        startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-    }
+		// Initialize the buffer for outgoing messages
+		mOutStringBuffer = new StringBuffer("");
 
-    @Override
-    public synchronized void onPause() {
-        super.onPause();
-        if(D) Log.e(TAG, "- ON PAUSE -");
-    }
+		Intent serverIntent = new Intent(this, DeviceListActivity.class);
+		startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+	}
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        if(D) Log.e(TAG, "-- ON STOP --");
-    }
+	@Override
+	public synchronized void onPause() {
+		super.onPause();
+		if (D)
+			Log.e(TAG, "- ON PAUSE -");
+	}
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // Stop the Bluetooth chat services
-        if (mChatService != null) mChatService.stop();
-        if(D) Log.e(TAG, "--- ON DESTROY ---");
-    }
+	@Override
+	public void onStop() {
+		super.onStop();
+		if (D)
+			Log.e(TAG, "-- ON STOP --");
+	}
 
-//    private void ensureDiscoverable() {
-//        if(D) Log.d(TAG, "ensure discoverable");
-//        if (mBluetoothAdapter.getScanMode() !=
-//            BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-//            Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-//            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-//            startActivity(discoverableIntent);
-//        }
-//    }
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		// Stop the Bluetooth chat services
+		if (mChatService != null)
+			mChatService.stop();
+		if (D)
+			Log.e(TAG, "--- ON DESTROY ---");
+	}
 
-    /**
-     * Sends a message.
-     * @param message  A string of text to send.
-     */
-    private void sendMessage(String message) {
-        // Check that we're actually connected before trying anything
-        if (mChatService.getState() != WordClockRemoteService.STATE_CONNECTED) {
-            Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
-            return;
-        }
+	// private void ensureDiscoverable() {
+	// if(D) Log.d(TAG, "ensure discoverable");
+	// if (mBluetoothAdapter.getScanMode() !=
+	// BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+	// Intent discoverableIntent = new
+	// Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+	// discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION,
+	// 300);
+	// startActivity(discoverableIntent);
+	// }
+	// }
 
-        // Check that there's actually something to send
-        if (message.length() > 0) {
-            // Get the message bytes and tell the WordClockRemoteService to write
-            byte[] send = message.getBytes();
-            mChatService.write(send);
-            mChatService.write("\r\n".getBytes());
+	/**
+	 * Sends a message.
+	 * 
+	 * @param message
+	 *            A string of text to send.
+	 */
+	private void sendMessage(String message) {
+		// Check that we're actually connected before trying anything
+		if (mChatService.getState() != WordClockRemoteService.STATE_CONNECTED) {
+			Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
 
-            // Reset out string buffer to zero and clear the edit text field
-            mOutStringBuffer.setLength(0);
-            mOutEditText.setText(mOutStringBuffer);
-        }
-    }
+		// Check that there's actually something to send
+		if (message.length() > 0) {
+			// Get the message bytes and tell the WordClockRemoteService to
+			// write
+			byte[] send = message.getBytes();
+			mChatService.write(">".getBytes());
+			mChatService.write(send);
+			mChatService.write("\r\n".getBytes());
 
-    // The action listener for the EditText widget, to listen for the return key
-    private TextView.OnEditorActionListener mWriteListener =
-        new TextView.OnEditorActionListener() {
-        public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-            // If the action is a key-up event on the return key, send the message
-            if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
-                String message = view.getText().toString();
-                sendMessage(message);
-            }
-            if(D) Log.i(TAG, "END onEditorAction");
-            return true;
-        }
-    };
+			// Reset out string buffer to zero and clear the edit text field
+			mOutStringBuffer.setLength(0);
+			mOutEditText.setText(mOutStringBuffer);
+		}
+	}
 
-    // The Handler that gets information back from the WordClockRemoteService
-    private final Handler mHandler = new Handler() {
-    	
-    	public String m_sMessage = "";
-    	
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case MESSAGE_STATE_CHANGE:
-                if(D) Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
-                switch (msg.arg1) {
-                case WordClockRemoteService.STATE_CONNECTED:
-                    mTitle.setText(R.string.title_connected_to);
-                    mTitle.append(mConnectedDeviceName);
-                    mConversationArrayAdapter.clear();
-                    break;
-                case WordClockRemoteService.STATE_CONNECTING:
-                    mTitle.setText(R.string.title_connecting);
-                    break;
-                case WordClockRemoteService.STATE_LISTEN:
-                case WordClockRemoteService.STATE_NONE:
-                    mTitle.setText(R.string.title_not_connected);
-                    break;
-                }
-                break;
-//            case MESSAGE_WRITE:
-//                byte[] writeBuf = (byte[]) msg.obj;
-//                // construct a string from the buffer
-////                String writeMessage = new String(writeBuf);
-////                mConversationArrayAdapter.add("Me:  " + writeMessage);
-//                break;
-            case MESSAGE_READ:
-                byte[] readBuf = (byte[]) msg.obj;
-                String readMessage = new String(readBuf, 0, msg.arg1);
-                m_sMessage += readMessage;
-                if(m_sMessage.indexOf("\r")>0)
-                {
-                	String s = m_sMessage.substring(0, m_sMessage.lastIndexOf("\r"));
-                	m_sMessage = m_sMessage.substring(m_sMessage.lastIndexOf("\r")+1);
-                	s = s.trim();
-//                    Toast.makeText(getApplicationContext(), mConnectedDeviceName+":  " + s, Toast.LENGTH_SHORT).show();
-                    mConversationArrayAdapter.insert(s,0);
-                    while(mConversationArrayAdapter.getCount()>20)
-                    {
-                    	mConversationArrayAdapter.remove(mConversationArrayAdapter.getItem(mConversationArrayAdapter.getCount()-1));
-                    }
-                }
-                break;
-            case MESSAGE_DEVICE_NAME:
-                // save the connected device's name
-                mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
-                Toast.makeText(getApplicationContext(), "Connected to "
-                               + mConnectedDeviceName, Toast.LENGTH_SHORT).show();
-                break;
-            case MESSAGE_TOAST:
-                Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST),
-                               Toast.LENGTH_SHORT).show();
-                break;
-            }
-        }
-    };
+	// The action listener for the EditText widget, to listen for the return key
+	private TextView.OnEditorActionListener mWriteListener = new TextView.OnEditorActionListener() {
+		public boolean onEditorAction(TextView view, int actionId,
+				KeyEvent event) {
+			// If the action is a key-up event on the return key, send the
+			// message
+			if (actionId == EditorInfo.IME_NULL
+					&& event.getAction() == KeyEvent.ACTION_UP) {
+				String message = view.getText().toString();
+				sendMessage(message);
+			}
+			if (D)
+				Log.i(TAG, "END onEditorAction");
+			return true;
+		}
+	};
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(D) Log.d(TAG, "onActivityResult " + resultCode);
-        switch (requestCode) {
-        case REQUEST_CONNECT_DEVICE:
-            // When DeviceListActivity returns with a device to connect
-            if (resultCode == Activity.RESULT_OK) {
-                // Get the device MAC address
-                String address = data.getExtras()
-                                     .getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-                // Get the BLuetoothDevice object
-                BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-                // Attempt to connect to the device
-                mChatService.connect(device);
-            }
-            break;
-        case REQUEST_ENABLE_BT:
-            // When the request to enable Bluetooth returns
-            if (resultCode == Activity.RESULT_OK) {
-                // Bluetooth is now enabled, so set up a chat session
-                setupChat();
-            } else {
-                // User did not enable Bluetooth or an error occured
-                Log.d(TAG, "BT not enabled");
-                Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        }
-    }
+	// The Handler that gets information back from the WordClockRemoteService
+	private final Handler mHandler = new Handler() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu, menu);
-        return true;
-    }
+		public String m_sMessage = "";
 
-    @Override 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.scan:
-            // Launch the DeviceListActivity to see devices and do scan
-            Intent serverIntent = new Intent(this, DeviceListActivity.class);
-            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-            return true;
-//        case R.id.discoverable:
-//            // Ensure this device is discoverable by others
-////            ensureDiscoverable();
-//            return true;
-        }
-        return false;
-    }
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case MESSAGE_STATE_CHANGE:
+				if (D)
+					Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
+				switch (msg.arg1) {
+				case WordClockRemoteService.STATE_CONNECTED:
+					mTitle.setText(R.string.title_connected_to);
+					mTitle.append(mConnectedDeviceName);
+					mConversationArrayAdapter.clear();
+					break;
+				case WordClockRemoteService.STATE_CONNECTING:
+					mTitle.setText(R.string.title_connecting);
+					break;
+				case WordClockRemoteService.STATE_LISTEN:
+				case WordClockRemoteService.STATE_NONE:
+					mTitle.setText(R.string.title_not_connected);
+					break;
+				}
+				break;
+			// case MESSAGE_WRITE:
+			// byte[] writeBuf = (byte[]) msg.obj;
+			// // construct a string from the buffer
+			// // String writeMessage = new String(writeBuf);
+			// // mConversationArrayAdapter.add("Me:  " + writeMessage);
+			// break;
+			case MESSAGE_READ:
+				byte[] readBuf = (byte[]) msg.obj;
+				String readMessage = new String(readBuf, 0, msg.arg1);
+				m_sMessage += readMessage;
+				if (m_sMessage.indexOf("\r") > 0) {
+					String s = m_sMessage.substring(0, m_sMessage
+							.lastIndexOf("\r"));
+					m_sMessage = m_sMessage.substring(m_sMessage
+							.lastIndexOf("\r") + 1);
+					s = s.trim();
+					// Toast.makeText(getApplicationContext(),
+					// mConnectedDeviceName+":  " + s,
+					// Toast.LENGTH_SHORT).show();
+					mConversationArrayAdapter.insert(s, 0);
+					while (mConversationArrayAdapter.getCount() > 20) {
+						mConversationArrayAdapter
+								.remove(mConversationArrayAdapter
+										.getItem(mConversationArrayAdapter
+												.getCount() - 1));
+					}
+				}
+				break;
+			case MESSAGE_DEVICE_NAME:
+				// save the connected device's name
+				mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
+				Toast.makeText(getApplicationContext(),
+						"Connected to " + mConnectedDeviceName,
+						Toast.LENGTH_SHORT).show();
+				break;
+			case MESSAGE_TOAST:
+				Toast.makeText(getApplicationContext(),
+						msg.getData().getString(TOAST), Toast.LENGTH_SHORT)
+						.show();
+				break;
+			}
+		}
+	};
+
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (D)
+			Log.d(TAG, "onActivityResult " + resultCode);
+		switch (requestCode) {
+		case REQUEST_CONNECT_DEVICE:
+			// When DeviceListActivity returns with a device to connect
+			if (resultCode == Activity.RESULT_OK) {
+				// Get the device MAC address
+				String address = data.getExtras().getString(
+						DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+				// Get the BLuetoothDevice object
+				BluetoothDevice device = mBluetoothAdapter
+						.getRemoteDevice(address);
+				// Attempt to connect to the device
+				mChatService.connect(device);
+			}
+			break;
+		case REQUEST_ENABLE_BT:
+			// When the request to enable Bluetooth returns
+			if (resultCode == Activity.RESULT_OK) {
+				// Bluetooth is now enabled, so set up a chat session
+				setupChat();
+			} else {
+				// User did not enable Bluetooth or an error occured
+				Log.d(TAG, "BT not enabled");
+				Toast.makeText(this, R.string.bt_not_enabled_leaving,
+						Toast.LENGTH_SHORT).show();
+				finish();
+			}
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.option_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.scan:
+			// Launch the DeviceListActivity to see devices and do scan
+			Intent serverIntent = new Intent(this, DeviceListActivity.class);
+			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+			return true;
+			// case R.id.discoverable:
+			// // Ensure this device is discoverable by others
+			// // ensureDiscoverable();
+			// return true;
+		}
+		return false;
+	}
 
 	@Override
 	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
 		ArrayList<Prediction> predictions = mLibrary.recognize(gesture);
 
-	    // We want at least one prediction
-	    if (predictions.size() > 0) {
-	        Prediction prediction = predictions.get(0);
-	        // We want at least some confidence in the result
-	        if (prediction.score > 1.0) {
-	        	if(prediction.name.equals("Brightness"))
-	        	{
-                    sendMessage("b");
-		            Toast.makeText(this, "Toggle Brightness", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("Party"))
-	        	{
-                    sendMessage("p");
-		            Toast.makeText(this, "Party Light", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("Light"))
-	        	{
-                    sendMessage("l");
-		            Toast.makeText(this, "Light Mode", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("Off"))
-	        	{
-                    sendMessage("o");
-		            Toast.makeText(this, "Light Off", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("HourPlus"))
-	        	{
-                    sendMessage("h+");
-		            Toast.makeText(this, "Hour Plus", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("HourMinus"))
-	        	{
-                    sendMessage("h-");
-		            Toast.makeText(this, "Hour Minus", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("MinutePlus"))
-	        	{
-                    sendMessage("m+");
-		            Toast.makeText(this, "Minute Plus", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("MinuteMinus"))
-	        	{
-                    sendMessage("m-");
-		            Toast.makeText(this, "Minute Minus", Toast.LENGTH_SHORT).show();
-	        	}
-	        	else if(prediction.name.equals("Reset"))
-	        	{
-                    sendMessage("r");
-		            Toast.makeText(this, "Reset", Toast.LENGTH_SHORT).show();
-	        	}
-	        }
-	    }
+		// We want at least one prediction
+		if (predictions.size() > 0) {
+			Prediction prediction = predictions.get(0);
+			// We want at least some confidence in the result
+			if (prediction.score > 1.0) {
+				if (prediction.name.equals("Brightness")) {
+					sendMessage("b");
+					Toast.makeText(this, "Toggle Brightness",
+							Toast.LENGTH_SHORT).show();
+				} else if (prediction.name.equals("Party")) {
+					sendMessage("p");
+					Toast.makeText(this, "Party Light", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("Light")) {
+					sendMessage("l");
+					Toast.makeText(this, "Light Mode", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("Off")) {
+					sendMessage("o");
+					Toast.makeText(this, "Light Off", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("HourPlus")) {
+					sendMessage("h+");
+					Toast.makeText(this, "Hour Plus", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("HourMinus")) {
+					sendMessage("h-");
+					Toast.makeText(this, "Hour Minus", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("MinutePlus")) {
+					sendMessage("m+");
+					Toast.makeText(this, "Minute Plus", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("MinuteMinus")) {
+					sendMessage("m-");
+					Toast.makeText(this, "Minute Minus", Toast.LENGTH_SHORT)
+							.show();
+				} else if (prediction.name.equals("Set")) {
+					String s = "u";
+					Calendar c = GregorianCalendar.getInstance(TimeZone
+							.getTimeZone("UTC"));
+					Formatter f = new Formatter();
+					s += f.format("%02x%02x%02x%02x%02x%02x", c
+							.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE),
+							c.get(Calendar.SECOND), c
+									.get(Calendar.DAY_OF_MONTH), c
+									.get(Calendar.MONTH) + 1, c
+									.get(Calendar.YEAR) % 100);
+					sendMessage(s);
+					Toast.makeText(this, "Setting clock:" + s,
+							Toast.LENGTH_SHORT).show();
+				} else if (prediction.name.equals("Reset")) {
+					 sendMessage("r");
+					 Toast.makeText(this, "Reset", Toast.LENGTH_SHORT).show();
+				}
+			}
+		}
 	}
 
 }
