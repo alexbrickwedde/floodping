@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.floodping.Main"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="zuhause x"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="zuhause pw"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="receiver-nagios"/>
 </launchConfiguration>

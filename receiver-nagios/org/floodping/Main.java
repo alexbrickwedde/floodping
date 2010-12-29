@@ -1,9 +1,16 @@
 package org.floodping;
 
+import gnu.io.CommPort;
+import gnu.io.CommPortIdentifier;
+import gnu.io.SerialPort;
+
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Formatter;
@@ -30,34 +37,70 @@ public class Main {
 			if (message.getType().equals(org.jivesoftware.smack.packet.Message.Type.chat) && message.getBody() != null) {
 				try {
 					String sResult = "";
-					try {
-						sResult += "Wohnen:" + aValues.get("0001") + "°C\r";
-					} catch (Exception e) {
+					switch (message.getBody().charAt(0)) {
+//					case '>':
+//						CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM29");
+//				        if ( portIdentifier.isCurrentlyOwned() )
+//				        {
+//				            System.out.println("Error: Port is currently in use");
+//				        }
+//				        else
+//				        {
+//				            CommPort commPort = portIdentifier.open(this.getClass().getName(),2000);
+//				            
+//				            if ( commPort instanceof SerialPort )
+//				            {
+//				                SerialPort serialPort = (SerialPort) commPort;
+//				                serialPort.setSerialPortParams(115200,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
+//				                
+//				                InputStream in = serialPort.getInputStream();
+//				                OutputStream out = serialPort.getOutputStream();
+//				               
+//				                out.write(message.getBody().getBytes());
+//				                Thread.sleep(400);
+//				                while(in.available()>0)
+//				                {
+//				                	sResult += in.read();
+//				                }
+//				            }
+//				            else
+//				            {
+//				                System.out.println("Error: Only serial ports are handled by this example.");
+//				            }
+//				        }     
+//						msg.setBody(sResult);
+//						chat.sendMessage(msg);
+					default:
+						try {
+							sResult += "Wohnen:" + aValues.get("0001") + "Â°C\r";
+						} catch (Exception e) {
+						}
+						try {
+							sResult += "Bad:" + aValues.get("0002") + "Â°C\r";
+						} catch (Exception e) {
+						}
+						try {
+							sResult += "KÃ¼che:" + aValues.get("0003") + "Â°C\r";
+						} catch (Exception e) {
+						}
+						try {
+							sResult += "Terasse:" + aValues.get("0004") + "Â°C\r";
+						} catch (Exception e) {
+						}
+						try {
+							sResult += "Schlafen:" + aValues.get("0005") + "Â°C\r";
+						} catch (Exception e) {
+						}
+						try {
+							sResult += "Wasserstand:" + aValues.get("0101") + "cm\r";
+						} catch (Exception e) {
+						}
+						msg.setBody(sResult);
+						chat.sendMessage(msg);
 					}
-					try {
-						sResult += "Bad:" + aValues.get("0002") + "°C\r";
-					} catch (Exception e) {
-					}
-					try {
-						sResult += "Küche:" + aValues.get("0003") + "°C\r";
-					} catch (Exception e) {
-					}
-					try {
-						sResult += "Terasse:" + aValues.get("0004") + "°C\r";
-					} catch (Exception e) {
-					}
-					try {
-						sResult += "Schlafen:" + aValues.get("0005") + "°C\r";
-					} catch (Exception e) {
-					}
-					try {
-						sResult += "Wasserstand:" + aValues.get("0101") + "cm\r";
-					} catch (Exception e) {
-					}
-					msg.setBody(sResult);
-					chat.sendMessage(msg);
-				} catch (XMPPException ex) {
+				} catch (Exception ex) {
 					System.out.println("Failed to send message");
+					ex.printStackTrace();
 				}
 			} else {
 				System.out.println("I got a message I didn''t understand");
@@ -134,7 +177,7 @@ public class Main {
 					double xx = (x1 * 1.0) / 4.6;
 					double yx = (y1 * 1.0) / 4.6;
 					double zx = (z1 * 1.0) / 4.6;
-					
+
 					double x = xx;
 					int res = x < -9 ? (x < -13 ? 2 : 1) : 0;
 					System.out.println("" + airid + " g:" + xx + "," + yx + "," + zx);
@@ -174,9 +217,8 @@ public class Main {
 					x1 = dis.readByte();
 					x2 = dis.readByte();
 					short temp2 = (short) ((x2 & 0xff) << 8 | (x1 & 0xff));
-					if(temp != temp2)
-					{
-					  break;
+					if (temp != temp2) {
+						break;
 					}
 
 					System.out.println("" + airid + " T:" + t + "," + id);
@@ -189,7 +231,7 @@ public class Main {
 					} catch (Exception e) {
 						System.err.println("Errore: " + e.getMessage());
 					}
-					
+
 					try {
 						String sFile = "/tmp/airid" + airid;
 						FileWriter fstream = new FileWriter(sFile);

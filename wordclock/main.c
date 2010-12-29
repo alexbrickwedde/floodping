@@ -42,15 +42,19 @@ LinearizeForEye(uint8_t x)
   return (((uint16_t) x) * x) >> 8;
 }
 
+char g_cPWMr = 0;
+char g_cPWMg = 0;
+char g_cPWMb = 0;
+
 void
 SetColor(uint8_t bright, uint8_t uiR, uint8_t uiG, uint8_t uiB)
 {
-  char r = ((((uint16_t) bright) * LinearizeForEye(uiR)) / 255);
-  char g = ((((uint16_t) bright) * LinearizeForEye(uiG)) / 255);
-  char b = ((((uint16_t) bright) * LinearizeForEye(uiB)) / 255);
-  OCR1BL = r;
-  OCR1AL = g;
-  OCR2 = b;
+  g_cPWMr = ((((uint16_t) bright) * LinearizeForEye(uiR)) / 255);
+  g_cPWMg = ((((uint16_t) bright) * LinearizeForEye(uiG)) / 255);
+  g_cPWMb = ((((uint16_t) bright) * LinearizeForEye(uiB)) / 255);
+  OCR1BL = g_cPWMr;
+  OCR1AL = g_cPWMg;
+  OCR2 = g_cPWMb;
 }
 
 void
@@ -142,7 +146,6 @@ ISR(SIG_UART_RECV)
   nextChar = UDR;
   if (uart_str_complete == 0)
   {
-
     if (nextChar != '\n' && nextChar != '\r' && uart_str_count < UART_MAXSTRLEN - 1)
     {
       uart_string[uart_str_count] = nextChar;
@@ -477,9 +480,9 @@ main()
     {
       uiBright = ldr_get_brightness();
     }
-    if (uiBright < 64)
+    if (uiBright < 128)
     {
-      uiBright = (uiBright >> 1) + 32;
+      uiBright = (uiBright >> 1) + 64;
     }
     SetColor(uiBright, uiR, uiG, uiB);
 
@@ -498,7 +501,9 @@ main()
         {
         case '?':
           {
-            //          TimeInfo(time);
+            char s[200];
+            sprintf(s,"\r\nBrightness: %d\r\nPWM-Color: #%02x%02x%02x\r\n", uiBright, g_cPWMr, g_cPWMg, g_cPWMb);
+            uartPuts(s);
           }
           break;
         case 'p':
@@ -1064,7 +1069,7 @@ main()
       {
         uiR = 0x01;
         uiG = 0x01;
-        uiB = 0x33;
+        uiB = 0x55;
       }
       else if (time.sunrise >= 100)
       {
@@ -1076,14 +1081,14 @@ main()
       {
         uiR = 0x01 + (time.sunrise * 0xfe) / 50;
         uiG = 0x01;
-        uiB = 0x33;
+        uiB = 0x55;
       }
       else if (time.sunrise > 50)
       {
         uiR = 0xff;
         long x = (time.sunrise - 50);
         uiG = 0x33 + ((0xcc * (x)) / 50);
-        uiB = 0x33 + ((0x4d * (x)) / 50);
+        uiB = 0x55 + ((0x2b * (x)) / 50);
       }
     }
 
