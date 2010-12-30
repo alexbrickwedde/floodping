@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Sat Sep 25 21:22:48 CEST 2010
-macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<macros/>\r\n
-eclipse.preferences.version=1
-=======
-#Sat Dec 11 00:57:32 CET 2010
+#Thu Dec 30 01:08:31 CET 2010
 org.eclipse.cdt.core.formatter.insert_new_line_before_catch_in_try_statement=insert
 org.eclipse.cdt.core.formatter.insert_space_after_comma_in_template_arguments=insert
 org.eclipse.cdt.core.formatter.continuation_indentation=2
@@ -58,8 +53,8 @@ org.eclipse.cdt.core.formatter.insert_space_before_opening_bracket=do not insert
 org.eclipse.cdt.core.formatter.brace_position_for_type_declaration=next_line
 org.eclipse.cdt.core.formatter.insert_space_after_comma_in_base_types=insert
 org.eclipse.cdt.core.formatter.brace_position_for_block=next_line
-org.eclipse.cdt.core.formatter.insert_space_after_binary_operator=insert
 org.eclipse.cdt.core.formatter.insert_space_before_opening_paren_in_method_invocation=do not insert
+org.eclipse.cdt.core.formatter.insert_space_after_binary_operator=insert
 org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_if=do not insert
 org.eclipse.cdt.core.formatter.insert_space_after_prefix_operator=do not insert
 org.eclipse.cdt.core.formatter.insert_space_after_comma_in_declarator_list=insert
@@ -83,7 +78,7 @@ org.eclipse.cdt.core.formatter.indent_body_declarations_compare_to_namespace_hea
 org.eclipse.cdt.core.formatter.insert_space_after_closing_angle_bracket_in_template_parameters=insert
 org.eclipse.cdt.core.formatter.insert_space_after_comma_in_template_parameters=insert
 org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_parenthesized_expression=do not insert
-macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<macros/>\n
+macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<macros/>\r\n
 org.eclipse.cdt.core.formatter.insert_space_before_opening_paren_in_exception_specification=insert
 org.eclipse.cdt.core.formatter.insert_space_before_comma_in_method_invocation_arguments=do not insert
 org.eclipse.cdt.core.formatter.insert_space_after_colon_in_base_clause=insert
@@ -97,6 +92,7 @@ org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_for=do not i
 org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_cast=do not insert
 org.eclipse.cdt.core.formatter.put_empty_statement_on_new_line=true
 org.eclipse.cdt.core.formatter.insert_space_before_comma_in_base_types=do not insert
+<<<<<<<=HEAD
 org.eclipse.cdt.core.formatter.indentation.size=2
 org.eclipse.cdt.core.formatter.insert_space_before_opening_angle_bracket_in_template_arguments=do not insert
 org.eclipse.cdt.core.formatter.insert_space_after_comma_in_method_declaration_throws=insert
@@ -118,6 +114,7 @@ org.eclipse.cdt.core.formatter.keep_then_statement_on_same_line=false
 org.eclipse.cdt.core.formatter.insert_space_before_opening_brace_in_switch=insert
 org.eclipse.cdt.core.formatter.brace_position_for_block_in_case=next_line_shifted
 org.eclipse.cdt.core.formatter.indent_switchstatements_compare_to_switch=false
+>>>>>>>=bb384ebc799cd622282f3c869908e44b4d2a878a
 org.eclipse.cdt.core.formatter.compact_else_if=true
 org.eclipse.cdt.core.formatter.indent_body_declarations_compare_to_access_specifier=true
 org.eclipse.cdt.core.formatter.insert_space_after_question_in_conditional=insert
@@ -156,4 +153,4 @@ org.eclipse.cdt.core.formatter.insert_space_before_opening_brace_in_type_declara
 org.eclipse.cdt.core.formatter.insert_space_before_closing_angle_bracket_in_template_arguments=do not insert
 org.eclipse.cdt.core.formatter.insert_space_before_opening_brace_in_namespace_declaration=insert
 org.eclipse.cdt.core.formatter.insert_space_between_empty_brackets=do not insert
->>>>>>> bb384ebc799cd622282f3c869908e44b4d2a878a
+=\=\=\=\=\=\=
