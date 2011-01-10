@@ -283,7 +283,7 @@ main()
   DDRC |= (1 << PC7);
 
   UBRRH = 0x00;
-  UBRRL = 0x08;
+  UBRRL = 0x07;
 
   uartPuts("\r\n\r\n\r\n\r\n\r\n\r\n\r\nWordClock V0.1 initializing...\r\n\r\n");
 

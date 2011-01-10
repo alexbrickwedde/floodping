@@ -27,7 +27,7 @@
 <builder buildPath="${workspace_loc:/wordclock/Debug}" id="de.innot.avreclipse.target.builder.winavr.app.debug.1779261013" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.app.debug"/>
 <tool id="de.innot.avreclipse.tool.assembler.winavr.app.debug.606177380" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.app.debug">
 <option id="de.innot.avreclipse.assembler.option.debug.level.1293107344" name="Generate Debugging Info" superClass="de.innot.avreclipse.assembler.option.debug.level"/>
-<option id="de.innot.avreclipse.asm.option.include.paths.729432375" superClass="de.innot.avreclipse.asm.option.include.paths" valueType="includePath">
+<option id="de.innot.avreclipse.asm.option.include.paths.729432375" name="#include paths for preprocessor(-I)" superClass="de.innot.avreclipse.asm.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.tool.assembler.input.522594584" superClass="de.innot.avreclipse.tool.assembler.input"/>
@@ -35,7 +35,7 @@
 <tool id="de.innot.avreclipse.tool.compiler.winavr.app.debug.847073106" name="AVR Compiler" superClass="de.innot.avreclipse.tool.compiler.winavr.app.debug">
 <option id="de.innot.avreclipse.compiler.option.debug.level.145487712" name="Generate Debugging Info" superClass="de.innot.avreclipse.compiler.option.debug.level"/>
 <option id="de.innot.avreclipse.compiler.option.optimize.677941135" name="Optimization Level" superClass="de.innot.avreclipse.compiler.option.optimize"/>
-<option id="de.innot.avreclipse.compiler.option.incpath.1678207764" superClass="de.innot.avreclipse.compiler.option.incpath" valueType="includePath">
+<option id="de.innot.avreclipse.compiler.option.incpath.1678207764" name="Include Paths (-I)" superClass="de.innot.avreclipse.compiler.option.incpath" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.compiler.winavr.input.765506511" name="C Source Files" superClass="de.innot.avreclipse.compiler.winavr.input"/>
@@ -43,7 +43,7 @@
 <tool id="de.innot.avreclipse.tool.cppcompiler.app.debug.1315688999" name="AVR C++ Compiler" superClass="de.innot.avreclipse.tool.cppcompiler.app.debug">
 <option id="de.innot.avreclipse.cppcompiler.option.debug.level.187847534" name="Generate Debugging Info" superClass="de.innot.avreclipse.cppcompiler.option.debug.level"/>
 <option id="de.innot.avreclipse.cppcompiler.option.optimize.725932064" name="Optimization Level" superClass="de.innot.avreclipse.cppcompiler.option.optimize"/>
-<option id="de.innot.avreclipse.cppcompiler.option.incpath.652060010" superClass="de.innot.avreclipse.cppcompiler.option.incpath" valueType="includePath">
+<option id="de.innot.avreclipse.cppcompiler.option.incpath.652060010" name="Include Paths (-I)" superClass="de.innot.avreclipse.cppcompiler.option.incpath" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.cppcompiler.input.759951035" superClass="de.innot.avreclipse.cppcompiler.input"/>
@@ -809,7 +809,7 @@
 <builder buildPath="${workspace_loc:/wordclock/Release}" id="de.innot.avreclipse.target.builder.winavr.app.release.623695073" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.app.release"/>
 <tool id="de.innot.avreclipse.tool.assembler.winavr.app.release.126467051" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.app.release">
 <option id="de.innot.avreclipse.assembler.option.debug.level.2135002230" name="Generate Debugging Info" superClass="de.innot.avreclipse.assembler.option.debug.level" value="de.innot.avreclipse.assembler.option.debug.level.none" valueType="enumerated"/>
-<option id="de.innot.avreclipse.asm.option.include.paths.725400978" superClass="de.innot.avreclipse.asm.option.include.paths" valueType="includePath">
+<option id="de.innot.avreclipse.asm.option.include.paths.725400978" name="#include paths for preprocessor(-I)" superClass="de.innot.avreclipse.asm.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.tool.assembler.input.96122151" superClass="de.innot.avreclipse.tool.assembler.input"/>
@@ -817,7 +817,7 @@
 <tool id="de.innot.avreclipse.tool.compiler.winavr.app.release.1926812138" name="AVR Compiler" superClass="de.innot.avreclipse.tool.compiler.winavr.app.release">
 <option id="de.innot.avreclipse.compiler.option.debug.level.342475297" name="Generate Debugging Info" superClass="de.innot.avreclipse.compiler.option.debug.level" value="de.innot.avreclipse.compiler.option.debug.level.none" valueType="enumerated"/>
 <option id="de.innot.avreclipse.compiler.option.optimize.129285601" name="Optimization Level" superClass="de.innot.avreclipse.compiler.option.optimize" value="de.innot.avreclipse.compiler.optimize.size" valueType="enumerated"/>
-<option id="de.innot.avreclipse.compiler.option.incpath.837093282" superClass="de.innot.avreclipse.compiler.option.incpath" valueType="includePath">
+<option id="de.innot.avreclipse.compiler.option.incpath.837093282" name="Include Paths (-I)" superClass="de.innot.avreclipse.compiler.option.incpath" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.compiler.winavr.input.678046381" name="C Source Files" superClass="de.innot.avreclipse.compiler.winavr.input"/>
@@ -825,7 +825,7 @@
 <tool id="de.innot.avreclipse.tool.cppcompiler.app.release.975830407" name="AVR C++ Compiler" superClass="de.innot.avreclipse.tool.cppcompiler.app.release">
 <option id="de.innot.avreclipse.cppcompiler.option.debug.level.1211666260" name="Generate Debugging Info" superClass="de.innot.avreclipse.cppcompiler.option.debug.level" value="de.innot.avreclipse.cppcompiler.option.debug.level.none" valueType="enumerated"/>
 <option id="de.innot.avreclipse.cppcompiler.option.optimize.1359804670" name="Optimization Level" superClass="de.innot.avreclipse.cppcompiler.option.optimize" value="de.innot.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
-<option id="de.innot.avreclipse.cppcompiler.option.incpath.477423746" superClass="de.innot.avreclipse.cppcompiler.option.incpath" valueType="includePath">
+<option id="de.innot.avreclipse.cppcompiler.option.incpath.477423746" name="Include Paths (-I)" superClass="de.innot.avreclipse.cppcompiler.option.incpath" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\WinAVR-20100110\avr\include&quot;"/>
 </option>
 <inputType id="de.innot.avreclipse.cppcompiler.input.1386852970" superClass="de.innot.avreclipse.cppcompiler.input"/>
