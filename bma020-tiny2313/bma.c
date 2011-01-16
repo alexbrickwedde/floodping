@@ -74,7 +74,7 @@ void BMA_init(void)
 	cbi(BMA_PORT, SCK);
 	cbi(BMA_PORT, SDO);
 
-	//_delay_ms(10); // wait until POR done
+	_delay_ms(10); // wait until POR done
 	BMA_trans(0x0A00);
 
 	_delay_ms(10); // wait until POR done

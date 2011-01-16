@@ -1,4 +1,4 @@
-#Sun Sep 05 13:47:25 CEST 2010
+#Sun Jan 16 14:05:40 CET 2011
 avrtarget/ClockFrequency=8000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -17,11 +17,11 @@ avrtarget/avrdude/Fuses/MCUid=attiny2313
 avrtarget/avrdude/Fuses/UseFile=false
 avrtarget/avrdude/Fuses/Write=true
 avrtarget/avrdude/NoChipErase=false
-avrtarget/avrdude/NoSigCheck=false
+avrtarget/avrdude/NoSigCheck=true
 avrtarget/avrdude/NoVerify=false
 avrtarget/avrdude/NoWrite=false
 avrtarget/avrdude/OtherOptions=
-avrtarget/avrdude/ProgrammerID=programmerconfig.1
+avrtarget/avrdude/ProgrammerID=programmerconfig.2
 avrtarget/avrdude/UseCounter=false
 avrtarget/avrdude/WriteEEPROM=false
 avrtarget/avrdude/WriteFlash=true

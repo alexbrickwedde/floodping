@@ -127,7 +127,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x5ba
+.text           0x00000000      0x766
  *(.vectors)
  .vectors       0x00000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000000                __vectors
@@ -201,49 +201,50 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x00000058                __vector_14
                 0x00000058                __vector_10
                 0x00000058                __vector_16
- .text          0x0000005a       0xb8 ./bma.o
-                0x000000dc                x
+ .text          0x0000005a       0xc8 ./bma.o
+                0x000000ec                x
                 0x0000005a                BMA_trans
                 0x000000b8                BMA_init
                 0x000000a2                BMA_uninit
- .text          0x00000112      0x1e2 ./main.o
-                0x0000014a                send
-                0x0000029e                main
-                0x00000112                __vector_18
- .text          0x000002f4      0x248 ./rf12.o
-                0x00000420                rf12_txdata_start
-                0x000002f4                rf12_trans
-                0x00000358                rf12_setbandwidth
-                0x0000038a                rf12_setfreq
-                0x00000496                rf12_txdata
-                0x000003c6                rf12_setpower
-                0x0000040e                rf12_readytrans
-                0x00000500                rf12_preinit
-                0x00000460                rf12_txdata_send
-                0x0000032c                rf12_init
-                0x0000048e                rf12_txdata_end
-                0x000003e4                rf12_ready
-                0x000003a8                rf12_setbaud
-                0x000004ba                rf12_rxdata
- .text          0x0000053c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
- .text          0x0000053c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x0000053c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x0000053c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x0000053c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
-                0x0000053c                . = ALIGN (0x2)
+ .text          0x00000122      0x352 ./main.o
+                0x0000015a                send
+                0x0000041e                main
+                0x00000122                __vector_18
+ .text          0x00000474      0x274 ./rf12.o
+                0x000005a0                rf12_txdata_start
+                0x00000474                rf12_trans
+                0x000004d8                rf12_setbandwidth
+                0x0000063a                rf12_txdataa
+                0x0000050a                rf12_setfreq
+                0x00000616                rf12_txdata
+                0x00000546                rf12_setpower
+                0x0000058e                rf12_readytrans
+                0x000006ac                rf12_preinit
+                0x000005e0                rf12_txdata_send
+                0x000004ac                rf12_init
+                0x0000060e                rf12_txdata_end
+                0x00000564                rf12_ready
+                0x00000528                rf12_setbaud
+                0x00000666                rf12_rxdata
+ .text          0x000006e8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
+ .text          0x000006e8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x000006e8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x000006e8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x000006e8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                0x000006e8                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000053c       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
-                0x0000053c                __divmodsi4
- .text.libgcc   0x00000572        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x00000572        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000572        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000572       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
-                0x00000572                __udivmodsi4
-                0x000005b6                . = ALIGN (0x2)
+ .text.libgcc   0x000006e8       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
+                0x000006e8                __divmodsi4
+ .text.libgcc   0x0000071e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x0000071e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000071e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000071e       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                0x0000071e                __udivmodsi4
+                0x00000762                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000005b6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x000005b6                exit
-                0x000005b6                _exit
+ .fini9         0x00000762        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x00000762                exit
+                0x00000762                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -262,11 +263,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000005b6        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x00000762        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x000005ba                _etext = .
+                0x00000766                _etext = .
 
-.data           0x00800060        0x6 load address 0x000005ba
+.data           0x00800060        0x6 load address 0x00000766
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
@@ -305,8 +306,8 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  COMMON         0x00800068        0x4 ./rf12.o
                 0x00800068                airid
                 0x0080006c                PROVIDE (__bss_end, .)
-                0x000005ba                __data_load_start = LOADADDR (.data)
-                0x000005c0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000766                __data_load_start = LOADADDR (.data)
+                0x0000076c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080006c        0x0
                 0x0080006c                PROVIDE (__noinit_start, .)
