@@ -34,7 +34,8 @@ send()
   long y = 0;
   long z = 0;
   BMA_init();
-  for (int c = 0; c < 32; c++)
+  _delay_ms(1);
+  for (int c = 0; c < 128; c++)
   {
     results[0] = BMA_trans(0x8200);
     results[1] = BMA_trans(0x8300);
@@ -52,9 +53,9 @@ send()
   if(x==0 && y==0 && z==0)
     return;
 
-  x >>= 5;
-  y >>= 5;
-  z >>= 5;
+  x >>= 7;
+  y >>= 7;
+  z >>= 7;
 
   if (x & 0x0200)
   {
@@ -101,7 +102,6 @@ send()
 int
 main(void)
 {
-
   rf12_preinit(AIRID);
 
   send();
@@ -116,7 +116,6 @@ main(void)
   {
     if (WDTcounter >= MAXCOUNT)
     {
-
       send();
       WDTcounter = 0;
     }

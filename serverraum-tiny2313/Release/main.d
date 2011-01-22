@@ -1,3 +1,3 @@
-main.d main.o: ../main.c ../usb.h
+Main.d Main.o: ../Main.cpp ../Main.h
 
-../usb.h:
+../Main.h:

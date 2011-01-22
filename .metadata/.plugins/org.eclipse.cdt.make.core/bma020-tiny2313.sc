@@ -4,9 +4,11 @@
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="de.innot.avreclipse.configuration.app.debug.272914836;de.innot.avreclipse.configuration.app.debug.272914836.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
@@ -239,9 +241,11 @@
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.debug.272914836;de.innot.avreclipse.configuration.app.debug.272914836.;de.innot.avreclipse.tool.compiler.winavr.app.debug.393509449;de.innot.avreclipse.compiler.winavr.input.1124215907">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/include-fixed"/>
-<includePath path="/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../lib/gcc/avr/4.3.3/include-fixed"/>
+<includePath path="c:/winavr-20100110/lib/gcc/../../avr/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
