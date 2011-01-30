@@ -1,4 +1,4 @@
-#Mon Jan 10 19:36:33 CET 2011
+#Sun Jan 30 12:04:01 CET 2011
 avrtarget/ClockFrequency=16000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -25,7 +25,7 @@ avrtarget/avrdude/ProgrammerID=programmerconfig.2
 avrtarget/avrdude/UseCounter=false
 avrtarget/avrdude/WriteEEPROM=false
 avrtarget/avrdude/WriteFlash=true
-avrtarget/de.innot.avreclipse.configuration.app.debug.950471232/ClockFrequency=16000000
+avrtarget/de.innot.avreclipse.configuration.app.debug.950471232/ClockFrequency=14745600
 avrtarget/de.innot.avreclipse.configuration.app.debug.950471232/ExtRAMSize=0
 avrtarget/de.innot.avreclipse.configuration.app.debug.950471232/ExtendedRAM=false
 avrtarget/de.innot.avreclipse.configuration.app.debug.950471232/MCUType=atmega32

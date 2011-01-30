@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000053  0080051e  0080051e  0000843c  2**0
                   ALLOC
-  3 .stab         00006594  00000000  00000000  0000843c  2**2
+  3 .stab         0000591c  00000000  00000000  0000843c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      0000194f  00000000  00000000  0000e9d0  2**0
+  4 .stabstr      00001752  00000000  00000000  0000dd58  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 000001a0  00000000  00000000  0001031f  2**0
+  5 .debug_aranges 00000140  00000000  00000000  0000f4aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 000001c9  00000000  00000000  000104bf  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  0000f5ea  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   000022af  00000000  00000000  00010688  2**0
+  7 .debug_info   00001c49  00000000  00000000  0000f75a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00001267  00000000  00000000  00012937  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  000113a3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   0000140d  00000000  00000000  00013b9e  2**0
+  9 .debug_line   00000dad  00000000  00000000  0001228e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  000001c0  00000000  00000000  00014fac  2**2
+ 10 .debug_frame  00000160  00000000  00000000  0001303c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    000003c6  00000000  00000000  0001516c  2**0
+ 11 .debug_str    0000028d  00000000  00000000  0001319c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    00000c9d  00000000  00000000  00015532  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  00013429  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 000000b0  00000000  00000000  000161cf  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  00013bf7  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -169,7 +169,7 @@ i2c_master_init(void)
     TWBR = ((F_CPU/SCL_CLOCK)-16)/2;                                            // must be > 10 for stable operation
      13e:	e0 e2       	ldi	r30, 0x20	; 32
      140:	f0 e0       	ldi	r31, 0x00	; 0
-     142:	8c e0       	ldi	r24, 0x0C	; 12
+     142:	8a e0       	ldi	r24, 0x0A	; 10
      144:	80 83       	st	Z, r24
     already_called = 1;
      146:	81 e0       	ldi	r24, 0x01	; 1
@@ -1629,8 +1629,8 @@ sub_minute(DATETIME * datetime)
      9a6:	08 95       	ret
 
 000009a8 <i2c_rtc_read>:
-const int afall[] =
-{ 0, 1530, 1620, 1700, 1800, 1880, 1970, 1990, 1920, 1820, 1700, 1600, 1530, 1540 };
+//   JAN          FEB          MAR          APR          MAI          JUN          JUL          AUG          SEP          OKT          NOV          DEZ          JAN
+{ 0, FALL(16,34), FALL(17,21), FALL(18,11), FALL(20, 3), FALL(20,52), FALL(21,37), FALL(21,52), FALL(21,22), FALL(20,21), FALL(19,13), FALL(17, 9), FALL(16,29), FALL(16,34)  };
 
 uint8_t
 i2c_rtc_read(DATETIME * datetime, uint8_t bLocal)
@@ -4596,10 +4596,10 @@ main()
     1d12:	e0 e4       	ldi	r30, 0x40	; 64
     1d14:	f0 e0       	ldi	r31, 0x00	; 0
     1d16:	10 82       	st	Z, r1
-  UBRRL = 0x08;
+  UBRRL = 0x07;
     1d18:	e9 e2       	ldi	r30, 0x29	; 41
     1d1a:	f0 e0       	ldi	r31, 0x00	; 0
-    1d1c:	88 e0       	ldi	r24, 0x08	; 8
+    1d1c:	87 e0       	ldi	r24, 0x07	; 7
     1d1e:	80 83       	st	Z, r24
 
   uartPuts("\r\n\r\n\r\n\r\n\r\n\r\n\r\nWordClock V0.1 initializing...\r\n\r\n");
@@ -4772,9 +4772,9 @@ _delay_ms(double __ms)
     1e36:	71 81       	ldd	r23, Z+1	; 0x01
     1e38:	82 81       	ldd	r24, Z+2	; 0x02
     1e3a:	93 81       	ldd	r25, Z+3	; 0x03
-    1e3c:	20 e0       	ldi	r18, 0x00	; 0
-    1e3e:	30 e0       	ldi	r19, 0x00	; 0
-    1e40:	4a e7       	ldi	r20, 0x7A	; 122
+    1e3c:	26 e6       	ldi	r18, 0x66	; 102
+    1e3e:	36 e6       	ldi	r19, 0x66	; 102
+    1e40:	46 e6       	ldi	r20, 0x66	; 102
     1e42:	55 e4       	ldi	r21, 0x45	; 69
     1e44:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     1e48:	dc 01       	movw	r26, r24
@@ -4784,10 +4784,6 @@ _delay_ms(double __ms)
     1e50:	91 83       	std	Z+1, r25	; 0x01
     1e52:	a2 83       	std	Z+2, r26	; 0x02
     1e54:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     1e56:	fe 01       	movw	r30, r28
     1e58:	e7 5b       	subi	r30, 0xB7	; 183
@@ -4860,7 +4856,7 @@ _delay_ms(double __ms)
     1edc:	fe 01       	movw	r30, r28
     1ede:	eb 5b       	subi	r30, 0xBB	; 187
     1ee0:	fe 4f       	sbci	r31, 0xFE	; 254
-    1ee2:	80 e9       	ldi	r24, 0x90	; 144
+    1ee2:	80 e7       	ldi	r24, 0x70	; 112
     1ee4:	91 e0       	ldi	r25, 0x01	; 1
     1ee6:	91 83       	std	Z+1, r25	; 0x01
     1ee8:	80 83       	st	Z, r24
@@ -5033,9 +5029,9 @@ _delay_ms(double __ms)
     1fe2:	71 81       	ldd	r23, Z+1	; 0x01
     1fe4:	82 81       	ldd	r24, Z+2	; 0x02
     1fe6:	93 81       	ldd	r25, Z+3	; 0x03
-    1fe8:	20 e0       	ldi	r18, 0x00	; 0
-    1fea:	30 e0       	ldi	r19, 0x00	; 0
-    1fec:	4a e7       	ldi	r20, 0x7A	; 122
+    1fe8:	26 e6       	ldi	r18, 0x66	; 102
+    1fea:	36 e6       	ldi	r19, 0x66	; 102
+    1fec:	46 e6       	ldi	r20, 0x66	; 102
     1fee:	55 e4       	ldi	r21, 0x45	; 69
     1ff0:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     1ff4:	dc 01       	movw	r26, r24
@@ -5045,10 +5041,6 @@ _delay_ms(double __ms)
     1ffc:	91 83       	std	Z+1, r25	; 0x01
     1ffe:	a2 83       	std	Z+2, r26	; 0x02
     2000:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2002:	fe 01       	movw	r30, r28
     2004:	e5 5c       	subi	r30, 0xC5	; 197
@@ -5121,7 +5113,7 @@ _delay_ms(double __ms)
     2088:	fe 01       	movw	r30, r28
     208a:	e9 5c       	subi	r30, 0xC9	; 201
     208c:	fe 4f       	sbci	r31, 0xFE	; 254
-    208e:	80 e9       	ldi	r24, 0x90	; 144
+    208e:	80 e7       	ldi	r24, 0x70	; 112
     2090:	91 e0       	ldi	r25, 0x01	; 1
     2092:	91 83       	std	Z+1, r25	; 0x01
     2094:	80 83       	st	Z, r24
@@ -5365,9 +5357,9 @@ _delay_ms(double __ms)
     2206:	71 81       	ldd	r23, Z+1	; 0x01
     2208:	82 81       	ldd	r24, Z+2	; 0x02
     220a:	93 81       	ldd	r25, Z+3	; 0x03
-    220c:	20 e0       	ldi	r18, 0x00	; 0
-    220e:	30 e0       	ldi	r19, 0x00	; 0
-    2210:	4a e7       	ldi	r20, 0x7A	; 122
+    220c:	26 e6       	ldi	r18, 0x66	; 102
+    220e:	36 e6       	ldi	r19, 0x66	; 102
+    2210:	46 e6       	ldi	r20, 0x66	; 102
     2212:	55 e4       	ldi	r21, 0x45	; 69
     2214:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2218:	dc 01       	movw	r26, r24
@@ -5377,10 +5369,6 @@ _delay_ms(double __ms)
     2220:	91 83       	std	Z+1, r25	; 0x01
     2222:	a2 83       	std	Z+2, r26	; 0x02
     2224:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2226:	fe 01       	movw	r30, r28
     2228:	e3 5d       	subi	r30, 0xD3	; 211
@@ -5453,7 +5441,7 @@ _delay_ms(double __ms)
     22ac:	fe 01       	movw	r30, r28
     22ae:	e7 5d       	subi	r30, 0xD7	; 215
     22b0:	fe 4f       	sbci	r31, 0xFE	; 254
-    22b2:	80 e9       	ldi	r24, 0x90	; 144
+    22b2:	80 e7       	ldi	r24, 0x70	; 112
     22b4:	91 e0       	ldi	r25, 0x01	; 1
     22b6:	91 83       	std	Z+1, r25	; 0x01
     22b8:	80 83       	st	Z, r24
@@ -5578,9 +5566,9 @@ _delay_ms(double __ms)
     2378:	71 81       	ldd	r23, Z+1	; 0x01
     237a:	82 81       	ldd	r24, Z+2	; 0x02
     237c:	93 81       	ldd	r25, Z+3	; 0x03
-    237e:	20 e0       	ldi	r18, 0x00	; 0
-    2380:	30 e0       	ldi	r19, 0x00	; 0
-    2382:	4a e7       	ldi	r20, 0x7A	; 122
+    237e:	26 e6       	ldi	r18, 0x66	; 102
+    2380:	36 e6       	ldi	r19, 0x66	; 102
+    2382:	46 e6       	ldi	r20, 0x66	; 102
     2384:	55 e4       	ldi	r21, 0x45	; 69
     2386:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     238a:	dc 01       	movw	r26, r24
@@ -5590,10 +5578,6 @@ _delay_ms(double __ms)
     2392:	91 83       	std	Z+1, r25	; 0x01
     2394:	a2 83       	std	Z+2, r26	; 0x02
     2396:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2398:	fe 01       	movw	r30, r28
     239a:	e1 5e       	subi	r30, 0xE1	; 225
@@ -5666,7 +5650,7 @@ _delay_ms(double __ms)
     241e:	fe 01       	movw	r30, r28
     2420:	e5 5e       	subi	r30, 0xE5	; 229
     2422:	fe 4f       	sbci	r31, 0xFE	; 254
-    2424:	80 e9       	ldi	r24, 0x90	; 144
+    2424:	80 e7       	ldi	r24, 0x70	; 112
     2426:	91 e0       	ldi	r25, 0x01	; 1
     2428:	91 83       	std	Z+1, r25	; 0x01
     242a:	80 83       	st	Z, r24
@@ -5914,9 +5898,9 @@ _delay_ms(double __ms)
     25bc:	71 81       	ldd	r23, Z+1	; 0x01
     25be:	82 81       	ldd	r24, Z+2	; 0x02
     25c0:	93 81       	ldd	r25, Z+3	; 0x03
-    25c2:	20 e0       	ldi	r18, 0x00	; 0
-    25c4:	30 e0       	ldi	r19, 0x00	; 0
-    25c6:	4a e7       	ldi	r20, 0x7A	; 122
+    25c2:	26 e6       	ldi	r18, 0x66	; 102
+    25c4:	36 e6       	ldi	r19, 0x66	; 102
+    25c6:	46 e6       	ldi	r20, 0x66	; 102
     25c8:	55 e4       	ldi	r21, 0x45	; 69
     25ca:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     25ce:	dc 01       	movw	r26, r24
@@ -5926,10 +5910,6 @@ _delay_ms(double __ms)
     25d6:	91 83       	std	Z+1, r25	; 0x01
     25d8:	a2 83       	std	Z+2, r26	; 0x02
     25da:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     25dc:	fe 01       	movw	r30, r28
     25de:	ef 5e       	subi	r30, 0xEF	; 239
@@ -6002,7 +5982,7 @@ _delay_ms(double __ms)
     2662:	fe 01       	movw	r30, r28
     2664:	e3 5f       	subi	r30, 0xF3	; 243
     2666:	fe 4f       	sbci	r31, 0xFE	; 254
-    2668:	80 e9       	ldi	r24, 0x90	; 144
+    2668:	80 e7       	ldi	r24, 0x70	; 112
     266a:	91 e0       	ldi	r25, 0x01	; 1
     266c:	91 83       	std	Z+1, r25	; 0x01
     266e:	80 83       	st	Z, r24
@@ -6164,9 +6144,9 @@ _delay_ms(double __ms)
     275e:	71 81       	ldd	r23, Z+1	; 0x01
     2760:	82 81       	ldd	r24, Z+2	; 0x02
     2762:	93 81       	ldd	r25, Z+3	; 0x03
-    2764:	20 e0       	ldi	r18, 0x00	; 0
-    2766:	30 e0       	ldi	r19, 0x00	; 0
-    2768:	4a e7       	ldi	r20, 0x7A	; 122
+    2764:	26 e6       	ldi	r18, 0x66	; 102
+    2766:	36 e6       	ldi	r19, 0x66	; 102
+    2768:	46 e6       	ldi	r20, 0x66	; 102
     276a:	55 e4       	ldi	r21, 0x45	; 69
     276c:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2770:	dc 01       	movw	r26, r24
@@ -6176,10 +6156,6 @@ _delay_ms(double __ms)
     2778:	91 83       	std	Z+1, r25	; 0x01
     277a:	a2 83       	std	Z+2, r26	; 0x02
     277c:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     277e:	fe 01       	movw	r30, r28
     2780:	ed 5f       	subi	r30, 0xFD	; 253
@@ -6252,7 +6228,7 @@ _delay_ms(double __ms)
     2804:	fe 01       	movw	r30, r28
     2806:	e1 50       	subi	r30, 0x01	; 1
     2808:	ff 4f       	sbci	r31, 0xFF	; 255
-    280a:	80 e9       	ldi	r24, 0x90	; 144
+    280a:	80 e7       	ldi	r24, 0x70	; 112
     280c:	91 e0       	ldi	r25, 0x01	; 1
     280e:	91 83       	std	Z+1, r25	; 0x01
     2810:	80 83       	st	Z, r24
@@ -6449,9 +6425,9 @@ _delay_ms(double __ms)
     2944:	71 81       	ldd	r23, Z+1	; 0x01
     2946:	82 81       	ldd	r24, Z+2	; 0x02
     2948:	93 81       	ldd	r25, Z+3	; 0x03
-    294a:	20 e0       	ldi	r18, 0x00	; 0
-    294c:	30 e0       	ldi	r19, 0x00	; 0
-    294e:	4a e7       	ldi	r20, 0x7A	; 122
+    294a:	26 e6       	ldi	r18, 0x66	; 102
+    294c:	36 e6       	ldi	r19, 0x66	; 102
+    294e:	46 e6       	ldi	r20, 0x66	; 102
     2950:	55 e4       	ldi	r21, 0x45	; 69
     2952:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2956:	dc 01       	movw	r26, r24
@@ -6461,10 +6437,6 @@ _delay_ms(double __ms)
     295e:	91 83       	std	Z+1, r25	; 0x01
     2960:	a2 83       	std	Z+2, r26	; 0x02
     2962:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2964:	fe 01       	movw	r30, r28
     2966:	eb 50       	subi	r30, 0x0B	; 11
@@ -6537,7 +6509,7 @@ _delay_ms(double __ms)
     29ea:	fe 01       	movw	r30, r28
     29ec:	ef 50       	subi	r30, 0x0F	; 15
     29ee:	ff 4f       	sbci	r31, 0xFF	; 255
-    29f0:	80 e9       	ldi	r24, 0x90	; 144
+    29f0:	80 e7       	ldi	r24, 0x70	; 112
     29f2:	91 e0       	ldi	r25, 0x01	; 1
     29f4:	91 83       	std	Z+1, r25	; 0x01
     29f6:	80 83       	st	Z, r24
@@ -6707,9 +6679,9 @@ _delay_ms(double __ms)
     2af2:	71 81       	ldd	r23, Z+1	; 0x01
     2af4:	82 81       	ldd	r24, Z+2	; 0x02
     2af6:	93 81       	ldd	r25, Z+3	; 0x03
-    2af8:	20 e0       	ldi	r18, 0x00	; 0
-    2afa:	30 e0       	ldi	r19, 0x00	; 0
-    2afc:	4a e7       	ldi	r20, 0x7A	; 122
+    2af8:	26 e6       	ldi	r18, 0x66	; 102
+    2afa:	36 e6       	ldi	r19, 0x66	; 102
+    2afc:	46 e6       	ldi	r20, 0x66	; 102
     2afe:	55 e4       	ldi	r21, 0x45	; 69
     2b00:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2b04:	dc 01       	movw	r26, r24
@@ -6719,10 +6691,6 @@ _delay_ms(double __ms)
     2b0c:	91 83       	std	Z+1, r25	; 0x01
     2b0e:	a2 83       	std	Z+2, r26	; 0x02
     2b10:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2b12:	fe 01       	movw	r30, r28
     2b14:	e9 51       	subi	r30, 0x19	; 25
@@ -6795,7 +6763,7 @@ _delay_ms(double __ms)
     2b98:	fe 01       	movw	r30, r28
     2b9a:	ed 51       	subi	r30, 0x1D	; 29
     2b9c:	ff 4f       	sbci	r31, 0xFF	; 255
-    2b9e:	80 e9       	ldi	r24, 0x90	; 144
+    2b9e:	80 e7       	ldi	r24, 0x70	; 112
     2ba0:	91 e0       	ldi	r25, 0x01	; 1
     2ba2:	91 83       	std	Z+1, r25	; 0x01
     2ba4:	80 83       	st	Z, r24
@@ -6960,9 +6928,9 @@ _delay_ms(double __ms)
     2c9c:	71 81       	ldd	r23, Z+1	; 0x01
     2c9e:	82 81       	ldd	r24, Z+2	; 0x02
     2ca0:	93 81       	ldd	r25, Z+3	; 0x03
-    2ca2:	20 e0       	ldi	r18, 0x00	; 0
-    2ca4:	30 e0       	ldi	r19, 0x00	; 0
-    2ca6:	4a e7       	ldi	r20, 0x7A	; 122
+    2ca2:	26 e6       	ldi	r18, 0x66	; 102
+    2ca4:	36 e6       	ldi	r19, 0x66	; 102
+    2ca6:	46 e6       	ldi	r20, 0x66	; 102
     2ca8:	55 e4       	ldi	r21, 0x45	; 69
     2caa:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2cae:	dc 01       	movw	r26, r24
@@ -6972,10 +6940,6 @@ _delay_ms(double __ms)
     2cb6:	91 83       	std	Z+1, r25	; 0x01
     2cb8:	a2 83       	std	Z+2, r26	; 0x02
     2cba:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2cbc:	fe 01       	movw	r30, r28
     2cbe:	e7 52       	subi	r30, 0x27	; 39
@@ -7048,7 +7012,7 @@ _delay_ms(double __ms)
     2d42:	fe 01       	movw	r30, r28
     2d44:	eb 52       	subi	r30, 0x2B	; 43
     2d46:	ff 4f       	sbci	r31, 0xFF	; 255
-    2d48:	80 e9       	ldi	r24, 0x90	; 144
+    2d48:	80 e7       	ldi	r24, 0x70	; 112
     2d4a:	91 e0       	ldi	r25, 0x01	; 1
     2d4c:	91 83       	std	Z+1, r25	; 0x01
     2d4e:	80 83       	st	Z, r24
@@ -7213,9 +7177,9 @@ _delay_ms(double __ms)
     2e46:	71 81       	ldd	r23, Z+1	; 0x01
     2e48:	82 81       	ldd	r24, Z+2	; 0x02
     2e4a:	93 81       	ldd	r25, Z+3	; 0x03
-    2e4c:	20 e0       	ldi	r18, 0x00	; 0
-    2e4e:	30 e0       	ldi	r19, 0x00	; 0
-    2e50:	4a e7       	ldi	r20, 0x7A	; 122
+    2e4c:	26 e6       	ldi	r18, 0x66	; 102
+    2e4e:	36 e6       	ldi	r19, 0x66	; 102
+    2e50:	46 e6       	ldi	r20, 0x66	; 102
     2e52:	55 e4       	ldi	r21, 0x45	; 69
     2e54:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     2e58:	dc 01       	movw	r26, r24
@@ -7225,10 +7189,6 @@ _delay_ms(double __ms)
     2e60:	91 83       	std	Z+1, r25	; 0x01
     2e62:	a2 83       	std	Z+2, r26	; 0x02
     2e64:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2e66:	fe 01       	movw	r30, r28
     2e68:	e5 53       	subi	r30, 0x35	; 53
@@ -7301,7 +7261,7 @@ _delay_ms(double __ms)
     2eec:	fe 01       	movw	r30, r28
     2eee:	e9 53       	subi	r30, 0x39	; 57
     2ef0:	ff 4f       	sbci	r31, 0xFF	; 255
-    2ef2:	80 e9       	ldi	r24, 0x90	; 144
+    2ef2:	80 e7       	ldi	r24, 0x70	; 112
     2ef4:	91 e0       	ldi	r25, 0x01	; 1
     2ef6:	91 83       	std	Z+1, r25	; 0x01
     2ef8:	80 83       	st	Z, r24
@@ -7670,9 +7630,9 @@ _delay_ms(double __ms)
     3154:	71 81       	ldd	r23, Z+1	; 0x01
     3156:	82 81       	ldd	r24, Z+2	; 0x02
     3158:	93 81       	ldd	r25, Z+3	; 0x03
-    315a:	20 e0       	ldi	r18, 0x00	; 0
-    315c:	30 e0       	ldi	r19, 0x00	; 0
-    315e:	4a e7       	ldi	r20, 0x7A	; 122
+    315a:	26 e6       	ldi	r18, 0x66	; 102
+    315c:	36 e6       	ldi	r19, 0x66	; 102
+    315e:	46 e6       	ldi	r20, 0x66	; 102
     3160:	55 e4       	ldi	r21, 0x45	; 69
     3162:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3166:	dc 01       	movw	r26, r24
@@ -7682,10 +7642,6 @@ _delay_ms(double __ms)
     316e:	91 83       	std	Z+1, r25	; 0x01
     3170:	a2 83       	std	Z+2, r26	; 0x02
     3172:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3174:	fe 01       	movw	r30, r28
     3176:	e3 54       	subi	r30, 0x43	; 67
@@ -7758,7 +7714,7 @@ _delay_ms(double __ms)
     31fa:	fe 01       	movw	r30, r28
     31fc:	e7 54       	subi	r30, 0x47	; 71
     31fe:	ff 4f       	sbci	r31, 0xFF	; 255
-    3200:	80 e9       	ldi	r24, 0x90	; 144
+    3200:	80 e7       	ldi	r24, 0x70	; 112
     3202:	91 e0       	ldi	r25, 0x01	; 1
     3204:	91 83       	std	Z+1, r25	; 0x01
     3206:	80 83       	st	Z, r24
@@ -8316,9 +8272,9 @@ _delay_ms(double __ms)
     361a:	71 81       	ldd	r23, Z+1	; 0x01
     361c:	82 81       	ldd	r24, Z+2	; 0x02
     361e:	93 81       	ldd	r25, Z+3	; 0x03
-    3620:	20 e0       	ldi	r18, 0x00	; 0
-    3622:	30 e0       	ldi	r19, 0x00	; 0
-    3624:	4a e7       	ldi	r20, 0x7A	; 122
+    3620:	26 e6       	ldi	r18, 0x66	; 102
+    3622:	36 e6       	ldi	r19, 0x66	; 102
+    3624:	46 e6       	ldi	r20, 0x66	; 102
     3626:	55 e4       	ldi	r21, 0x45	; 69
     3628:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     362c:	dc 01       	movw	r26, r24
@@ -8328,10 +8284,6 @@ _delay_ms(double __ms)
     3634:	91 83       	std	Z+1, r25	; 0x01
     3636:	a2 83       	std	Z+2, r26	; 0x02
     3638:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     363a:	fe 01       	movw	r30, r28
     363c:	e1 55       	subi	r30, 0x51	; 81
@@ -8404,7 +8356,7 @@ _delay_ms(double __ms)
     36c0:	fe 01       	movw	r30, r28
     36c2:	e5 55       	subi	r30, 0x55	; 85
     36c4:	ff 4f       	sbci	r31, 0xFF	; 255
-    36c6:	80 e9       	ldi	r24, 0x90	; 144
+    36c6:	80 e7       	ldi	r24, 0x70	; 112
     36c8:	91 e0       	ldi	r25, 0x01	; 1
     36ca:	91 83       	std	Z+1, r25	; 0x01
     36cc:	80 83       	st	Z, r24
@@ -8531,9 +8483,9 @@ _delay_ms(double __ms)
     378e:	71 81       	ldd	r23, Z+1	; 0x01
     3790:	82 81       	ldd	r24, Z+2	; 0x02
     3792:	93 81       	ldd	r25, Z+3	; 0x03
-    3794:	20 e0       	ldi	r18, 0x00	; 0
-    3796:	30 e0       	ldi	r19, 0x00	; 0
-    3798:	4a e7       	ldi	r20, 0x7A	; 122
+    3794:	26 e6       	ldi	r18, 0x66	; 102
+    3796:	36 e6       	ldi	r19, 0x66	; 102
+    3798:	46 e6       	ldi	r20, 0x66	; 102
     379a:	55 e4       	ldi	r21, 0x45	; 69
     379c:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     37a0:	dc 01       	movw	r26, r24
@@ -8543,10 +8495,6 @@ _delay_ms(double __ms)
     37a8:	91 83       	std	Z+1, r25	; 0x01
     37aa:	a2 83       	std	Z+2, r26	; 0x02
     37ac:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     37ae:	fe 01       	movw	r30, r28
     37b0:	ef 55       	subi	r30, 0x5F	; 95
@@ -8619,7 +8567,7 @@ _delay_ms(double __ms)
     3834:	fe 01       	movw	r30, r28
     3836:	e3 56       	subi	r30, 0x63	; 99
     3838:	ff 4f       	sbci	r31, 0xFF	; 255
-    383a:	80 e9       	ldi	r24, 0x90	; 144
+    383a:	80 e7       	ldi	r24, 0x70	; 112
     383c:	91 e0       	ldi	r25, 0x01	; 1
     383e:	91 83       	std	Z+1, r25	; 0x01
     3840:	80 83       	st	Z, r24
@@ -8746,9 +8694,9 @@ _delay_ms(double __ms)
     3902:	71 81       	ldd	r23, Z+1	; 0x01
     3904:	82 81       	ldd	r24, Z+2	; 0x02
     3906:	93 81       	ldd	r25, Z+3	; 0x03
-    3908:	20 e0       	ldi	r18, 0x00	; 0
-    390a:	30 e0       	ldi	r19, 0x00	; 0
-    390c:	4a e7       	ldi	r20, 0x7A	; 122
+    3908:	26 e6       	ldi	r18, 0x66	; 102
+    390a:	36 e6       	ldi	r19, 0x66	; 102
+    390c:	46 e6       	ldi	r20, 0x66	; 102
     390e:	55 e4       	ldi	r21, 0x45	; 69
     3910:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3914:	dc 01       	movw	r26, r24
@@ -8758,10 +8706,6 @@ _delay_ms(double __ms)
     391c:	91 83       	std	Z+1, r25	; 0x01
     391e:	a2 83       	std	Z+2, r26	; 0x02
     3920:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3922:	fe 01       	movw	r30, r28
     3924:	ed 56       	subi	r30, 0x6D	; 109
@@ -8834,7 +8778,7 @@ _delay_ms(double __ms)
     39a8:	fe 01       	movw	r30, r28
     39aa:	e1 57       	subi	r30, 0x71	; 113
     39ac:	ff 4f       	sbci	r31, 0xFF	; 255
-    39ae:	80 e9       	ldi	r24, 0x90	; 144
+    39ae:	80 e7       	ldi	r24, 0x70	; 112
     39b0:	91 e0       	ldi	r25, 0x01	; 1
     39b2:	91 83       	std	Z+1, r25	; 0x01
     39b4:	80 83       	st	Z, r24
@@ -8961,9 +8905,9 @@ _delay_ms(double __ms)
     3a76:	71 81       	ldd	r23, Z+1	; 0x01
     3a78:	82 81       	ldd	r24, Z+2	; 0x02
     3a7a:	93 81       	ldd	r25, Z+3	; 0x03
-    3a7c:	20 e0       	ldi	r18, 0x00	; 0
-    3a7e:	30 e0       	ldi	r19, 0x00	; 0
-    3a80:	4a e7       	ldi	r20, 0x7A	; 122
+    3a7c:	26 e6       	ldi	r18, 0x66	; 102
+    3a7e:	36 e6       	ldi	r19, 0x66	; 102
+    3a80:	46 e6       	ldi	r20, 0x66	; 102
     3a82:	55 e4       	ldi	r21, 0x45	; 69
     3a84:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3a88:	dc 01       	movw	r26, r24
@@ -8973,10 +8917,6 @@ _delay_ms(double __ms)
     3a90:	91 83       	std	Z+1, r25	; 0x01
     3a92:	a2 83       	std	Z+2, r26	; 0x02
     3a94:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3a96:	fe 01       	movw	r30, r28
     3a98:	eb 57       	subi	r30, 0x7B	; 123
@@ -9049,7 +8989,7 @@ _delay_ms(double __ms)
     3b1c:	fe 01       	movw	r30, r28
     3b1e:	ef 57       	subi	r30, 0x7F	; 127
     3b20:	ff 4f       	sbci	r31, 0xFF	; 255
-    3b22:	80 e9       	ldi	r24, 0x90	; 144
+    3b22:	80 e7       	ldi	r24, 0x70	; 112
     3b24:	91 e0       	ldi	r25, 0x01	; 1
     3b26:	91 83       	std	Z+1, r25	; 0x01
     3b28:	80 83       	st	Z, r24
@@ -9176,9 +9116,9 @@ _delay_ms(double __ms)
     3bea:	71 81       	ldd	r23, Z+1	; 0x01
     3bec:	82 81       	ldd	r24, Z+2	; 0x02
     3bee:	93 81       	ldd	r25, Z+3	; 0x03
-    3bf0:	20 e0       	ldi	r18, 0x00	; 0
-    3bf2:	30 e0       	ldi	r19, 0x00	; 0
-    3bf4:	4a e7       	ldi	r20, 0x7A	; 122
+    3bf0:	26 e6       	ldi	r18, 0x66	; 102
+    3bf2:	36 e6       	ldi	r19, 0x66	; 102
+    3bf4:	46 e6       	ldi	r20, 0x66	; 102
     3bf6:	55 e4       	ldi	r21, 0x45	; 69
     3bf8:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3bfc:	dc 01       	movw	r26, r24
@@ -9188,10 +9128,6 @@ _delay_ms(double __ms)
     3c04:	91 83       	std	Z+1, r25	; 0x01
     3c06:	a2 83       	std	Z+2, r26	; 0x02
     3c08:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3c0a:	fe 01       	movw	r30, r28
     3c0c:	e9 58       	subi	r30, 0x89	; 137
@@ -9264,7 +9200,7 @@ _delay_ms(double __ms)
     3c90:	fe 01       	movw	r30, r28
     3c92:	ed 58       	subi	r30, 0x8D	; 141
     3c94:	ff 4f       	sbci	r31, 0xFF	; 255
-    3c96:	80 e9       	ldi	r24, 0x90	; 144
+    3c96:	80 e7       	ldi	r24, 0x70	; 112
     3c98:	91 e0       	ldi	r25, 0x01	; 1
     3c9a:	91 83       	std	Z+1, r25	; 0x01
     3c9c:	80 83       	st	Z, r24
@@ -9391,9 +9327,9 @@ _delay_ms(double __ms)
     3d5e:	71 81       	ldd	r23, Z+1	; 0x01
     3d60:	82 81       	ldd	r24, Z+2	; 0x02
     3d62:	93 81       	ldd	r25, Z+3	; 0x03
-    3d64:	20 e0       	ldi	r18, 0x00	; 0
-    3d66:	30 e0       	ldi	r19, 0x00	; 0
-    3d68:	4a e7       	ldi	r20, 0x7A	; 122
+    3d64:	26 e6       	ldi	r18, 0x66	; 102
+    3d66:	36 e6       	ldi	r19, 0x66	; 102
+    3d68:	46 e6       	ldi	r20, 0x66	; 102
     3d6a:	55 e4       	ldi	r21, 0x45	; 69
     3d6c:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3d70:	dc 01       	movw	r26, r24
@@ -9403,10 +9339,6 @@ _delay_ms(double __ms)
     3d78:	91 83       	std	Z+1, r25	; 0x01
     3d7a:	a2 83       	std	Z+2, r26	; 0x02
     3d7c:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3d7e:	fe 01       	movw	r30, r28
     3d80:	e7 59       	subi	r30, 0x97	; 151
@@ -9479,7 +9411,7 @@ _delay_ms(double __ms)
     3e04:	fe 01       	movw	r30, r28
     3e06:	eb 59       	subi	r30, 0x9B	; 155
     3e08:	ff 4f       	sbci	r31, 0xFF	; 255
-    3e0a:	80 e9       	ldi	r24, 0x90	; 144
+    3e0a:	80 e7       	ldi	r24, 0x70	; 112
     3e0c:	91 e0       	ldi	r25, 0x01	; 1
     3e0e:	91 83       	std	Z+1, r25	; 0x01
     3e10:	80 83       	st	Z, r24
@@ -9606,9 +9538,9 @@ _delay_ms(double __ms)
     3ed2:	71 81       	ldd	r23, Z+1	; 0x01
     3ed4:	82 81       	ldd	r24, Z+2	; 0x02
     3ed6:	93 81       	ldd	r25, Z+3	; 0x03
-    3ed8:	20 e0       	ldi	r18, 0x00	; 0
-    3eda:	30 e0       	ldi	r19, 0x00	; 0
-    3edc:	4a e7       	ldi	r20, 0x7A	; 122
+    3ed8:	26 e6       	ldi	r18, 0x66	; 102
+    3eda:	36 e6       	ldi	r19, 0x66	; 102
+    3edc:	46 e6       	ldi	r20, 0x66	; 102
     3ede:	55 e4       	ldi	r21, 0x45	; 69
     3ee0:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     3ee4:	dc 01       	movw	r26, r24
@@ -9618,10 +9550,6 @@ _delay_ms(double __ms)
     3eec:	91 83       	std	Z+1, r25	; 0x01
     3eee:	a2 83       	std	Z+2, r26	; 0x02
     3ef0:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3ef2:	fe 01       	movw	r30, r28
     3ef4:	e5 5a       	subi	r30, 0xA5	; 165
@@ -9694,7 +9622,7 @@ _delay_ms(double __ms)
     3f78:	fe 01       	movw	r30, r28
     3f7a:	e9 5a       	subi	r30, 0xA9	; 169
     3f7c:	ff 4f       	sbci	r31, 0xFF	; 255
-    3f7e:	80 e9       	ldi	r24, 0x90	; 144
+    3f7e:	80 e7       	ldi	r24, 0x70	; 112
     3f80:	91 e0       	ldi	r25, 0x01	; 1
     3f82:	91 83       	std	Z+1, r25	; 0x01
     3f84:	80 83       	st	Z, r24
@@ -10017,9 +9945,9 @@ _delay_ms(double __ms)
     41ac:	71 81       	ldd	r23, Z+1	; 0x01
     41ae:	82 81       	ldd	r24, Z+2	; 0x02
     41b0:	93 81       	ldd	r25, Z+3	; 0x03
-    41b2:	20 e0       	ldi	r18, 0x00	; 0
-    41b4:	30 e0       	ldi	r19, 0x00	; 0
-    41b6:	4a e7       	ldi	r20, 0x7A	; 122
+    41b2:	26 e6       	ldi	r18, 0x66	; 102
+    41b4:	36 e6       	ldi	r19, 0x66	; 102
+    41b6:	46 e6       	ldi	r20, 0x66	; 102
     41b8:	55 e4       	ldi	r21, 0x45	; 69
     41ba:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     41be:	dc 01       	movw	r26, r24
@@ -10029,10 +9957,6 @@ _delay_ms(double __ms)
     41c6:	91 83       	std	Z+1, r25	; 0x01
     41c8:	a2 83       	std	Z+2, r26	; 0x02
     41ca:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     41cc:	fe 01       	movw	r30, r28
     41ce:	e3 5b       	subi	r30, 0xB3	; 179
@@ -10105,7 +10029,7 @@ _delay_ms(double __ms)
     4252:	fe 01       	movw	r30, r28
     4254:	e7 5b       	subi	r30, 0xB7	; 183
     4256:	ff 4f       	sbci	r31, 0xFF	; 255
-    4258:	80 e9       	ldi	r24, 0x90	; 144
+    4258:	80 e7       	ldi	r24, 0x70	; 112
     425a:	91 e0       	ldi	r25, 0x01	; 1
     425c:	91 83       	std	Z+1, r25	; 0x01
     425e:	80 83       	st	Z, r24
@@ -10271,9 +10195,9 @@ _delay_ms(double __ms)
     4354:	71 81       	ldd	r23, Z+1	; 0x01
     4356:	82 81       	ldd	r24, Z+2	; 0x02
     4358:	93 81       	ldd	r25, Z+3	; 0x03
-    435a:	20 e0       	ldi	r18, 0x00	; 0
-    435c:	30 e0       	ldi	r19, 0x00	; 0
-    435e:	4a e7       	ldi	r20, 0x7A	; 122
+    435a:	26 e6       	ldi	r18, 0x66	; 102
+    435c:	36 e6       	ldi	r19, 0x66	; 102
+    435e:	46 e6       	ldi	r20, 0x66	; 102
     4360:	55 e4       	ldi	r21, 0x45	; 69
     4362:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     4366:	dc 01       	movw	r26, r24
@@ -10283,10 +10207,6 @@ _delay_ms(double __ms)
     436e:	91 83       	std	Z+1, r25	; 0x01
     4370:	a2 83       	std	Z+2, r26	; 0x02
     4372:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     4374:	fe 01       	movw	r30, r28
     4376:	ff 96       	adiw	r30, 0x3f	; 63
@@ -10346,7 +10266,7 @@ _delay_ms(double __ms)
     43e0:	9e af       	std	Y+62, r25	; 0x3e
     43e2:	8d af       	std	Y+61, r24	; 0x3d
     43e4:	0f c0       	rjmp	.+30     	; 0x4404 <main+0x2758>
-    43e6:	80 e9       	ldi	r24, 0x90	; 144
+    43e6:	80 e7       	ldi	r24, 0x70	; 112
     43e8:	91 e0       	ldi	r25, 0x01	; 1
     43ea:	9c af       	std	Y+60, r25	; 0x3c
     43ec:	8b af       	std	Y+59, r24	; 0x3b
@@ -12146,9 +12066,9 @@ _delay_ms(double __ms)
     504e:	7e a9       	ldd	r23, Y+54	; 0x36
     5050:	8f a9       	ldd	r24, Y+55	; 0x37
     5052:	98 ad       	ldd	r25, Y+56	; 0x38
-    5054:	20 e0       	ldi	r18, 0x00	; 0
-    5056:	30 e0       	ldi	r19, 0x00	; 0
-    5058:	4a e7       	ldi	r20, 0x7A	; 122
+    5054:	26 e6       	ldi	r18, 0x66	; 102
+    5056:	36 e6       	ldi	r19, 0x66	; 102
+    5058:	46 e6       	ldi	r20, 0x66	; 102
     505a:	55 e4       	ldi	r21, 0x45	; 69
     505c:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     5060:	dc 01       	movw	r26, r24
@@ -12157,10 +12077,6 @@ _delay_ms(double __ms)
     5066:	9a ab       	std	Y+50, r25	; 0x32
     5068:	ab ab       	std	Y+51, r26	; 0x33
     506a:	bc ab       	std	Y+52, r27	; 0x34
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     506c:	69 a9       	ldd	r22, Y+49	; 0x31
     506e:	7a a9       	ldd	r23, Y+50	; 0x32
@@ -12213,7 +12129,7 @@ _delay_ms(double __ms)
     50ca:	98 ab       	std	Y+48, r25	; 0x30
     50cc:	8f a7       	std	Y+47, r24	; 0x2f
     50ce:	0f c0       	rjmp	.+30     	; 0x50ee <main+0x3442>
-    50d0:	80 e9       	ldi	r24, 0x90	; 144
+    50d0:	80 e7       	ldi	r24, 0x70	; 112
     50d2:	91 e0       	ldi	r25, 0x01	; 1
     50d4:	9e a7       	std	Y+46, r25	; 0x2e
     50d6:	8d a7       	std	Y+45, r24	; 0x2d
@@ -12294,9 +12210,9 @@ _delay_ms(double __ms)
     513e:	78 a5       	ldd	r23, Y+40	; 0x28
     5140:	89 a5       	ldd	r24, Y+41	; 0x29
     5142:	9a a5       	ldd	r25, Y+42	; 0x2a
-    5144:	20 e0       	ldi	r18, 0x00	; 0
-    5146:	30 e0       	ldi	r19, 0x00	; 0
-    5148:	4a e7       	ldi	r20, 0x7A	; 122
+    5144:	26 e6       	ldi	r18, 0x66	; 102
+    5146:	36 e6       	ldi	r19, 0x66	; 102
+    5148:	46 e6       	ldi	r20, 0x66	; 102
     514a:	55 e4       	ldi	r21, 0x45	; 69
     514c:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     5150:	dc 01       	movw	r26, r24
@@ -12305,10 +12221,6 @@ _delay_ms(double __ms)
     5156:	9c a3       	std	Y+36, r25	; 0x24
     5158:	ad a3       	std	Y+37, r26	; 0x25
     515a:	be a3       	std	Y+38, r27	; 0x26
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     515c:	6b a1       	ldd	r22, Y+35	; 0x23
     515e:	7c a1       	ldd	r23, Y+36	; 0x24
@@ -12361,7 +12273,7 @@ _delay_ms(double __ms)
     51ba:	9a a3       	std	Y+34, r25	; 0x22
     51bc:	89 a3       	std	Y+33, r24	; 0x21
     51be:	0f c0       	rjmp	.+30     	; 0x51de <main+0x3532>
-    51c0:	80 e9       	ldi	r24, 0x90	; 144
+    51c0:	80 e7       	ldi	r24, 0x70	; 112
     51c2:	91 e0       	ldi	r25, 0x01	; 1
     51c4:	98 a3       	std	Y+32, r25	; 0x20
     51c6:	8f 8f       	std	Y+31, r24	; 0x1f
@@ -13100,9 +13012,9 @@ _delay_ms(double __ms)
     56aa:	7a 8d       	ldd	r23, Y+26	; 0x1a
     56ac:	8b 8d       	ldd	r24, Y+27	; 0x1b
     56ae:	9c 8d       	ldd	r25, Y+28	; 0x1c
-    56b0:	20 e0       	ldi	r18, 0x00	; 0
-    56b2:	30 e0       	ldi	r19, 0x00	; 0
-    56b4:	4a e7       	ldi	r20, 0x7A	; 122
+    56b0:	26 e6       	ldi	r18, 0x66	; 102
+    56b2:	36 e6       	ldi	r19, 0x66	; 102
+    56b4:	46 e6       	ldi	r20, 0x66	; 102
     56b6:	55 e4       	ldi	r21, 0x45	; 69
     56b8:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     56bc:	dc 01       	movw	r26, r24
@@ -13111,10 +13023,6 @@ _delay_ms(double __ms)
     56c2:	9e 8b       	std	Y+22, r25	; 0x16
     56c4:	af 8b       	std	Y+23, r26	; 0x17
     56c6:	b8 8f       	std	Y+24, r27	; 0x18
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     56c8:	6d 89       	ldd	r22, Y+21	; 0x15
     56ca:	7e 89       	ldd	r23, Y+22	; 0x16
@@ -13167,7 +13075,7 @@ _delay_ms(double __ms)
     5726:	9c 8b       	std	Y+20, r25	; 0x14
     5728:	8b 8b       	std	Y+19, r24	; 0x13
     572a:	0f c0       	rjmp	.+30     	; 0x574a <main+0x3a9e>
-    572c:	80 e9       	ldi	r24, 0x90	; 144
+    572c:	80 e7       	ldi	r24, 0x70	; 112
     572e:	91 e0       	ldi	r25, 0x01	; 1
     5730:	9a 8b       	std	Y+18, r25	; 0x12
     5732:	89 8b       	std	Y+17, r24	; 0x11
@@ -13248,9 +13156,9 @@ _delay_ms(double __ms)
     579a:	7c 85       	ldd	r23, Y+12	; 0x0c
     579c:	8d 85       	ldd	r24, Y+13	; 0x0d
     579e:	9e 85       	ldd	r25, Y+14	; 0x0e
-    57a0:	20 e0       	ldi	r18, 0x00	; 0
-    57a2:	30 e0       	ldi	r19, 0x00	; 0
-    57a4:	4a e7       	ldi	r20, 0x7A	; 122
+    57a0:	26 e6       	ldi	r18, 0x66	; 102
+    57a2:	36 e6       	ldi	r19, 0x66	; 102
+    57a4:	46 e6       	ldi	r20, 0x66	; 102
     57a6:	55 e4       	ldi	r21, 0x45	; 69
     57a8:	0e 94 88 38 	call	0x7110	; 0x7110 <__mulsf3>
     57ac:	dc 01       	movw	r26, r24
@@ -13259,10 +13167,6 @@ _delay_ms(double __ms)
     57b2:	98 87       	std	Y+8, r25	; 0x08
     57b4:	a9 87       	std	Y+9, r26	; 0x09
     57b6:	ba 87       	std	Y+10, r27	; 0x0a
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     57b8:	6f 81       	ldd	r22, Y+7	; 0x07
     57ba:	78 85       	ldd	r23, Y+8	; 0x08
@@ -13315,7 +13219,7 @@ _delay_ms(double __ms)
     5816:	9e 83       	std	Y+6, r25	; 0x06
     5818:	8d 83       	std	Y+5, r24	; 0x05
     581a:	0f c0       	rjmp	.+30     	; 0x583a <main+0x3b8e>
-    581c:	80 e9       	ldi	r24, 0x90	; 144
+    581c:	80 e7       	ldi	r24, 0x70	; 112
     581e:	91 e0       	ldi	r25, 0x01	; 1
     5820:	9c 83       	std	Y+4, r25	; 0x04
     5822:	8b 83       	std	Y+3, r24	; 0x03

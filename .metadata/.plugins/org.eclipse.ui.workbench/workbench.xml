@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="23" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="334" y="31">
 <fastViewData fastViewLocation="1024"/>
@@ -41,17 +41,22 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/SonAle/workspace/floodping/bma020-tiny2313/main.c" title="main.c" tooltip="bma020-tiny2313/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/bma020-tiny2313/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1057" selectionTopPixel="568"/>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="bma.c" partName="bma.c" path="C:/Users/SonAle/workspace/floodping/bma020-tiny2313/bma.c" title="bma.c" tooltip="bma020-tiny2313/bma.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/bma020-tiny2313/bma.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1430" selectionTopPixel="1078"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/SonAle/workspace/floodping/wordclock/main.c" title="main.c" tooltip="wordclock/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="19245" selectionTopPixel="12978"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" partName="i2c-rtc.c" path="C:/Users/SonAle/workspace/floodping/wordclock/i2c-rtc.c" title="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wordclock/i2c-rtc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7701" selectionTopPixel="5253"/>
 </editor>
 </editors>
 <views>
@@ -642,6 +647,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/main.c"/>
 <editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\WinAVR-20100110\avr\include\avr\wdt.h" project="bma020-tiny2313"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/bma.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-rtc.c"/>
 </editors>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
@@ -740,8 +747,35 @@
 <item historyLabel="bma.c" index="14">
 <position info="not_deleted" x="1430" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="12">
-<position info="not_deleted" x="586" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="1057" y="0"/>
+</item>
+<item historyLabel="main.c" index="15">
+<position info="not_deleted" x="19245" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position info="not_deleted" x="9593" y="0"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position info="not_deleted" x="8128" y="5"/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position/>
+</item>
+<item historyLabel="i2c-rtc.c" index="16">
+<position info="not_deleted" x="8577" y="0"/>
+</item>
+<item historyLabel="main.c" index="15">
+<position info="not_deleted" x="19245" y="0"/>
+</item>
+<item active="true" historyLabel="i2c-rtc.c" index="16">
+<position info="not_deleted" x="8577" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -761,6 +795,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
+<persistable path="/wordclock/i2c-rtc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
+<persistable path="/wordclock/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bma.c" tooltip="bma020-tiny2313/bma.c">
 <persistable path="/bma020-tiny2313/bma.c"/>
 </file>
@@ -779,9 +819,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf12.h" tooltip="bma020-tiny2313/rf12.h">
 <persistable path="/bma020-tiny2313/rf12.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
-<persistable path="/wordclock/main.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
 <persistable path="/wordclock/uart.h"/>
 </file>
@@ -799,9 +836,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.h" tooltip="wordclock/i2c-rtc.h">
 <persistable path="/wordclock/i2c-rtc.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
-<persistable path="/wordclock/i2c-rtc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DeviceListActivity.java" tooltip="WordClockRemote/src/org/floodping/WCR/DeviceListActivity.java">
 <persistable path="/WordClockRemote/src/org/floodping/WCR/DeviceListActivity.java"/>

@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="297" key="DIALOG_WIDTH"/>
+		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="600" key="DIALOG_X_ORIGIN"/>
-		<item value="396" key="DIALOG_HEIGHT"/>
-		<item value="1|Sans Serif|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="AIRID" key="selection"/>
+		<item value="amziffer" key="selection"/>
 		<list key="findhistory">
+			<item value="amziffer"/>
+			<item value="offse"/>
+			<item value="RISE"/>
+			<item value="rise"/>
 			<item value="AIRID"/>
 			<item value="hex2"/>
 			<item value="dez2"/>
 			<item value="exe"/>
-			<item value="System"/>
-			<item value="system"/>
-			<item value="&apos;?&apos;"/>
-			<item value="bright="/>
 		</list>
 		<list key="replacehistory">
+			<item value="FALL"/>
 		</list>
 	</section>
 </section>
