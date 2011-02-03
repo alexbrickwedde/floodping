@@ -5098,3 +5098,168 @@ org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SESSION 2011-02-03 22:39:54.420 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.jface 2 0 2011-02-03 22:40:07.316
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-02-03 22:40:07.316
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Ignore,Ignore,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.IgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.AddToSVNIgnoreCommand,Add to svn:ignore...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.AddToSVNIgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-02-03 22:40:07.316
+!MESSAGE A conflict occurred for ALT+CTRL+C:
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Commit,Commit,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CommitCommand,Commit...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-02-03 22:40:07.316
+!MESSAGE A conflict occurred for ALT+CTRL+U:
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(de.innot.avreclipse.commands.uploadproject,Upload Project,
+		Upload selected project to the target device,
+		Category(de.innot.avreclipse.commands,AVR,AVR Plugin commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.UpdateCommand,Update,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.UpdateAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.191
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.192
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.194
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.194
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.195
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.195
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.196
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.196
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.197
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.197
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.198
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.199
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.199
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.200
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.201
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.201
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.202
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.202
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.203
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.203
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.204
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.205
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.205
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.206
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.206
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.207
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.207
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.208
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.208
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.209
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.210
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.210
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-02-03 22:40:08.211
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-02-03 22:42:58.595
+!MESSAGE Indexed 'avrusb' (0 sources, 7 headers) in 0,21 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
