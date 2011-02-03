@@ -127,7 +127,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x770
+.text           0x00000000      0x7dc
  *(.vectors)
  .vectors       0x00000000       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000000                __vectors
@@ -201,50 +201,49 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
                 0x00000058                __vector_14
                 0x00000058                __vector_10
                 0x00000058                __vector_16
- .text          0x0000005a       0xc8 ./bma.o
-                0x000000ec                x
+ .text          0x0000005a       0x92 ./bma.o
                 0x0000005a                BMA_trans
                 0x000000b8                BMA_init
                 0x000000a2                BMA_uninit
- .text          0x00000122      0x35c ./main.o
-                0x0000015a                send
-                0x00000428                main
-                0x00000122                __vector_18
- .text          0x0000047e      0x274 ./rf12.o
-                0x000005aa                rf12_txdata_start
-                0x0000047e                rf12_trans
-                0x000004e2                rf12_setbandwidth
-                0x00000644                rf12_txdataa
-                0x00000514                rf12_setfreq
-                0x00000620                rf12_txdata
-                0x00000550                rf12_setpower
-                0x00000598                rf12_readytrans
-                0x000006b6                rf12_preinit
-                0x000005ea                rf12_txdata_send
-                0x000004b6                rf12_init
-                0x00000618                rf12_txdata_end
-                0x0000056e                rf12_ready
-                0x00000532                rf12_setbaud
-                0x00000670                rf12_rxdata
- .text          0x000006f2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
- .text          0x000006f2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .text          0x000006f2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .text          0x000006f2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .text          0x000006f2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
-                0x000006f2                . = ALIGN (0x2)
+ .text          0x000000ec      0x3fe ./main.o
+                0x00000124                send
+                0x00000494                main
+                0x000000ec                __vector_18
+ .text          0x000004ea      0x274 ./rf12.o
+                0x00000616                rf12_txdata_start
+                0x000004ea                rf12_trans
+                0x0000054e                rf12_setbandwidth
+                0x000006b0                rf12_txdataa
+                0x00000580                rf12_setfreq
+                0x0000068c                rf12_txdata
+                0x000005bc                rf12_setpower
+                0x00000604                rf12_readytrans
+                0x00000722                rf12_preinit
+                0x00000656                rf12_txdata_send
+                0x00000522                rf12_init
+                0x00000684                rf12_txdata_end
+                0x000005da                rf12_ready
+                0x0000059e                rf12_setbaud
+                0x000006dc                rf12_rxdata
+ .text          0x0000075e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
+ .text          0x0000075e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text          0x0000075e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .text          0x0000075e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+ .text          0x0000075e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
+                0x0000075e                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000006f2       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
-                0x000006f2                __divmodsi4
- .text.libgcc   0x00000728        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .text.libgcc   0x00000728        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000728        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000728       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
-                0x00000728                __udivmodsi4
-                0x0000076c                . = ALIGN (0x2)
+ .text.libgcc   0x0000075e       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
+                0x0000075e                __divmodsi4
+ .text.libgcc   0x00000794        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x00000794        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000794        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000794       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
+                0x00000794                __udivmodsi4
+                0x000007d8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000076c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
-                0x0000076c                exit
-                0x0000076c                _exit
+ .fini9         0x000007d8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                0x000007d8                exit
+                0x000007d8                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -263,11 +262,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000076c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .fini0         0x000007d8        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000770                _etext = .
+                0x000007dc                _etext = .
 
-.data           0x00800060        0x6 load address 0x00000770
+.data           0x00800060        0x6 load address 0x000007dc
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
@@ -306,8 +305,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
  COMMON         0x00800068        0x4 ./rf12.o
                 0x00800068                airid
                 0x0080006c                PROVIDE (__bss_end, .)
-                0x00000770                __data_load_start = LOADADDR (.data)
-                0x00000776                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000007dc                __data_load_start = LOADADDR (.data)
+                0x000007e2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080006c        0x0
                 0x0080006c                PROVIDE (__noinit_start, .)

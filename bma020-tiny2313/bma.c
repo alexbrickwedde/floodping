@@ -83,39 +83,39 @@ void BMA_init(void)
 }
 
 
-int x(){
-	BMA_init();
-	while(1)
-	{
-		char buf[16];
-		int x = ( (BMA_trans(0x8200) & 0xff) | ( (BMA_trans(0x8300) & 0xff) << 8) ) >> 6;
-		if(x & 0x0200)
-		{
-			x |= 0xfe00;
-		}
-		x -= 36;
-//		dtostrf((x*1.0) / 230, 10, 2,buf );
-
-		int y = ( (BMA_trans(0x8400) & 0xff) | ( (BMA_trans(0x8500) & 0xff) << 8) ) >> 6;
-		if(y & 0x0200)
-		{
-			y |= 0xfe00;
-		}
-		y += 32;
-//		dtostrf((y*1.0) / 235, 10, 2,buf );
-
-		int z = ( (BMA_trans(0x8600) & 0xff) | ( (BMA_trans(0x8700) & 0xff) << 8) ) >> 6;
-		if(z & 0x0200)
-		{
-			z |= 0xfe00;
-		}
-		z -= 8;
-//		itoa(z,buf,10);
-//		uart_puts(",");
-//		uart_puts(buf);
-
-//		dtostrf((z*1.0) / 230, 10, 2,buf );
-
-		_delay_ms(10);
-	}
-}
+//int x(){
+//	BMA_init();
+//	while(1)
+//	{
+//		char buf[16];
+//		int x = ( (BMA_trans(0x8200) & 0xff) | ( (BMA_trans(0x8300) & 0xff) << 8) ) >> 6;
+//		if(x & 0x0200)
+//		{
+//			x |= 0xfe00;
+//		}
+//		x -= 36;
+////		dtostrf((x*1.0) / 230, 10, 2,buf );
+//
+//		int y = ( (BMA_trans(0x8400) & 0xff) | ( (BMA_trans(0x8500) & 0xff) << 8) ) >> 6;
+//		if(y & 0x0200)
+//		{
+//			y |= 0xfe00;
+//		}
+//		y += 32;
+////		dtostrf((y*1.0) / 235, 10, 2,buf );
+//
+//		int z = ( (BMA_trans(0x8600) & 0xff) | ( (BMA_trans(0x8700) & 0xff) << 8) ) >> 6;
+//		if(z & 0x0200)
+//		{
+//			z |= 0xfe00;
+//		}
+//		z -= 8;
+////		itoa(z,buf,10);
+////		uart_puts(",");
+////		uart_puts(buf);
+//
+////		dtostrf((z*1.0) / 230, 10, 2,buf );
+//
+//		_delay_ms(10);
+//	}
+//}

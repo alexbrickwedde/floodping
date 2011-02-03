@@ -35,27 +35,37 @@ send()
   long z = 0;
   BMA_init();
   _delay_ms(1);
-  for (int c = 0; c < 128; c++)
+  for (int c2 = 0; c2 < 32; c2++)
   {
-    results[0] = BMA_trans(0x8200);
-    results[1] = BMA_trans(0x8300);
-    results[2] = BMA_trans(0x8400);
-    results[3] = BMA_trans(0x8500);
-    results[4] = BMA_trans(0x8600);
-    results[5] = BMA_trans(0x8700);
-    x += ((results[0]) | ((results[1]) << 8)) >> 6;
-    y += ((results[2]) | ((results[3]) << 8)) >> 6;
-    z += ((results[4]) | ((results[5]) << 8)) >> 6;
-    _delay_ms(1);
+    long yi = 0;
+    long zi = 0;
+    long xi = 0;
+    for (int c = 0; c < 32; c++)
+    {
+      results[0] = BMA_trans(0x8200);
+      results[1] = BMA_trans(0x8300);
+      results[2] = BMA_trans(0x8400);
+      results[3] = BMA_trans(0x8500);
+      results[4] = BMA_trans(0x8600);
+      results[5] = BMA_trans(0x8700);
+      xi += ((results[0]) | ((results[1]) << 8)) >> 6;
+      yi += ((results[2]) | ((results[3]) << 8)) >> 6;
+      zi += ((results[4]) | ((results[5]) << 8)) >> 6;
+      _delay_us(100);
+    }
+    x += xi >> 5;
+    y += yi >> 5;
+    z += zi >> 5;
   }
+
+  x >>= 5;
+  y >>= 5;
+  z >>= 5;
+
   BMA_uninit();
 
-  if(x==0 && y==0 && z==0)
+  if (x == 0 && y == 0 && z == 0)
     return;
-
-  x >>= 7;
-  y >>= 7;
-  z >>= 7;
 
   if (x & 0x0200)
   {
