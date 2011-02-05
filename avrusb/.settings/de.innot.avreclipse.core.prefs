@@ -1,4 +1,4 @@
-#Thu Feb 03 22:51:51 CET 2011
+#Sat Feb 05 17:38:41 CET 2011
 avrtarget/ClockFrequency=14745600
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -21,7 +21,7 @@ avrtarget/avrdude/NoSigCheck=false
 avrtarget/avrdude/NoVerify=false
 avrtarget/avrdude/NoWrite=false
 avrtarget/avrdude/OtherOptions=
-avrtarget/avrdude/ProgrammerID=programmerconfig.2
+avrtarget/avrdude/ProgrammerID=programmerconfig.3
 avrtarget/avrdude/UseCounter=false
 avrtarget/avrdude/WriteEEPROM=false
 avrtarget/avrdude/WriteFlash=true

@@ -49,7 +49,7 @@ all: wordclock-bootloader.elf secondary-outputs
 wordclock-bootloader.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,wordclock-bootloader.map -Ttext=0x7000 -mmcu=atmega32 -o"wordclock-bootloader.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,wordclock-bootloader.map -Ttext=0x0 -mmcu=atmega32 -o"wordclock-bootloader.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

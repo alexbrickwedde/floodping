@@ -898,14 +898,29 @@ main(void)
   unsigned char seqnum = 0;
   int msglen = 0;
   int i = 0;
-  uart_init();
-  wd_init();
+
+  _delay_ms(100);
+//  uart_init(47);
+//  _delay_ms(100);
+//  uart_sendstr("atn=SerialProgger\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("atx0\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("atc0\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("ate0\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("atp=6057\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("atl5\r\n");
+//  _delay_ms(100);
+//  uart_sendstr("at\r\n");
+
+  uart_init(7);
   LED_INIT;
   LED_ON;
-  for (int zzz = 0; zzz < 100; zzz++)
-  {
-    _delay_ms(10);
-  }
+  _delay_ms(200);
+  wd_init();
   LED_OFF;
   sei();
   msgparsestate = MSG_IDLE;

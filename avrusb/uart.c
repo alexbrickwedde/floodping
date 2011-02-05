@@ -12,10 +12,8 @@
 #include "avr_compat.h"
 #include "timeout.h"
 
-void uart_init(void) 
+void uart_init(unsigned int baud)
 {
-        // baud=1=115.2K only with an external 3.6864MHz crystal:
-        unsigned int baud=1;  
         UBRRH=(unsigned char) (baud >>8);
         UBRRL=(unsigned char) (baud & 0xFF);
         /* enable tx/rx and no interrupt on tx/rx */

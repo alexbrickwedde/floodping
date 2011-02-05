@@ -8,7 +8,7 @@
 #define UART_H
 #include <avr/pgmspace.h>
 
-extern void uart_init(void);
+extern void uart_init(unsigned int baud);
 extern void uart_sendchar(char c);
 extern void uart_sendstr(char *s);
 extern void uart_sendstr_p(const prog_char *progmem_s);

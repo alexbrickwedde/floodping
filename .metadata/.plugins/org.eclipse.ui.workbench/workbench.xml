@@ -8,14 +8,14 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="147" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="170" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="38" y="30"/>
 <coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="30"/>
 <coolItem id="de.innot.avreclipse.actionset.avrdude" itemType="typeToolBarContribution" x="46" y="30"/>
 <coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="167" y="30"/>
 <coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="89" y="30"/>
-<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.asm.AsmEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -24,7 +24,7 @@
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
 <coolItem id="org.eclipse.team.ui.actionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="84" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -38,21 +38,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/SonAle/workspace/floodping/avrusb/main.c" title="main.c" tooltip="avrusb/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/avrusb/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3209" selectionTopPixel="1766"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="delay.h" partName="delay.h" title="delay.h" tooltip="C:\WinAVR-20100110\avr\include\util\delay.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\WinAVR-20100110\avr\include\util\delay.h" project="avrusb"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="4635" selectionTopPixel="1734"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.team.ui.GenericHistoryView" partName="History">
@@ -110,9 +99,8 @@
 <view id="de.innot.avreclipse.views.supportedmcus" partName="AVR Supported MCUs"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -158,7 +146,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -313,8 +301,8 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.24492653" ratioLeft="350" ratioRight="1079" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.7242857" ratioLeft="507" ratioRight="193" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.13086075" ratioLeft="187" ratioRight="1242" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.64" ratioLeft="448" ratioRight="252" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -626,176 +614,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/rf12.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/rf12.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/bma.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/receiver-nagios/org/floodping/Main.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/receiver-nagios/org/floodping/Main.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-master.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/main.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\WinAVR-20100110\avr\include\avr\wdt.h" project="bma020-tiny2313"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/bma.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/i2c-rtc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/bma.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/rf12.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/bma020-tiny2313/bma.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/avrusb/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/avrusb/ttydevinit1152.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/avrusb/test_1.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\WinAVR-20100110\avr\include\util\delay.h" project="avrusb"/>
-</editors>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position/>
-</item>
-<item historyLabel="main.c" index="2">
-<position/>
-</item>
-<item historyLabel="bma.c" index="3">
-<position info="not_deleted" x="1131" y="8"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="295" y="0"/>
-</item>
-<item historyLabel="rf12.c" index="1">
-<position info="not_deleted" x="284" y="0"/>
-</item>
-<item historyLabel="rf12.h" index="0">
-<position info="not_deleted" x="1344" y="0"/>
-</item>
-<item historyLabel="rf12.c" index="1">
-<position info="not_deleted" x="284" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="1319" y="0"/>
-</item>
-<item historyLabel="Main.java" index="4">
-<position info="not_deleted" x="5826" y="0"/>
-</item>
-<item historyLabel="bma.c" index="3">
-<position info="not_deleted" x="1131" y="8"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="1319" y="0"/>
-</item>
-<item historyLabel="bma.c" index="3">
-<position info="not_deleted" x="1131" y="8"/>
-</item>
-<item historyLabel="Main.java" index="4">
-<position info="not_deleted" x="5826" y="0"/>
-</item>
-<item historyLabel="bma.c" index="3">
-<position info="not_deleted" x="1124" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="586" y="0"/>
-</item>
-<item historyLabel="bma.c" index="3">
-<position info="not_deleted" x="1328" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="586" y="0"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="1083" y="0"/>
-</item>
-<item historyLabel="Main.java" index="5">
-<position info="not_deleted" x="875" y="4"/>
-</item>
-<item historyLabel="i2c-master.c" index="6"/>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="1931" y="0"/>
-</item>
-<item historyLabel="wdt.h" index="8">
-<position info="not_deleted" x="10509" y="0"/>
-</item>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="586" y="0"/>
-</item>
-<item historyLabel="bma.c" index="9">
-<position info="not_deleted" x="1430" y="0"/>
-</item>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="1057" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="19245" y="0"/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position info="not_deleted" x="9593" y="0"/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position info="not_deleted" x="8128" y="5"/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position info="not_deleted" x="8577" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="19245" y="0"/>
-</item>
-<item historyLabel="i2c-rtc.c" index="11">
-<position info="not_deleted" x="8118" y="0"/>
-</item>
-<item historyLabel="bma.c" index="12"/>
-<item historyLabel="main.c" index="13">
-<position info="not_deleted" x="293" y="0"/>
-</item>
-<item historyLabel="bma.c" index="12">
-<position info="not_deleted" x="2040" y="0"/>
-</item>
-<item historyLabel="main.c" index="13">
-<position info="not_deleted" x="649" y="0"/>
-</item>
-<item historyLabel="rf12.c" index="14">
-<position info="not_deleted" x="3170" y="0"/>
-</item>
-<item historyLabel="main.c" index="13">
-<position info="not_deleted" x="506" y="0"/>
-</item>
-<item historyLabel="bma.c" index="15">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ttydevinit1152.c" index="17">
-<position info="not_deleted" x="414" y="0"/>
-</item>
-<item historyLabel="main.c" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="test_1.c" index="18">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="16">
-<position info="not_deleted" x="24421" y="9"/>
-</item>
-<item historyLabel="delay.h" index="19">
-<position info="not_deleted" x="4635" y="9"/>
-</item>
-<item active="true" historyLabel="main.c" index="16">
-<position info="not_deleted" x="24421" y="9"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -813,50 +632,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="delay.h" tooltip="C:\WinAVR-20100110\avr\include\util\delay.h">
-<persistable path="C:\WinAVR-20100110\avr\include\util\delay.h" project="avrusb"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="test_1.c" tooltip="avrusb/test_1.c">
-<persistable path="/avrusb/test_1.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ttydevinit1152.c" tooltip="avrusb/ttydevinit1152.c">
-<persistable path="/avrusb/ttydevinit1152.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="avrusb/main.c">
-<persistable path="/avrusb/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf12.c" tooltip="bma020-tiny2313/rf12.c">
-<persistable path="/bma020-tiny2313/rf12.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bma.c" tooltip="bma020-tiny2313/bma.c">
-<persistable path="/bma020-tiny2313/bma.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="bma020-tiny2313/main.c">
-<persistable path="/bma020-tiny2313/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-rtc.c" tooltip="wordclock/i2c-rtc.c">
-<persistable path="/wordclock/i2c-rtc.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
 <persistable path="/wordclock/main.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wdt.h" tooltip="C:\WinAVR-20100110\avr\include\avr\wdt.h">
-<persistable path="C:\WinAVR-20100110\avr\include\avr\wdt.h" project="bma020-tiny2313"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock-bloader/uart.h">
+<persistable path="/wordclock-bloader/uart.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="receiver-nagios/org/floodping/Main.java">
-<persistable path="/receiver-nagios/org/floodping/Main.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="wordclock-bloader/uart.c">
+<persistable path="/wordclock-bloader/uart.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf12.h" tooltip="bma020-tiny2313/rf12.h">
-<persistable path="/bma020-tiny2313/rf12.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock-bloader/main.c">
+<persistable path="/wordclock-bloader/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bluart.c" tooltip="wordclock-bootloader/bluart.c">
+<persistable path="/wordclock-bootloader/bluart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bluart.h" tooltip="wordclock-bootloader/bluart.h">
+<persistable path="/wordclock-bootloader/bluart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock-bootloader/uart.h">
+<persistable path="/wordclock-bootloader/uart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="wordclock-bootloader/main.h">
+<persistable path="/wordclock-bootloader/main.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="wordclock-bootloader/uart.c">
+<persistable path="/wordclock-bootloader/uart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.x" tooltip="wordclock-bootloader/uart.x">
+<persistable path="/wordclock-bootloader/uart.x"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.xx" tooltip="wordclock-bootloader/uart.xx">
+<persistable path="/wordclock-bootloader/uart.xx"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
 <persistable path="/wordclock/uart.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c-master.c" tooltip="wordclock/i2c-master.c">
-<persistable path="/wordclock/i2c-master.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock-bootloader/main.c">
 <persistable path="/wordclock-bootloader/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="avrusb/uart.h">
+<persistable path="/avrusb/uart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="avrusb/uart.c">
+<persistable path="/avrusb/uart.c"/>
 </file>
 </mruList>
 </workbench>

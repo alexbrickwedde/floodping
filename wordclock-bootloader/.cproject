@@ -382,7 +382,7 @@
 <option id="de.innot.avreclipse.toolchain.options.toolchain.objcopy.eeprom.app.release.1517787586" name="Generate HEX file for EEPROM" superClass="de.innot.avreclipse.toolchain.options.toolchain.objcopy.eeprom.app.release"/>
 <option id="de.innot.avreclipse.toolchain.options.toolchain.objdump.app.release.2066091503" name="Generate Extended Listing (Source + generated Assembler)" superClass="de.innot.avreclipse.toolchain.options.toolchain.objdump.app.release"/>
 <option id="de.innot.avreclipse.toolchain.options.toolchain.size.app.release.1684754743" name="Print Size" superClass="de.innot.avreclipse.toolchain.options.toolchain.size.app.release"/>
-<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release.174469148" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release"/>
+<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release.174469148" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release" value="false" valueType="boolean"/>
 <targetPlatform id="de.innot.avreclipse.targetplatform.winavr.app.release.1946323163" name="AVR Cross-Target" superClass="de.innot.avreclipse.targetplatform.winavr.app.release"/>
 <builder buildPath="${workspace_loc:/wordclock-bootloader/Release}" id="de.innot.avreclipse.target.builder.winavr.app.release.97590049" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.app.release"/>
 <tool id="de.innot.avreclipse.tool.assembler.winavr.app.release.600841716" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.app.release">
@@ -399,7 +399,7 @@
 <option id="de.innot.avreclipse.cppcompiler.option.optimize.1017296231" name="Optimization Level" superClass="de.innot.avreclipse.cppcompiler.option.optimize" value="de.innot.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
 </tool>
 <tool id="de.innot.avreclipse.tool.linker.winavr.app.release.1255686168" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr.app.release">
-<option id="de.innot.avreclipse.linker.option.otherlinkargs.930148507" superClass="de.innot.avreclipse.linker.option.otherlinkargs" value="-Ttext=0x7000" valueType="string"/>
+<option id="de.innot.avreclipse.linker.option.otherlinkargs.930148507" name="Other Arguments" superClass="de.innot.avreclipse.linker.option.otherlinkargs" value="-Ttext=0x0" valueType="string"/>
 </tool>
 <tool id="de.innot.avreclipse.tool.cpplinker.app.release.980311683" name="AVR C++ Linker" superClass="de.innot.avreclipse.tool.cpplinker.app.release"/>
 <tool id="de.innot.avreclipse.tool.archiver.winavr.base.1821705228" name="AVR Archiver" superClass="de.innot.avreclipse.tool.archiver.winavr.base"/>

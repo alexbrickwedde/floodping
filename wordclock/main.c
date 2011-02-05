@@ -283,6 +283,14 @@ main()
   DDRC |= (1 << PC7);
 
   UBRRH = 0x00;
+  UBRRL = 95;
+
+  uartPuts("at\r");
+  _delay_ms(100);
+  uartPuts("atl5\r");
+  _delay_ms(100);
+
+  UBRRH = 0x00;
   UBRRL = 0x07;
 
   uartPuts("\r\n\r\n\r\n\r\n\r\n\r\n\r\nWordClock V0.1 initializing...\r\n\r\n");
