@@ -1,3 +1,3 @@
-main.d main.o: ../main.c ../uart.h
+main.d main.o: ../main.c ../command.h
 
-../uart.h:
+../command.h:
