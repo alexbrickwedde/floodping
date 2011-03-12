@@ -5,21 +5,12 @@
 #include <util/delay.h>
 #include <stdlib.h>
 
-//signed int volatile WDTcounter = 0;
-//ISR(WDT_vect)
-//{
-//  cli();
-//  WDTCR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1);
-//  WDTcounter--;
-//  sei();
-//}
-
-volatile unsigned int uiCount = 0;
+volatile unsigned char uiCount = 0;
 
 #define ServoRiegelZu       45
 #define ServoRiegelOffen    165
 
-#define FreigabeDauer       200
+#define FreigabeDauer       40 /* x 100ms */
 
 void PulseOn()
 {
@@ -33,22 +24,24 @@ void PulseOff()
 
 ISR(TIMER0_COMPA_vect)
 {
+  unsigned char ucTemp = uiCount;
   cli();
-  if(uiCount == 0)
+  if(ucTemp == 0)
   {
     PulseOn();
   }
-  else if (uiCount == 2)
+  else if (ucTemp == 2)
   {
     PulseOff();
   }
-  else if (uiCount >= 10)
+  else if (ucTemp >= 10)
   {
     uiCount = 0;
     sei();
     return;
   }
-  uiCount++;
+  ucTemp++;
+  uiCount = ucTemp;
   sei();
 }
 
@@ -58,8 +51,7 @@ main(void)
 {
   cli();
   wdt_reset();
-  //  wdt_enable (WDTO_1S);
-  //  WDTCR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1);
+  wdt_disable();
 
   DDRB = (1 << PB4);
 
@@ -75,7 +67,7 @@ main(void)
 
   for (;;)
   {
-    _delay_ms(20);
+    _delay_ms(100);
     int bTuerKontakt = PINB & (1 << PB1);
     int bRFIDFreigabe = PINB & (1 << PB2);
 //    int bRFIDFehler = PINB & (1 << PB3);
@@ -101,51 +93,3 @@ main(void)
     }
   }
 }
-
-//
-//int
-//main(void)
-//{
-//  cli();
-//  wdt_reset();
-//  //  wdt_enable (WDTO_1S);
-//  //  WDTCR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1);
-//  sei();
-//
-//  DDRB = (1 << PB4);
-//
-//  unsigned int uiServoSoll = ServoRiegelZu;
-//  unsigned int uiDelay = 0;
-//  for (;;)
-//  {
-//    PORTB |= (1 << PB4);
-//    _delay_us(uiServoSoll);
-//    PORTB &= ~(1 << PB4);
-//    _delay_ms(18);
-//
-//    int bTuerKontakt = PINB & (1 << PB1);
-//    int bRFIDFreigabe = PINB & (1 << PB2);
-////    int bRFIDFehler = PINB & (1 << PB3);
-//
-//    uiServoSoll = bRFIDFreigabe ? ServoRiegelZu : ServoRiegelOffen;
-//    continue;
-//    if(1 || bTuerKontakt)
-//    {
-//      if ( ( uiServoSoll == ServoRiegelOffen ) && ( uiDelay == 0) )
-//      {
-//        uiServoSoll = ServoRiegelZu;
-//      }
-//      else if (bRFIDFreigabe && ( uiServoSoll == ServoRiegelZu ) )
-//      {
-//        uiServoSoll = ServoRiegelOffen;
-//        uiDelay = FreigabeDauer;
-//      }
-//    }
-//
-//    if(uiDelay > 0)
-//    {
-//      uiDelay--;
-//    }
-//
-//  }
-//}
