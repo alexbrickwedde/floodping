@@ -1,0 +1,46 @@
+Von http://www.mikrocontroller.net/topic/110714#2001213 
+
+  This program is free software; you can redistribute it and/or modify it
+  under the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+  
+  Compile all programs with
+
+		make clean
+		make
+		make program
+		
+		
+
+** Originaltext / Anleitung: **
+Hi, habe mal die oben schon geposteten C Source Firmware ein bisschen
+erweitert.
+Habe die Parity Checks gleich in den Interrupt eingebaut, denn beim
+einlesen lässt sich die Parity leichter überprüfen als wenn ich
+hinterher die ganzen Bytes wieder auseinander klamüsern muss.
+Nimmt dadurch auch weniger Programmspeicher ein.
+
+Habe gleich noch den EEPROM verwendet um einen Keyspeicher für 25 Keys
+mit Validierung einzubauen.
+
+LED 1 an dann Key gültig
+LED 2 an dann Key ungültig
+
+Taste 1, 3 drücken und Key drüber halten wird er abgespeichert.
+Taste 2, 3 drücken und Key drüber halten wird er wieder gelöscht.
+
+Taste 1, 2 und 3 bei Reset oder PowerOn gedrückt halten wird der
+Keyspeicher wieder geleert.
+
+Display und UART habe ich nicht implementiert.
+
+
+Aenderungen Mlh 2011-02-05:
+richtiger decoderchip: U2270B em4095.c/.h -> u2270.c/.h
+richtiger µC: ATTiny3213
+Fehler in main() beseitigt 
+MAKEFILE angepasst
+LCD eingebaut
+Speicher auf 20 Keys reduziert, um Platz fuer Einschaltmeldung zu haben
+

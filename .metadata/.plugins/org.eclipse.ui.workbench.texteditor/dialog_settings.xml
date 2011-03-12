@@ -3,28 +3,30 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>
-		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="SIGN_ON" key="selection"/>
+		<item value="ServoRiegelZu" key="selection"/>
 		<list key="findhistory">
+			<item value="ServoOffen"/>
+			<item value="ServoGeschlossen"/>
 			<item value="sign_on"/>
 			<item value="PARSER_STATE_CHECKSUM"/>
 			<item value="#"/>
 			<item value="signal"/>
 			<item value="uart_put"/>
 			<item value="isr"/>
-			<item value="UART_NO_DATA"/>
-			<item value="178: if (!(c &amp; UART_NO_DATA))  "/>
 		</list>
 		<list key="replacehistory">
+			<item value="ServoRiegelZu"/>
+			<item value="ServoRiegelOffen"/>
 			<item value="uartPut"/>
 			<item value="uartPuts"/>
 			<item value="FALL"/>

@@ -353,12 +353,7 @@
 <definedSymbol symbol="__AVR__=1"/>
 <definedSymbol symbol="AVR=1"/>
 <definedSymbol symbol="__AVR_ARCH__=2"/>
-<definedSymbol symbol="__AVR_ARCH__=25"/>
 <definedSymbol symbol="__AVR_2_BYTE_PC__=1"/>
-<definedSymbol symbol="__AVR_ATtiny2313__=1"/>
-<definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
-<definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
-<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 </scannerInfo>
