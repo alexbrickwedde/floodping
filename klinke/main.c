@@ -7,19 +7,19 @@
 
 volatile unsigned char uiCount = 0;
 
-#define ServoRiegelZu       45
+#define ServoRiegelZu       42
 #define ServoRiegelOffen    165
 
 #define FreigabeDauer       40 /* x 100ms */
 
 void PulseOn()
 {
-  PORTB |= (1 << PB4);
+  PORTD |= (1 << PD4);
 }
 
 void PulseOff()
 {
-  PORTB &= ~(1 << PB4);
+  PORTD &= ~(1 << PD4);
 }
 
 ISR(TIMER0_COMPA_vect)
@@ -53,7 +53,8 @@ main(void)
   wdt_reset();
   wdt_disable();
 
-  DDRB = (1 << PB4);
+  DDRD = (1 << PD4) | (1 << PD5);
+  PORTD &= ~(1 << PD5);
 
   OCR0A = ServoRiegelZu;
   TIMSK |= (1 << OCIE0A);
@@ -68,8 +69,8 @@ main(void)
   for (;;)
   {
     _delay_ms(100);
-    int bTuerKontakt = PINB & (1 << PB1);
-    int bRFIDFreigabe = PINB & (1 << PB2);
+    int bTuerKontakt = PINB & (1 << PB5);
+    int bRFIDFreigabe = PINB & (1 << PB6);
 //    int bRFIDFehler = PINB & (1 << PB3);
 
     if(1 || bTuerKontakt)
@@ -78,12 +79,18 @@ main(void)
       {
         uiServoSoll = ServoRiegelZu;
         OCR0A = uiServoSoll;
+        PORTD |= (1 << PD5);
+        _delay_ms(1000);
+        PORTD &= ~(1 << PD5);
       }
       else if (bRFIDFreigabe && ( uiServoSoll == ServoRiegelZu ) )
       {
         uiServoSoll = ServoRiegelOffen;
         OCR0A = uiServoSoll;
         uiDelay = FreigabeDauer;
+        PORTD |= (1 << PD5);
+        _delay_ms(1000);
+        PORTD &= ~(1 << PD5);
       }
     }
 
