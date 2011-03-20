@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Sun Mar 20 21:42:32 CET 2011
 MEDIUM_HIDE_SECONDARY=false
 >>>>>>>=bb384ebc799cd622282f3c869908e44b4d2a878a
@@ -5,3 +6,12 @@ eclipse.preferences.version=1
 <<<<<<<=HEAD
 P_LAST_UPDATE_CHECK=1300653752153
 =\=\=\=\=\=\=
+=======
+#Sun Mar 13 17:39:44 CET 2011
+MEDIUM_HIDE_SECONDARY=false
+>>>>>>>=bb384ebc799cd622282f3c869908e44b4d2a878a
+eclipse.preferences.version=1
+<<<<<<<=HEAD
+P_LAST_UPDATE_CHECK=1300034384317
+=\=\=\=\=\=\=
+>>>>>>> 2e1bfc7cca5add7a1d11304f5c459643784713a5

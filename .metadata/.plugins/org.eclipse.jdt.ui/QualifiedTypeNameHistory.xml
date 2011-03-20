@@ -1,14 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="java.util.TimeZone"/>
-<fullyQualifiedTypeName name="java.util.Formatter"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="gnu.io.CommPortIdentifier"/>
-<fullyQualifiedTypeName name="gnu.io.CommPort"/>
-<fullyQualifiedTypeName name="gnu.io.SerialPort"/>
-<fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>
