@@ -1,18 +1,20 @@
-#Sun Mar 13 17:40:43 CET 2011
-avrdude/configs/programmerconfig.1/ppresetline=
-avrdudepropertypage/previewexpanded=false
-avrpaths//systempath/AVRDUDE=/usr/bin
-avrdude/configs/programmerconfig.1/baudrate=
+#Sun Mar 27 19:32:00 CEST 2011
 avrdudepropertypage/weight_preview_expanded=20
-avrdude/configs/programmerconfig.1/ppvccline=
-avrdude/configs/programmerconfig.1/name=New Configuration
-avrdudepropertypage/weight_preview_collapsed=50
-avrdudepropertypage/weight_top_expanded=80
-avrdudepropertypage/weight_top_collapsed=950
-avrpaths//systempath/AVRGCC=/usr/bin
-avrdude/configs/programmerconfig.1/port=
-avrdude/configs/programmerconfig.1/programmer=usbasp
 avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
+avrdude/configs/programmerconfig.1/programmer=usbasp
+avrpaths//systempath/AVRGCC=C\:\\WinAVR-20100110\\bin
+avrdude/configs/programmerconfig.1/port=
+avrdudepropertypage/weight_preview_collapsed=50
+avrpaths//systempath/PDFPATH=C\:\\Program Files\\Atmel\\AVR Tools\\Partdescriptionfiles
 eclipse.preferences.version=1
-avrpaths//systempath/MAKE=/usr/bin
+avrdude/configs/programmerconfig.1/ppresetline=
+avrdude/configs/programmerconfig.1/ppvccline=
 avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
+avrdudepropertypage/previewexpanded=false
+avrdudepropertypage/weight_top_collapsed=950
+avrdudepropertypage/weight_top_expanded=80
+avrpaths//systempath/AVRINCLUDE=C\:\\WinAVR-20100110\\avr\\include
+avrdude/configs/programmerconfig.1/name=usbasp
+avrdude/configs/programmerconfig.1/baudrate=
+avrpaths//systempath/AVRDUDE=C\:\\WinAVR-20100110\\bin
+avrpaths//systempath/MAKE=C\:\\WinAVR-20100110\\utils\\bin

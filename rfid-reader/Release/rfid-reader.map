@@ -1,21 +1,21 @@
 Archive member included because of file (symbol)
 
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulhi3.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulhi3.o)
                               ./main.o (__mulhi3)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodqi4.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodqi4.o)
                               ./em4100.o (__udivmodqi4)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o (exit)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
                               ./em4100.o (__do_copy_data)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
                               ./em4100.o (__do_clear_bss)
-/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eerd_byte_attiny2313.o)
                               ./main.o (__eerd_byte_tn2313)
-/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o)
                               ./main.o (__eewr_block_tn2313)
-/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o) (__eewr_r18_tn2313)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_byte_attiny2313.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o) (__eewr_r18_tn2313)
 
 Memory Configuration
 
@@ -30,13 +30,13 @@ signature        0x00840000         0x00000400         rw !x
 
 Linker script and memory map
 
-LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 LOAD ./em4100.o
 LOAD ./lcd.o
 LOAD ./main.o
-LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
-LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a
-LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
 
 .hash
  *(.hash)
@@ -128,9 +128,9 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x7b4
+.text           0x00000000      0x7d2
  *(.vectors)
- .vectors       0x00000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .vectors       0x00000000       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000000                __vectors
                 0x00000000                __vector_default
  *(.vectors)
@@ -155,20 +155,20 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000026        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .init0         0x00000026        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000026                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000026        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .init2         0x00000026        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000002e       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .init4         0x0000002e       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
                 0x0000002e                __do_copy_data
- .init4         0x00000044       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .init4         0x00000044       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
                 0x00000044                __do_clear_bss
  *(.init4)
  *(.init5)
@@ -180,10 +180,10 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000054        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .init9         0x00000054        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init9)
  *(.text)
- .text          0x00000058        0x2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .text          0x00000058        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x00000058                __vector_1
                 0x00000058                __vector_12
                 0x00000058                __bad_interrupt
@@ -210,43 +210,43 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x000003f6                lcd_enable
                 0x00000402                lcd_init
                 0x000003b8                lcd_command
- .text          0x0000047a      0x2be ./main.o
+ .text          0x0000047a      0x2dc ./main.o
                 0x00000554                saveKey
                 0x00000512                deleteKey
                 0x000005d6                main
                 0x0000047a                checkKey
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulhi3.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodqi4.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
- .text          0x00000738        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
-                0x00000738                . = ALIGN (0x2)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulhi3.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodqi4.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eerd_byte_attiny2313.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o)
+ .text          0x00000756        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_byte_attiny2313.o)
+                0x00000756                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000738       0x24 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulhi3.o)
-                0x00000738                __mulhi3
- .text.libgcc   0x0000075c       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodqi4.o)
-                0x0000075c                __udivmodqi4
- .text.libgcc   0x00000774        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x00000774        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000774        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000756       0x24 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulhi3.o)
+                0x00000756                __mulhi3
+ .text.libgcc   0x0000077a       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodqi4.o)
+                0x0000077a                __udivmodqi4
+ .text.libgcc   0x00000792        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x00000792        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000792        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x00000774       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
-                0x00000774                __eerd_byte_tn2313
+                0x00000792       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eerd_byte_attiny2313.o)
+                0x00000792                __eerd_byte_tn2313
  .text.avr-libc
-                0x00000784       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
-                0x00000784                __eewr_block_tn2313
+                0x000007a2       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o)
+                0x000007a2                __eewr_block_tn2313
  .text.avr-libc
-                0x00000794       0x1c /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
-                0x00000794                __eewr_byte_tn2313
-                0x00000796                __eewr_r18_tn2313
-                0x000007b0                . = ALIGN (0x2)
+                0x000007b2       0x1c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_byte_attiny2313.o)
+                0x000007b2                __eewr_byte_tn2313
+                0x000007b4                __eewr_r18_tn2313
+                0x000007ce                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000007b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x000007b0                exit
-                0x000007b0                _exit
+ .fini9         0x000007ce        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                0x000007ce                exit
+                0x000007ce                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -265,25 +265,25 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000007b0        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x000007ce        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x000007b4                _etext = .
+                0x000007d2                _etext = .
 
-.data           0x00800060        0x0 load address 0x000007b4
+.data           0x00800060        0x0 load address 0x000007d2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  .data          0x00800060        0x0 ./em4100.o
  .data          0x00800060        0x0 ./lcd.o
  .data          0x00800060        0x0 ./main.o
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulhi3.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodqi4.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
- .data          0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulhi3.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodqi4.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eerd_byte_attiny2313.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_byte_attiny2313.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
@@ -295,23 +295,23 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .bss            0x00800060       0x13
                 0x00800060                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  .bss           0x00800060       0x13 ./em4100.o
  .bss           0x00800073        0x0 ./lcd.o
  .bss           0x00800073        0x0 ./main.o
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mulhi3.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodqi4.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
- .bss           0x00800073        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulhi3.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eerd_byte_attiny2313.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_block_attiny2313.o)
+ .bss           0x00800073        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(eewr_byte_attiny2313.o)
  *(.bss*)
  *(COMMON)
                 0x00800073                PROVIDE (__bss_end, .)
-                0x000007b4                __data_load_start = LOADADDR (.data)
-                0x000007b4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000007d2                __data_load_start = LOADADDR (.data)
+                0x000007d2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800073        0x0
                 0x00800073                PROVIDE (__noinit_start, .)
@@ -339,19 +339,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x8b8
+.stab
  *(.stab)
- .stab          0x00000000      0x6b4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
- .stab          0x000006b4       0x90 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eerd_byte_attiny2313.o)
-                                 0x9c (size before relaxing)
- .stab          0x00000744       0x90 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_block_attiny2313.o)
-                                 0x9c (size before relaxing)
- .stab          0x000007d4       0xe4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(eewr_byte_attiny2313.o)
-                                 0xf0 (size before relaxing)
 
-.stabstr        0x00000000       0xe2
+.stabstr
  *(.stabstr)
- .stabstr       0x00000000       0xe2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 
 .stab.excl
  *(.stab.excl)
