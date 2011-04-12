@@ -6233,3 +6233,481 @@ Binding(ALT+CTRL+U,
 
 !ENTRY org.eclipse.osgi 2 1 2011-04-02 19:47:03.386
 !MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+!SESSION 2011-04-10 14:15:13.607 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.jface 2 0 2011-04-10 14:15:42.777
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-10 14:15:42.777
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Ignore,Ignore,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.IgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.AddToSVNIgnoreCommand,Add to svn:ignore...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.AddToSVNIgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-10 14:15:42.777
+!MESSAGE A conflict occurred for ALT+CTRL+C:
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Commit,Commit,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CommitCommand,Commit...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-10 14:15:42.777
+!MESSAGE A conflict occurred for ALT+CTRL+U:
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(de.innot.avreclipse.commands.uploadproject,Upload Project,
+		Upload selected project to the target device,
+		Category(de.innot.avreclipse.commands,AVR,AVR Plugin commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.UpdateCommand,Update,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.UpdateAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.970
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.973
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.973
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.974
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.975
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.975
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.976
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.977
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.977
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.978
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.978
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.979
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.979
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.980
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.993
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.994
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.994
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.995
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.996
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.996
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.997
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.997
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.998
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.999
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:44.999
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.000
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.000
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.001
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.002
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.002
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.003
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.003
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-10 14:15:45.004
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-04-10 14:16:15.758
+!MESSAGE Indexed 'MiniWordClock' (0 sources, 7 headers) in 0,33 sec: 12 declarations; 81 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.osgi 2 0 2011-04-10 14:16:41.488
+!MESSAGE While loading class "com.android.ide.eclipse.adt.ToolsLocator", thread "Thread[Worker-6,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-9,5,main]" to finish starting bundle "com.android.ide.eclipse.adt_8.0.1.v201012062107-82219 [259]". To avoid deadlock, thread "Thread[Worker-6,5,main]" is proceeding but "com.android.ide.eclipse.adt.ToolsLocator" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/com.android.ide.eclipse.adt_8.0.1.v201012062107-82219.jar" by thread "Worker-9".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:326)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:231)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1193)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:160)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:874)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:51)
+	at com.android.ide.eclipse.ddms.DdmsPlugin.instantiateToolsLocators(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin.access$4(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$4.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 23 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:326)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:231)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1193)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:160)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:874)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:51)
+	at com.android.ide.eclipse.ddms.DdmsPlugin.instantiateToolsLocators(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin.access$4(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$4.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.osgi 2 0 2011-04-10 14:16:42.330
+!MESSAGE While loading class "com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor$DeltaVisitor", thread "Thread[Worker-1,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-9,5,main]" to finish starting bundle "com.android.ide.eclipse.adt_8.0.1.v201012062107-82219 [259]". To avoid deadlock, thread "Thread[Worker-1,5,main]" is proceeding but "com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor$DeltaVisitor" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/com.android.ide.eclipse.adt_8.0.1.v201012062107-82219.jar" by thread "Worker-9".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor$1.resourceChanged(Unknown Source)
+	at org.eclipse.core.internal.events.NotificationManager$2.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:313)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1022)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:341)
+	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:178)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 22 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor$1.resourceChanged(Unknown Source)
+	at org.eclipse.core.internal.events.NotificationManager$2.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:313)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1022)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:341)
+	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:178)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.osgi 2 0 2011-04-10 14:16:47.359
+!MESSAGE While loading class "com.android.sdklib.SdkConstants", thread "Thread[Worker-6,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-9,5,main]" to finish starting bundle "com.android.ide.eclipse.adt_8.0.1.v201012062107-82219 [259]". To avoid deadlock, thread "Thread[Worker-6,5,main]" is proceeding but "com.android.sdklib.SdkConstants" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/com.android.ide.eclipse.adt_8.0.1.v201012062107-82219.jar" by thread "Worker-9".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.android.ide.eclipse.adt.AdtPlugin.getOsRelativeAdb(Unknown Source)
+	at com.android.ide.eclipse.adt.AdtPlugin.getOsAbsoluteAdb(Unknown Source)
+	at com.android.ide.eclipse.adt.ToolsLocator.getAdbLocation(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$4.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 17 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:381)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:457)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:410)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.android.ide.eclipse.adt.AdtPlugin.getOsRelativeAdb(Unknown Source)
+	at com.android.ide.eclipse.adt.AdtPlugin.getOsAbsoluteAdb(Unknown Source)
+	at com.android.ide.eclipse.adt.ToolsLocator.getAdbLocation(Unknown Source)
+	at com.android.ide.eclipse.ddms.DdmsPlugin$4.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2011-04-12 20:19:21.174 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.jface 2 0 2011-04-12 20:19:54.821
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-12 20:19:54.822
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Ignore,Ignore,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.IgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.AddToSVNIgnoreCommand,Add to svn:ignore...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.AddToSVNIgnoreAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-12 20:19:54.822
+!MESSAGE A conflict occurred for ALT+CTRL+C:
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.egit.ui.team.Commit,Commit,
+		,
+		Category(org.eclipse.egit.ui.commandCategory,Git,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.egit.ui.internal.actions.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+C,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CommitCommand,Commit...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.CommitAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-04-12 20:19:54.822
+!MESSAGE A conflict occurred for ALT+CTRL+U:
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(de.innot.avreclipse.commands.uploadproject,Upload Project,
+		Upload selected project to the target device,
+		Category(de.innot.avreclipse.commands,AVR,AVR Plugin commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.UpdateCommand,Update,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.team.svn.ui.action.local.UpdateAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.263
+!MESSAGE NLS unused message: profilesContentProvider_managedProfiles in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.264
+!MESSAGE NLS unused message: scheduleView_addSharedTemplate in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.266
+!MESSAGE NLS missing message: mediumInitializer_groupText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.268
+!MESSAGE NLS missing message: mediumInitializer_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.269
+!MESSAGE NLS missing message: mediumInitializer_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.270
+!MESSAGE NLS missing message: mediumInitializer_toggle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.272
+!MESSAGE NLS missing message: mediumInitializer_windowTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.273
+!MESSAGE NLS missing message: mediumSelector_desc in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.274
+!MESSAGE NLS missing message: mediumSelector_descIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.275
+!MESSAGE NLS missing message: mediumSelector_cbIncluded in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.277
+!MESSAGE NLS missing message: mediumSelector_grpMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.278
+!MESSAGE NLS missing message: mediumSelector_btnBrowse in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.280
+!MESSAGE NLS missing message: reportInvalidPaths_changePath in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.282
+!MESSAGE NLS missing message: reportInvalidPaths_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.283
+!MESSAGE NLS missing message: reportInvalidTarget_message in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.285
+!MESSAGE NLS missing message: reportInvalidTarget_msgTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.286
+!MESSAGE NLS missing message: selectMedium_title in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.287
+!MESSAGE NLS missing message: selectMedium_text in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.288
+!MESSAGE NLS missing message: showFeaturedocAction_dialogMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.290
+!MESSAGE NLS missing message: showFeaturedocAction_dialogTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.291
+!MESSAGE NLS missing message: showFeaturedocAction_errorMessage in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.292
+!MESSAGE NLS missing message: showFeaturedocAction_errorTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.294
+!MESSAGE NLS missing message: showFeaturedocAction_wizardTitle in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.295
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.296
+!MESSAGE NLS missing message: yodActionBarAdvisor_enterpriseTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.298
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginText in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.299
+!MESSAGE NLS missing message: yodActionBarAdvisor_missingPluginTooltip in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.300
+!MESSAGE NLS missing message: yodActionBarAdvisor_platformMenu in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.301
+!MESSAGE NLS missing message: yoxosTrimManager_badMedium in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.302
+!MESSAGE NLS missing message: yoxosTrimManager_trimName in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.303
+!MESSAGE NLS missing message: yoxosTrimManager_updateAll in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.303
+!MESSAGE NLS missing message: yoxosTrimManager_updateFeatures_name in: com.yoxos.yim.ui.base.uitexts
+
+!ENTRY org.eclipse.osgi 2 1 2011-04-12 20:19:57.304
+!MESSAGE NLS missing message: yoxosTrimManager_updateYoxos_name in: com.yoxos.yim.ui.base.uitexts
