@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000053  00800528  00800528  00008730  2**0
                   ALLOC
-  3 .stab         0000672c  00000000  00000000  00008730  2**2
+  3 .stab         00005ab4  00000000  00000000  00008730  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      0000194f  00000000  00000000  0000ee5c  2**0
+  4 .stabstr      00001752  00000000  00000000  0000e1e4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 000001a0  00000000  00000000  000107ab  2**0
+  5 .debug_aranges 00000140  00000000  00000000  0000f936  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 000001c9  00000000  00000000  0001094b  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  0000fa76  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   000022af  00000000  00000000  00010b14  2**0
+  7 .debug_info   00001c49  00000000  00000000  0000fbe6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00001267  00000000  00000000  00012dc3  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  0001182f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   0000140d  00000000  00000000  0001402a  2**0
+  9 .debug_line   00000dad  00000000  00000000  0001271a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  000001c0  00000000  00000000  00015438  2**2
+ 10 .debug_frame  00000160  00000000  00000000  000134c8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    000003c6  00000000  00000000  000155f8  2**0
+ 11 .debug_str    0000028d  00000000  00000000  00013628  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    00000c9d  00000000  00000000  000159be  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  000138b5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 000000b0  00000000  00000000  0001665b  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  00014083  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1630,7 +1630,7 @@ sub_minute(DATETIME * datetime)
 
 000009a8 <i2c_rtc_read>:
 const int arise[] = { 0, RISE( 8,37), RISE( 8,12), RISE( 7,20), RISE( 6,11), RISE( 5, 8), RISE( 4,52), RISE( 4,20), RISE( 4,55), RISE( 5,43), RISE( 6,31), RISE( 7,23), RISE( 8,12), RISE( 8,37) };
-const int afall[] = { 0, FALL(16,34), FALL(17,21), FALL(18,11), FALL(19, 3), FALL(19,52), FALL(20,37), FALL(20,52), FALL(20,22), FALL(19,21), FALL(18,13), FALL(17, 9), FALL(16,29), FALL(16,34) };
+const int afall[] = { 0, FALL(16,34), FALL(17,21), FALL(18,11), FALL(18,50), FALL(19,32), FALL(20,20), FALL(20,52), FALL(20,22), FALL(19,21), FALL(18,13), FALL(17, 9), FALL(16,29), FALL(16,34) };
 
 uint8_t
 i2c_rtc_read(DATETIME * datetime, uint8_t bLocal)
@@ -4645,10 +4645,6 @@ _delay_ms(double __ms)
     1d66:	91 83       	std	Z+1, r25	; 0x01
     1d68:	a2 83       	std	Z+2, r26	; 0x02
     1d6a:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     1d6c:	fe 01       	movw	r30, r28
     1d6e:	eb 59       	subi	r30, 0x9B	; 155
@@ -4862,10 +4858,6 @@ _delay_ms(double __ms)
     1ed4:	91 83       	std	Z+1, r25	; 0x01
     1ed6:	a2 83       	std	Z+2, r26	; 0x02
     1ed8:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     1eda:	fe 01       	movw	r30, r28
     1edc:	e9 5a       	subi	r30, 0xA9	; 169
@@ -5223,10 +5215,6 @@ _delay_ms(double __ms)
     213a:	91 83       	std	Z+1, r25	; 0x01
     213c:	a2 83       	std	Z+2, r26	; 0x02
     213e:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2140:	fe 01       	movw	r30, r28
     2142:	e7 5b       	subi	r30, 0xB7	; 183
@@ -5478,10 +5466,6 @@ _delay_ms(double __ms)
     22e6:	91 83       	std	Z+1, r25	; 0x01
     22e8:	a2 83       	std	Z+2, r26	; 0x02
     22ea:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     22ec:	fe 01       	movw	r30, r28
     22ee:	e5 5c       	subi	r30, 0xC5	; 197
@@ -5810,10 +5794,6 @@ _delay_ms(double __ms)
     250a:	91 83       	std	Z+1, r25	; 0x01
     250c:	a2 83       	std	Z+2, r26	; 0x02
     250e:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2510:	fe 01       	movw	r30, r28
     2512:	e3 5d       	subi	r30, 0xD3	; 211
@@ -6023,10 +6003,6 @@ _delay_ms(double __ms)
     267c:	91 83       	std	Z+1, r25	; 0x01
     267e:	a2 83       	std	Z+2, r26	; 0x02
     2680:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2682:	fe 01       	movw	r30, r28
     2684:	e1 5e       	subi	r30, 0xE1	; 225
@@ -6359,10 +6335,6 @@ _delay_ms(double __ms)
     28c0:	91 83       	std	Z+1, r25	; 0x01
     28c2:	a2 83       	std	Z+2, r26	; 0x02
     28c4:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     28c6:	fe 01       	movw	r30, r28
     28c8:	ef 5e       	subi	r30, 0xEF	; 239
@@ -6609,10 +6581,6 @@ _delay_ms(double __ms)
     2a62:	91 83       	std	Z+1, r25	; 0x01
     2a64:	a2 83       	std	Z+2, r26	; 0x02
     2a66:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2a68:	fe 01       	movw	r30, r28
     2a6a:	ed 5f       	subi	r30, 0xFD	; 253
@@ -6894,10 +6862,6 @@ _delay_ms(double __ms)
     2c48:	91 83       	std	Z+1, r25	; 0x01
     2c4a:	a2 83       	std	Z+2, r26	; 0x02
     2c4c:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2c4e:	fe 01       	movw	r30, r28
     2c50:	eb 50       	subi	r30, 0x0B	; 11
@@ -7152,10 +7116,6 @@ _delay_ms(double __ms)
     2df6:	91 83       	std	Z+1, r25	; 0x01
     2df8:	a2 83       	std	Z+2, r26	; 0x02
     2dfa:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2dfc:	fe 01       	movw	r30, r28
     2dfe:	e9 51       	subi	r30, 0x19	; 25
@@ -7405,10 +7365,6 @@ _delay_ms(double __ms)
     2fa0:	91 83       	std	Z+1, r25	; 0x01
     2fa2:	a2 83       	std	Z+2, r26	; 0x02
     2fa4:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     2fa6:	fe 01       	movw	r30, r28
     2fa8:	e7 52       	subi	r30, 0x27	; 39
@@ -7658,10 +7614,6 @@ _delay_ms(double __ms)
     314a:	91 83       	std	Z+1, r25	; 0x01
     314c:	a2 83       	std	Z+2, r26	; 0x02
     314e:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3150:	fe 01       	movw	r30, r28
     3152:	e5 53       	subi	r30, 0x35	; 53
@@ -8115,10 +8067,6 @@ _delay_ms(double __ms)
     3458:	91 83       	std	Z+1, r25	; 0x01
     345a:	a2 83       	std	Z+2, r26	; 0x02
     345c:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     345e:	fe 01       	movw	r30, r28
     3460:	e3 54       	subi	r30, 0x43	; 67
@@ -8761,10 +8709,6 @@ _delay_ms(double __ms)
     391e:	91 83       	std	Z+1, r25	; 0x01
     3920:	a2 83       	std	Z+2, r26	; 0x02
     3922:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3924:	fe 01       	movw	r30, r28
     3926:	e1 55       	subi	r30, 0x51	; 81
@@ -8976,10 +8920,6 @@ _delay_ms(double __ms)
     3a92:	91 83       	std	Z+1, r25	; 0x01
     3a94:	a2 83       	std	Z+2, r26	; 0x02
     3a96:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3a98:	fe 01       	movw	r30, r28
     3a9a:	ef 55       	subi	r30, 0x5F	; 95
@@ -9191,10 +9131,6 @@ _delay_ms(double __ms)
     3c06:	91 83       	std	Z+1, r25	; 0x01
     3c08:	a2 83       	std	Z+2, r26	; 0x02
     3c0a:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3c0c:	fe 01       	movw	r30, r28
     3c0e:	ed 56       	subi	r30, 0x6D	; 109
@@ -9406,10 +9342,6 @@ _delay_ms(double __ms)
     3d7a:	91 83       	std	Z+1, r25	; 0x01
     3d7c:	a2 83       	std	Z+2, r26	; 0x02
     3d7e:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3d80:	fe 01       	movw	r30, r28
     3d82:	eb 57       	subi	r30, 0x7B	; 123
@@ -9621,10 +9553,6 @@ _delay_ms(double __ms)
     3eee:	91 83       	std	Z+1, r25	; 0x01
     3ef0:	a2 83       	std	Z+2, r26	; 0x02
     3ef2:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     3ef4:	fe 01       	movw	r30, r28
     3ef6:	e9 58       	subi	r30, 0x89	; 137
@@ -9836,10 +9764,6 @@ _delay_ms(double __ms)
     4062:	91 83       	std	Z+1, r25	; 0x01
     4064:	a2 83       	std	Z+2, r26	; 0x02
     4066:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     4068:	fe 01       	movw	r30, r28
     406a:	e7 59       	subi	r30, 0x97	; 151
@@ -10051,10 +9975,6 @@ _delay_ms(double __ms)
     41d6:	91 83       	std	Z+1, r25	; 0x01
     41d8:	a2 83       	std	Z+2, r26	; 0x02
     41da:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     41dc:	fe 01       	movw	r30, r28
     41de:	e5 5a       	subi	r30, 0xA5	; 165
@@ -10462,10 +10382,6 @@ _delay_ms(double __ms)
     44b0:	91 83       	std	Z+1, r25	; 0x01
     44b2:	a2 83       	std	Z+2, r26	; 0x02
     44b4:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     44b6:	fe 01       	movw	r30, r28
     44b8:	e3 5b       	subi	r30, 0xB3	; 179
@@ -10716,10 +10632,6 @@ _delay_ms(double __ms)
     4658:	91 83       	std	Z+1, r25	; 0x01
     465a:	a2 83       	std	Z+2, r26	; 0x02
     465c:	b3 83       	std	Z+3, r27	; 0x03
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     465e:	fe 01       	movw	r30, r28
     4660:	ff 96       	adiw	r30, 0x3f	; 63
@@ -12590,10 +12502,6 @@ _delay_ms(double __ms)
     5350:	9a ab       	std	Y+50, r25	; 0x32
     5352:	ab ab       	std	Y+51, r26	; 0x33
     5354:	bc ab       	std	Y+52, r27	; 0x34
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     5356:	69 a9       	ldd	r22, Y+49	; 0x31
     5358:	7a a9       	ldd	r23, Y+50	; 0x32
@@ -12738,10 +12646,6 @@ _delay_ms(double __ms)
     5440:	9c a3       	std	Y+36, r25	; 0x24
     5442:	ad a3       	std	Y+37, r26	; 0x25
     5444:	be a3       	std	Y+38, r27	; 0x26
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     5446:	6b a1       	ldd	r22, Y+35	; 0x23
     5448:	7c a1       	ldd	r23, Y+36	; 0x24
@@ -13544,10 +13448,6 @@ _delay_ms(double __ms)
     59ac:	9e 8b       	std	Y+22, r25	; 0x16
     59ae:	af 8b       	std	Y+23, r26	; 0x17
     59b0:	b8 8f       	std	Y+24, r27	; 0x18
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     59b2:	6d 89       	ldd	r22, Y+21	; 0x15
     59b4:	7e 89       	ldd	r23, Y+22	; 0x16
@@ -13692,10 +13592,6 @@ _delay_ms(double __ms)
     5a9c:	98 87       	std	Y+8, r25	; 0x08
     5a9e:	a9 87       	std	Y+9, r26	; 0x09
     5aa0:	ba 87       	std	Y+10, r27	; 0x0a
-#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
-	extern void __builtin_avr_delay_cycles(unsigned long);
-	__builtin_avr_delay_cycles(__tmp);
-#else
 	if (__tmp < 1.0)
     5aa2:	6f 81       	ldd	r22, Y+7	; 0x07
     5aa4:	78 85       	ldd	r23, Y+8	; 0x08

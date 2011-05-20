@@ -1,8 +1,8 @@
-#Fri Mar 04 21:58:32 CET 2011
+#Sun Mar 27 19:32:20 CEST 2011
 avrtarget/ClockFrequency=8000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
-avrtarget/MCUType=attiny85
+avrtarget/MCUType=attiny2313
 avrtarget/UseEEPROM=false
 avrtarget/UseExtendedRAMforHeap=true
 avrtarget/avrdude/BitBangDelay=
@@ -11,9 +11,9 @@ avrtarget/avrdude/EEPROMFile=
 avrtarget/avrdude/EEPROMFromConfig=true
 avrtarget/avrdude/FlashFile=
 avrtarget/avrdude/FlashFromConfig=true
-avrtarget/avrdude/Fuses/ByteValues=226\:223\:255
+avrtarget/avrdude/Fuses/ByteValues=228\:223\:255
 avrtarget/avrdude/Fuses/FileName=
-avrtarget/avrdude/Fuses/MCUid=attiny85
+avrtarget/avrdude/Fuses/MCUid=attiny2313
 avrtarget/avrdude/Fuses/UseFile=false
 avrtarget/avrdude/Fuses/Write=true
 avrtarget/avrdude/NoChipErase=false
@@ -21,7 +21,7 @@ avrtarget/avrdude/NoSigCheck=false
 avrtarget/avrdude/NoVerify=false
 avrtarget/avrdude/NoWrite=false
 avrtarget/avrdude/OtherOptions=
-avrtarget/avrdude/ProgrammerID=programmerconfig.2
+avrtarget/avrdude/ProgrammerID=programmerconfig.1
 avrtarget/avrdude/UseCounter=false
 avrtarget/avrdude/WriteEEPROM=false
 avrtarget/avrdude/WriteFlash=true

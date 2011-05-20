@@ -325,7 +325,7 @@ const uint8_t amziffer[12] =
 //
 //                       JAN          FEB          MAR          APR          MAI          JUN          JUL          AUG          SEP          OKT          NOV          DEZ          JAN
 const int arise[] = { 0, RISE( 8,37), RISE( 8,12), RISE( 7,20), RISE( 6,11), RISE( 5, 8), RISE( 4,52), RISE( 4,20), RISE( 4,55), RISE( 5,43), RISE( 6,31), RISE( 7,23), RISE( 8,12), RISE( 8,37) };
-const int afall[] = { 0, FALL(16,34), FALL(17,21), FALL(18,11), FALL(19, 3), FALL(19,52), FALL(20,37), FALL(20,52), FALL(20,22), FALL(19,21), FALL(18,13), FALL(17, 9), FALL(16,29), FALL(16,34) };
+const int afall[] = { 0, FALL(16,34), FALL(17,21), FALL(18,11), FALL(18,50), FALL(19,32), FALL(20,20), FALL(20,52), FALL(20,22), FALL(19,21), FALL(18,13), FALL(17, 9), FALL(16,29), FALL(16,34) };
 
 uint8_t
 i2c_rtc_read(DATETIME * datetime, uint8_t bLocal)

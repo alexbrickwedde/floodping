@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="297" key="DIALOG_WIDTH"/>
+		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>
 		<item value="600" key="DIALOG_X_ORIGIN"/>
-		<item value="396" key="DIALOG_HEIGHT"/>
-		<item value="1|Sans Serif|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
@@ -13,23 +13,26 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="hex2dez_c" key="selection"/>
+		<item value="=ROW_0" key="selection"/>
 		<list key="findhistory">
-			<item value="hex2dez_c"/>
-			<item value="ServoOffen"/>
-			<item value="ServoGeschlossen"/>
-			<item value="sign_on"/>
-			<item value="PARSER_STATE_CHECKSUM"/>
-			<item value="#"/>
-			<item value="signal"/>
-			<item value="uart_put"/>
+			<item value="=1"/>
+			<item value="0x02"/>
+			<item value="0x04"/>
+			<item value="0x08"/>
+			<item value="0x10"/>
+			<item value="0x20"/>
+			<item value="0x40"/>
+			<item value="0x80"/>
 		</list>
 		<list key="replacehistory">
-			<item value="ServoRiegelZu"/>
-			<item value="ServoRiegelOffen"/>
-			<item value="uartPut"/>
-			<item value="uartPuts"/>
-			<item value="FALL"/>
+			<item value="=ROW_0"/>
+			<item value="ROW_1"/>
+			<item value="ROW_2"/>
+			<item value="ROW_3"/>
+			<item value="ROW_9"/>
+			<item value="ROW_4"/>
+			<item value="ROW_5"/>
+			<item value="ROW_6"/>
 		</list>
 	</section>
 </section>

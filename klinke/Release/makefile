@@ -49,7 +49,7 @@ all: klinke.elf secondary-outputs
 klinke.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,klinke.map -mmcu=attiny85 -o"klinke.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,klinke.map -mmcu=attiny2313 -o"klinke.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -73,7 +73,7 @@ klinke.eep: klinke.elf
 
 sizedummy: klinke.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=attiny85 klinke.elf
+	-avr-size --format=avr --mcu=attiny2313 klinke.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
