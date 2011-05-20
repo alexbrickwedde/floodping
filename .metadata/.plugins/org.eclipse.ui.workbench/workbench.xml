@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="334" y="31">
 <fastViewData fastViewLocation="1024"/>
@@ -15,7 +15,7 @@
 <coolItem id="de.innot.avreclipse.actionset.avrdude" itemType="typeToolBarContribution" x="50" y="40"/>
 <coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="158" y="40"/>
 <coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="84" y="40"/>
-<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.asm.AsmEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="122" y="40"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -24,12 +24,13 @@
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="78" y="40"/>
 <coolItem id="org.eclipse.team.ui.actionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="70" y="40"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="40"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="186" y="40"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.wst.html.core.htmlsource.source" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -38,10 +39,36 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/root/floodping/CAN1/main.c" title="main.c" tooltip="CAN1/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CAN1/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2829" selectionTopPixel="1695"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mcp2515.c" partName="mcp2515.c" path="/root/floodping/CAN1/mcp2515.c" title="mcp2515.c" tooltip="CAN1/mcp2515.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CAN1/mcp2515.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4557" selectionTopPixel="2376"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="config.h" partName="config.h" path="/root/floodping/CAN1/config.h" title="config.h" tooltip="CAN1/config.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CAN1/config.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="1669" selectionTopPixel="396"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can.h" partName="can.h" path="/root/floodping/CAN1/can.h" title="can.h" tooltip="CAN1/can.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CAN1/can.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5247" selectionTopPixel="2580"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mcp2515_sleep.c" partName="mcp2515_sleep.c" path="/root/floodping/CAN1/mcp2515_sleep.c" title="mcp2515_sleep.c" tooltip="CAN1/mcp2515_sleep.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CAN1/mcp2515_sleep.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2228" selectionTopPixel="480"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.team.ui.GenericHistoryView" partName="History">
@@ -99,8 +126,9 @@
 <view id="de.innot.avreclipse.views.supportedmcus" partName="AVR Supported MCUs"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>&#x0A;<category IMemento.internal.id="Errors"/>
+<expanded>
 <category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -146,7 +174,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -301,8 +329,8 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.13086075" ratioLeft="187" ratioRight="1242" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.37853107" ratioLeft="335" ratioRight="550" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.22348712" ratioLeft="373" ratioRight="1296" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.6338983" ratioLeft="561" ratioRight="324" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -614,7 +642,124 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/uart.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wordclock/timer.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CAN1/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" path="/CAN1/can-lib/doku/html/index.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CAN1/mcp2515.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CAN1/config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CAN1/can.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CAN1/mcp2515_sleep.c"/>
+</editors>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="21975" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="27224"/>
+</item>
+<item historyLabel="uart.h" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="27224"/>
+</item>
+<item historyLabel="timer.c" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="27224"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2481" y="0"/>
+</item>
+<item historyLabel="index.html" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3666" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2838" y="0"/>
+</item>
+<item historyLabel="mcp2515.c" index="5">
+<position info="not_deleted" x="4367" y="0"/>
+</item>
+<item historyLabel="config.h" index="6">
+<position info="not_deleted" x="1634" y="0"/>
+</item>
+<item historyLabel="mcp2515.c" index="5">
+<position info="not_deleted" x="5243" y="11"/>
+</item>
+<item historyLabel="config.h" index="6">
+<position info="not_deleted" x="1669" y="11"/>
+</item>
+<item historyLabel="mcp2515.c" index="5">
+<position info="not_deleted" x="4557" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2838" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2972" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3197" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3373" y="8"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3371" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3044" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3121" y="0"/>
+</item>
+<item historyLabel="can.h" index="7">
+<position info="not_deleted" x="5247" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3121" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3551" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position/>
+</item>
+<item historyLabel="mcp2515_sleep.c" index="8">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="can.h" index="7">
+<position info="not_deleted" x="5247" y="0"/>
+</item>
+<item historyLabel="mcp2515_sleep.c" index="8">
+<position info="not_deleted" x="2228" y="0"/>
+</item>
+<item historyLabel="can.h" index="7">
+<position info="not_deleted" x="5247" y="0"/>
+</item>
+<item historyLabel="config.h" index="6">
+<position info="not_deleted" x="1669" y="11"/>
+</item>
+<item historyLabel="mcp2515.c" index="5">
+<position info="not_deleted" x="4557" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="3">
+<position/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -632,6 +777,33 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mcp2515_sleep.c" tooltip="CAN1/mcp2515_sleep.c">
+<persistable path="/CAN1/mcp2515_sleep.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="can.h" tooltip="CAN1/can.h">
+<persistable path="/CAN1/can.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="config.h" tooltip="CAN1/config.h">
+<persistable path="/CAN1/config.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mcp2515.c" tooltip="CAN1/mcp2515.c">
+<persistable path="/CAN1/mcp2515.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" name="index.html" tooltip="CAN1/can-lib/doku/html/index.html">
+<persistable path="/CAN1/can-lib/doku/html/index.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="CAN1/main.c">
+<persistable path="/CAN1/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" tooltip="wordclock/timer.c">
+<persistable path="/wordclock/timer.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="wordclock/uart.h">
+<persistable path="/wordclock/uart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="wordclock/main.c">
+<persistable path="/wordclock/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="klinke/main.c">
 <persistable path="/klinke/main.c"/>
 </file>
@@ -649,33 +821,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README" tooltip="rfid-reader/README">
 <persistable path="/rfid-reader/README"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="em4100.h" tooltip="rfid-reader/em4100.h">
-<persistable path="/rfid-reader/em4100.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="rfid-reader/main.c">
-<persistable path="/rfid-reader/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lcd.h" tooltip="rfid-reader/lcd.h">
-<persistable path="/rfid-reader/lcd.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lcd.c" tooltip="rfid-reader/lcd.c">
-<persistable path="/rfid-reader/lcd.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="em4100.c" tooltip="rfid-reader/em4100.c">
-<persistable path="/rfid-reader/em4100.c"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="delay.h" tooltip="C:\WinAVR-20100110\avr\include\util\delay.h">
-<persistable path="C:\WinAVR-20100110\avr\include\util\delay.h" project="klinke"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="iotnx5.h" tooltip="C:\WinAVR-20100110\avr\include\avr\iotnx5.h">
-<persistable path="C:\WinAVR-20100110\avr\include\avr\iotnx5.h" project="marderschreck"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="marderschreck/main.c">
-<persistable path="/marderschreck/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="command.h" tooltip="wordclock-bloader/command.h">
-<persistable path="/wordclock-bloader/command.h"/>
 </file>
 </mruList>
 </workbench>
