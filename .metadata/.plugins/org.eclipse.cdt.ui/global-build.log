@@ -1,0 +1,107 @@
+
+**** Build of configuration Debug for project netio ****
+
+make all 
+Building file: ../ethersex.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega644p -DF_CPU=16000000UL -MMD -MP -MF"ethersex.d" -MT"ethersex.d" -c -o "ethersex.o" "../ethersex.c"
+In file included from ../ethersex.c:27:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay.h:94:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../protocols/uip/uipopt.h:70,
+                 from ../protocols/uip/uip.h:58,
+                 from ../ethersex.c:30:
+../protocols/uip/uip-conf.h:7:20: error: config.h: No such file or directory
+In file included from ../ethersex.c:30:
+../protocols/uip/uip.h:59:18: error: meta.h: No such file or directory
+In file included from ../ethersex.c:30:
+../protocols/uip/uip.h:1253: error: expected specifier-qualifier-list before 'uip_tcp_appstate_t'
+../protocols/uip/uip.h:1297: error: expected specifier-qualifier-list before 'uip_udp_appstate_t'
+../protocols/uip/uip.h:1649:40: error: hardware/radio/rfm12/rfm12.h: No such file or directory
+../protocols/uip/uip.h:1650:33: error: protocols/zbus/zbus.h: No such file or directory
+../protocols/uip/uip.h:1651:35: error: protocols/usb/usb_net.h: No such file or directory
+../protocols/uip/uip.h: In function 'uip_buf_lock':
+../protocols/uip/uip.h:1662: warning: implicit declaration of function 'rfm12_int_disable'
+In file included from ../ethersex.c:34:
+../core/debug.h:28:25: error: core/global.h: No such file or directory
+../core/debug.h:29:43: error: protocols/syslog/syslog_debug.h: No such file or directory
+In file included from ../ethersex.c:42:
+../core/vfs/vfs.h:74:47: error: hardware/storage/dataflash/vfs_df.h: No such file or directory
+../core/vfs/vfs.h:75:47: error: hardware/storage/sd_reader/vfs_sd.h: No such file or directory
+../core/vfs/vfs.h:76:33: error: core/vfs/vfs_inline.h: No such file or directory
+../core/vfs/vfs.h:77:44: error: hardware/i2c/master/vfs_eeprom.h: No such file or directory
+../core/vfs/vfs.h:78:48: error: hardware/i2c/master/vfs_eeprom_raw.h: No such file or directory
+../core/vfs/vfs.h:79:40: error: hardware/camera/vfs_dc3840.h: No such file or directory
+../core/vfs/vfs.h:80:27: error: core/host/vfs.h: No such file or directory
+In file included from ../ethersex.c:42:
+../core/vfs/vfs.h: At top level:
+../core/vfs/vfs.h:88: error: expected specifier-qualifier-list before 'vfs_file_handle_df_t'
+make: *** [ethersex.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project netio ****
+
+make -j4 all 
+/bin/sh core/portio/cfgpp pinning/named_pin/default
+Build meta files
+sed -ne '/Ethersex META/{n;:loop p;n;/\*\//!bloop }' ethersex.c core/eeprom.c  core/util/fixedpoint.c core/util/string_parsing.c network.c core/debug.c core/periodic.c core/spi.c hardware/avr/dump_ecmd.c hardware/avr/fuse.c hardware/avr/hostname.c hardware/avr/reset_ecmd.c hardware/avr/bootloader_ecmd.c hardware/ethernet/ethernet_config.c hardware/ethernet/enc28j60.c hardware/ethernet/enc28j60_process.c hardware/ethernet/enc28j60_transmit.c hardware/radio/rfm12/rfm12.c hardware/radio/rfm12/process.c protocols/uip/uip.c protocols/uip/uip_multi.c protocols/uip/uip_router.c protocols/uip/uip_arp.c protocols/uip/check_cache.c protocols/uip/uip_rfm12.c protocols/dns/dns_net.c protocols/dns/resolv.c protocols/dns/dns_ecmd.c > meta.m4.tmp
+m4 -I./pinning `scripts/m4-defines` pinning/internals/header.m4 pinning/controllers/atmega644p.m4 pinning/internals/hackery_atmega644p.m4 pinning/hardware/netio.m4 pinning/internals/footer.m4 > pinning.c
+Copying to meta.m4
+m4 `scripts/m4-defines` scripts/meta_magic.m4 meta.m4 > meta.c
+m4 `scripts/m4-defines` scripts/meta_header_magic.m4 meta.m4 > meta.h
+m4  ./control6/control6-header.m4 ./control6/control6.src > control6/control6.h
+Build meta files
+sed -ne '/Ethersex META/{n;:loop p;n;/\*\//!bloop }' ethersex.c core/eeprom.c  core/util/fixedpoint.c core/util/string_parsing.c network.c core/debug.c core/periodic.c core/spi.c hardware/avr/dump_ecmd.c hardware/avr/fuse.c hardware/avr/hostname.c hardware/avr/reset_ecmd.c hardware/avr/bootloader_ecmd.c hardware/ethernet/ethernet_config.c hardware/ethernet/enc28j60.c hardware/ethernet/enc28j60_process.c hardware/ethernet/enc28j60_transmit.c hardware/radio/rfm12/rfm12.c hardware/radio/rfm12/process.c protocols/uip/uip.c protocols/uip/uip_multi.c protocols/uip/uip_router.c protocols/uip/uip_arp.c protocols/uip/check_cache.c protocols/uip/uip_rfm12.c protocols/dns/dns_net.c protocols/dns/resolv.c protocols/dns/dns_ecmd.c > meta.m4.tmp
+In file included from ./core/usart.h:90,
+                 from core/debug.c:50:
+./core/setbaud.h:213:4: warning: #warning "Baud rate achieved is higher than allowed"
+hardware/radio/rfm12/rfm12.c: In function 'udpsend':
+hardware/radio/rfm12/rfm12.c:253: warning: assignment discards qualifiers from pointer target type
+Copying to meta.m4
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o ethersex.o ethersex.c
+hardware/radio/rfm12/rfm12.c: In function 'x':
+hardware/radio/rfm12/rfm12.c:439: warning: passing argument 1 of 'uip_send' discards qualifiers from pointer target type
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/eeprom.o core/eeprom.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/util/fixedpoint.o core/util/fixedpoint.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/util/string_parsing.o core/util/string_parsing.c
+meta.c: In function 'ethersex_meta_mainloop':
+meta.c:87: warning: implicit declaration of function 'rfm12_int_process'
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o network.o network.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/debug.o core/debug.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/periodic.o core/periodic.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/spi.o core/spi.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/dump_ecmd.o hardware/avr/dump_ecmd.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/fuse.o hardware/avr/fuse.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/hostname.o hardware/avr/hostname.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/reset_ecmd.o hardware/avr/reset_ecmd.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/bootloader_ecmd.o hardware/avr/bootloader_ecmd.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/ethernet_config.o hardware/ethernet/ethernet_config.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60.o hardware/ethernet/enc28j60.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60_process.o hardware/ethernet/enc28j60_process.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60_transmit.o hardware/ethernet/enc28j60_transmit.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/radio/rfm12/rfm12.o hardware/radio/rfm12/rfm12.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/radio/rfm12/process.o hardware/radio/rfm12/process.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip.o protocols/uip/uip.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_multi.o protocols/uip/uip_multi.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_router.o protocols/uip/uip_router.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_arp.o protocols/uip/uip_arp.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/check_cache.o protocols/uip/check_cache.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_rfm12.o protocols/uip/uip_rfm12.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/dns_net.o protocols/dns/dns_net.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/resolv.o protocols/dns/resolv.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/dns_ecmd.o protocols/dns/dns_ecmd.c
+avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o meta.o meta.c
+avr-gcc -mmcu=atmega644p -Wl,--gc-sections -o ethersex ethersex.o core/eeprom.o core/util/fixedpoint.o core/util/string_parsing.o network.o core/debug.o core/periodic.o core/spi.o hardware/avr/dump_ecmd.o hardware/avr/fuse.o hardware/avr/hostname.o hardware/avr/reset_ecmd.o hardware/avr/bootloader_ecmd.o hardware/ethernet/ethernet_config.o hardware/ethernet/enc28j60.o hardware/ethernet/enc28j60_process.o hardware/ethernet/enc28j60_transmit.o hardware/radio/rfm12/rfm12.o hardware/radio/rfm12/process.o protocols/uip/uip.o protocols/uip/uip_multi.o protocols/uip/uip_router.o protocols/uip/uip_arp.o protocols/uip/check_cache.o protocols/uip/uip_rfm12.o protocols/dns/dns_net.o protocols/dns/resolv.o protocols/dns/dns_ecmd.o meta.o  -lc -lm # Pixie Dust!!! (Bug in avr-binutils)
+avr-objcopy -O ihex -R .eeprom ethersex ethersex.hex
+avr-objcopy -O binary -R .eeprom ethersex ethersex.bin
+=======The ethersex project========
+Compiled for: atmega644p at 16000000Hz
+Imagesize: 17378/65536 bytes (26.52%)
+  [=======-----------------------]
+
+Program (.text + .data)	: 17378 bytes
+Data (.data + .bss)	:  2197 bytes
+
+===================================
+
+**** Build Finished ****
