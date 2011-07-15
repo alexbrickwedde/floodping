@@ -10461,3 +10461,19 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.ui 4 4 2011-07-15 22:26:41.291
 !MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.
+!SESSION 2011-07-15 22:36:23.525 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-07-15 22:37:14.163
+!MESSAGE loadAndParseRClass: failed to find manifest package for project WordClockRemote
+
+!ENTRY org.eclipse.ui 4 4 2011-07-15 22:37:33.235
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.core.jobs 2 2 2011-07-15 22:38:14.007
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.android.ide.eclipse.adt.internal.sdk.Sdk$5
