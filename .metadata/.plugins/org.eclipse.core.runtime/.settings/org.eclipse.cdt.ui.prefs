@@ -1,9 +1,10 @@
-#Sun Mar 27 18:29:33 CEST 2011
-spelling_locale_initialized=true
-formatter_settings_version=1
-useAnnotationsPrefPage=true
-eclipse.preferences.version=1
-formatter_profile=org.eclipse.cdt.ui.default.allman_profile
-sourceHoverBackgroundColor=255,255,225
+#Fri Jul 15 22:19:05 CEST 2011
 useQuickDiffPrefPage=true
+useAnnotationsPrefPage=true
+sourceHoverBackgroundColor=255,255,225
 org.eclipse.cdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+formatter_settings_version=1
+formatter_profile=org.eclipse.cdt.ui.default.allman_profile
+spelling_locale_initialized=true
+eclipse.preferences.version=1
+content_assist_disabled_computers=org.eclipse.cdt.ui.parserProposalCategory\u0000org.eclipse.cdt.ui.textProposalCategory\u0000

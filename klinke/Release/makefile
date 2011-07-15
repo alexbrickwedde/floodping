@@ -49,7 +49,7 @@ all: klinke.elf secondary-outputs
 klinke.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,klinke.map -mmcu=attiny2313 -o"klinke.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,klinke.map -mmcu=attiny2313 -o "klinke.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

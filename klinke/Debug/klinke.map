@@ -1,70 +1,56 @@
 Archive member included because of file (symbol)
 
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o (exit)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o (exit)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+                              ./main.o (__do_copy_data)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
                               ./main.o (__do_clear_bss)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
                               ./main.o (__fixunssfsi)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o) (__subsf3)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o) (__subsf3)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
                               ./main.o (__mulsf3)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
                               ./main.o (__gtsf2)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o) (__gesf2)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o) (__gesf2)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
                               ./main.o (__ltsf2)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
-                              ./main.o (__floatsisf)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o) (__fixsfsi)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o) (__thenan_sf)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_prologue.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o) (__prologue_saves__)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_epilogue.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o) (__epilogue_restores__)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o) (__do_copy_data)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o) (__clzsi2)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o) (__pack_f)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o) (__unpack_f)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o) (__fpcmp_parts_f)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o) (__clz_tab)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o)
-                              ./main.o (rand)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulsi3.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o) (__mulsi3)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o) (__divmodsi4)
-c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o) (__udivmodsi4)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o) (__fixsfsi)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o) (__thenan_sf)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_prologue.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o) (__prologue_saves__)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_epilogue.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o) (__epilogue_restores__)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o) (__pack_f)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o) (__unpack_f)
+/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
+                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o) (__fpcmp_parts_f)
 
 Memory Configuration
 
 Name             Origin             Length             Attributes
-text             0x00000000         0x00002000         xr
-data             0x00800060         0x0000ffa0         rw !x
-eeprom           0x00810000         0x00010000         rw !x
-fuse             0x00820000         0x00000400         rw !x
-lock             0x00830000         0x00000400         rw !x
-signature        0x00840000         0x00000400         rw !x
-*default*        0x00000000         0xffffffff
+text             0x0000000000000000 0x0000000000002000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000400 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
 
-LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 LOAD ./main.o
-LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
-LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a
-LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
+LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
+LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a
+LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 
 .hash
  *(.hash)
@@ -156,48 +142,48 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1016
+.text           0x0000000000000000      0xffc
  *(.vectors)
- .vectors       0x00000000       0x1e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-                0x00000000                __vectors
-                0x00000000                __vector_default
+ .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
  *(.vectors)
  *(.progmem.gcc*)
  *(.progmem*)
-                0x0000001e                . = ALIGN (0x2)
-                0x0000001e                __trampolines_start = .
+                0x0000000000000026                . = ALIGN (0x2)
+                0x0000000000000026                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x0000001e        0x0 linker stubs
+ .trampolines   0x0000000000000026        0x0 linker stubs
  *(.trampolines*)
-                0x0000001e                __trampolines_end = .
+                0x0000000000000026                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000001e                __ctors_start = .
+                0x0000000000000026                __ctors_start = .
  *(.ctors)
-                0x0000001e                __ctors_end = .
-                0x0000001e                __dtors_start = .
+                0x0000000000000026                __ctors_end = .
+                0x0000000000000026                __dtors_start = .
  *(.dtors)
-                0x0000001e                __dtors_end = .
+                0x0000000000000026                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000001e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-                0x0000001e                __init
+ .init0         0x0000000000000026        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+                0x0000000000000026                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000001e        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+ .init2         0x0000000000000026        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000002a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
-                0x0000002a                __do_clear_bss
- .init4         0x0000003a       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
-                0x0000003a                __do_copy_data
+ .init4         0x000000000000002e       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+                0x000000000000002e                __do_copy_data
+ .init4         0x0000000000000044       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+                0x0000000000000044                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -208,89 +194,74 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000050        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
+ .init9         0x0000000000000054        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  *(.init9)
  *(.text)
- .text          0x00000054        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
-                0x00000054                __vector_1
-                0x00000054                __bad_interrupt
-                0x00000054                __vector_6
-                0x00000054                __vector_3
-                0x00000054                __vector_11
-                0x00000054                __vector_13
-                0x00000054                __vector_7
-                0x00000054                __vector_5
-                0x00000054                __vector_4
-                0x00000054                __vector_9
-                0x00000054                __vector_2
-                0x00000054                __vector_8
-                0x00000054                __vector_14
-                0x00000054                __vector_10
- .text          0x00000056      0x23c ./main.o
-                0x00000056                __vector_12
-                0x000000de                main
-                0x000000b2                crand
- .text          0x00000292        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .text          0x00000292        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .text          0x00000292       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
-                0x00000292                __fixunssfsi
- .text          0x000002e2      0x338 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
-                0x00000576                __subsf3
-                0x000005cc                __addsf3
- .text          0x0000061a      0x1ea c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
-                0x0000061a                __mulsf3
- .text          0x00000804       0x56 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
-                0x00000804                __gtsf2
- .text          0x0000085a       0x56 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
-                0x0000085a                __gesf2
- .text          0x000008b0       0x56 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
-                0x000008b0                __ltsf2
- .text          0x00000906       0xb4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
-                0x00000906                __floatsisf
- .text          0x000009ba       0xa2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
-                0x000009ba                __fixsfsi
- .text          0x00000a5c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .text          0x00000a5c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_prologue.o)
- .text          0x00000a5c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_epilogue.o)
- .text          0x00000a5c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .text          0x00000a5c       0x9e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
-                0x00000a5c                __clzsi2
- .text          0x00000afa      0x1aa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
-                0x00000afa                __pack_f
- .text          0x00000ca4       0xf0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
-                0x00000ca4                __unpack_f
- .text          0x00000d94       0xb2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
-                0x00000d94                __fpcmp_parts_f
- .text          0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
- .text          0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o)
- .text          0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulsi3.o)
- .text          0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
- .text          0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
-                0x00000e46                . = ALIGN (0x2)
+ .text          0x0000000000000058        0x2 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+                0x0000000000000058                __vector_1
+                0x0000000000000058                __vector_12
+                0x0000000000000058                __bad_interrupt
+                0x0000000000000058                __vector_6
+                0x0000000000000058                __vector_3
+                0x0000000000000058                __vector_11
+                0x0000000000000058                __vector_17
+                0x0000000000000058                __vector_7
+                0x0000000000000058                __vector_5
+                0x0000000000000058                __vector_4
+                0x0000000000000058                __vector_9
+                0x0000000000000058                __vector_2
+                0x0000000000000058                __vector_15
+                0x0000000000000058                __vector_8
+                0x0000000000000058                __vector_14
+                0x0000000000000058                __vector_10
+                0x0000000000000058                __vector_16
+                0x0000000000000058                __vector_18
+ .text          0x000000000000005a      0x4ce ./main.o
+                0x0000000000000092                __vector_13
+                0x000000000000011e                main
+                0x000000000000005a                PulseOn
+                0x0000000000000076                PulseOff
+ .text          0x0000000000000528        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x0000000000000528        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x0000000000000528        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000528       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+                0x0000000000000528                __fixunssfsi
+ .text          0x0000000000000578      0x338 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+                0x000000000000080c                __subsf3
+                0x0000000000000862                __addsf3
+ .text          0x00000000000008b0      0x1ea /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+                0x00000000000008b0                __mulsf3
+ .text          0x0000000000000a9a       0x56 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+                0x0000000000000a9a                __gtsf2
+ .text          0x0000000000000af0       0x56 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+                0x0000000000000af0                __gesf2
+ .text          0x0000000000000b46       0x56 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+                0x0000000000000b46                __ltsf2
+ .text          0x0000000000000b9c       0xa2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+                0x0000000000000b9c                __fixsfsi
+ .text          0x0000000000000c3e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .text          0x0000000000000c3e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_prologue.o)
+ .text          0x0000000000000c3e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_epilogue.o)
+ .text          0x0000000000000c3e      0x1aa /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+                0x0000000000000c3e                __pack_f
+ .text          0x0000000000000de8       0xf0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+                0x0000000000000de8                __unpack_f
+ .text          0x0000000000000ed8       0xb2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
+                0x0000000000000ed8                __fpcmp_parts_f
+                0x0000000000000f8a                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .text.libgcc   0x00000e46        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000e46       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_prologue.o)
-                0x00000e46                __prologue_saves__
- .text.libgcc   0x00000e7e       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_epilogue.o)
-                0x00000e7e                __epilogue_restores__
- .text.libgcc   0x00000eb4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .text.avr-libc
-                0x00000eb4       0xb2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o)
-                0x00000f44                rand_r
-                0x00000f48                rand
-                0x00000f50                srand
- .text.libgcc   0x00000f66       0x32 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulsi3.o)
-                0x00000f66                __mulsi3
- .text.libgcc   0x00000f98       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
-                0x00000f98                __divmodsi4
- .text.libgcc   0x00000fce       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
-                0x00000fce                __udivmodsi4
-                0x00001012                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000000f8a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000f8a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000f8a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000f8a       0x38 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_prologue.o)
+                0x0000000000000f8a                __prologue_saves__
+ .text.libgcc   0x0000000000000fc2       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_epilogue.o)
+                0x0000000000000fc2                __epilogue_restores__
+                0x0000000000000ff8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001012        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
-                0x00001012                exit
-                0x00001012                _exit
+ .fini9         0x0000000000000ff8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x0000000000000ff8                exit
+                0x0000000000000ff8                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -309,93 +280,78 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001012        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .fini0         0x0000000000000ff8        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x00001016                _etext = .
+                0x0000000000000ffc                _etext = .
 
-.data           0x00800060      0x10c load address 0x00001016
-                0x00800060                PROVIDE (__data_start, .)
+.data           0x0000000000800060        0x8 load address 0x0000000000000ffc
+                0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
- .data          0x00800060        0x0 ./main.o
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .data          0x00800060        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
-                0x00800060                __thenan_sf
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_prologue.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_epilogue.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .data          0x00800068      0x100 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
-                0x00800068                __clz_tab
- .data          0x00800168        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o)
- .data          0x0080016c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulsi3.o)
- .data          0x0080016c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
- .data          0x0080016c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .data          0x0000000000800060        0x0 ./main.o
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .data          0x0000000000800060        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+                0x0000000000800060                __thenan_sf
+ .data          0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_prologue.o)
+ .data          0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_epilogue.o)
+ .data          0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .data          0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .data          0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0080016c                . = ALIGN (0x2)
-                0x0080016c                _edata = .
-                0x0080016c                PROVIDE (__data_end, .)
+                0x0000000000800068                . = ALIGN (0x2)
+                0x0000000000800068                _edata = .
+                0x0000000000800068                PROVIDE (__data_end, .)
 
-.bss            0x0080016c        0x2
-                0x0080016c                PROVIDE (__bss_start, .)
+.bss            0x0000000000800068        0x1
+                0x0000000000800068                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080016c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
- .bss           0x0080016c        0x2 ./main.o
-                0x0080016c                WDTcounter
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clear_bss.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_prologue.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_epilogue.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a(rand.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mulsi3.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_divmodsi4.o)
- .bss           0x0080016e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_udivmodsi4.o)
+ .bss           0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .bss           0x0000000000800068        0x1 ./main.o
+                0x0000000000800068                uiCount
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_prologue.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_epilogue.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .bss           0x0000000000800069        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
  *(COMMON)
-                0x0080016e                PROVIDE (__bss_end, .)
-                0x00001016                __data_load_start = LOADADDR (.data)
-                0x00001122                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000800069                PROVIDE (__bss_end, .)
+                0x0000000000000ffc                __data_load_start = LOADADDR (.data)
+                0x0000000000001004                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080016e        0x0
-                0x0080016e                PROVIDE (__noinit_start, .)
+.noinit         0x0000000000800069        0x0
+                0x0000000000800069                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080016e                PROVIDE (__noinit_end, .)
-                0x0080016e                _end = .
-                0x0080016e                PROVIDE (__heap_start, .)
+                0x0000000000800069                PROVIDE (__noinit_end, .)
+                0x0000000000800069                _end = .
+                0x0000000000800069                PROVIDE (__heap_start, .)
 
-.eeprom         0x00810000        0x0
+.eeprom         0x0000000000810000        0x0
  *(.eeprom*)
-                0x00810000                __eeprom_end = .
+                0x0000000000810000                __eeprom_end = .
 
 .fuse
  *(.fuse)
@@ -409,13 +365,15 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x5d0
+.stab           0x0000000000000000      0xf6c
  *(.stab)
- .stab          0x00000000      0x5d0 ./main.o
+ .stab          0x0000000000000000      0x6b4 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
+ .stab          0x00000000000006b4      0x8b8 ./main.o
+                                        0x8c4 (size before relaxing)
 
-.stabstr        0x00000000      0x887
+.stabstr        0x0000000000000000      0x99f
  *(.stabstr)
- .stabstr       0x00000000      0x887 ./main.o
+ .stabstr       0x0000000000000000      0x99f /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
 
 .stab.excl
  *(.stab.excl)
@@ -444,180 +402,152 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x180
+.debug_aranges  0x0000000000000000      0x140
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
+                0x0000000000000000       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
  .debug_aranges
-                0x00000020       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
+                0x0000000000000020       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
  .debug_aranges
-                0x00000040       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
+                0x0000000000000040       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
  .debug_aranges
-                0x00000060       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
+                0x0000000000000060       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
  .debug_aranges
-                0x00000080       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
+                0x0000000000000080       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
  .debug_aranges
-                0x000000a0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
+                0x00000000000000a0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
  .debug_aranges
-                0x000000c0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
+                0x00000000000000c0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
  .debug_aranges
-                0x000000e0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
+                0x00000000000000e0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
  .debug_aranges
-                0x00000100       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
+                0x0000000000000100       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
  .debug_aranges
-                0x00000120       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_aranges
-                0x00000140       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_aranges
-                0x00000160       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
+                0x0000000000000120       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
 .debug_pubnames
-                0x00000000      0x1d1
+                0x0000000000000000      0x170
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x23 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
+                0x0000000000000000       0x23 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
  .debug_pubnames
-                0x00000023       0x2c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
+                0x0000000000000023       0x2c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
  .debug_pubnames
-                0x0000004f       0x1f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
+                0x000000000000004f       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
  .debug_pubnames
-                0x0000006e       0x1e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
+                0x000000000000006e       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
  .debug_pubnames
-                0x0000008c       0x1e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
+                0x000000000000008c       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
  .debug_pubnames
-                0x000000aa       0x1e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
+                0x00000000000000aa       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
  .debug_pubnames
-                0x000000c8       0x22 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
+                0x00000000000000c8       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
  .debug_pubnames
-                0x000000ea       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
+                0x00000000000000e8       0x22 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
  .debug_pubnames
-                0x0000010a       0x22 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
+                0x000000000000010a       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
  .debug_pubnames
-                0x0000012c       0x1f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
+                0x0000000000000129       0x21 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
  .debug_pubnames
-                0x0000014b       0x1f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_pubnames
-                0x0000016a       0x21 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_pubnames
-                0x0000018b       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .debug_pubnames
-                0x000001b1       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
+                0x000000000000014a       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
-.debug_info     0x00000000     0x2010
+.debug_info     0x0000000000000000     0x1c49
  *(.debug_info)
- .debug_info    0x00000000       0xb1 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .debug_info    0x000000b1      0x47a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .debug_info    0x0000052b      0x485 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .debug_info    0x000009b0      0x27f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .debug_info    0x00000c2f      0x27f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .debug_info    0x00000eae      0x27f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .debug_info    0x0000112d      0x207 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .debug_info    0x00001334      0x2b0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .debug_info    0x000015e4      0x12c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .debug_info    0x00001710      0x117 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .debug_info    0x00001827      0x2df c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_info    0x00001b06      0x251 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_info    0x00001d57      0x210 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .debug_info    0x00001f67       0xa9 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
+ .debug_info    0x0000000000000000       0xb1 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .debug_info    0x00000000000000b1      0x47a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .debug_info    0x000000000000052b      0x485 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .debug_info    0x00000000000009b0      0x27f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .debug_info    0x0000000000000c2f      0x27f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .debug_info    0x0000000000000eae      0x27f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .debug_info    0x000000000000112d      0x2b0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .debug_info    0x00000000000013dd      0x12c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .debug_info    0x0000000000001509      0x2df /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .debug_info    0x00000000000017e8      0x251 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .debug_info    0x0000000000001a39      0x210 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000     0x1161
+.debug_abbrev   0x0000000000000000      0xeeb
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0x5d c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .debug_abbrev  0x0000005d      0x1ea c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .debug_abbrev  0x00000247      0x21b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .debug_abbrev  0x00000462      0x15a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .debug_abbrev  0x000005bc      0x15a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .debug_abbrev  0x00000716      0x15a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .debug_abbrev  0x00000870      0x148 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .debug_abbrev  0x000009b8      0x17f c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .debug_abbrev  0x00000b37       0xad c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .debug_abbrev  0x00000be4       0xc4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x00000ca8      0x1c0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_abbrev  0x00000e68      0x154 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_abbrev  0x00000fbc      0x13b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .debug_abbrev  0x000010f7       0x6a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000000000       0x5d /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .debug_abbrev  0x000000000000005d      0x1ea /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .debug_abbrev  0x0000000000000247      0x21b /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .debug_abbrev  0x0000000000000462      0x15a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .debug_abbrev  0x00000000000005bc      0x15a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .debug_abbrev  0x0000000000000716      0x15a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .debug_abbrev  0x0000000000000870      0x17f /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .debug_abbrev  0x00000000000009ef       0xad /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .debug_abbrev  0x0000000000000a9c      0x1c0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .debug_abbrev  0x0000000000000c5c      0x154 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .debug_abbrev  0x0000000000000db0      0x13b /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
-.debug_line     0x00000000     0x1003
+.debug_line     0x0000000000000000      0xdce
  *(.debug_line)
- .debug_line    0x00000000       0xa7 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .debug_line    0x000000a7      0x2af c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .debug_line    0x00000356      0x239 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .debug_line    0x0000058f       0xd3 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .debug_line    0x00000662       0xd3 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .debug_line    0x00000735       0xd3 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .debug_line    0x00000808      0x135 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .debug_line    0x0000093d      0x109 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .debug_line    0x00000a46       0x90 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .debug_line    0x00000ad6       0xa5 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .debug_line    0x00000b7b      0x18a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_line    0x00000d05      0x14b c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_line    0x00000e50      0x137 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
- .debug_line    0x00000f87       0x7c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
+ .debug_line    0x0000000000000000       0xaa /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .debug_line    0x00000000000000aa      0x2b2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .debug_line    0x000000000000035c      0x23c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .debug_line    0x0000000000000598       0xd6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .debug_line    0x000000000000066e       0xd6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .debug_line    0x0000000000000744       0xd6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .debug_line    0x000000000000081a      0x10c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .debug_line    0x0000000000000926       0x93 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .debug_line    0x00000000000009b9      0x18d /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .debug_line    0x0000000000000b46      0x14e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .debug_line    0x0000000000000c94      0x13a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
-.debug_frame    0x00000000      0x1a0
+.debug_frame    0x0000000000000000      0x160
  *(.debug_frame)
- .debug_frame   0x00000000       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .debug_frame   0x00000020       0x40 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .debug_frame   0x00000060       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .debug_frame   0x00000080       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .debug_frame   0x000000a0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .debug_frame   0x000000c0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .debug_frame   0x000000e0       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .debug_frame   0x00000100       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .debug_frame   0x00000120       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .debug_frame   0x00000140       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_frame   0x00000160       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_frame   0x00000180       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
+ .debug_frame   0x0000000000000000       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .debug_frame   0x0000000000000020       0x40 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .debug_frame   0x0000000000000060       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .debug_frame   0x0000000000000080       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .debug_frame   0x00000000000000a0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .debug_frame   0x00000000000000c0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .debug_frame   0x00000000000000e0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .debug_frame   0x0000000000000100       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .debug_frame   0x0000000000000120       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .debug_frame   0x0000000000000140       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
-.debug_str      0x00000000      0x2bf
+.debug_str      0x0000000000000000      0x294
  *(.debug_str)
- .debug_str     0x00000000       0xc0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
-                                 0xff (size before relaxing)
- .debug_str     0x000000c0      0x14d c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
-                                0x207 (size before relaxing)
- .debug_str     0x0000020d       0x27 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
-                                0x1c0 (size before relaxing)
- .debug_str     0x00000234        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
-                                0x196 (size before relaxing)
- .debug_str     0x0000023c        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
-                                0x196 (size before relaxing)
- .debug_str     0x00000244        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
-                                0x196 (size before relaxing)
- .debug_str     0x0000024c       0x1e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
-                                0x17c (size before relaxing)
- .debug_str     0x0000026a        0xa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
-                                0x19f (size before relaxing)
- .debug_str     0x00000000      0x104 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_thenan_sf.o)
- .debug_str     0x00000274       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
-                                0x112 (size before relaxing)
- .debug_str     0x00000294       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
-                                0x19e (size before relaxing)
- .debug_str     0x000002a4        0xb c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
-                                0x180 (size before relaxing)
- .debug_str     0x000002af       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
-                                0x164 (size before relaxing)
- .debug_str     0x00000000       0xf5 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clz.o)
+ .debug_str     0x0000000000000000       0xc6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+                                        0x105 (size before relaxing)
+ .debug_str     0x00000000000000c6      0x14d /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+                                        0x20d (size before relaxing)
+ .debug_str     0x0000000000000213       0x27 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+                                        0x1c6 (size before relaxing)
+ .debug_str     0x000000000000023a        0xf /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+                                        0x19c (size before relaxing)
+ .debug_str     0x0000000000000249        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+                                        0x19c (size before relaxing)
+ .debug_str     0x0000000000000251        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+                                        0x19c (size before relaxing)
+ .debug_str     0x0000000000000259        0xa /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+                                        0x1a5 (size before relaxing)
+ .debug_str     0x0000000000000000      0x10a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_thenan_sf.o)
+ .debug_str     0x0000000000000263       0x16 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+                                        0x1a4 (size before relaxing)
+ .debug_str     0x0000000000000279        0xb /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+                                        0x186 (size before relaxing)
+ .debug_str     0x0000000000000284       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
+                                        0x16a (size before relaxing)
 
-.debug_loc      0x00000000      0x90e
+.debug_loc      0x0000000000000000      0x7ce
  *(.debug_loc)
- .debug_loc     0x00000000       0x34 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fixunssfsi.o)
- .debug_loc     0x00000034      0x32a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_addsub_sf.o)
- .debug_loc     0x0000035e      0x104 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
- .debug_loc     0x00000462       0x3c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_gt_sf.o)
- .debug_loc     0x0000049e       0x3c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_ge_sf.o)
- .debug_loc     0x000004da       0x3c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_lt_sf.o)
- .debug_loc     0x00000516       0xac c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_si_to_sf.o)
- .debug_loc     0x000005c2       0x7e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_sf_to_si.o)
- .debug_loc     0x00000640       0x94 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_clzsi2.o)
- .debug_loc     0x000006d4      0x13e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_pack_sf.o)
- .debug_loc     0x00000812       0xac c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_unpack_sf.o)
- .debug_loc     0x000008be       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_fpcmp_parts_sf.o)
+ .debug_loc     0x0000000000000000       0x34 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fixunssfsi.o)
+ .debug_loc     0x0000000000000034      0x32a /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_addsub_sf.o)
+ .debug_loc     0x000000000000035e      0x104 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)
+ .debug_loc     0x0000000000000462       0x3c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_gt_sf.o)
+ .debug_loc     0x000000000000049e       0x3c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_ge_sf.o)
+ .debug_loc     0x00000000000004da       0x3c /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_lt_sf.o)
+ .debug_loc     0x0000000000000516       0x7e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_sf_to_si.o)
+ .debug_loc     0x0000000000000594      0x13e /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_pack_sf.o)
+ .debug_loc     0x00000000000006d2       0xac /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_unpack_sf.o)
+ .debug_loc     0x000000000000077e       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_fpcmp_parts_sf.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(klinke.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000       0x50
- .debug_ranges  0x00000000       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_mul_sf.o)
+.debug_ranges   0x0000000000000000       0x50
+ .debug_ranges  0x0000000000000000       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_mul_sf.o)

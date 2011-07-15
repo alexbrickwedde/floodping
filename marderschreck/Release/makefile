@@ -49,7 +49,7 @@ all: marderschreck.elf secondary-outputs
 marderschreck.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,marderschreck.map -mmcu=attiny85 -o"marderschreck.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,marderschreck.map -mmcu=attiny85 -o "marderschreck.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

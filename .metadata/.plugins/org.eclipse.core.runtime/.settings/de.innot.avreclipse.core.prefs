@@ -1,14 +1,14 @@
-#Mon Apr 18 21:40:24 CEST 2011
+#Fri Jul 15 22:19:06 CEST 2011
 avrdudepropertypage/weight_preview_expanded=20
 avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
-avrpaths//systempath/AVRGCC=C\:\\WinAVR-20100110\\bin
+avrpaths//systempath/AVRGCC=/usr/bin
 avrdude/configs/programmerconfig.1/programmer=usbasp
 avrdude/configs/programmerconfig.2/ppvccline=
 avrdude/configs/programmerconfig.2/baudrate=57600
 avrdude/configs/programmerconfig.1/port=
 avrdudepropertypage/weight_preview_collapsed=50
 avrdude/configs/programmerconfig.2/description=STK500_COM34
-avrpaths//systempath/PDFPATH=C\:\\Program Files\\Atmel\\AVR Tools\\Partdescriptionfiles
+avrpaths//systempath/PDFPATH=
 avrdude/configs/programmerconfig.2/programmer=stk500
 eclipse.preferences.version=1
 avrdude/configs/programmerconfig.2/port=COM34
@@ -20,9 +20,9 @@ avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=
 avrdudepropertypage/previewexpanded=false
 avrdudepropertypage/weight_top_collapsed=950
 avrdudepropertypage/weight_top_expanded=80
-avrpaths//systempath/AVRINCLUDE=C\:\\WinAVR-20100110\\avr\\include
+avrpaths//systempath/AVRINCLUDE=
 avrdude/configs/programmerconfig.1/name=usbasp
 avrdude/configs/programmerconfig.1/baudrate=
-avrpaths//systempath/AVRDUDE=C\:\\WinAVR-20100110\\bin
-avrpaths//systempath/MAKE=C\:\\WinAVR-20100110\\utils\\bin
+avrpaths//systempath/AVRDUDE=/usr/bin
+avrpaths//systempath/MAKE=/usr/bin
 avrdude/configs/programmerconfig.2/name=STK500_COM34

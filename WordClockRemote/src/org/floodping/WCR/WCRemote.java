@@ -57,6 +57,8 @@ import android.widget.Toast;
 /**
  * This is the main Activity that displays the current chat session.
  */
+
+
 public class WCRemote extends Activity implements OnGesturePerformedListener {
 	// Debugging
 	private static final String TAG = "WCRemote";
