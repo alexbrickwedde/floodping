@@ -58,7 +58,7 @@ all: wordclock.elf secondary-outputs
 wordclock.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o"wordclock.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,7 +70,7 @@ wordclock.lss: wordclock.elf
 
 sizedummy: wordclock.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 wordclock.elf
+	-avr-size --format=berkeley -t wordclock.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

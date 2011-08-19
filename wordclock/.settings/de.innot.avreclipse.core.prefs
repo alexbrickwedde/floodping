@@ -1,4 +1,4 @@
-#Mon Apr 18 21:40:26 CEST 2011
+#Fri Aug 19 22:39:01 CEST 2011
 avrtarget/ClockFrequency=16000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -73,7 +73,7 @@ avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/NoSig
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/NoVerify=false
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/NoWrite=false
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/OtherOptions=
-avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/ProgrammerID=programmerconfig.2
+avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/ProgrammerID=programmerconfig.1
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/UseCounter=false
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/WriteEEPROM=true
 avrtarget/de.innot.avreclipse.configuration.app.release.1872398423/avrdude/WriteFlash=true

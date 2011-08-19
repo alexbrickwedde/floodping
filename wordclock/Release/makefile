@@ -56,6 +56,9 @@ wordclock.eep \
 SIZEDUMMY += \
 sizedummy \
 
+AVRDUDEDUMMY += \
+avrdudedummy \
+
 
 # All Target
 all: wordclock.elf secondary-outputs
@@ -64,7 +67,7 @@ all: wordclock.elf secondary-outputs
 wordclock.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o"wordclock.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -88,16 +91,22 @@ wordclock.eep: wordclock.elf
 
 sizedummy: wordclock.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 wordclock.elf
+	-avr-size --format=berkeley -t wordclock.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
+avrdudedummy: wordclock.elf
+	@echo 'Invoking: AVRDude'
+	/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(EEPROM_IMAGE)$(ELFS)$(FLASH_IMAGE)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) wordclock.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(EEPROM_IMAGE)$(ELFS)$(FLASH_IMAGE)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(AVRDUDEDUMMY)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) wordclock.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

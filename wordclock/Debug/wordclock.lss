@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   2 .bss          00000053  00800528  00800528  00008730  2**0
                   ALLOC
-  3 .stab         00005ab4  00000000  00000000  00008730  2**2
+  3 .stab         0000672c  00000000  00000000  00008730  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00001752  00000000  00000000  0000e1e4  2**0
+  4 .stabstr      00001960  00000000  00000000  0000ee5c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  0000f936  2**0
+  5 .debug_aranges 000001a0  00000000  00000000  000107bc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  0000fa76  2**0
+  6 .debug_pubnames 000001c9  00000000  00000000  0001095c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  0000fbe6  2**0
+  7 .debug_info   000022af  00000000  00000000  00010b25  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  0001182f  2**0
+  8 .debug_abbrev 00001267  00000000  00000000  00012dd4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  0001271a  2**0
+  9 .debug_line   0000140d  00000000  00000000  0001403b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  000134c8  2**2
+ 10 .debug_frame  000001c0  00000000  00000000  00015448  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  00013628  2**0
+ 11 .debug_str    000003c6  00000000  00000000  00015608  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  000138b5  2**0
+ 12 .debug_loc    00000c9d  00000000  00000000  000159ce  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  00014083  2**0
+ 13 .debug_ranges 000000b0  00000000  00000000  0001666b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4617,12 +4617,12 @@ main()
     1d38:	91 83       	std	Z+1, r25	; 0x01
     1d3a:	a2 83       	std	Z+2, r26	; 0x02
     1d3c:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     1d3e:	8e 01       	movw	r16, r28
     1d40:	0b 59       	subi	r16, 0x9B	; 155
     1d42:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -4830,12 +4830,12 @@ _delay_loop_2(uint16_t __count)
     1ea6:	91 83       	std	Z+1, r25	; 0x01
     1ea8:	a2 83       	std	Z+2, r26	; 0x02
     1eaa:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     1eac:	8e 01       	movw	r16, r28
     1eae:	09 5a       	subi	r16, 0xA9	; 169
     1eb0:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -5187,12 +5187,12 @@ _delay_ms(double __ms)
     210c:	91 83       	std	Z+1, r25	; 0x01
     210e:	a2 83       	std	Z+2, r26	; 0x02
     2110:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2112:	8e 01       	movw	r16, r28
     2114:	07 5b       	subi	r16, 0xB7	; 183
     2116:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -5438,12 +5438,12 @@ _delay_ms(double __ms)
     22b8:	91 83       	std	Z+1, r25	; 0x01
     22ba:	a2 83       	std	Z+2, r26	; 0x02
     22bc:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     22be:	8e 01       	movw	r16, r28
     22c0:	05 5c       	subi	r16, 0xC5	; 197
     22c2:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -5766,12 +5766,12 @@ _delay_ms(double __ms)
     24dc:	91 83       	std	Z+1, r25	; 0x01
     24de:	a2 83       	std	Z+2, r26	; 0x02
     24e0:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     24e2:	8e 01       	movw	r16, r28
     24e4:	03 5d       	subi	r16, 0xD3	; 211
     24e6:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -5975,12 +5975,12 @@ _delay_ms(double __ms)
     264e:	91 83       	std	Z+1, r25	; 0x01
     2650:	a2 83       	std	Z+2, r26	; 0x02
     2652:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2654:	8e 01       	movw	r16, r28
     2656:	01 5e       	subi	r16, 0xE1	; 225
     2658:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -6307,12 +6307,12 @@ _delay_ms(double __ms)
     2892:	91 83       	std	Z+1, r25	; 0x01
     2894:	a2 83       	std	Z+2, r26	; 0x02
     2896:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2898:	8e 01       	movw	r16, r28
     289a:	0f 5e       	subi	r16, 0xEF	; 239
     289c:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -6553,12 +6553,12 @@ _delay_ms(double __ms)
     2a34:	91 83       	std	Z+1, r25	; 0x01
     2a36:	a2 83       	std	Z+2, r26	; 0x02
     2a38:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2a3a:	8e 01       	movw	r16, r28
     2a3c:	0d 5f       	subi	r16, 0xFD	; 253
     2a3e:	1e 4f       	sbci	r17, 0xFE	; 254
@@ -6834,12 +6834,12 @@ _delay_ms(double __ms)
     2c1a:	91 83       	std	Z+1, r25	; 0x01
     2c1c:	a2 83       	std	Z+2, r26	; 0x02
     2c1e:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2c20:	8e 01       	movw	r16, r28
     2c22:	0b 50       	subi	r16, 0x0B	; 11
     2c24:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -7088,12 +7088,12 @@ _delay_ms(double __ms)
     2dc8:	91 83       	std	Z+1, r25	; 0x01
     2dca:	a2 83       	std	Z+2, r26	; 0x02
     2dcc:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2dce:	8e 01       	movw	r16, r28
     2dd0:	09 51       	subi	r16, 0x19	; 25
     2dd2:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -7337,12 +7337,12 @@ _delay_ms(double __ms)
     2f72:	91 83       	std	Z+1, r25	; 0x01
     2f74:	a2 83       	std	Z+2, r26	; 0x02
     2f76:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     2f78:	8e 01       	movw	r16, r28
     2f7a:	07 52       	subi	r16, 0x27	; 39
     2f7c:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -7586,12 +7586,12 @@ _delay_ms(double __ms)
     311c:	91 83       	std	Z+1, r25	; 0x01
     311e:	a2 83       	std	Z+2, r26	; 0x02
     3120:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3122:	8e 01       	movw	r16, r28
     3124:	05 53       	subi	r16, 0x35	; 53
     3126:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -8039,12 +8039,12 @@ _delay_ms(double __ms)
     342a:	91 83       	std	Z+1, r25	; 0x01
     342c:	a2 83       	std	Z+2, r26	; 0x02
     342e:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3430:	8e 01       	movw	r16, r28
     3432:	03 54       	subi	r16, 0x43	; 67
     3434:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -8681,12 +8681,12 @@ _delay_ms(double __ms)
     38f0:	91 83       	std	Z+1, r25	; 0x01
     38f2:	a2 83       	std	Z+2, r26	; 0x02
     38f4:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     38f6:	8e 01       	movw	r16, r28
     38f8:	01 55       	subi	r16, 0x51	; 81
     38fa:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -8892,12 +8892,12 @@ _delay_ms(double __ms)
     3a64:	91 83       	std	Z+1, r25	; 0x01
     3a66:	a2 83       	std	Z+2, r26	; 0x02
     3a68:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3a6a:	8e 01       	movw	r16, r28
     3a6c:	0f 55       	subi	r16, 0x5F	; 95
     3a6e:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -9103,12 +9103,12 @@ _delay_ms(double __ms)
     3bd8:	91 83       	std	Z+1, r25	; 0x01
     3bda:	a2 83       	std	Z+2, r26	; 0x02
     3bdc:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3bde:	8e 01       	movw	r16, r28
     3be0:	0d 56       	subi	r16, 0x6D	; 109
     3be2:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -9314,12 +9314,12 @@ _delay_ms(double __ms)
     3d4c:	91 83       	std	Z+1, r25	; 0x01
     3d4e:	a2 83       	std	Z+2, r26	; 0x02
     3d50:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3d52:	8e 01       	movw	r16, r28
     3d54:	0b 57       	subi	r16, 0x7B	; 123
     3d56:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -9525,12 +9525,12 @@ _delay_ms(double __ms)
     3ec0:	91 83       	std	Z+1, r25	; 0x01
     3ec2:	a2 83       	std	Z+2, r26	; 0x02
     3ec4:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     3ec6:	8e 01       	movw	r16, r28
     3ec8:	09 58       	subi	r16, 0x89	; 137
     3eca:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -9736,12 +9736,12 @@ _delay_ms(double __ms)
     4034:	91 83       	std	Z+1, r25	; 0x01
     4036:	a2 83       	std	Z+2, r26	; 0x02
     4038:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     403a:	8e 01       	movw	r16, r28
     403c:	07 59       	subi	r16, 0x97	; 151
     403e:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -9947,12 +9947,12 @@ _delay_ms(double __ms)
     41a8:	91 83       	std	Z+1, r25	; 0x01
     41aa:	a2 83       	std	Z+2, r26	; 0x02
     41ac:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     41ae:	8e 01       	movw	r16, r28
     41b0:	05 5a       	subi	r16, 0xA5	; 165
     41b2:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -10354,12 +10354,12 @@ _delay_ms(double __ms)
     4482:	91 83       	std	Z+1, r25	; 0x01
     4484:	a2 83       	std	Z+2, r26	; 0x02
     4486:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     4488:	8e 01       	movw	r16, r28
     448a:	03 5b       	subi	r16, 0xB3	; 179
     448c:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -10604,12 +10604,12 @@ _delay_ms(double __ms)
     462a:	91 83       	std	Z+1, r25	; 0x01
     462c:	a2 83       	std	Z+2, r26	; 0x02
     462e:	b3 83       	std	Z+3, r27	; 0x03
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     4630:	8e 01       	movw	r16, r28
     4632:	01 5c       	subi	r16, 0xC1	; 193
     4634:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -12481,12 +12481,12 @@ _delay_ms(double __ms)
     5330:	9e ab       	std	Y+54, r25	; 0x36
     5332:	af ab       	std	Y+55, r26	; 0x37
     5334:	b8 af       	std	Y+56, r27	; 0x38
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     5336:	6d a9       	ldd	r22, Y+53	; 0x35
     5338:	7e a9       	ldd	r23, Y+54	; 0x36
     533a:	8f a9       	ldd	r24, Y+55	; 0x37
@@ -12625,12 +12625,12 @@ _delay_ms(double __ms)
     5420:	98 a7       	std	Y+40, r25	; 0x28
     5422:	a9 a7       	std	Y+41, r26	; 0x29
     5424:	ba a7       	std	Y+42, r27	; 0x2a
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     5426:	6f a1       	ldd	r22, Y+39	; 0x27
     5428:	78 a5       	ldd	r23, Y+40	; 0x28
     542a:	89 a5       	ldd	r24, Y+41	; 0x29
@@ -13427,12 +13427,12 @@ _delay_ms(double __ms)
     598c:	9a 8f       	std	Y+26, r25	; 0x1a
     598e:	ab 8f       	std	Y+27, r26	; 0x1b
     5990:	bc 8f       	std	Y+28, r27	; 0x1c
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     5992:	69 8d       	ldd	r22, Y+25	; 0x19
     5994:	7a 8d       	ldd	r23, Y+26	; 0x1a
     5996:	8b 8d       	ldd	r24, Y+27	; 0x1b
@@ -13571,12 +13571,12 @@ _delay_ms(double __ms)
     5a7c:	9c 87       	std	Y+12, r25	; 0x0c
     5a7e:	ad 87       	std	Y+13, r26	; 0x0d
     5a80:	be 87       	std	Y+14, r27	; 0x0e
- */
-void
-_delay_ms(double __ms)
-{
-	uint16_t __ticks;
-	double __tmp = ((F_CPU) / 4e3) * __ms;
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#elif !__HAS_DELAY_CYCLES || (__HAS_DELAY_CYCLES && !defined(__OPTIMIZE__)) || defined (__DELAY_BACKWARD_COMPATIBLE__)
+	__tmp = ((F_CPU) / 4e3) * __ms;
     5a82:	6b 85       	ldd	r22, Y+11	; 0x0b
     5a84:	7c 85       	ldd	r23, Y+12	; 0x0c
     5a86:	8d 85       	ldd	r24, Y+13	; 0x0d

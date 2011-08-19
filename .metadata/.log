@@ -11671,3 +11671,56 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.ui 4 4 2011-08-19 21:57:57.070
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-08-19 22:30:47.151 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:32:47.175
+!MESSAGE Indexed 'wordclock' (5 sources, 17 headers) in 0,52 sec: 331 declarations; 1.544 references; 33 unresolved inclusions; 1 syntax errors; 358 unresolved names (16,03 %)
+
+!ENTRY org.eclipse.ui 4 4 2011-08-19 22:32:52.163
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY de.innot.avreclipse.core 4 0 2011-08-19 22:33:05.648
+!MESSAGE Could not start avr-size
+!STACK 0
+java.io.IOException: Cannot run program "avr-size": java.io.IOException: error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:475)
+	at de.innot.avreclipse.core.toolinfo.ExternalCommandLauncher.launch(ExternalCommandLauncher.java:314)
+	at de.innot.avreclipse.core.toolinfo.ExternalCommandLauncher.launch(ExternalCommandLauncher.java:228)
+	at de.innot.avreclipse.core.toolinfo.Size.getSizeOptions(Size.java:107)
+	at de.innot.avreclipse.core.toolinfo.Size.hasAVROption(Size.java:83)
+	at de.innot.avreclipse.mbs.SizeFormatApplicabilityCalculator.isOptionUsedInCommandLine(SizeFormatApplicabilityCalculator.java:61)
+	at org.eclipse.cdt.managedbuilder.internal.core.Tool.getToolCommandFlags(Tool.java:2516)
+	at org.eclipse.cdt.managedbuilder.internal.core.Tool.getToolCommandFlags(Tool.java:2653)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator.addRuleForTool(GnuMakefileGenerator.java:1658)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator.addTargetsRules(GnuMakefileGenerator.java:1537)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator.addTargets(GnuMakefileGenerator.java:1437)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator.populateTopMakefile(GnuMakefileGenerator.java:1150)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator.regenerateMakefiles(GnuMakefileGenerator.java:916)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performMakefileGeneration(CommonBuilder.java:997)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPrebuildGeneration(CommonBuilder.java:864)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:739)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:504)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:450)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:180)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:164)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:81)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:468)
+	... 30 more
