@@ -11742,3 +11742,48 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:45:24.170
 !MESSAGE Indexed 'attiny85-melody' (1 sources, 31 headers) in 0,29 sec: 315 declarations; 823 references; 9 unresolved inclusions; 1 syntax errors; 10 unresolved names (0,87 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:48:08.283
+!MESSAGE Indexed 'avrusb' (4 sources, 31 headers) in 0,25 sec: 594 declarations; 1.661 references; 6 unresolved inclusions; 4 syntax errors; 119 unresolved names (5,01 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:48:19.252
+!MESSAGE Indexed 'bma020-tiny2313' (3 sources, 12 headers) in 0,04 sec: 104 declarations; 379 references; 36 unresolved inclusions; 0 syntax errors; 47 unresolved names (8,87 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:48:32.946
+!MESSAGE Indexed 'ethersex' (0 sources, 8 headers) in 0,02 sec: 12 declarations; 81 references; 6 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:48:45.987
+!MESSAGE Indexed 'kerze-tiny2313' (1 sources, 22 headers) in 0,13 sec: 175 declarations; 296 references; 6 unresolved inclusions; 4 syntax errors; 24 unresolved names (4,85 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:48:58.997
+!MESSAGE Indexed 'klinke' (1 sources, 23 headers) in 0,13 sec: 183 declarations; 312 references; 6 unresolved inclusions; 4 syntax errors; 35 unresolved names (6,60 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:49:10.434
+!MESSAGE Indexed 'librfm12' (1 sources, 22 headers) in 0,13 sec: 259 declarations; 466 references; 6 unresolved inclusions; 3 syntax errors; 14 unresolved names (1,89 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:49:23.353
+!MESSAGE Indexed 'marderschreck' (1 sources, 23 headers) in 0,11 sec: 178 declarations; 306 references; 6 unresolved inclusions; 4 syntax errors; 17 unresolved names (3,39 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:49:51.877
+!MESSAGE Indexed 'rfid-reader' (3 sources, 25 headers) in 0,16 sec: 398 declarations; 768 references; 6 unresolved inclusions; 6 syntax errors; 104 unresolved names (8,19 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:50:12.483
+!MESSAGE Indexed 'rfm12-tiny2313' (5 sources, 34 headers) in 0,18 sec: 745 declarations; 1.059 references; 6 unresolved inclusions; 6 syntax errors; 87 unresolved names (4,60 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:50:23.795
+!MESSAGE Indexed 'serverraum-tiny2313' (6 sources, 38 headers) in 0,23 sec: 954 declarations; 2.098 references; 10 unresolved inclusions; 3 syntax errors; 109 unresolved names (3,45 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:50:35.351
+!MESSAGE Indexed 'usb-mega32' (3 sources, 26 headers) in 0,16 sec: 372 declarations; 1.193 references; 6 unresolved inclusions; 3 syntax errors; 7 unresolved names (0,45 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:50:48.660
+!MESSAGE Indexed 'usbavrlab' (27 sources, 44 headers) in 0,43 sec: 1.539 declarations; 5.400 references; 6 unresolved inclusions; 8 syntax errors; 445 unresolved names (6,03 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:51:00.091
+!MESSAGE Indexed 'vusb' (0 sources, 8 headers) in 0,01 sec: 12 declarations; 81 references; 6 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:51:14.357
+!MESSAGE Indexed 'wordclock-bloader' (2 sources, 25 headers) in 0,14 sec: 353 declarations; 876 references; 7 unresolved inclusions; 8 syntax errors; 90 unresolved names (6,82 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:51:25.025
+!MESSAGE Indexed 'wordclock-bootloader' (2 sources, 26 headers) in 0,13 sec: 457 declarations; 850 references; 6 unresolved inclusions; 8 syntax errors; 25 unresolved names (1,88 %)
