@@ -11733,3 +11733,12 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.ui 4 4 2011-08-19 22:42:10.380
 !MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:44:33.341
+!MESSAGE Indexed 'CAN1' (33 sources, 39 headers) in 1,06 sec: 873 declarations; 2.203 references; 6 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:45:01.292
+!MESSAGE Indexed 'MiniWordClock' (2 sources, 23 headers) in 0,37 sec: 426 declarations; 1.331 references; 6 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:45:24.170
+!MESSAGE Indexed 'attiny85-melody' (1 sources, 31 headers) in 0,29 sec: 315 declarations; 823 references; 9 unresolved inclusions; 1 syntax errors; 10 unresolved names (0,87 %)
