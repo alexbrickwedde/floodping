@@ -1,4 +1,4 @@
-#Fri Aug 19 23:24:37 CEST 2011
+#Fri Aug 19 23:29:08 CEST 2011
 org.eclipse.jdt.launching.PREF_DEFAULT_ENVIRONMENTS_XML=
 eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1310761204683">\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n<vm id\="1310761204683" name\="java-1.6.0-openjdk-1.6.0" path\="/usr/lib64/jvm/java-1.6.0-openjdk-1.6.0"/>\n</vmType>\n</vmSettings>\n
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1310761204683" defaultVMConnector\="">\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n<vm id\="1310761204683" name\="java-1.6.0-openjdk-1.6.0" path\="/usr/lib64/jvm/java-1.6.0-openjdk-1.6.0"/>\n</vmType>\n</vmSettings>\n
