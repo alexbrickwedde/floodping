@@ -11787,3 +11787,12 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2011-08-19 22:51:25.025
 !MESSAGE Indexed 'wordclock-bootloader' (2 sources, 26 headers) in 0,13 sec: 457 declarations; 850 references; 6 unresolved inclusions; 8 syntax errors; 25 unresolved names (1,88 %)
+!SESSION 2011-08-19 23:17:58.301 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-08-19 23:18:10.028
+!MESSAGE Invalid preference page path: XML Syntax

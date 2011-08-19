@@ -11,6 +11,8 @@ import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Properties;
 
+
+
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.ChatManagerListener;
