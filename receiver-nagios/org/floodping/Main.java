@@ -4,9 +4,7 @@ import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Formatter;
@@ -24,9 +22,8 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
 
 public class Main implements MessageListener, ChatManagerListener {
-	public static HashMap<String, String> aValues = new HashMap<String, String>();
+	public static volatile HashMap<String, String> aValues = new HashMap<String, String>();
 
-	private Message msg = new org.jivesoftware.smack.packet.Message("alex@nfsroot.de", org.jivesoftware.smack.packet.Message.Type.chat);
 
 	public void processMessage(Chat chat, Message message) {
 		if (message.getType().equals(org.jivesoftware.smack.packet.Message.Type.chat) && message.getBody() != null) {
@@ -58,6 +55,7 @@ public class Main implements MessageListener, ChatManagerListener {
 						sResult += "Wasserstand:" + aValues.get("0101") + "cm\r";
 					} catch (Exception e) {
 					}
+					Message msg = new org.jivesoftware.smack.packet.Message(message.getFrom(), org.jivesoftware.smack.packet.Message.Type.chat);
 					msg.setBody(sResult);
 					chat.sendMessage(msg);
 				}
