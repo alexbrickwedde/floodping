@@ -726,3 +726,19 @@ java.io.FileNotFoundException: /home/alex/workspace/floodping/.metadata/.plugins
 	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1108)
 	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2011-08-20 18:42:07.719
+!MESSAGE Could not write metadata for '/GIT'.
+!STACK 0
+java.io.FileNotFoundException: /home/alex/workspace/floodping/.metadata/.plugins/org.eclipse.core.resources/.projects/GIT/.markers.snap (Datei oder Verzeichnis nicht gefunden)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:207)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:131)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1684)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1166)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1108)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
