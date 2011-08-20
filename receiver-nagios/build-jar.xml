@@ -3,14 +3,14 @@
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <target name="create_run_jar">
-        <jar destfile="/root/workspace/floodping/receiver-nagios/receiver-nagios.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="/home/alex/workspace/floodping/receiver-nagios/receiver-nagios.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="org.floodping.Main"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="/root/workspace/floodping/receiver-nagios/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="/root/workspace/floodping/receiver-nagios/smack.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="/root/workspace/floodping/receiver-nagios/smackx.jar"/>
+            <fileset dir="/home/alex/workspace/floodping/receiver-nagios/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/alex/workspace/floodping/receiver-nagios/smack.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/alex/workspace/floodping/receiver-nagios/smackx.jar"/>
         </jar>
     </target>
 </project>

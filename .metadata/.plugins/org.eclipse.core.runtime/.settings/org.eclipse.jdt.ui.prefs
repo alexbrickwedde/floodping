@@ -1,4 +1,4 @@
-#Fri Aug 19 23:34:41 CEST 2011
+#Sat Aug 20 18:23:20 CEST 2011
 cleanup.remove_trailing_whitespaces=true
 cleanup.remove_unused_private_fields=true
 sp_cleanup.remove_unnecessary_casts=true
@@ -8,6 +8,7 @@ cleanup.use_blocks_only_for_return_and_throw=false
 sp_cleanup.use_blocks=false
 cleanup.make_type_abstract_if_missing_method=false
 sp_cleanup.make_private_fields_final=true
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 cleanup.remove_private_constructors=true
 sp_cleanup.never_use_parentheses_in_expressions=true
 cleanup.remove_unnecessary_casts=true
@@ -34,14 +35,15 @@ cleanup.qualify_static_member_accesses_with_declaring_class=true
 sp_cleanup.qualify_static_field_accesses_with_declaring_class=false
 cleanup.add_missing_override_annotations_interface_methods=true
 sp_cleanup.remove_unused_private_types=true
+org.eclipse.jdt.ui.text.templates_migrated=true
 sp_cleanup.qualify_static_method_accesses_with_declaring_class=false
 cleanup.qualify_static_field_accesses_with_declaring_class=true
 sp_cleanup.sort_members_all=false
 useAnnotationsPrefPage=true
 sp_cleanup.use_this_for_non_static_field_access=false
 proposalOrderMigrated=true
-cleanup.qualify_static_member_accesses_through_subtypes_with_declaring_class=true
 org.eclipse.jdt.ui.exception.name=e
+cleanup.qualify_static_member_accesses_through_subtypes_with_declaring_class=true
 sp_cleanup.format_source_code=true
 cleanup.format_source_code=true
 cleanup.remove_unused_imports=true
@@ -86,8 +88,8 @@ sp_cleanup.remove_trailing_whitespaces_all=true
 sp_cleanup.always_use_this_for_non_static_method_access=false
 sp_cleanup.sort_members=false
 sp_cleanup.remove_unused_private_members=false
-cleanup.remove_unused_private_members=false
 cleanup_profile=_RS1111111111111
+cleanup.remove_unused_private_members=false
 sp_cleanup.format_source_code_changes_only=false
 cleanup.never_use_blocks=false
 cleanup.organize_imports=true

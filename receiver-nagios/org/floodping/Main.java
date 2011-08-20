@@ -7,9 +7,12 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
@@ -25,6 +28,17 @@ public class Main
     implements MessageListener, ChatManagerListener
 {
   public static volatile HashMap<String, String> aValues = new HashMap<String, String> ();
+  public static volatile HashMap<String, String> aTime = new HashMap<String, String> ();
+
+  public static String GetValue (String sId, String sText, String sUnit)
+  {
+    String sRes = Main.aValues.get (sId);
+    if (sRes != null)
+    {
+      return sText + sRes + sUnit + " @" + Main.aTime.get (sId) + "\r";
+    }
+    return sText + " unbekannt\r";
+  }
 
   @Override
   public void processMessage (final Chat chat, final Message message)
@@ -33,52 +47,16 @@ public class Main
     {
       try
       {
-        String sResult = "";
+        String sResult = "\r";
         switch (message.getBody ().charAt (0))
         {
         default:
-          try
-          {
-            sResult += "Wohnen:" + Main.aValues.get ("0001") + "°C\r";
-          }
-          catch (final Exception e)
-          {
-          }
-          try
-          {
-            sResult += "Bad:" + Main.aValues.get ("0002") + "°C\r";
-          }
-          catch (final Exception e)
-          {
-          }
-          try
-          {
-            sResult += "Küche:" + Main.aValues.get ("0003") + "°C\r";
-          }
-          catch (final Exception e)
-          {
-          }
-          try
-          {
-            sResult += "Terasse:" + Main.aValues.get ("0004") + "°C\r";
-          }
-          catch (final Exception e)
-          {
-          }
-          try
-          {
-            sResult += "Schlafen:" + Main.aValues.get ("0005") + "°C\r";
-          }
-          catch (final Exception e)
-          {
-          }
-          try
-          {
-            sResult += "Wasserstand:" + Main.aValues.get ("0101") + "cm\r";
-          }
-          catch (final Exception e)
-          {
-          }
+          sResult += Main.GetValue ("0001", "Wohnen:", "°C");
+          sResult += Main.GetValue ("0002", "Bad:", "°C");
+          sResult += Main.GetValue ("0003", "Küche:", "°C");
+          sResult += Main.GetValue ("0004", "Terasse:", "°C");
+          sResult += Main.GetValue ("0005", "Schlafen:", "°C");
+          sResult += Main.GetValue ("0101", "Wasserstand:", "°C");
           final Message msg = new org.jivesoftware.smack.packet.Message (message.getFrom (), org.jivesoftware.smack.packet.Message.Type.chat);
           msg.setBody (sResult);
           chat.sendMessage (msg);
@@ -214,7 +192,7 @@ public class Main
               }
               catch (final Exception e)
               {// Catch exception if
-                // any
+               // any
                 System.err.println ("Error: " + e.getMessage ());
               }
 
@@ -237,8 +215,11 @@ public class Main
                 break;
               }
 
+              SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
+              df.setTimeZone (TimeZone.getDefault ());
               System.out.println ("" + airid + " T:" + t + "," + id);
               Main.aValues.put (airid, new Double (t).toString ());
+              Main.aTime.put (airid, df.format (new Date ()));
               try
               {
                 final Formatter cmdf = new Formatter ();
@@ -262,7 +243,7 @@ public class Main
               }
               catch (final Exception e)
               {// Catch exception if
-                // any
+               // any
                 System.err.println ("Error: " + e.getMessage ());
               }
             }
