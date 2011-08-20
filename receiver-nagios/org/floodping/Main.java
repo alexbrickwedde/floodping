@@ -56,7 +56,7 @@ public class Main
           sResult += Main.GetValue ("0003", "Küche:", "°C");
           sResult += Main.GetValue ("0004", "Terasse:", "°C");
           sResult += Main.GetValue ("0005", "Schlafen:", "°C");
-          sResult += Main.GetValue ("0101", "Wasserstand:", "°C");
+          sResult += Main.GetValue ("0101", "Wasserstand:", "cm");
           final Message msg = new org.jivesoftware.smack.packet.Message (message.getFrom (), org.jivesoftware.smack.packet.Message.Type.chat);
           msg.setBody (sResult);
           chat.sendMessage (msg);
@@ -168,6 +168,9 @@ public class Main
               System.out.println ("" + airid + " g:" + xx + "," + yx + "," + zx);
 
               Main.aValues.put (airid, new Integer (new Double (x).intValue ()).toString ());
+              SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
+              df.setTimeZone (TimeZone.getDefault ());
+              Main.aTime.put (airid, df.format (new Date ()));
 
               try
               {
@@ -215,10 +218,10 @@ public class Main
                 break;
               }
 
-              SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
-              df.setTimeZone (TimeZone.getDefault ());
               System.out.println ("" + airid + " T:" + t + "," + id);
               Main.aValues.put (airid, new Double (t).toString ());
+              SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
+              df.setTimeZone (TimeZone.getDefault ());
               Main.aTime.put (airid, df.format (new Date ()));
               try
               {
