@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="303" key="DIALOG_WIDTH"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>
-		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Sans Serif|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="i2c_master_read_ack" key="selection"/>
 		<list key="findhistory">
-			<item value="aVal"/>
-			<item value="bLoop"/>
-			<item value="=1"/>
-			<item value="0x02"/>
-			<item value="0x04"/>
-			<item value="0x08"/>
-			<item value="0x10"/>
-			<item value="0x20"/>
+			<item value="i2c_master_read_ack"/>
+			<item value="i2c_rtc_status"/>
+			<item value="i2c_master_write"/>
+			<item value="i2c_rtc_sram_read"/>
+			<item value="i2c_rtc_read"/>
+			<item value="i2c_write_ctrlreg"/>
+			<item value="i2c_rtc_init"/>
+			<item value="rtc"/>
 		</list>
 		<list key="replacehistory">
 			<item value="=ROW_0"/>

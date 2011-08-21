@@ -50,9 +50,6 @@ set_offset(uint8_t newoffset)
   {
     rtc_offset = newoffset;
     save_byte(cRTCOffset, rtc_offset);
-    char s[100];
-    sprintf(s, "rtc offset now: %d\r\n", rtc_offset);
-    uartPuts(s);
   }
 }
 

@@ -2,16 +2,38 @@
 **** Build of configuration Release for project ir-receiver-tiny85 ****
 
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny85 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: ir-receiver-tiny85.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,ir-receiver-tiny85.map,--cref -mmcu=attiny85 -o "ir-receiver-tiny85.elf"  ./irmp.o ./main.o ./usiTwiSlave.o   
+Finished building target: ir-receiver-tiny85.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ir-receiver-tiny85.elf  >"ir-receiver-tiny85.lss"
+Finished building: ir-receiver-tiny85.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex ir-receiver-tiny85.elf  "ir-receiver-tiny85.hex"
+Finished building: ir-receiver-tiny85.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ir-receiver-tiny85.elf  "ir-receiver-tiny85.eep"
+Finished building: ir-receiver-tiny85.eep
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=attiny85 ir-receiver-tiny85.elf
 AVR Memory Usage
 ----------------
 Device: attiny85
 
-Program:    3360 bytes (41.0% Full)
+Program:    3358 bytes (41.0% Full)
 (.text + .data + .bootloader)
 
-Data:         92 bytes (18.0% Full)
+Data:         90 bytes (17.6% Full)
 (.data + .bss + .noinit)
 
 
@@ -32,47 +54,48 @@ avrdude: erasing chip
 avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 avrdude: reading input file "ir-receiver-tiny85.hex"
 avrdude: input file ir-receiver-tiny85.hex auto detected as Intel Hex
-avrdude: writing flash (3356 bytes):
+avrdude: writing flash (3354 bytes):
 
 Writing | ################################################## | 100% 2.76s
 
-avrdude: 3356 bytes of flash written
+avrdude: 3354 bytes of flash written
 avrdude: verifying flash memory against ir-receiver-tiny85.hex:
 avrdude: load data flash data from input file ir-receiver-tiny85.hex:
 avrdude: input file ir-receiver-tiny85.hex auto detected as Intel Hex
-avrdude: input file ir-receiver-tiny85.hex contains 3356 bytes
+avrdude: input file ir-receiver-tiny85.hex contains 3354 bytes
 avrdude: reading on-chip flash data:
 
-Reading | ################################################## | 100% 2.00s
+Reading | ################################################## | 100% 1.99s
 
 avrdude: verifying ...
-avrdude: 3356 bytes of flash verified
+avrdude: 3354 bytes of flash verified
 avrdude: reading input file "0xc2"
 avrdude: writing lfuse (1 bytes):
 
-Writing | ################################################## | 100% 0.01s
+Writing | ################################################## | 100% 0.00s
 
 avrdude: 1 bytes of lfuse written
 avrdude: verifying lfuse memory against 0xc2:
 avrdude: load data lfuse data from input file 0xc2:
 avrdude: input file 0xc2 contains 1 bytes
 avrdude: reading on-chip lfuse data:
+Finished building: avrdudedummy
 
 Reading | ################################################## | 100% 0.00s
 
 avrdude: verifying ...
 avrdude: 1 bytes of lfuse verified
+ 
 avrdude: reading input file "0xd7"
 avrdude: writing hfuse (1 bytes):
 
-Writing | ################################################## | 100% 0.01s
+Writing | ################################################## | 100% 0.00s
 
 avrdude: 1 bytes of hfuse written
 avrdude: verifying hfuse memory against 0xd7:
 avrdude: load data hfuse data from input file 0xd7:
 avrdude: input file 0xd7 contains 1 bytes
 avrdude: reading on-chip hfuse data:
-Finished building: avrdudedummy
 
 Reading | ################################################## | 100% 0.00s
 
@@ -96,6 +119,5 @@ avrdude: 1 bytes of efuse verified
 
 avrdude done.  Thank you.
 
- 
 
 **** Build Finished ****

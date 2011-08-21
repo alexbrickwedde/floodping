@@ -31,20 +31,16 @@
 #define uniq(LOW,HEIGHT)        ((HEIGHT << 8)|LOW)                       // Create 16 bit number from two bytes
 #define LOW_BYTE(x)             (x & 0xff)                                          // Get low byte from 16 bit number
 #define HIGH_BYTE(x)            ((x >> 8) & 0xff)                         // Get high byte from 16 bit number
-
 #define sbi(ADDRESS,BIT)        ((ADDRESS) |= (1<<(BIT)))       // Set bit
 #define cbi(ADDRESS,BIT)        ((ADDRESS) &= ~(1<<(BIT)))// Clear bit
 #define toggle(ADDRESS,BIT)     ((ADDRESS) ^= (1<<BIT)) // Toggle bit
-
 #define bis(ADDRESS,BIT)        (ADDRESS & (1<<BIT))              // Is bit set?
 #define bic(ADDRESS,BIT)        (!(ADDRESS & (1<<BIT)))         // Is bit clear?
-
 //#################################################################### Variables
 
-uint16_t        word=0;                         // Counter
-uint8_t         byte1, byte2;
-uint16_t        buffer;
-uint8_t         high,low = 0;   // Variables used with uniq (high and low byte)
+uint8_t byte1, byte2;
+uint16_t buffer;
+uint8_t high, low = 0; // Variables used with uniq (high and low byte)
 
 #ifndef F_CPU
 #error F_CPU unkown
@@ -78,9 +74,10 @@ void TIMER0_COMPA_vect(void) {
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
 int main(void) {
-    cli();  // Disable interrupts
+	cli();
+	// Disable interrupts
 
-    usiTwiSlaveInit(SLAVE_ADDR_ATTINY);     // TWI slave init
+	usiTwiSlaveInit(SLAVE_ADDR_ATTINY); // TWI slave init
 
 //    DDRB |= (1 << PB0);
 	IRMP_DATA irmp_data;
@@ -91,23 +88,24 @@ int main(void) {
 	sei ();
 	// enable interrupts
 
+	unsigned int word = 0;
+	unsigned char xx = 0;
 	for (;;) {
 //		PORTB |= (1 << PB0);
 //		_delay_ms(200);
 //		PORTB &= 0xFE;
 //		_delay_ms(200);
 
-        txbuffer[0]= rxbuffer[0];
-        txbuffer[1]= rxbuffer[1];
-
-        txbuffer[2]     = 0xaa;
-        txbuffer[3]     = 0xaa;
-        txbuffer[4]     = 0xaa;
-        txbuffer[5]     = 0xaa;
-        txbuffer[6]     = 0xaa;
+		txbuffer[0] = rxbuffer[0];
+		txbuffer[1] = rxbuffer[1];
 
 		if (irmp_get_data(&irmp_data)) {
 			word = irmp_data.command;
+			txbuffer[2] = irmp_data.command >> 8;
+			txbuffer[3] = irmp_data.command & 0xff;
+			txbuffer[4] = irmp_data.address >> 8;
+			txbuffer[5] = irmp_data.address & 0xff;
+			txbuffer[6] = xx++;
 //			for (int i = 0; i < 16; i++) {
 //				PORTB |= (1 << PB0);
 //				_delay_ms(100);

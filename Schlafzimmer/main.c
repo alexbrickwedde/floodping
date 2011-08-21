@@ -45,9 +45,9 @@ uint16_t AdcRead(uint8_t channel) {
 int uiLastCmd = 0;
 int uiLastCmdTimer = 0;
 volatile int uiX = 0;
-ISR(INT0_vect){
-		uiX = uiX==0?0xff:0;
-		SetColor(uiX, 0x0, 0);
+ISR(INT0_vect) {
+	uiX = uiX == 0 ? 0xff : 0;
+	SetColor(uiX, 0x0, 0);
 }
 
 #define         SLAVE_ADDR_ATTINY       0b00110100
@@ -80,19 +80,56 @@ int main() {
 	SetColor(0, 0, 0xff);
 	_delay_ms(100);
 	wdt_reset();
-	SetColor(0, 0, 0);
-
 
 	uint8_t i2c_errorcode, i2c_status;
-	  if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) // initialize rtc
-	  {
-	  }
-	  DATETIME time;
-	  int res1 = i2c_rtc_read(&time, 1);
-	  if (res1)
-	  {
+	if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) // initialize rtc
+			{
+		SetColor(0xff, 0, 0);
+		while (1)
+			;
+	}
 
-	  }
+//	while (1) {
+////		int res1 = i2c_rtc_read(&time, 1);
+////		if (res1) {
+////			SetColor(0, ((time.ss & 1)==1)?0xff:0x80, 0);
+////		}
+//
+//		i2c_master_start_wait(SLAVE_ADDR_ATTINY + I2C_WRITE); // set device address and write mode
+//
+//		uint8_t i2c_rtc_status;
+//		if (i2c_master_write(0, &i2c_rtc_status) == 0) // write address
+//				{
+//			if (i2c_master_rep_start(SLAVE_ADDR_ATTINY + I2C_READ
+//					, &i2c_rtc_status) == 0) // set device address and read mode
+//					{
+//				int addr0 = i2c_master_read_ack();
+//				int addr1 = i2c_master_read_ack();
+//				int command = (i2c_master_read_ack() << 8)
+//						| i2c_master_read_ack();
+//				int addr = (i2c_master_read_ack() << 8) | i2c_master_read_ack();
+//				int counter = i2c_master_read_nak();
+//
+//				// addr: 0000000011110111
+//
+//				if (addr == 0b1110111100000000) {
+//					switch (command) {
+//					case 0:
+//						break;
+//					case 1:
+//						break;
+//					case 2:
+//						SetColor(0, 0, 0);
+//						break;
+//					case 3:
+//						SetColor(0xff, 0xff, 0xff);
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		i2c_master_stop(); // set stop conditon = release bus
+//	}
 
 //		  while(1)
 //	{
@@ -111,11 +148,6 @@ int main() {
 //		wdt_reset();
 //	}
 
-	while (1) {
-		_delay_ms(2000);
-//		SetColor(0x0, 0, 0xff);
-	}
-
 //	DDRB |= (1 << PB1) | (1 << PB2) | (1 << PB3);
 
 	ADMUX |= (1 << REFS1) | (1 << REFS0) | (1 << ADLAR);
@@ -124,7 +156,7 @@ int main() {
 
 	int uiLastDistance = 0;
 	int uiMovement = 0;
-	int uiLight = 1;
+	int uiLight = 0;
 	int uiTempLight = 0;
 
 	while (1) {
@@ -195,6 +227,41 @@ int main() {
 			uiTempLight = 0;
 		}
 
+		uiLastDistance = uiNewDistance;
+
+		i2c_master_start_wait(SLAVE_ADDR_ATTINY + I2C_WRITE); // set device address and write mode
+
+		uint8_t i2c_rtc_status;
+		if (i2c_master_write(0, &i2c_rtc_status) == 0) // write address
+				{
+			if (i2c_master_rep_start(SLAVE_ADDR_ATTINY + I2C_READ
+			, &i2c_rtc_status) == 0) // set device address and read mode
+					{
+				int addr0 = i2c_master_read_ack();
+				int addr1 = i2c_master_read_ack();
+				int command = (i2c_master_read_ack() << 8)
+						| i2c_master_read_ack();
+				int addr = (i2c_master_read_ack() << 8) | i2c_master_read_ack();
+				int counter = i2c_master_read_nak();
+
+				if (addr == 0b1110111100000000) {
+					switch (command) {
+					case 0:
+						break;
+					case 1:
+						break;
+					case 2:
+						uiLight = 0;
+						break;
+					case 3:
+						uiLight = 1;
+						break;
+					}
+				}
+			}
+		}
+		i2c_master_stop(); // set stop conditon = release bus
+
 		if (uiTempLight == 3) {
 			SetColor(0x00, 0xff, 0x00);
 		} else if (uiTempLight == 4) {
@@ -213,6 +280,5 @@ int main() {
 			SetColor(0xff, 0xff, 0xb0);
 		}
 
-		uiLastDistance = uiNewDistance;
 	}
 }

@@ -6,16 +6,110 @@ Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
 ../main.c: In function 'main':
-../main.c:157: warning: unused variable 'uiB'
-../main.c:157: warning: unused variable 'uiG'
-../main.c:157: warning: unused variable 'uiR'
+../main.c:245: warning: unused variable 'counter'
+../main.c:241: warning: unused variable 'addr1'
+../main.c:240: warning: unused variable 'addr0'
+../main.c:189: warning: unused variable 'uiB'
+../main.c:189: warning: unused variable 'uiG'
+../main.c:189: warning: unused variable 'uiR'
 Finished building: ../main.c
  
 Building target: Schlafzimmer.elf
 Invoking: AVR C Linker
 avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
-./i2c-rtc.o: In function `set_offset':
-i2c-rtc.c:(.text+0x8c0): undefined reference to `uartPuts'
-make: *** [Schlafzimmer.elf] Fehler 1
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    7004 bytes (85.5% Full)
+(.text + .data + .bootloader)
+
+Data:        346 bytes (33.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (7004 bytes):
+
+Writing | ################################################## | 100% 5.66s
+
+avrdude: 7004 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 7004 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.20s
+
+avrdude: verifying ...
+avrdude: 7004 bytes of flash verified
+avrdude: reading input file "0xff"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+Finished building: avrdudedummy
+
+avrdude: 1 bytes of lfuse written
+ 
+avrdude: verifying lfuse memory against 0xff:
+avrdude: load data lfuse data from input file 0xff:
+avrdude: input file 0xff contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
 
 **** Build Finished ****
