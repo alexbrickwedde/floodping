@@ -19,12 +19,12 @@
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
-#include "irmp.h"
+#include <avr/wdt.h>
 
 #include        "usiTwiSlave.h"
 
 // Note: The LSB is the I2C r/w flag and must not be used for addressing!
-#define         SLAVE_ADDR_ATTINY       0b00110100
+#define         SLAVE_ADDR_ATTINY       0b00111100
 
 //####################################################################### Macros
 
@@ -42,31 +42,12 @@ uint8_t byte1, byte2;
 uint16_t buffer;
 uint8_t high, low = 0; // Variables used with uniq (high and low byte)
 
-#ifndef F_CPU
-#error F_CPU unkown
-#endif
-
-#define F_INTERRUPT   10000                                                     // 10000 interrupts per second
-void timer_init(void) {
-#define PRESCALER 8
-	TCCR0A = (1 << WGM01); /* IR polling timer */
-	TCCR0B = (1 << CS01); // switch CTC Mode on, set prescaler to 1
-
-	// may adjust IR polling rate here to optimize IR receiving:
-	OCR0A = (F_CPU / F_INTERRUPT / PRESCALER) - 1; // compare value: 1/10000 of CPU frequency
-
-	// enable Timer1 for IR polling
-	TIMSK = 1 << OCIE0A; // Timer0A ISR activate
-
-}
-
-/*---------------------------------------------------------------------------------------------------------------------------------------------------
- * timer 1 compare handler, should be called every 1/10000 sec
- *---------------------------------------------------------------------------------------------------------------------------------------------------
- */
-void TIMER0_COMPA_vect(void) __attribute__((interrupt));
-void TIMER0_COMPA_vect(void) {
-	irmp_ISR();
+uint16_t AdcRead(uint8_t channel) {
+	ADMUX = (ADMUX & ~(0x1F)) | (channel & 0x1F);
+	ADCSRA |= (1 << ADSC);
+	while (ADCSRA & (1 << ADSC)) {
+	}
+	return ADCW;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -78,33 +59,94 @@ int main(void) {
 
 	usiTwiSlaveInit(SLAVE_ADDR_ATTINY); // TWI slave init
 
-	IRMP_DATA irmp_data;
-	irmp_init(); // initialize rc5
-	timer_init();
+	ADMUX |= (1 << REFS1) | (1 << REFS0) | (1 << ADLAR);
+	ADCSRA |= (1 << ADEN); // | (1 << ADFR);
+	ADCSRA |= (1 << ADSC) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);
+
+	int uiLastDistance = 0;
+	int uiMovement = 0;
+	int uiLastCmd = 0;
+	int uiLastCmdTimer = 0;
+	int uiLightCmd = 0;
+	int uiTempLight = 0;
 
 	sei ();
+	// enable interrupts
 
 	for (;;) {
+		for (int uiTmp = 0; uiTmp < 30; uiTmp++) {
+			_delay_ms(1);
+			wdt_reset();
+		}
+		int uiNewDistance = AdcRead(0) >> 8;
+		int uiMinDiff = 6;
 
-		_delay_ms(1);
+		int uiDiff = uiNewDistance - uiLastDistance;
+		if (uiDiff > uiMinDiff) {
+			uiMovement++;
+		} else if (uiDiff < -uiMinDiff) {
+			uiMovement--;
+		} else {
+			if (uiMovement > 0) {
+				uiMovement--;
+			} else if (uiMovement < 0) {
+				uiMovement++;
+			}
+		}
+
+		if (uiMovement > 5) {
+			switch (uiLastCmd) {
+			case 1:
+				break;
+			case 2:
+				uiLightCmd = 1;
+				uiTempLight = 5;
+				uiLastCmd = 1;
+				uiLastCmdTimer = 0;
+				break;
+			default:
+				uiTempLight = 3;
+				uiLastCmd = 1;
+				uiLastCmdTimer = 0;
+				break;
+			}
+		} else if (uiMovement < -5) {
+			switch (uiLastCmd) {
+			case 1:
+				uiLightCmd = 2;
+				uiTempLight = 6;
+				uiLastCmd = 2;
+				uiLastCmdTimer = 0;
+				break;
+			case 2:
+				break;
+			default:
+				uiTempLight = 4;
+				uiLastCmd = 2;
+				uiLastCmdTimer = 0;
+				break;
+			}
+		}
+
+		if (uiLastCmdTimer++ > 50) {
+			uiLastCmd = 0;
+			uiLastCmdTimer = 50;
+			uiTempLight = 0;
+		}
+
+		uiLastDistance = uiNewDistance;
 
 		cli();
 		if(rxbuffer[1] == 1)
 		{
 			rxbuffer[1] = 0;
-			irmp_data.command = 0;
-			irmp_data.address = 0;
+			uiLightCmd = 0;
 		}
+
+		txbuffer[0] = uiLightCmd;
+		txbuffer[1] = uiTempLight;
+
 		sei();
 
-		if (irmp_get_data(&irmp_data)) {
-			cli();
-			txbuffer[0] = irmp_data.command >> 8;
-			txbuffer[1] = irmp_data.command & 0xff;
-			txbuffer[2] = irmp_data.address >> 8;
-			txbuffer[3] = irmp_data.address & 0xff;
-			sei();
-		}
 	}
-	return 0;
 }
