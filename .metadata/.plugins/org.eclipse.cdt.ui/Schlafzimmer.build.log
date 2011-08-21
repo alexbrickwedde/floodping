@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:157: warning: unused variable 'uiB'
+../main.c:157: warning: unused variable 'uiG'
+../main.c:157: warning: unused variable 'uiR'
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+./i2c-rtc.o: In function `set_offset':
+i2c-rtc.c:(.text+0x8c0): undefined reference to `uartPuts'
+make: *** [Schlafzimmer.elf] Fehler 1
+
+**** Build Finished ****

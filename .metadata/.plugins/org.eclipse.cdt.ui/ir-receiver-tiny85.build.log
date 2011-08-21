@@ -1,0 +1,101 @@
+
+**** Build of configuration Release for project ir-receiver-tiny85 ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny85 ir-receiver-tiny85.elf
+AVR Memory Usage
+----------------
+Device: attiny85
+
+Program:    3360 bytes (41.0% Full)
+(.text + .data + .bootloader)
+
+Data:         92 bytes (18.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pt85 -cusbasp -u -Uflash:w:ir-receiver-tiny85.hex:a -Ulfuse:w:0xc2:m -Uhfuse:w:0xd7:m -Uefuse:w:0xff:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e930b
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "ir-receiver-tiny85.hex"
+avrdude: input file ir-receiver-tiny85.hex auto detected as Intel Hex
+avrdude: writing flash (3356 bytes):
+
+Writing | ################################################## | 100% 2.76s
+
+avrdude: 3356 bytes of flash written
+avrdude: verifying flash memory against ir-receiver-tiny85.hex:
+avrdude: load data flash data from input file ir-receiver-tiny85.hex:
+avrdude: input file ir-receiver-tiny85.hex auto detected as Intel Hex
+avrdude: input file ir-receiver-tiny85.hex contains 3356 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.00s
+
+avrdude: verifying ...
+avrdude: 3356 bytes of flash verified
+avrdude: reading input file "0xc2"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xc2:
+avrdude: load data lfuse data from input file 0xc2:
+avrdude: input file 0xc2 contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd7"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd7:
+avrdude: load data hfuse data from input file 0xd7:
+avrdude: input file 0xd7 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+Finished building: avrdudedummy
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xff"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xff:
+avrdude: load data efuse data from input file 0xff:
+avrdude: input file 0xff contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+
+avrdude done.  Thank you.
+
+ 
+
+**** Build Finished ****

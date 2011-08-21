@@ -1,0 +1,1055 @@
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ * irmp.c - infrared multi-protocol decoder, supports SIRCS, NEC, Samsung, Matsushita, and Kaseikyo remote control protocols
+ *
+ * Copyright (c) 2009-2010 Frank Meyer - frank(at)fli4l.de
+ *
+ * ATMEGA88 @ 8 MHz
+ *
+ * Typical manufacturers:
+ *
+ * SIRCS      - Sony
+ * NEC        - NEC, Yamaha, Canon, Tevion, Harman/Kardon, Hitachi, JVC, Pioneer, Toshiba, Xoro, Orion, and many other Japanese manufacturers
+ * SAMSUNG    - Samsung
+ * MATSUSHITA - Matsushita
+ * KASEIKYO   - Panasonic, Denon & other Japanese manufacturers (members of "Japan's Association for Electric Home Application")
+ * RECS80     - Philips, Nokia, Thomson, Nordmende, Telefunken, Saba
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   SIRCS
+ *   -----
+ *
+ *   frame: 1 start bit + 12-20 data bits + no stop bit
+ *   12 data bits = 7 command bits + 5 address bits + 0 to 8 additional bits
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *   -----------------_________           ------_____               ------------______
+ *       2400us         600us             600us 600us               1200us      600 us        no stop bit
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   NEC + extended NEC
+ *   -------------------------
+ *
+ *   frame: 1 start bit + 32 data bits + 1 stop bit
+ *   NEC:          32 data bits = 8 address bits + 8 inverted address bits + 8 command bits + 8 inverted command bits
+ *   extended NEC: 32 data bits = 16 address bits + 8 command bits + 8 inverted command bits
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *   -----------------_________           ------______              ------________________    ------______....
+ *       9000us        4500us             560us  560us              560us    1690 us          560us
+ *
+ *
+ *   Repetition frame (not implemented yet):
+ *
+ *   -----------------_________------______  .... ~100ms Pause, then repeat
+ *       9000us        2250us   560us
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   SAMSUNG
+ *   -------
+ *
+ *   frame: 1 start bit + 16 data bits + 1 sync bit + additional 20 data bits + 1 stop bit
+ *   additional 20 data bits = 4 bits ID? + 8 bits command + 8 bits inverted command
+ *
+ *   start bit:                           data "0":                 data "1":                 sync bit:               stop bit:
+ *   ----------______________             ------______              ------________________    ------______________    ------______....
+ *    4500us       4500us                 550us  450us              550us    1450us           550us    4500us         550us
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   MATSUSHITA
+ *   ----------
+ *
+ *   frame: 1 start bit + 24 data bits + 1 stop bit
+ *   24 data bits = 6 bits custom + 6 bits command + 12 bits address
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *   ----------_________                  ------______              ------________________    ------______....
+ *    3488us     3488us                   872us  872us              872us    2616us           872us
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   KASEIKYO
+ *   --------
+ *
+ *   frame: 1 start bit + 48 data bits + 1 stop bit
+ *   48 data bits = 16 bits manufacturer + 4 bits parity + 4 bits genre1 + 4 bits genre2 + 10 bits command + 2 bits id + 8 bits parity
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *   ----------______                     ------______              ------________________    ------______....
+ *    3380us   1690us                     423us  423us              423us    1269us           423us
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   RECS80
+ *   ------
+ *
+ *   frame: 2 start bits + 10 data bits + 1 stop bit
+ *   10 data bits = 1 toggle bit + 3 address bits + 6 command bits
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *   -----_____________________           -----____________         -----______________       ------_______....
+ *   158us       5060us                   158us   5060us            158us    7600us           158us
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ *   PANASONIC (older protocol, yet not implemented, see also MATSUSHITA, timing very similar)
+ *   -----------------------------------------------------------------------------------------
+ *
+ *   frame: 1 start bit + 22 data bits + 1 stop bit
+ *   22 data bits = 5 custom bits + 6 data bits + 5 inversed custom bits + 6 inversed data bits
+ *
+ *   Europe version:        T = 456us
+ *   USA & Canada version:  T = 422us
+ *
+ *   start bit:                           data "0":                 data "1":                 stop bit:
+ *        8T            8T                 2T   2T                   2T      6T                2T
+ *   -------------____________            ------_____               ------_____________       ------_______....
+ *      3648us        3648us              912us 912us               912us    2736us           912us                (Europe)
+ *      3376us        3376us              844us 844us               844us    2532us           844us                (US)
+ *
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+#ifdef unix                                                                                     // test on linux/unx
+#include <stdio.h>
+#include <string.h>
+#include <inttypes.h>
+
+#define DEBUG
+
+static int PINB;
+
+#else // not unix:
+
+#include <inttypes.h>
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/pgmspace.h>
+
+#endif
+
+#include "irmp.h"
+
+#define TRUE                                  1
+#define FALSE                                 0
+
+#define IRMP_SUPPORT_SIRCS_PROTOCOL           1                                                 // flag: support SIRCS, 1=yes, 0=no
+#define IRMP_SUPPORT_NEC_PROTOCOL             1                                                 // flag: support NEC, 1=yes, 0=no
+#define IRMP_SUPPORT_SAMSUNG_PROTOCOL         1                                                 // flag: support Samsung, 1=yes, 0=no
+#define IRMP_SUPPORT_MATSUSHITA_PROTOCOL      1                                                 // flag: support Matsushita, 1=yes, 0=no
+#define IRMP_SUPPORT_KASEIKYO_PROTOCOL        1                                                 // flag: support Kaseikyo, 1=yes, 0=no
+#define IRMP_SUPPORT_RECS80_PROTOCOL          1                                                 // flag: support RECS80, 1=yes, 0=no
+
+#define IRMP_PORT                             PORTB
+#define IRMP_DDR                              DDRB
+#define IRMP_PIN                              PINB
+#define IRMP_BIT                              4                                                 // use PB6 as IR input
+
+#define F_INTERRUPTS                          10000                                             // interrupts per second
+#define IRMP_TIMEOUT                          120                                               // timeout after 12 ms darkness
+
+#define IRMP_LOGGING                          1                                                 // 1: log IR signal (scan), 0: do not (default)
+
+#define MIN_TOLERANCE_20                      0.8                                               // -20%
+#define MAX_TOLERANCE_20                      1.2                                               // +20% for RECS80 protocol
+
+#define MIN_TOLERANCE_50                      0.5                                               // -50%
+#define MAX_TOLERANCE_50                      1.5                                               // +50% for samsung protocol
+
+#define MIN_TOLERANCE_40                      0.6                                               // -40%
+#define MAX_TOLERANCE_40                      1.4                                               // +40% for other protocols
+
+
+#define SIRCS_START_BIT_PULSE_LEN             2400.0e-6                                         // 2400 usec pulse
+#define SIRCS_START_BIT_PAUSE_LEN              500.0e-6                                         //  500-600 usec pause
+#define SIRCS_1_PULSE_LEN                     1200.0e-6                                         // 1200 usec pulse
+#define SIRCS_1_PAUSE_LEN                      500.0e-6                                         //  500-600 usec pause
+#define SIRCS_0_PULSE_LEN                      500.0e-6                                         //  500-600 usec pulse
+#define SIRCS_0_PAUSE_LEN                      500.0e-6                                         //  500-600 usec pause
+#define SIRCS_ADDRESS_OFFSET                  7                                                 // skip 7 bits
+#define SIRCS_ADDRESS_LEN                     16                                                // read 5-12 address bits
+#define SIRCS_DATA_OFFSET                     0                                                 // skip 0 bits
+#define SIRCS_DATA_LEN                        7                                                 // read 12-16 data bits
+#define SIRCS_COMPLETE_DATA_LEN               20                                                // complete length - may be up to 20
+#define SIRCS_STOP_BIT                        0                                                 // has no stop bit
+
+#define SIRCS_START_BIT_PULSE_LEN_MIN         (uint8_t)(F_INTERRUPTS * SIRCS_START_BIT_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_START_BIT_PULSE_LEN_MAX         (uint8_t)(F_INTERRUPTS * SIRCS_START_BIT_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define SIRCS_START_BIT_PAUSE_LEN_MIN         (uint8_t)(F_INTERRUPTS * SIRCS_START_BIT_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_START_BIT_PAUSE_LEN_MAX         (uint8_t)(F_INTERRUPTS * SIRCS_START_BIT_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define SIRCS_1_PULSE_LEN_MIN                 (uint8_t)(F_INTERRUPTS * SIRCS_1_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_1_PULSE_LEN_MAX                 (uint8_t)(F_INTERRUPTS * SIRCS_1_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define SIRCS_1_PAUSE_LEN_MIN                 (uint8_t)(F_INTERRUPTS * SIRCS_1_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_1_PAUSE_LEN_MAX                 (uint8_t)(F_INTERRUPTS * SIRCS_1_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define SIRCS_0_PULSE_LEN_MIN                 (uint8_t)(F_INTERRUPTS * SIRCS_0_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_0_PULSE_LEN_MAX                 (uint8_t)(F_INTERRUPTS * SIRCS_0_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define SIRCS_0_PAUSE_LEN_MIN                 (uint8_t)(F_INTERRUPTS * SIRCS_0_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define SIRCS_0_PAUSE_LEN_MAX                 (uint8_t)(F_INTERRUPTS * SIRCS_0_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+
+#define SIRCS_REPETITION_TIME                 (uint16_t)(F_INTERRUPTS * 50.0e-3 + 0.5)          // repetition after ~45-50 msec
+
+#define NEC_START_BIT_PULSE_LEN               9000.0e-6                                         // 9000 usec pulse
+#define NEC_START_BIT_PAUSE_LEN               4500.0e-6                                         // 4500 usec pause
+#define NEC_1_PULSE_LEN                        560.0e-6                                         //  560 usec pulse
+#define NEC_1_PAUSE_LEN                       1690.0e-6                                         // 1690 usec pause
+#define NEC_0_PULSE_LEN                        560.0e-6                                         //  560 usec pulse
+#define NEC_0_PAUSE_LEN                        560.0e-6                                         //  560 usec pause
+#define NEC_ADDRESS_OFFSET                     0                                                // skip 0 bits
+#define NEC_ADDRESS_LEN                       16                                                // read 16 address bits
+#define NEC_DATA_OFFSET                       16                                                // skip 16 bits (8 address + 8 /address)
+#define NEC_DATA_LEN                          16                                                // read 16 bits (8 command + 8 /command)
+#define NEC_COMPLETE_DATA_LEN                 32                                                // complete length
+#define NEC_STOP_BIT                          1                                                 // has stop bit
+
+#define NEC_START_BIT_PULSE_LEN_MIN           (uint8_t)(F_INTERRUPTS * NEC_START_BIT_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_START_BIT_PULSE_LEN_MAX           (uint8_t)(F_INTERRUPTS * NEC_START_BIT_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define NEC_START_BIT_PAUSE_LEN_MIN           (uint8_t)(F_INTERRUPTS * NEC_START_BIT_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_START_BIT_PAUSE_LEN_MAX           (uint8_t)(F_INTERRUPTS * NEC_START_BIT_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define NEC_1_PULSE_LEN_MIN                   (uint8_t)(F_INTERRUPTS * NEC_1_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_1_PULSE_LEN_MAX                   (uint8_t)(F_INTERRUPTS * NEC_1_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define NEC_1_PAUSE_LEN_MIN                   (uint8_t)(F_INTERRUPTS * NEC_1_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_1_PAUSE_LEN_MAX                   (uint8_t)(F_INTERRUPTS * NEC_1_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define NEC_0_PULSE_LEN_MIN                   (uint8_t)(F_INTERRUPTS * NEC_0_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_0_PULSE_LEN_MAX                   (uint8_t)(F_INTERRUPTS * NEC_0_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define NEC_0_PAUSE_LEN_MIN                   (uint8_t)(F_INTERRUPTS * NEC_0_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define NEC_0_PAUSE_LEN_MAX                   (uint8_t)(F_INTERRUPTS * NEC_0_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+
+#define SAMSUNG_START_BIT_PULSE_LEN           4500.0e-6                                         // 4500 usec pulse
+#define SAMSUNG_START_BIT_PAUSE_LEN           4500.0e-6                                         // 4500 usec pause
+#define SAMSUNG_1_PULSE_LEN                    550.0e-6                                         //  550 usec pulse
+#define SAMSUNG_1_PAUSE_LEN                   1450.0e-6                                         // 1450 usec pause
+#define SAMSUNG_0_PULSE_LEN                    550.0e-6                                         //  550 usec pulse
+#define SAMSUNG_0_PAUSE_LEN                    450.0e-6                                         //  450 usec pause
+#define SAMSUNG_ADDRESS_OFFSET                 0                                                // skip 0 bits
+#define SAMSUNG_ADDRESS_LEN                   16                                                // read 16 address bits
+#define SAMSUNG_DATA_OFFSET                   21                                                // skip 16 + 1 sync + 4 data
+#define SAMSUNG_DATA_LEN                      16                                                // read last 16 of 20 data bits
+#define SAMSUNG_COMPLETE_DATA_LEN             37                                                // complete length
+#define SAMSUNG_STOP_BIT                      1                                                 // has stop bit
+
+#define SAMSUNG_START_BIT_PULSE_LEN_MIN       (uint8_t)(F_INTERRUPTS * SAMSUNG_START_BIT_PULSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_START_BIT_PULSE_LEN_MAX       (uint8_t)(F_INTERRUPTS * SAMSUNG_START_BIT_PULSE_LEN * MAX_TOLERANCE_50 + 0.5)
+#define SAMSUNG_START_BIT_PAUSE_LEN_MIN       (uint8_t)(F_INTERRUPTS * SAMSUNG_START_BIT_PAUSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_START_BIT_PAUSE_LEN_MAX       (uint8_t)(F_INTERRUPTS * SAMSUNG_START_BIT_PAUSE_LEN * MAX_TOLERANCE_50 + 0.5)
+#define SAMSUNG_1_PULSE_LEN_MIN               (uint8_t)(F_INTERRUPTS * SAMSUNG_1_PULSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_1_PULSE_LEN_MAX               (uint8_t)(F_INTERRUPTS * SAMSUNG_1_PULSE_LEN * MAX_TOLERANCE_50 + 0.5)
+#define SAMSUNG_1_PAUSE_LEN_MIN               (uint8_t)(F_INTERRUPTS * SAMSUNG_1_PAUSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_1_PAUSE_LEN_MAX               (uint8_t)(F_INTERRUPTS * SAMSUNG_1_PAUSE_LEN * MAX_TOLERANCE_50 + 0.5)
+#define SAMSUNG_0_PULSE_LEN_MIN               (uint8_t)(F_INTERRUPTS * SAMSUNG_0_PULSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_0_PULSE_LEN_MAX               (uint8_t)(F_INTERRUPTS * SAMSUNG_0_PULSE_LEN * MAX_TOLERANCE_50 + 0.5)
+#define SAMSUNG_0_PAUSE_LEN_MIN               (uint8_t)(F_INTERRUPTS * SAMSUNG_0_PAUSE_LEN * MIN_TOLERANCE_50 + 0.5)
+#define SAMSUNG_0_PAUSE_LEN_MAX               (uint8_t)(F_INTERRUPTS * SAMSUNG_0_PAUSE_LEN * MAX_TOLERANCE_50 + 0.5)
+
+#define MATSUSHITA_START_BIT_PULSE_LEN        3488.0e-6                                         // 3488 usec pulse
+#define MATSUSHITA_START_BIT_PAUSE_LEN        3488.0e-6                                         // 3488 usec pause
+#define MATSUSHITA_1_PULSE_LEN                 872.0e-6                                         //  872 usec pulse
+#define MATSUSHITA_1_PAUSE_LEN                2616.0e-6                                         // 2616 usec pause
+#define MATSUSHITA_0_PULSE_LEN                 872.0e-6                                         //  872 usec pulse
+#define MATSUSHITA_0_PAUSE_LEN                 872.0e-6                                         //  872 usec pause
+#define MATSUSHITA_ADDRESS_OFFSET             12                                                // skip 12 bits
+#define MATSUSHITA_ADDRESS_LEN                12                                                // read 12 address bits
+#define MATSUSHITA_DATA_OFFSET                0                                                 // skip 0 bits
+#define MATSUSHITA_DATA_LEN                   12                                                // read 12 bits (6 custom + 6 command)
+#define MATSUSHITA_COMPLETE_DATA_LEN          24                                                // complete length
+#define MATSUSHITA_STOP_BIT                   1                                                 // has stop bit
+
+#define MATSUSHITA_START_BIT_PULSE_LEN_MIN    (uint8_t)(F_INTERRUPTS * MATSUSHITA_START_BIT_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_START_BIT_PULSE_LEN_MAX    (uint8_t)(F_INTERRUPTS * MATSUSHITA_START_BIT_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_START_BIT_PAUSE_LEN_MIN    (uint8_t)(F_INTERRUPTS * MATSUSHITA_START_BIT_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_START_BIT_PAUSE_LEN_MAX    (uint8_t)(F_INTERRUPTS * MATSUSHITA_START_BIT_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_1_PULSE_LEN_MIN            (uint8_t)(F_INTERRUPTS * MATSUSHITA_1_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_1_PULSE_LEN_MAX            (uint8_t)(F_INTERRUPTS * MATSUSHITA_1_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_1_PAUSE_LEN_MIN            (uint8_t)(F_INTERRUPTS * MATSUSHITA_1_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_1_PAUSE_LEN_MAX            (uint8_t)(F_INTERRUPTS * MATSUSHITA_1_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_0_PULSE_LEN_MIN            (uint8_t)(F_INTERRUPTS * MATSUSHITA_0_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_0_PULSE_LEN_MAX            (uint8_t)(F_INTERRUPTS * MATSUSHITA_0_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_0_PAUSE_LEN_MIN            (uint8_t)(F_INTERRUPTS * MATSUSHITA_0_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define MATSUSHITA_0_PAUSE_LEN_MAX            (uint8_t)(F_INTERRUPTS * MATSUSHITA_0_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+
+#define KASEIKYO_START_BIT_PULSE_LEN          3380.0e-6                                         // 3380 usec pulse
+#define KASEIKYO_START_BIT_PAUSE_LEN          1690.0e-6                                         // 1690 usec pause
+#define KASEIKYO_1_PULSE_LEN                   423.0e-6                                         //  525 usec pulse
+#define KASEIKYO_1_PAUSE_LEN                  1269.0e-6                                         //  525 usec pause
+#define KASEIKYO_0_PULSE_LEN                   423.0e-6                                         //  525 usec pulse
+#define KASEIKYO_0_PAUSE_LEN                   423.0e-6                                         // 1690 usec pause
+#define KASEIKYO_ADDRESS_OFFSET                0                                                // skip 0 bits
+#define KASEIKYO_ADDRESS_LEN                  16                                                // read 16 address bits
+#define KASEIKYO_DATA_OFFSET                  28                                                // skip 28 bits (16 manufacturer & 4 parity & 8 genre)
+#define KASEIKYO_DATA_LEN                     12                                                // read 12 data bits (10 command & 2 id)
+#define KASEIKYO_COMPLETE_DATA_LEN            48                                                // complete length
+#define KASEIKYO_STOP_BIT                     1                                                 // has stop bit
+
+#define KASEIKYO_START_BIT_PULSE_LEN_MIN      (uint8_t)(F_INTERRUPTS * KASEIKYO_START_BIT_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_START_BIT_PULSE_LEN_MAX      (uint8_t)(F_INTERRUPTS * KASEIKYO_START_BIT_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define KASEIKYO_START_BIT_PAUSE_LEN_MIN      (uint8_t)(F_INTERRUPTS * KASEIKYO_START_BIT_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_START_BIT_PAUSE_LEN_MAX      (uint8_t)(F_INTERRUPTS * KASEIKYO_START_BIT_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define KASEIKYO_1_PULSE_LEN_MIN              (uint8_t)(F_INTERRUPTS * KASEIKYO_1_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_1_PULSE_LEN_MAX              (uint8_t)(F_INTERRUPTS * KASEIKYO_1_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define KASEIKYO_1_PAUSE_LEN_MIN              (uint8_t)(F_INTERRUPTS * KASEIKYO_1_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_1_PAUSE_LEN_MAX              (uint8_t)(F_INTERRUPTS * KASEIKYO_1_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define KASEIKYO_0_PULSE_LEN_MIN              (uint8_t)(F_INTERRUPTS * KASEIKYO_0_PULSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_0_PULSE_LEN_MAX              (uint8_t)(F_INTERRUPTS * KASEIKYO_0_PULSE_LEN * MAX_TOLERANCE_40 + 0.5)
+#define KASEIKYO_0_PAUSE_LEN_MIN              (uint8_t)(F_INTERRUPTS * KASEIKYO_0_PAUSE_LEN * MIN_TOLERANCE_40 + 0.5)
+#define KASEIKYO_0_PAUSE_LEN_MAX              (uint8_t)(F_INTERRUPTS * KASEIKYO_0_PAUSE_LEN * MAX_TOLERANCE_40 + 0.5)
+
+#define RECS80_START_BIT_PULSE_LEN             158.0e-6                                         //  158 usec pulse
+#define RECS80_START_BIT_PAUSE_LEN            5060.0e-6                                         // 5060 usec pause
+#define RECS80_1_PULSE_LEN                     158.0e-6                                         //  158 usec pulse
+#define RECS80_1_PAUSE_LEN                    7600.0e-6                                         // 7600 usec pause
+#define RECS80_0_PULSE_LEN                     158.0e-6                                         //  158 usec pulse
+#define RECS80_0_PAUSE_LEN                    5060.0e-6                                         // 5060 usec pause
+#define RECS80_ADDRESS_OFFSET                 2                                                 // skip 2 bits (2nd start + 1 toggle)
+#define RECS80_ADDRESS_LEN                    3                                                 // read 3 address bits
+#define RECS80_DATA_OFFSET                    5                                                 // skip 5 bits (2nd start + 1 toggle + 3 address)
+#define RECS80_DATA_LEN                       6                                                 // read 6 data bits
+#define RECS80_COMPLETE_DATA_LEN              11                                                // complete length
+#define RECS80_STOP_BIT                       1                                                 // has stop bit
+
+#define RECS80_START_BIT_PULSE_LEN_MIN        (uint8_t)(F_INTERRUPTS * RECS80_START_BIT_PULSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_START_BIT_PULSE_LEN_MAX        (uint8_t)(F_INTERRUPTS * RECS80_START_BIT_PULSE_LEN * MAX_TOLERANCE_20 + 0.5)
+#define RECS80_START_BIT_PAUSE_LEN_MIN        (uint8_t)(F_INTERRUPTS * RECS80_START_BIT_PAUSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_START_BIT_PAUSE_LEN_MAX        (uint8_t)(F_INTERRUPTS * RECS80_START_BIT_PAUSE_LEN * MAX_TOLERANCE_20 + 0.5)
+#define RECS80_1_PULSE_LEN_MIN                (uint8_t)(F_INTERRUPTS * RECS80_1_PULSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_1_PULSE_LEN_MAX                (uint8_t)(F_INTERRUPTS * RECS80_1_PULSE_LEN * MAX_TOLERANCE_20 + 0.5)
+#define RECS80_1_PAUSE_LEN_MIN                (uint8_t)(F_INTERRUPTS * RECS80_1_PAUSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_1_PAUSE_LEN_MAX                (uint8_t)(F_INTERRUPTS * RECS80_1_PAUSE_LEN * MAX_TOLERANCE_20 + 0.5)
+#define RECS80_0_PULSE_LEN_MIN                (uint8_t)(F_INTERRUPTS * RECS80_0_PULSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_0_PULSE_LEN_MAX                (uint8_t)(F_INTERRUPTS * RECS80_0_PULSE_LEN * MAX_TOLERANCE_20 + 0.5)
+#define RECS80_0_PAUSE_LEN_MIN                (uint8_t)(F_INTERRUPTS * RECS80_0_PAUSE_LEN * MIN_TOLERANCE_20 + 0.5)
+#define RECS80_0_PAUSE_LEN_MAX                (uint8_t)(F_INTERRUPTS * RECS80_0_PAUSE_LEN * MAX_TOLERANCE_20 + 0.5)
+
+#if IRMP_LOGGING == 1
+#  define irmp_logIsr() do{irmp_logIr( (IRMP_PIN & (1<<IRMP_BIT))?1:0);}while(0)
+
+#define UART_BAUD             9600L
+
+// calculate real baud rate:
+#define UBRR_VAL              ((F_CPU+UART_BAUD*8)/(UART_BAUD*16)-1)            // round
+#define BAUD_REAL             (F_CPU/(16*(UBRR_VAL+1)))                         // real baudrate
+#define BAUD_ERROR            ((BAUD_REAL*1000)/UART_BAUD-1000)                 // error in promille
+
+#if ((BAUD_ERROR > 10) || (-BAUD_ERROR < 10))
+#  error Error of baud rate of RS232 UARTx is more than 1%. That is too high!
+#endif
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  Initialize  UART
+ *  @details  Initializes UART
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+void
+uart_init (void)
+{
+  UCSR0B |= (1<<TXEN0);                                                         // activate UART0 TX
+  UBRR0H = UBRR_VAL >> 8;                                                       // store baudrate (upper byte)
+  UBRR0L = UBRR_VAL & 0xFF;                                                     // store baudrate (lower byte)
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  Send character
+ *  @details  Sends character
+ *  @param    ch character to be transmitted
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+void
+uart_putc (unsigned char ch)
+{
+  while (!(UCSR0A & (1<<UDRE0)))
+  {
+    ;
+  }
+
+  UDR0 = ch;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  Log IR signal
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+static void irmp_logIr (uint8_t val)
+{
+  static const uint8_t  c_startcycles =   5;                      /**< min count of zeros before start of logging */
+# define                c_datalen       500                       /**< loggin buffer size */
+  static const uint8_t  c_endBits     = 200;                      /**< loggin buffer size */
+  static uint8_t s_data[c_datalen];                               /**< logging buffer */
+  static uint16_t s_dataIdx;                                      /**< number of written bits */
+  static uint8_t  s_startcycles                                   /**< current number of start-zeros */;
+  static char s_ctr;                                              /**< counts sequenced highbits - to detect end */
+
+  if( (val==0) && (s_startcycles < c_startcycles) && !s_dataIdx ) /* prevent that single random zeros init logging */
+  {
+    ++s_startcycles;
+  }
+  else
+  {
+    s_startcycles = 0;
+
+    if(    (val==0)                                               /* start or continue logging on zero */
+        || ((val == 1)&& (s_dataIdx != 0) )                       /* one cannot init logging */
+       )
+    {
+      if(val){                                                    /* set or clear bit in bitarray */
+        s_data[(s_dataIdx/8)] |= (1<<(s_dataIdx%8));
+      }else{
+        s_data[(s_dataIdx>>3)] &= ~(1<<(s_dataIdx%8));
+      }
+      ++s_dataIdx;
+
+      if(val){                                                    /* if high received then look at log-stoo condition */
+        ++s_ctr;
+        if(s_ctr > c_endBits){                                    /* if stop condition (200 sequenced ones) meets then output on uart*/
+          uint16_t i=0;
+          for(;i< s_startcycles; ++i){
+            uart_putc( '0' );                                     /* the four ignored zeros */
+          }
+          for(i=0;i < (s_dataIdx-c_endBits+20)/8; ++i)            /* transform bitset into uart chars */
+          {
+            uint8_t d = s_data[i];
+            uint8_t j=0;
+            for(;j<8;++j){
+              uart_putc( (d & 1)+'0' );
+                d>>=1;
+            }
+          }
+          uart_putc('\n');
+          s_dataIdx = 0;
+        }
+      }
+      else
+      {
+        s_ctr = 0;
+      }
+    }
+  }
+}
+
+#else
+#  define irmp_logIsr()
+#endif
+
+static volatile uint8_t                       irmp_ir_detected;
+static volatile uint8_t                       irmp_protocol;
+static volatile uint16_t                      irmp_address;
+static volatile uint16_t                      irmp_command;
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  Initialize IRMP decoder
+ *  @details  Configures IRMP input pin
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+#ifndef DEBUG
+void
+irmp_init (void)
+{
+  IRMP_PORT &= ~(1<<IRMP_BIT);                                                                  // deactivate pullup
+  IRMP_DDR &= ~(1<<IRMP_BIT);                                                                   // set pin to input
+
+#if IRMP_LOGGING == 1
+  uart_init ();
+#endif
+}
+#endif
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  Get IRMP data
+ *  @details  gets decoded IRMP data
+ *  @param    pointer in order to store IRMP data
+ *  @return    TRUE: successful, FALSE: failed
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+uint8_t
+irmp_get_data (IRMP_DATA * irmp_data_p)
+{
+  uint8_t       rtc        = FALSE;
+
+  if (irmp_ir_detected)
+  {
+    switch (irmp_protocol)
+    {
+#if IRMP_SUPPORT_SAMSUNG_PROTOCOL == 1 || IRMP_SUPPORT_NEC_PROTOCOL == 1
+#if IRMP_SUPPORT_SAMSUNG_PROTOCOL == 1
+      case IRMP_SAMSUNG_PROTOCOL:
+#endif
+#if IRMP_SUPPORT_NEC_PROTOCOL == 1
+      case IRMP_NEC_PROTOCOL:
+#endif
+        if ((irmp_command >> 8) == (~irmp_command & 0x00FF))
+        {
+          irmp_command >>= 8;
+          rtc = TRUE;
+        }
+        break;
+#endif
+      default:
+        rtc = TRUE;
+    }
+
+    if (rtc)
+    {
+      irmp_data_p->protocol = irmp_protocol;
+      irmp_data_p->address = irmp_address;
+      irmp_data_p->command = irmp_command;
+      irmp_command = 0;
+      irmp_address = 0;
+    }
+
+    irmp_ir_detected = FALSE;
+  }
+
+  return rtc;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+ *  ISR routine
+ *  @details  ISR routine, called 10000 times per second
+ *---------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+void
+irmp_ISR (void)
+{
+  static uint8_t    irmp_start_bit_detected;                                                  // flag: start bit detected
+  static uint8_t    wait_for_space;                                                           // flag: wait for data bit space
+  static uint8_t    wait_for_start_space;                                                     // flag: wait for start bit space
+  static uint8_t    irmp_bit;                                                                 // bit position
+  static uint8_t    irmp_pulse_time;                                                          // count bit time for pulse
+  static uint8_t    irmp_pause_time;                                                          // count bit time for pause
+  static uint16_t   irmp_tmp_address;                                                         // ir address
+  static uint16_t   irmp_tmp_command;                                                         // ir command
+  static uint16_t   last_irmp_command;                                                        // save last irmp data to recognize SIRC repetition
+  static uint16_t   repetition_counter;                                                       // SIRCS repeats frame 2-5 times with 45 ms pause
+  static uint8_t    pulse_1_len_min;
+  static uint8_t    pulse_1_len_max;
+  static uint8_t    pause_1_len_min;
+  static uint8_t    pause_1_len_max;
+  static uint8_t    pulse_0_len_min;
+  static uint8_t    pulse_0_len_max;
+  static uint8_t    pause_0_len_min;
+  static uint8_t    pause_0_len_max;
+  static uint8_t    address_offset;
+  static uint8_t    address_len;
+  static uint8_t    data_offset;
+  static uint8_t    data_len;
+  static uint8_t    complete_len;
+  static uint8_t    stop_bit;
+
+  irmp_logIsr();                                                                              // log ir signal, if IRMP_LOGGING defined
+
+  if (! irmp_ir_detected)                                                                     // ir code already detected?
+  {                                                                                           // yes... wait for application to get data
+    if (! irmp_start_bit_detected)                                                            // start bit detected?
+    {                                                                                         // no...
+      if (!(IRMP_PIN & (1 << IRMP_BIT)))                                                      // receiving burst?
+      {                                                                                       // yes...
+        irmp_pulse_time++;                                                                    // increment counter
+      }
+      else
+      {                                                                                       // yes...
+        if (irmp_pulse_time)                                                                  // it's dark....
+        {                                                                                     // set flags for counting the dark...
+          irmp_start_bit_detected = 1;
+          wait_for_start_space    = 1;
+          wait_for_space          = 0;
+          irmp_tmp_command        = 0;
+          irmp_bit                = 0xff;
+          irmp_pause_time         = 0;
+        }
+        else
+        {
+          repetition_counter++;
+        }
+      }
+    }
+    else
+    {
+      if (wait_for_start_space)                                                               // we have received start bit and are counting the dark...
+      {
+        if (IRMP_PIN & (1 << IRMP_BIT))                                                       // still dark?
+        {                                                                                     // yes
+          irmp_pause_time++;                                                                  // increment counter
+
+          if (irmp_pause_time > IRMP_TIMEOUT)                                                 // timeout?
+          {                                                                                   // yes...
+#ifdef DEBUG
+            printf ("error 1: pause after start bit too long\n");
+#endif // DEBUG
+            irmp_start_bit_detected = 0;                                                      // reset flags, let's wait for another start bit
+            irmp_pulse_time         = 0;
+            irmp_pause_time         = 0;
+          }
+        }
+        else
+        {                                                                                     // receiving first data pulse!
+#ifdef DEBUG
+          printf ("pulse = %d, pause = %d\n", irmp_pulse_time, irmp_pause_time);
+#endif // DEBUG
+
+          if (0)                                                                              // trick to use "else if" in commented
+          {                                                                                   // source, see below
+            ;
+          }
+
+
+#if IRMP_SUPPORT_SIRCS_PROTOCOL == 1
+          else if (irmp_pulse_time >= SIRCS_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= SIRCS_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= SIRCS_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= SIRCS_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                   // it's SIRCS
+#ifdef DEBUG
+            printf ("protocol = SIRCS\n");
+#endif // DEBUG
+            irmp_protocol   = IRMP_SIRCS_PROTOCOL;
+            pulse_1_len_min = SIRCS_1_PULSE_LEN_MIN;
+            pulse_1_len_max = SIRCS_1_PULSE_LEN_MAX;
+            pause_1_len_min = SIRCS_1_PAUSE_LEN_MIN;
+            pause_1_len_max = SIRCS_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = SIRCS_0_PULSE_LEN_MIN;
+            pulse_0_len_max = SIRCS_0_PULSE_LEN_MAX;
+            pause_0_len_min = SIRCS_0_PAUSE_LEN_MIN;
+            pause_0_len_max = SIRCS_0_PAUSE_LEN_MAX;
+            address_offset  = SIRCS_ADDRESS_OFFSET;
+            address_len     = SIRCS_ADDRESS_LEN;
+            data_offset     = SIRCS_DATA_OFFSET;
+            data_len        = SIRCS_DATA_LEN;
+            complete_len    = SIRCS_COMPLETE_DATA_LEN;
+            stop_bit        = SIRCS_STOP_BIT;
+          }
+#endif
+#if IRMP_SUPPORT_NEC_PROTOCOL == 1
+          else if (irmp_pulse_time >= NEC_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= NEC_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= NEC_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= NEC_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                     // it's NEC
+#ifdef DEBUG
+            printf ("protocol = NEC\n");
+#endif // DEBUG
+            irmp_protocol   = IRMP_NEC_PROTOCOL;
+            pulse_1_len_min = NEC_1_PULSE_LEN_MIN;
+            pulse_1_len_max = NEC_1_PULSE_LEN_MAX;
+            pause_1_len_min = NEC_1_PAUSE_LEN_MIN;
+            pause_1_len_max = NEC_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = NEC_0_PULSE_LEN_MIN;
+            pulse_0_len_max = NEC_0_PULSE_LEN_MAX;
+            pause_0_len_min = NEC_0_PAUSE_LEN_MIN;
+            pause_0_len_max = NEC_0_PAUSE_LEN_MAX;
+            address_offset  = NEC_ADDRESS_OFFSET;
+            address_len     = NEC_ADDRESS_LEN;
+            data_offset     = NEC_DATA_OFFSET;
+            data_len        = NEC_DATA_LEN;
+            complete_len    = NEC_COMPLETE_DATA_LEN;
+            stop_bit        = NEC_STOP_BIT;
+          }
+#endif
+#if IRMP_SUPPORT_SAMSUNG_PROTOCOL == 1
+          else if (irmp_pulse_time >= SAMSUNG_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= SAMSUNG_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= SAMSUNG_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= SAMSUNG_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                     // it's SAMSUNG
+#ifdef DEBUG
+            printf ("protocol = SAMSUNG\n");
+#endif // DEBUG
+            irmp_protocol   = IRMP_SAMSUNG_PROTOCOL;
+            pulse_1_len_min = SAMSUNG_1_PULSE_LEN_MIN;
+            pulse_1_len_max = SAMSUNG_1_PULSE_LEN_MAX;
+            pause_1_len_min = SAMSUNG_1_PAUSE_LEN_MIN;
+            pause_1_len_max = SAMSUNG_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = SAMSUNG_0_PULSE_LEN_MIN;
+            pulse_0_len_max = SAMSUNG_0_PULSE_LEN_MAX;
+            pause_0_len_min = SAMSUNG_0_PAUSE_LEN_MIN;
+            pause_0_len_max = SAMSUNG_0_PAUSE_LEN_MAX;
+            address_offset  = SAMSUNG_ADDRESS_OFFSET;
+            address_len     = SAMSUNG_ADDRESS_LEN;
+            data_offset     = SAMSUNG_DATA_OFFSET;
+            data_len        = SAMSUNG_DATA_LEN;
+            complete_len    = SAMSUNG_COMPLETE_DATA_LEN;
+            stop_bit        = SAMSUNG_STOP_BIT;
+          }
+#endif
+#if IRMP_SUPPORT_MATSUSHITA_PROTOCOL == 1
+          else if (irmp_pulse_time >= MATSUSHITA_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= MATSUSHITA_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= MATSUSHITA_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= MATSUSHITA_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                     // it's MATSUSHITA
+#ifdef DEBUG
+            printf ("protocol = MATSUSHITA\n");
+#endif // DEBUG
+            irmp_protocol   = IRMP_MATSUSHITA_PROTOCOL;
+            pulse_1_len_min = MATSUSHITA_1_PULSE_LEN_MIN;
+            pulse_1_len_max = MATSUSHITA_1_PULSE_LEN_MAX;
+            pause_1_len_min = MATSUSHITA_1_PAUSE_LEN_MIN;
+            pause_1_len_max = MATSUSHITA_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = MATSUSHITA_0_PULSE_LEN_MIN;
+            pulse_0_len_max = MATSUSHITA_0_PULSE_LEN_MAX;
+            pause_0_len_min = MATSUSHITA_0_PAUSE_LEN_MIN;
+            pause_0_len_max = MATSUSHITA_0_PAUSE_LEN_MAX;
+            address_offset  = MATSUSHITA_ADDRESS_OFFSET;
+            address_len     = MATSUSHITA_ADDRESS_LEN;
+            data_offset     = MATSUSHITA_DATA_OFFSET;
+            data_len        = MATSUSHITA_DATA_LEN;
+            complete_len    = MATSUSHITA_COMPLETE_DATA_LEN;
+            stop_bit        = MATSUSHITA_STOP_BIT;
+          }
+#endif
+#if IRMP_SUPPORT_KASEIKYO_PROTOCOL == 1
+          else if (irmp_pulse_time >= KASEIKYO_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= KASEIKYO_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= KASEIKYO_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= KASEIKYO_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                     // it's KASEIKYO
+#ifdef DEBUG
+            printf ("protocol = KASEIKYO\n");
+#endif // DEBUG
+
+            irmp_protocol   = IRMP_KASEIKYO_PROTOCOL;
+            pulse_1_len_min = KASEIKYO_1_PULSE_LEN_MIN;
+            pulse_1_len_max = KASEIKYO_1_PULSE_LEN_MAX;
+            pause_1_len_min = KASEIKYO_1_PAUSE_LEN_MIN;
+            pause_1_len_max = KASEIKYO_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = KASEIKYO_0_PULSE_LEN_MIN;
+            pulse_0_len_max = KASEIKYO_0_PULSE_LEN_MAX;
+            pause_0_len_min = KASEIKYO_0_PAUSE_LEN_MIN;
+            pause_0_len_max = KASEIKYO_0_PAUSE_LEN_MAX;
+            address_offset  = KASEIKYO_ADDRESS_OFFSET;
+            address_len     = KASEIKYO_ADDRESS_LEN;
+            data_offset     = KASEIKYO_DATA_OFFSET;
+            data_len        = KASEIKYO_DATA_LEN;
+            complete_len    = KASEIKYO_COMPLETE_DATA_LEN;
+            stop_bit        = KASEIKYO_STOP_BIT;
+          }
+#endif
+#if IRMP_SUPPORT_RECS80_PROTOCOL == 1
+          else if (irmp_pulse_time >= RECS80_START_BIT_PULSE_LEN_MIN && irmp_pulse_time <= RECS80_START_BIT_PULSE_LEN_MAX &&
+                   irmp_pause_time >= RECS80_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= RECS80_START_BIT_PAUSE_LEN_MAX)
+          {                                                                                     // it's RECS80
+#ifdef DEBUG
+            printf ("protocol = RECS80\n");
+#endif // DEBUG
+
+            irmp_protocol   = IRMP_RECS80_PROTOCOL;
+            pulse_1_len_min = RECS80_1_PULSE_LEN_MIN;
+            pulse_1_len_max = RECS80_1_PULSE_LEN_MAX;
+            pause_1_len_min = RECS80_1_PAUSE_LEN_MIN;
+            pause_1_len_max = RECS80_1_PAUSE_LEN_MAX;
+            pulse_0_len_min = RECS80_0_PULSE_LEN_MIN;
+            pulse_0_len_max = RECS80_0_PULSE_LEN_MAX;
+            pause_0_len_min = RECS80_0_PAUSE_LEN_MIN;
+            pause_0_len_max = RECS80_0_PAUSE_LEN_MAX;
+            address_offset  = RECS80_ADDRESS_OFFSET;
+            address_len     = RECS80_ADDRESS_LEN;
+            data_offset     = RECS80_DATA_OFFSET;
+            data_len        = RECS80_DATA_LEN;
+            complete_len    = RECS80_COMPLETE_DATA_LEN;
+            stop_bit        = RECS80_STOP_BIT;
+          }
+#endif
+          else                                                                                  // it's unknown...
+          {
+#ifdef DEBUG
+            printf ("protocol = UNKNOWN\n");
+#endif // DEBUG
+            irmp_start_bit_detected = 0;                                                        // wait for another start bit...
+          }
+
+#ifdef DEBUG
+          if (irmp_start_bit_detected)
+          {
+            printf ("pulse_1_len_min = %d\n", pulse_1_len_min);
+            printf ("pulse_1_len_max = %d\n", pulse_1_len_max);
+            printf ("pause_1_len_min = %d\n", pause_1_len_min);
+            printf ("pause_1_len_max = %d\n", pause_1_len_max);
+            printf ("pulse_0_len_min = %d\n", pulse_0_len_min);
+            printf ("pulse_0_len_max = %d\n", pulse_0_len_max);
+            printf ("pause_0_len_min = %d\n", pause_0_len_min);
+            printf ("pause_0_len_max = %d\n", pause_0_len_max);
+            printf ("data_offset     = %d\n", data_offset);
+            printf ("data_len        = %d\n", data_len);
+            printf ("complete_len    = %d\n", complete_len);
+            printf ("stop_bit        = %d\n", stop_bit);
+            printf ("code            = ");
+          }
+#endif // DEBUG
+
+          irmp_pulse_time = 0;                                                                  // reset counters... for data aquisition
+          irmp_pause_time = 0;
+          wait_for_start_space = 0;
+          irmp_bit = 0;
+        }
+      }
+      else if (wait_for_space)                                                                  // the data section....
+      {                                                                                         // counting the dark....
+        uint8_t got_light = FALSE;
+
+        if (IRMP_PIN & (1 << IRMP_BIT))                                                         // still dark?
+        {                                                                                       // yes...
+            if (irmp_bit == complete_len && stop_bit == 1)
+            {
+              if (irmp_pulse_time >= pulse_0_len_min && irmp_pulse_time <= pulse_0_len_max)
+              {
+#ifdef DEBUG
+                printf ("stop bit detected\n");
+#endif // DEBUG
+                stop_bit = 0;
+              }
+              else
+              {
+#ifdef DEBUG
+                printf ("stop bit timing wrong\n");
+#endif // DEBUG
+                irmp_start_bit_detected = 0;                                                    // wait for another start bit...
+                irmp_pulse_time         = 0;
+                irmp_pause_time         = 0;
+              }
+            }
+            else
+            {
+              irmp_pause_time++;                                                                // increment counter
+
+#if IRMP_SUPPORT_SIRCS_PROTOCOL == 1
+              if (irmp_protocol == IRMP_SIRCS_PROTOCOL && irmp_pause_time > SIRCS_1_PAUSE_LEN_MAX && // Sony has a variable number of bits: minimum is 12
+                  irmp_bit >= 12 - 1)                                                           // pause too long?
+              {                                                                                 // yes, break and close this frame
+                complete_len = irmp_bit + 1;                                                    // set new complete length
+                got_light = TRUE;                                                               // this is a lie, but helps ;-)
+                data_len = irmp_bit + 1;                                                        // correct data length
+                irmp_pause_time = SIRCS_1_PAUSE_LEN_MAX - 1;                                    // correct pause length
+              }
+              else
+#endif
+              if (irmp_pause_time > IRMP_TIMEOUT)                                               // timeout?
+              {                                                                                 // yes...
+                if (irmp_bit == complete_len - 1 && stop_bit == 0)
+                {
+                  irmp_bit++;
+                }
+                else
+                {
+#ifdef DEBUG
+                  printf ("error 2: pause after data bit %d too long\n", irmp_bit);
+#endif // DEBUG
+                  irmp_start_bit_detected = 0;                                                  // wait for another start bit...
+                  irmp_pulse_time         = 0;
+                  irmp_pause_time         = 0;
+                }
+              }
+            }
+        }
+        else
+        {                                                                                       // got light now!
+          got_light = TRUE;
+        }
+
+        if (got_light)
+        {
+#ifdef DEBUG
+          if (irmp_bit == data_offset)
+          {
+            putchar ('<');
+          }
+#endif // DEBUG
+
+#if IRMP_SUPPORT_SAMSUNG_PROTOCOL == 1
+          if (irmp_protocol == IRMP_SAMSUNG_PROTOCOL && irmp_bit == 16 &&                            // skip 16th bit, if Samsung
+              irmp_pulse_time >= SAMSUNG_1_PULSE_LEN_MIN && irmp_pulse_time <= SAMSUNG_1_PULSE_LEN_MAX &&
+              irmp_pause_time >= SAMSUNG_START_BIT_PAUSE_LEN_MIN && irmp_pause_time <= SAMSUNG_START_BIT_PAUSE_LEN_MAX)
+          {
+            wait_for_space = 0;
+            irmp_bit++;
+          }
+          else
+#endif
+          if (irmp_pulse_time >= pulse_1_len_min && irmp_pulse_time <= pulse_1_len_max &&
+                   irmp_pause_time >= pause_1_len_min && irmp_pause_time <= pause_1_len_max)    // pulse & pause timings correct for "1"?
+          {                                                                                     // yes...
+#ifdef DEBUG
+            putchar ('1');
+#endif // DEBUG
+
+            if (irmp_bit >= address_offset && irmp_bit < address_offset + address_len)          // we have to store a "1"
+            {
+              irmp_tmp_address <<= 1;
+              irmp_tmp_address |= 1;
+            }
+            else if (irmp_bit >= data_offset && irmp_bit < data_offset + data_len)              // we have to store a "1"
+            {
+              irmp_tmp_command <<= 1;
+              irmp_tmp_command |= 1;
+            }
+            wait_for_space = 0;
+            irmp_bit++;
+          }
+          else if (irmp_pulse_time >= pulse_0_len_min && irmp_pulse_time <= pulse_0_len_max &&
+                   irmp_pause_time >= pause_0_len_min && irmp_pause_time <= pause_0_len_max)    // pulse & pause timings correct for "1"?
+          {                                                                                     // yes, store a "0"
+#ifdef DEBUG
+            putchar ('0');
+#endif // DEBUG
+
+            if (irmp_bit >= address_offset && irmp_bit < address_offset + address_len)          // we have to store a "0"
+            {
+              irmp_tmp_address <<= 1;
+            }
+            else if (irmp_bit >= data_offset && irmp_bit < data_offset + data_len)              // we have to store a "0"
+            {
+              irmp_tmp_command <<= 1;
+            }
+
+            wait_for_space = 0;
+            irmp_bit++;
+#ifdef DEBUG
+#endif // DEBUG
+          }
+          else
+          {                                                                                     // timing incorrect!
+#ifdef DEBUG
+            printf ("error 3: timing not correct: data bit %d,  pulse: %d, pause: %d\n", irmp_bit, irmp_pulse_time, irmp_pause_time);
+#endif // DEBUG
+
+            irmp_start_bit_detected = 0;                                                        // reset flags and wait for next start bit
+            irmp_pause_time         = 0;
+          }
+
+#ifdef DEBUG
+          if (irmp_bit == data_offset + data_len)
+          {
+            putchar ('>');
+          }
+
+          if (irmp_bit == complete_len)
+          {
+            printf ("\n");
+          }
+#endif // DEBUG
+          irmp_pulse_time = 0;
+        }
+      }
+      else
+      {                                                                                         // counting the light (pulse)...
+        if (!(IRMP_PIN & (1 << IRMP_BIT)))                                                      // still light?
+        {                                                                                       // yes...
+          irmp_pulse_time++;                                                                    // increment counter
+        }
+        else
+        {                                                                                       // now it's dark!
+          wait_for_space  = 1;                                                                  // let's count it (see above)
+          irmp_pause_time = 0;                                                                  // reset pause counter
+        }
+      }
+
+      if (irmp_bit == complete_len && stop_bit == 0)                                            // enough bits received?
+      {
+        // if SIRCS protocol and the code will be repeated inside of 50 ms, we will ignore it.
+        if (irmp_protocol != IRMP_SIRCS_PROTOCOL || last_irmp_command != irmp_tmp_command || repetition_counter > SIRCS_REPETITION_TIME)
+        {
+#ifdef DEBUG
+          printf ("code detected, length = %d\n", irmp_bit);
+#endif // DEBUG
+          irmp_address            = irmp_tmp_address;                                           // store address
+          irmp_command            = irmp_tmp_command;                                           // store command
+          last_irmp_command       = irmp_tmp_command;
+          irmp_ir_detected        = TRUE;
+        }
+#ifdef DEBUG
+        else
+        {
+          printf ("code skipped, recognized SIRCS repetition, counter = %d\n", repetition_counter);
+        }
+#endif // DEBUG
+
+        irmp_start_bit_detected = 0;                                                            // and wait for next start bit
+        irmp_tmp_command        = 0;
+        irmp_pulse_time         = 0;
+        irmp_pause_time         = 0;
+        repetition_counter = 0;
+      }
+    }
+  }
+}
+
+#ifdef DEBUG
+
+// cc irmp.c -o irmp
+// usage: ./irmp [-v] <file
+
+int
+main (int argc, char ** argv)
+{
+  int         i;
+  int         verbose = 0;
+  int         ch;
+  int         last_ch = 0;
+  int         pulse = 0;
+  int         pause = 0;
+  IRMP_DATA   x;
+
+  if (argc == 2 && ! strcmp (argv[1], "-v"))
+  {
+    verbose = TRUE;
+  }
+
+  while ((ch = getchar ()) != EOF)
+  {
+    if (ch == '_' || ch == '0')
+    {
+      if (last_ch != ch)
+      {
+        if (verbose)
+        {
+          printf ("pause: %d\n", pause);
+        }
+        pause = 0;
+      }
+      pulse++;
+      PINB = 0x00;
+    }
+    else if (ch == 0xaf || ch == '-' || ch == '1')
+    {
+      if (last_ch != ch)
+      {
+        if (verbose)
+        {
+          printf ("pulse: %d\n", pulse);
+        }
+        pulse = 0;
+      }
+      pause++;
+      PINB = 0xff;
+    }
+    else if (ch == '\n')
+    {
+      PINB = 0xff;
+
+      for (i = 0; i < 450; i++)                                   // newline: long pause of 45 msec
+      {
+        irmp_ISR ();
+      }
+    }
+    else if (ch == '#')
+    {
+      puts ("-------------------------------------------------------------------");
+      putchar (ch);
+
+      while ((ch = getchar()) != '\n' && ch != EOF)
+      {
+        if (ch != '\r')                                           // ignore CR in DOS/Windows files
+        {
+          putchar (ch);
+        }
+      }
+      putchar ('\n');
+    }
+
+    last_ch = ch;
+
+    irmp_ISR ();
+
+    if (irmp_get_data (&x))
+    {
+      printf ("protcol = %d, address = 0x%04x, code = 0x%04x\n", x.protocol, x.address, x.command);
+    }
+  }
+  return 0;
+}
+
+#endif // DEBUG
+
