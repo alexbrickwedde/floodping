@@ -135,7 +135,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xd1a
+.text           0x0000000000000000      0xd50
  *(.vectors)
  .vectors       0x0000000000000000       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
                 0x0000000000000000                __vectors
@@ -208,31 +208,31 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x0000000000000136                irmp_init
                 0x0000000000000324                irmp_ISR
                 0x000000000000013c                irmp_get_data
- .text          0x0000000000000ad8       0xc6 ./main.o
+ .text          0x0000000000000ad8       0xfc ./main.o
                 0x0000000000000ad8                timer_init
                 0x0000000000000ae8                main
-                0x0000000000000b56                __vector_10
- .text          0x0000000000000b9e      0x166 ./usiTwiSlave.o
-                0x0000000000000bb8                __vector_13
-                0x0000000000000b9e                usiTwiSlaveInit
-                0x0000000000000bee                __vector_14
- .text          0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(memcpy_P.o)
-                0x0000000000000d04                . = ALIGN (0x2)
+                0x0000000000000b8c                __vector_10
+ .text          0x0000000000000bd4      0x166 ./usiTwiSlave.o
+                0x0000000000000bee                __vector_13
+                0x0000000000000bd4                usiTwiSlaveInit
+                0x0000000000000c24                __vector_14
+ .text          0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(memcpy_P.o)
+                0x0000000000000d3a                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000d04        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000d3a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x0000000000000d04       0x12 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(memcpy_P.o)
-                0x0000000000000d04                memcpy_P
-                0x0000000000000d16                . = ALIGN (0x2)
+                0x0000000000000d3a       0x12 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/libc.a(memcpy_P.o)
+                0x0000000000000d3a                memcpy_P
+                0x0000000000000d4c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000d16        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x0000000000000d16                exit
-                0x0000000000000d16                _exit
+ .fini9         0x0000000000000d4c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x0000000000000d4c                exit
+                0x0000000000000d4c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -251,11 +251,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000d16        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x0000000000000d4c        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000d1a                _etext = .
+                0x0000000000000d50                _etext = .
 
-.data           0x0000000000800060        0x4 load address 0x0000000000000d1a
+.data           0x0000000000800060        0x4 load address 0x0000000000000d50
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn85.o
@@ -300,8 +300,8 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x00000000008000b8                slaveAddress
                 0x00000000008000b9                overflowState
                 0x00000000008000ba                PROVIDE (__bss_end, .)
-                0x0000000000000d1a                __data_load_start = LOADADDR (.data)
-                0x0000000000000d1e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000000d50                __data_load_start = LOADADDR (.data)
+                0x0000000000000d54                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00000000008000ba        0x0
                 0x00000000008000ba                PROVIDE (__noinit_start, .)

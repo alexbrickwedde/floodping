@@ -24,7 +24,7 @@
 #include        "usiTwiSlave.h"
 
 // Note: The LSB is the I2C r/w flag and must not be used for addressing!
-#define         SLAVE_ADDR_ATTINY       0b00111100
+#define         SLAVE_ADDR_ATTINY       0b00101100
 
 //####################################################################### Macros
 
@@ -55,13 +55,13 @@ uint16_t AdcRead(uint8_t channel) {
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
 int main(void) {
+
+	ADMUX |= (1 << ADLAR) | 0b00000011;
+	ADCSRA |= (1 << ADEN) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2); // | (1 << ADFR);
+
 	cli();
-
 	usiTwiSlaveInit(SLAVE_ADDR_ATTINY); // TWI slave init
-
-	ADMUX |= (1 << REFS1) | (1 << REFS0) | (1 << ADLAR);
-	ADCSRA |= (1 << ADEN); // | (1 << ADFR);
-	ADCSRA |= (1 << ADSC) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);
+	sei ();
 
 	int uiLastDistance = 0;
 	int uiMovement = 0;
@@ -70,15 +70,15 @@ int main(void) {
 	int uiLightCmd = 0;
 	int uiTempLight = 0;
 
-	sei ();
 	// enable interrupts
 
+
 	for (;;) {
-		for (int uiTmp = 0; uiTmp < 30; uiTmp++) {
-			_delay_ms(1);
+		for (int uiTmp = 0; uiTmp < 6; uiTmp++) {
+			_delay_ms(5);
 			wdt_reset();
 		}
-		int uiNewDistance = AdcRead(0) >> 8;
+		int uiNewDistance = ((AdcRead(3) >> 8) + (AdcRead(3) >> 8) + (AdcRead(3) >> 8) + (AdcRead(3) >> 8)) >> 2;
 		int uiMinDiff = 6;
 
 		int uiDiff = uiNewDistance - uiLastDistance;
@@ -137,14 +137,16 @@ int main(void) {
 		uiLastDistance = uiNewDistance;
 
 		cli();
-		if(rxbuffer[1] == 1)
+		if(rxbuffer[3] == 0xaa)
 		{
-			rxbuffer[1] = 0;
+			rxbuffer[3] = 0;
 			uiLightCmd = 0;
 		}
 
 		txbuffer[0] = uiLightCmd;
 		txbuffer[1] = uiTempLight;
+//		txbuffer[2] = uiLightCmd;
+//		txbuffer[3] = uiTempLight;
 
 		sei();
 

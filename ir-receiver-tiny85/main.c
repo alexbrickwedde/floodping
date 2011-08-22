@@ -89,11 +89,15 @@ int main(void) {
 		_delay_ms(1);
 
 		cli();
-		if(rxbuffer[1] == 1)
+		if(rxbuffer[3] == 0xaa)
 		{
-			rxbuffer[1] = 0;
-			irmp_data.command = 0;
-			irmp_data.address = 0;
+			cli();
+			rxbuffer[3] = 0;
+			txbuffer[0] = 0;
+			txbuffer[1] = 0;
+			txbuffer[2] = 0;
+			txbuffer[3] = 0;
+			sei();
 		}
 		sei();
 
@@ -104,6 +108,7 @@ int main(void) {
 			txbuffer[2] = irmp_data.address >> 8;
 			txbuffer[3] = irmp_data.address & 0xff;
 			sei();
+			_delay_ms(500);
 		}
 	}
 	return 0;

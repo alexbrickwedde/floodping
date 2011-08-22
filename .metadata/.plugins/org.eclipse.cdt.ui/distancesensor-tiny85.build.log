@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project distancesensor-tiny85 ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny85 distancesensor-tiny85.elf
+AVR Memory Usage
+----------------
+Device: attiny85
+
+Program:     868 bytes (10.6% Full)
+(.text + .data + .bootloader)
+
+Data:         41 bytes (8.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

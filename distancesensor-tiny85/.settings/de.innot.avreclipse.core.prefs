@@ -1,4 +1,4 @@
-#Sun Aug 21 21:54:40 CEST 2011
+#Mon Aug 22 19:55:09 CEST 2011
 avrtarget/ClockFrequency=8000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -11,7 +11,7 @@ avrtarget/avrdude/EEPROMFile=
 avrtarget/avrdude/EEPROMFromConfig=true
 avrtarget/avrdude/FlashFile=
 avrtarget/avrdude/FlashFromConfig=true
-avrtarget/avrdude/Fuses/ByteValues=226\:215\:255
+avrtarget/avrdude/Fuses/ByteValues=194\:215\:255
 avrtarget/avrdude/Fuses/FileName=
 avrtarget/avrdude/Fuses/MCUid=attiny85
 avrtarget/avrdude/Fuses/UseFile=false
