@@ -46,6 +46,8 @@ int main() {
 	wdt_reset();
 
 	InitPWM();
+	PORTC &= ~(1 << PC1);
+	DDRC = (1 << PC1);
 
 	if (MCUCSR & (1 << WDRF)) {
 		SetColor(0xff, 0, 0);
@@ -57,6 +59,9 @@ int main() {
 		_delay_ms(800);
 		SetColor(0, 0, 0);
 	}
+	PORTC |= (1 << PC1);
+	_delay_ms(100);
+
 	wdt_reset();
 
 	cli();
@@ -67,17 +72,29 @@ int main() {
 
 	uint8_t i2c_errorcode, i2c_status;
 	if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) {
-		SetColor(0, 0, 0xff);
 		while (1) {
+			SetColor(0, 0, 0xff);
+			_delay_ms(100);
+			SetColor(0, 0, 0);
+			_delay_ms(100);
 		};
 	}
 
 	int uiLight = 0;
+	int uiLightFunction = 0;
 	int uiLightPercent = 100;
 	int uiLightCmd = 0;
 	int uiTempLight = 0;
 
+	unsigned char uiFunctionX = 0;
+
+	int uiR = 0xff;
+	int uiG = 0xff;
+	int uiB = 0xff;
+
 	while (1) {
+
+		uiFunctionX++;
 
 		wdt_reset();
 		_delay_ms(50);
@@ -142,26 +159,98 @@ int main() {
 						uiLight = 0;
 						break;
 					case 3:
+						uiLightFunction = 0;
 						uiLight = 1;
+						break;
+					case 4:
+						uiLightFunction = 0;
+						uiLightPercent = 100;
+						uiR = 0xff;
+						uiG = 0x0;
+						uiB = 0x0;
+						break;
+					case 5:
+						uiLightFunction = 0;
+						uiLightPercent = 100;
+						uiR = 0x0;
+						uiG = 0xff;
+						uiB = 0x0;
+						break;
+					case 6:
+						uiLightFunction = 0;
+						uiLightPercent = 100;
+						uiR = 0x0;
+						uiG = 0x0;
+						uiB = 0xff;
+						break;
+					case 7:
+						uiLightFunction = 0;
+						uiLightPercent = 100;
+						uiR = 0xff;
+						uiG = 0xff;
+						uiB = 0xbf;
+						break;
+					case 11:
+						uiLightFunction = 1;
+						break;
+					case 15:
+						uiLightFunction = 2;
+						break;
+					case 19:
+						uiLightFunction = 3;
+						break;
+					case 23:
+						uiLightFunction = 4;
 						break;
 					}
 				}
 			}
 		}
 
-		if (uiTempLight == 3) {
-			SetColor(0x00, 0xff, 0x00);
-		} else if (uiTempLight == 4) {
-			SetColor(0xff, 0x00, 0x00);
-		} else if (uiTempLight == 5) {
-			SetColor(0x4, 0, 0);
-		} else if (uiTempLight == 6) {
-			SetColor(0x7f, 0xff, 0x7f);
-		} else if (uiLight == 0) {
-			SetColor(0, 0, 0);
-		} else if (uiLight == 1) {
-			SetColor(0xff * uiLightPercent / 100, 0xff * uiLightPercent / 100,
-					0xb0 * uiLightPercent / 100);
+		switch(uiTempLight)
+		{
+		case 1:
+			SetColor(0x22, 0x22, 0x22);
+			break;
+		case 2:
+			SetColor(0xa0, 0xa0, 0xa0);
+			break;
+		case 3:
+			SetColor(0x00, 0x00, 0xff);
+			break;
+		case 4:
+			SetColor(0x00, 0xff, 0xff);
+			break;
+		case 5:
+			SetColor(0xff, 0x00, 0xff);
+			break;
+		case 6:
+			SetColor(0xff, 0xff, 0x00);
+			break;
+		default:
+			if (uiLight == 0) {
+				SetColor(0, 0, 0);
+			} else if (uiLight == 1) {
+				float dFunctionFactor = 1.0;
+				float dTemp;
+				switch(uiLightFunction)
+				{
+				case 1:
+					dFunctionFactor = ((uiFunctionX % 10) == 0) ? 1 : 0;
+					break;
+				case 2:
+					dFunctionFactor = ((uiFunctionX % 2) == 0) ? 1 : 0;
+					break;
+				case 3:
+					dTemp = ((uiFunctionX * 1.0) / 128);
+					dFunctionFactor = (dTemp > 1) ? 2 - dTemp : dTemp;
+					break;
+				case 4:
+					dFunctionFactor = ((uiFunctionX * 1.0) / 256);
+					break;
+				}
+				SetColor(dFunctionFactor * uiR * uiLightPercent / 100, dFunctionFactor * uiG * uiLightPercent / 100, dFunctionFactor * uiB * uiLightPercent / 100);
+			}
 		}
 	}
 	return 0;

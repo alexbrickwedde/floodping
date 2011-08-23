@@ -2309,3 +2309,12 @@ org.eclipse.core.internal.resources.ResourceException: Resource '/Schlafzimmer' 
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
 !SUBENTRY 2 org.eclipse.core.resources 4 372 2011-08-22 23:17:00.185
 !MESSAGE Resource '/Schlafzimmer' is not open.
+!SESSION 2011-08-23 19:43:30.240 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-08-23 19:44:18.298
+!MESSAGE Invalid preference page path: XML Syntax

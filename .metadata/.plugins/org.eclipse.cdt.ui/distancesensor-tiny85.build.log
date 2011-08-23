@@ -8,7 +8,7 @@ AVR Memory Usage
 ----------------
 Device: attiny85
 
-Program:     868 bytes (10.6% Full)
+Program:     842 bytes (10.3% Full)
 (.text + .data + .bootloader)
 
 Data:         41 bytes (8.0% Full)
