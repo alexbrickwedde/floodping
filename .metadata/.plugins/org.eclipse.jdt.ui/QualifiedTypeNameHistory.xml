@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.TimeZone"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.floodping.Main.UdpReceiver"/>
+<fullyQualifiedTypeName name="org.floodping.ChatReceiver"/>
 </qualifiedTypeNameHistroy>

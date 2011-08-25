@@ -2318,3 +2318,39 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.ui 4 4 2011-08-23 19:44:18.298
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-08-25 21:52:46.845 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-08-25 21:53:16.516
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-08-25 21:53:34.683
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-25 21:53:34.683
+!MESSAGE Conflict for 'org.eclipse.ltk.ui.refactor.create.refactoring.script':
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.create.refactoring.script,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.jdt.internal.ui.refactoring.actions.CreateRefactoringScriptAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.jdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.create.refactoring.script,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.ltk.ui.refactoring.actions.CreateRefactoringScriptAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.cdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-25 21:53:34.683
+!MESSAGE Conflict for 'org.eclipse.ltk.ui.refactor.show.refactoring.history':
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.show.refactoring.history,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.jdt.internal.ui.refactoring.actions.ShowRefactoringHistoryAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.jdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.show.refactoring.history,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.ltk.ui.refactoring.actions.ShowRefactoringHistoryAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.cdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-08-25 21:53:34.683
+!MESSAGE Conflict for 'org.eclipse.ltk.ui.refactor.apply.refactoring.script':
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.apply.refactoring.script,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.jdt.internal.ui.refactoring.actions.ApplyRefactoringScriptAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.jdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
+HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.apply.refactoring.script,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.ltk.ui.refactoring.actions.ApplyRefactoringScriptAction),
+	expression=AndExpression(ActionSetExpression(org.eclipse.cdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@6a6014f7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@6a6014f7)),sourcePriority=16640)
