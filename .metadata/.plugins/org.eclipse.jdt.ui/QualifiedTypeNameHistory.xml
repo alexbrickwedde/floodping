@@ -9,4 +9,5 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.floodping.Main.UdpReceiver"/>
 <fullyQualifiedTypeName name="org.floodping.ChatReceiver"/>
+<fullyQualifiedTypeName name="java.net.SocketTimeoutException"/>
 </qualifiedTypeNameHistroy>

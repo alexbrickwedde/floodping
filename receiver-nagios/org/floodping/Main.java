@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class Main
 {
-  public static volatile HashMap<String, String> aValues = new HashMap<String, String> ();
-  public static volatile HashMap<String, String> aTime = new HashMap<String, String> ();
+  private static volatile HashMap<String, String> aValues = new HashMap<String, String> ();
+  private static volatile HashMap<String, String> aTime = new HashMap<String, String> ();
 
   public static String GetValue (String sId, String sText, String sUnit)
   {
@@ -19,6 +19,15 @@ public class Main
         return sText + sRes + sUnit + " @" + Main.aTime.get (sId) + "\r";
       }
       return sText + " unbekannt\r";
+    }
+  }
+
+  public static void PutValue (String sId, String sText, String sTime)
+  {
+    synchronized (aValues)
+    {
+      Main.aValues.put (sId, sText);
+      Main.aTime.put (sId, sTime);
     }
   }
 
@@ -42,7 +51,6 @@ public class Main
       {
         Thread.sleep (1000);
       }
-
     }
     catch (final Exception e)
     {

@@ -1,4 +1,4 @@
-#Thu Aug 25 22:31:23 CEST 2011
+#Sun Sep 04 13:12:03 CEST 2011
 cleanup.remove_trailing_whitespaces=true
 cleanup.remove_unused_private_fields=true
 sp_cleanup.remove_unnecessary_casts=true
@@ -11,7 +11,7 @@ sp_cleanup.make_private_fields_final=true
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 cleanup.remove_private_constructors=true
 sp_cleanup.never_use_parentheses_in_expressions=true
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Date"/></lhs><lhs name\="java.util.Date"><rhs name\="java.util.Date"/></lhs><lhs name\="java.lang.Runnable"><rhs name\="org.floodping.Main$UdpReceiver"/><rhs name\="org.floodping.ChatReceiver"/></lhs></history>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Date"/></lhs><lhs name\="java.util.Date"><rhs name\="java.util.Date"/></lhs><lhs name\="java.lang.Runnable"><rhs name\="org.floodping.Main$UdpReceiver"/><rhs name\="org.floodping.ChatReceiver"/></lhs><lhs name\="java.lang.Exception"><rhs name\="java.net.SocketTimeoutException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="java.net.SocketTimeoutException"/></lhs><lhs name\="java.io.IOException"><rhs name\="java.net.SocketTimeoutException"/></lhs></history>
 cleanup.remove_unnecessary_casts=true
 sp_cleanup.always_use_this_for_non_static_field_access=false
 sp_cleanup.never_use_blocks=false
