@@ -24,7 +24,7 @@
 #include        "usiTwiSlave.h"
 
 // Note: The LSB is the I2C r/w flag and must not be used for addressing!
-#define         SLAVE_ADDR_ATTINY       0b00101100
+#define         SLAVE_ADDR_ATTINY       0b00100100
 
 //####################################################################### Macros
 

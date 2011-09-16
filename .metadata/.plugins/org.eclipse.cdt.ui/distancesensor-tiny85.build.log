@@ -2,6 +2,28 @@
 **** Build of configuration Release for project distancesensor-tiny85 ****
 
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny85 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: distancesensor-tiny85.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,distancesensor-tiny85.map,--cref -mmcu=attiny85 -o "distancesensor-tiny85.elf"  ./main.o ./usiTwiSlave.o   
+Finished building target: distancesensor-tiny85.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S distancesensor-tiny85.elf  >"distancesensor-tiny85.lss"
+Finished building: distancesensor-tiny85.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex distancesensor-tiny85.elf  "distancesensor-tiny85.hex"
+Finished building: distancesensor-tiny85.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex distancesensor-tiny85.elf  "distancesensor-tiny85.eep"
+Finished building: distancesensor-tiny85.eep
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=attiny85 distancesensor-tiny85.elf
 AVR Memory Usage

@@ -10,40 +10,8 @@ Archive member included because of file (symbol)
                               ./i2c-master.o (__do_copy_data)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
                               ./i2c-master.o (__do_clear_bss)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
-                              ./main.o (__fixunssfsi)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
-                              ./main.o (__subsf3)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
-                              ./main.o (__mulsf3)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
-                              ./main.o (__divsf3)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
-                              ./main.o (__gtsf2)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o) (__gesf2)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
-                              ./main.o (__floatsisf)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o) (__fixsfsi)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o) (__thenan_sf)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
                               /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o) (__udivmodhi4)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_prologue.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o) (__prologue_saves__)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_epilogue.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o) (__epilogue_restores__)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o) (__clzsi2)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o) (__pack_f)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o) (__unpack_f)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o) (__fpcmp_parts_f)
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
-                              /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o) (__clz_tab)
 
 Memory Configuration
 
@@ -156,7 +124,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000     0x1d84
+.text           0x0000000000000000      0xfa2
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x0000000000000000                __vectors
@@ -264,67 +232,35 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x00000000000001be                add_month
                 0x00000000000002f2                add_minute
                 0x0000000000000306                sub_minute
- .text          0x00000000000009ca      0x636 ./main.o
+ .text          0x00000000000009ca      0x56e ./main.o
+                0x00000000000009f2                read_distance
                 0x00000000000009de                SetColor
                 0x00000000000009ca                InitPWM
                 0x00000000000009dc                LinearizeForEye
-                0x0000000000000a56                main
- .text          0x0000000000001000        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .text          0x0000000000001000        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
- .text          0x0000000000001000        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text          0x0000000000001000        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text          0x0000000000001000        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .text          0x0000000000001000       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
-                0x0000000000001000                __fixunssfsi
- .text          0x0000000000001050      0x338 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
-                0x00000000000012e4                __subsf3
-                0x000000000000133a                __addsf3
- .text          0x0000000000001388      0x1ea /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
-                0x0000000000001388                __mulsf3
- .text          0x0000000000001572      0x14e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
-                0x0000000000001572                __divsf3
- .text          0x00000000000016c0       0x56 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
-                0x00000000000016c0                __gtsf2
- .text          0x0000000000001716       0x56 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
-                0x0000000000001716                __gesf2
- .text          0x000000000000176c       0xb4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
-                0x000000000000176c                __floatsisf
- .text          0x0000000000001820       0xa2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
-                0x0000000000001820                __fixsfsi
- .text          0x00000000000018c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .text          0x00000000000018c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
- .text          0x00000000000018c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_prologue.o)
- .text          0x00000000000018c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_epilogue.o)
- .text          0x00000000000018c2       0x9e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
-                0x00000000000018c2                __clzsi2
- .text          0x0000000000001960      0x1aa /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
-                0x0000000000001960                __pack_f
- .text          0x0000000000001b0a       0xf0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
-                0x0000000000001b0a                __unpack_f
- .text          0x0000000000001bfa       0xb2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
-                0x0000000000001bfa                __fpcmp_parts_f
- .text          0x0000000000001cac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
-                0x0000000000001cac                . = ALIGN (0x2)
+                0x0000000000000a8a                main
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000f38        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+                0x0000000000000f38                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000000000001cac       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
-                0x0000000000001cac                __udivmodqi4
- .text.libgcc   0x0000000000001cc4       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
-                0x0000000000001cc4                __divmodhi4
-                0x0000000000001cc4                _div
- .text.libgcc   0x0000000000001cea        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000001cea        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000001cea        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000001cea       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
-                0x0000000000001cea                __udivmodhi4
- .text.libgcc   0x0000000000001d12       0x38 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_prologue.o)
-                0x0000000000001d12                __prologue_saves__
- .text.libgcc   0x0000000000001d4a       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_epilogue.o)
-                0x0000000000001d4a                __epilogue_restores__
-                0x0000000000001d80                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000000f38       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+                0x0000000000000f38                __udivmodqi4
+ .text.libgcc   0x0000000000000f50       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+                0x0000000000000f50                __divmodhi4
+                0x0000000000000f50                _div
+ .text.libgcc   0x0000000000000f76        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000f76        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000f76        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000f76       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+                0x0000000000000f76                __udivmodhi4
+                0x0000000000000f9e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000001d80        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
-                0x0000000000001d80                exit
-                0x0000000000001d80                _exit
+ .fini9         0x0000000000000f9e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                0x0000000000000f9e                exit
+                0x0000000000000f9e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -343,11 +279,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000001d80        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000f9e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000001d84                _etext = .
+                0x0000000000000fa2                _etext = .
 
-.data           0x0000000000800060      0x14c load address 0x0000000000001d84
+.data           0x0000000000800060       0x44 load address 0x0000000000000fa2
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -362,80 +298,46 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
  .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
  .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
  .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .data          0x00000000008000a4        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
-                0x00000000008000a4                __thenan_sf
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_prologue.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_epilogue.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .data          0x00000000008000ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .data          0x00000000008000ac      0x100 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
-                0x00000000008000ac                __clz_tab
+ .data          0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00000000008001ac                . = ALIGN (0x2)
-                0x00000000008001ac                _edata = .
-                0x00000000008001ac                PROVIDE (__data_end, .)
+                0x00000000008000a4                . = ALIGN (0x2)
+                0x00000000008000a4                _edata = .
+                0x00000000008000a4                PROVIDE (__data_end, .)
 
-.bss            0x00000000008001ac        0xc
-                0x00000000008001ac                PROVIDE (__bss_start, .)
+.bss            0x00000000008000a4        0xc
+                0x00000000008000a4                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00000000008001ac        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .bss           0x00000000008001ac        0x1 ./i2c-master.o
- .bss           0x00000000008001ad        0x4 ./i2c-rtc.o
-                0x00000000008001ad                rtc_offset
- .bss           0x00000000008001b1        0x7 ./main.o
-                0x00000000008001b4                uiLastCmd
-                0x00000000008001b2                g_cPWMg
-                0x00000000008001b1                g_cPWMr
-                0x00000000008001b6                uiLastCmdTimer
-                0x00000000008001b3                g_cPWMb
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_prologue.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_epilogue.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x00000000008001b8        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
+ .bss           0x00000000008000a4        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x00000000008000a4        0x1 ./i2c-master.o
+ .bss           0x00000000008000a5        0x4 ./i2c-rtc.o
+                0x00000000008000a5                rtc_offset
+ .bss           0x00000000008000a9        0x7 ./main.o
+                0x00000000008000ac                uiLastCmd
+                0x00000000008000aa                g_cPWMg
+                0x00000000008000a9                g_cPWMr
+                0x00000000008000ae                uiLastCmdTimer
+                0x00000000008000ab                g_cPWMb
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x00000000008000b0        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
  *(.bss*)
  *(COMMON)
-                0x00000000008001b8                PROVIDE (__bss_end, .)
-                0x0000000000001d84                __data_load_start = LOADADDR (.data)
-                0x0000000000001ed0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000008000b0                PROVIDE (__bss_end, .)
+                0x0000000000000fa2                __data_load_start = LOADADDR (.data)
+                0x0000000000000fe6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00000000008001b8        0x0
-                0x00000000008001b8                PROVIDE (__noinit_start, .)
+.noinit         0x00000000008000b0        0x0
+                0x00000000008000b0                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00000000008001b8                PROVIDE (__noinit_end, .)
-                0x00000000008001b8                _end = .
-                0x00000000008001b8                PROVIDE (__heap_start, .)
+                0x00000000008000b0                PROVIDE (__noinit_end, .)
+                0x00000000008000b0                _end = .
+                0x00000000008000b0                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -488,180 +390,32 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x180
+.debug_aranges
  *(.debug_aranges)
- .debug_aranges
-                0x0000000000000000       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_aranges
-                0x0000000000000020       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_aranges
-                0x0000000000000040       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_aranges
-                0x0000000000000060       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_aranges
-                0x0000000000000080       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_aranges
-                0x00000000000000a0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_aranges
-                0x00000000000000c0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_aranges
-                0x00000000000000e0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_aranges
-                0x0000000000000100       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_aranges
-                0x0000000000000120       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_aranges
-                0x0000000000000140       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_aranges
-                0x0000000000000160       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
 
 .debug_pubnames
-                0x0000000000000000      0x1d2
  *(.debug_pubnames)
- .debug_pubnames
-                0x0000000000000000       0x23 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_pubnames
-                0x0000000000000023       0x2c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_pubnames
-                0x000000000000004f       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_pubnames
-                0x000000000000006e       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_pubnames
-                0x000000000000008d       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_pubnames
-                0x00000000000000ab       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_pubnames
-                0x00000000000000c9       0x22 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_pubnames
-                0x00000000000000eb       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_pubnames
-                0x000000000000010b       0x22 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .debug_pubnames
-                0x000000000000012d       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_pubnames
-                0x000000000000014c       0x1f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_pubnames
-                0x000000000000016b       0x21 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_pubnames
-                0x000000000000018c       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .debug_pubnames
-                0x00000000000001b2       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
 
-.debug_info     0x0000000000000000     0x218d
+.debug_info
  *(.debug_info)
- .debug_info    0x0000000000000000       0xb1 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_info    0x00000000000000b1      0x47a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_info    0x000000000000052b      0x485 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_info    0x00000000000009b0      0x3fc /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_info    0x0000000000000dac      0x27f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_info    0x000000000000102b      0x27f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_info    0x00000000000012aa      0x207 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_info    0x00000000000014b1      0x2b0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_info    0x0000000000001761      0x12c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .debug_info    0x000000000000188d      0x117 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_info    0x00000000000019a4      0x2df /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_info    0x0000000000001c83      0x251 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_info    0x0000000000001ed4      0x210 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .debug_info    0x00000000000020e4       0xa9 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x0000000000000000     0x121d
+.debug_abbrev
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000       0x5d /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_abbrev  0x000000000000005d      0x1ea /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_abbrev  0x0000000000000247      0x21b /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_abbrev  0x0000000000000462      0x216 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_abbrev  0x0000000000000678      0x15a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_abbrev  0x00000000000007d2      0x15a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_abbrev  0x000000000000092c      0x148 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_abbrev  0x0000000000000a74      0x17f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_abbrev  0x0000000000000bf3       0xad /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .debug_abbrev  0x0000000000000ca0       0xc4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_abbrev  0x0000000000000d64      0x1c0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_abbrev  0x0000000000000f24      0x154 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_abbrev  0x0000000000001078      0x13b /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .debug_abbrev  0x00000000000011b3       0x6a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
 
-.debug_line     0x0000000000000000     0x112f
+.debug_line
  *(.debug_line)
- .debug_line    0x0000000000000000       0xaa /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_line    0x00000000000000aa      0x2b2 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_line    0x000000000000035c      0x23c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_line    0x0000000000000598      0x1d8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_line    0x0000000000000770       0xd6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_line    0x0000000000000846       0xd6 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_line    0x000000000000091c      0x138 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_line    0x0000000000000a54      0x10c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_line    0x0000000000000b60       0x93 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .debug_line    0x0000000000000bf3       0xa8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_line    0x0000000000000c9b      0x18d /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_line    0x0000000000000e28      0x14e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_line    0x0000000000000f76      0x13a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
- .debug_line    0x00000000000010b0       0x7f /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
 
-.debug_frame    0x0000000000000000      0x1a0
+.debug_frame
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_frame   0x0000000000000020       0x40 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_frame   0x0000000000000060       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_frame   0x0000000000000080       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_frame   0x00000000000000a0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_frame   0x00000000000000c0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_frame   0x00000000000000e0       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_frame   0x0000000000000100       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_frame   0x0000000000000120       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_frame   0x0000000000000140       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_frame   0x0000000000000160       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_frame   0x0000000000000180       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
 
-.debug_str      0x0000000000000000      0x2f1
+.debug_str
  *(.debug_str)
- .debug_str     0x0000000000000000       0xc5 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
-                                        0x104 (size before relaxing)
- .debug_str     0x00000000000000c5      0x14d /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
-                                        0x20c (size before relaxing)
- .debug_str     0x0000000000000212       0x27 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
-                                        0x1c5 (size before relaxing)
- .debug_str     0x0000000000000239       0x35 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
-                                        0x1ce (size before relaxing)
- .debug_str     0x000000000000026e        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
-                                        0x19b (size before relaxing)
- .debug_str     0x0000000000000276        0x8 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
-                                        0x19b (size before relaxing)
- .debug_str     0x000000000000027e       0x1e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
-                                        0x181 (size before relaxing)
- .debug_str     0x000000000000029c        0xa /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
-                                        0x1a4 (size before relaxing)
- .debug_str     0x0000000000000000      0x109 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_thenan_sf.o)
- .debug_str     0x00000000000002a6       0x20 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
-                                        0x117 (size before relaxing)
- .debug_str     0x00000000000002c6       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
-                                        0x1a3 (size before relaxing)
- .debug_str     0x00000000000002d6        0xb /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
-                                        0x185 (size before relaxing)
- .debug_str     0x00000000000002e1       0x10 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
-                                        0x169 (size before relaxing)
- .debug_str     0x0000000000000000       0xfa /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clz.o)
 
-.debug_loc      0x0000000000000000      0x992
+.debug_loc
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x34 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fixunssfsi.o)
- .debug_loc     0x0000000000000034      0x32a /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_addsub_sf.o)
- .debug_loc     0x000000000000035e      0x104 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)
- .debug_loc     0x0000000000000462       0xc0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_div_sf.o)
- .debug_loc     0x0000000000000522       0x3c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_gt_sf.o)
- .debug_loc     0x000000000000055e       0x3c /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_ge_sf.o)
- .debug_loc     0x000000000000059a       0xac /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_si_to_sf.o)
- .debug_loc     0x0000000000000646       0x7e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_sf_to_si.o)
- .debug_loc     0x00000000000006c4       0x94 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clzsi2.o)
- .debug_loc     0x0000000000000758      0x13e /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_pack_sf.o)
- .debug_loc     0x0000000000000896       0xac /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_unpack_sf.o)
- .debug_loc     0x0000000000000942       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_fpcmp_parts_sf.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(Schlafzimmer.elf elf32-avr)
 LOAD linker stubs
-
-.debug_ranges   0x0000000000000000       0x50
- .debug_ranges  0x0000000000000000       0x50 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_mul_sf.o)

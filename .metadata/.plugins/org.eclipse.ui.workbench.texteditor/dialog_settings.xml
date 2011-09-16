@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="303" key="DIALOG_WIDTH"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>
-		<item value="398" key="DIALOG_HEIGHT"/>
 		<item value="600" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="1|Sans Serif|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="uiLightCmd" key="selection"/>
 		<list key="findhistory">
+			<item value="uiLightCmd"/>
+			<item value="i2c_rtc_status"/>
 			<item value="aTime"/>
 			<item value="SetC"/>
 			<item value="SLAVE_ADDR_IR"/>
 			<item value="AdcRead"/>
 			<item value="i2c_master_read_ack"/>
-			<item value="i2c_rtc_status"/>
 			<item value="i2c_master_write"/>
-			<item value="i2c_rtc_sram_read"/>
 		</list>
 		<list key="replacehistory">
 			<item value="=ROW_0"/>

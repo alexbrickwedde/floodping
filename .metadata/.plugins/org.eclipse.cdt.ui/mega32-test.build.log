@@ -1,0 +1,33 @@
+
+**** Build of configuration Release for project mega32-test ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'send':
+../main.c:101: error: 'RHcount' undeclared (first use in this function)
+../main.c:101: error: (Each undeclared identifier is reported only once
+../main.c:101: error: for each function it appears in.)
+../main.c:105: error: 'RH' undeclared (first use in this function)
+../main.c:112: warning: format '%3d' expects type 'int', but argument 3 has type 'long int'
+../main.c:117: warning: implicit declaration of function 'memcpy'
+../main.c:117: warning: incompatible implicit declaration of built-in function 'memcpy'
+../main.c:117: error: 'x' undeclared (first use in this function)
+../main.c:118: error: 'y' undeclared (first use in this function)
+../main.c:119: error: 'z' undeclared (first use in this function)
+../main.c: In function 'main':
+../main.c:144: error: 'AIRID' undeclared (first use in this function)
+../main.c:149: warning: implicit declaration of function 'wdt_reset'
+../main.c:150: warning: implicit declaration of function 'wdt_enable'
+../main.c:150: error: 'WDTO_1S' undeclared (first use in this function)
+../main.c:151: error: 'WDTCSR' undeclared (first use in this function)
+../main.c:151: error: 'WDIE' undeclared (first use in this function)
+../main.c:217: warning: implicit declaration of function 'set_sleep_mode'
+../main.c:217: error: 'SLEEP_MODE_PWR_DOWN' undeclared (first use in this function)
+../main.c:218: warning: implicit declaration of function 'sleep_enable'
+../main.c:220: warning: implicit declaration of function 'sleep_cpu'
+../main.c:221: warning: implicit declaration of function 'sleep_disable'
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****

@@ -103,7 +103,7 @@ Disassembly of section .text:
   82:	86 68       	ori	r24, 0x86	; 134
   84:	86 b9       	out	0x06, r24	; 6
   86:	f8 94       	cli
-  88:	8c e2       	ldi	r24, 0x2C	; 44
+  88:	84 e2       	ldi	r24, 0x24	; 36
   8a:	aa d0       	rcall	.+340    	; 0x1e0 <usiTwiSlaveInit>
   8c:	78 94       	sei
   8e:	00 e0       	ldi	r16, 0x00	; 0

@@ -1,0 +1,12 @@
+
+**** Build of configuration Debug for project bma020-tiny2313 ****
+
+make all 
+Building target: bma020-tiny2313.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,bma020-tiny2313.map -mmcu=attiny2313 -o "bma020-tiny2313.elf"  ./bma.o ./main.o ./rf12.o   
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/bin/ld: bma020-tiny2313.elf section .text will not fit in region text
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/bin/ld: region text overflowed by 1386 bytes
+make: *** [bma020-tiny2313.elf] Fehler 1
+
+**** Build Finished ****
