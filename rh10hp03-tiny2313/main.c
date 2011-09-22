@@ -5,22 +5,12 @@
 #include <util/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "uart.h"
-#include "i2cmaster.h"
 #include "rf12.h"
+#include "i2cmaster.h"
 
 #define AIRID "0102"
-
-unsigned int volatile WDTcounter = 0;
-
-ISR(WDT_OVERFLOW_vect) {
-	cli();
-	WDTCSR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
-	WDTcounter++;
-	sei();
-}
-
-#define MAXCOUNT 30
 
 static union {
 	unsigned char bytes[18];
@@ -88,29 +78,39 @@ ISR (TIMER1_CAPT_vect) {
 	TCNT1 = 0;
 }
 
-void send() {
-	int t = 0;
-	int p = 0;
+ISR (TIMER1_COMPA_vect) {
+	asm volatile ( "nop");
+}
 
+ISR (TIMER2_COMP_vect) {
+	asm volatile ( "nop");
+}
+
+int t = 0;
+int p = 0;
+
+void readHP03() {
 	HP03_Read(&t, &p);
 	_delay_ms(1);
-
 	HP03_Read(&t, &p);
+}
 
+void readHH10() {
 	long freq = F_CPU / (ICR1);
-	int RHtemp = ((HH10_Cal.off - freq) * HH10_Cal.sens) >> 12;
-
 	RHcount++;
 	if (RHcount > 15) {
 		RHcount = 0;
 	}
-	RH[RHcount] = RHtemp;
+	RH[RHcount] = ((HH10_Cal.off - freq) * HH10_Cal.sens) >> 12;
+}
+
+void send() {
 
 	long RHsumme = 0;
 	for (int i = 0; i < 16; i++) {
 		RHsumme += RH[i];
 	}
-	int RHvalue = RHsumme>>4;
+	int RHvalue = RHsumme >> 4;
 
 	char buf[32]; // = "g123456789012345678901234567890\0\0\0";
 	buf[0] = 'g';
@@ -138,39 +138,27 @@ void send() {
 }
 
 int main() {
-
-	uart_puts("Boot.......\r\n");
-
-	rf12_preinit(AIRID);
-
-	send();
+	uart_init(UART_BAUD_SELECT(9600, F_CPU));
+	uart_puts("Boot...");
 
 	cli();
 	wdt_reset();
-	wdt_enable(WDTO_1S);
-	WDTCSR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
+	wdt_enable(WDTO_2S);
+
+	TCCR2 = (1 << COM20) | (1 << CS20) | (1 << WGM21);
+	TIMSK = (1 << TICIE1) | (1 << OCIE2);
+	TIFR = (1 << ICF1);
+	OCR2 = 122;
+
+	DDRB |= (1 << PB3); // OC2
+	DDRB &= ~(1 << PB0); // ICP1
+	PORTB &= ~(1 << PB0); // ICP1
+
 	sei();
 
-	TCCR1B = (1 << CS10);
-	TCCR1A |= (1 << COM1A0);
-	OCR1A = 183;
+	rf12_preinit(AIRID);
 
-	//TCCR1B = (1<<ICES1) | (0<<WGM13);
-	TCCR1B |= (0 << CS12) | (0 << CS11) | (1 << CS10);
-	DDRD &= ~(1 << PD6);
-	PORTD &= ~(1 << PD6);
-//	TIFR |= (1<<ICF1);
-	TIMSK |= (1 << ICIE1);
-
-	uart_init(UART_BAUD_SELECT(57600, F_CPU));
-	sei();
-
-//	DDRD |= (1 << PD7);
-//
-//	DDRC |= (1 << PC2);
-//	PORTC |= (1 << PC0) | (1 << PC1);
-
-//	PORTC &= ~(1 << PC2);
+	PORTD &= ~(1 << PD7); // XCLR low
 
 	i2c_init();
 
@@ -195,28 +183,27 @@ int main() {
 	HH10_Cal.off = (i2c_readAck() << 8) | i2c_readNak();
 	i2c_stop();
 
-//	PORTC |= (1 << PC2); // XCLR high
-	_delay_ms(10);
+	PORTD |= (1 << PD7); // XCLR high
 
-	for (; RHcount < 16; RHcount++) {
-		RH[RHcount] = 0;
+	for (int uiTemp=0; uiTemp < 16; uiTemp++) {
+		readHH10();
+		_delay_ms(1);
 	}
 
+	long uiC = 0;
 	while (1) {
+		wdt_reset();
 
-		if (WDTcounter >= MAXCOUNT)
-		{
-			send();
-			WDTcounter = 0;
+		uiC++;
+		if ((uiC % 16000) == 0) {
+			uiC = 0;
+			uart_puts(".");
+
+			readHP03();
+			readHH10();
 		}
-
-		wdt_reset();
-
-		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+		set_sleep_mode(SLEEP_MODE_IDLE);
 		sleep_enable();
-
 		sleep_cpu();
-		sleep_disable();
-		wdt_reset();
 	}
 }

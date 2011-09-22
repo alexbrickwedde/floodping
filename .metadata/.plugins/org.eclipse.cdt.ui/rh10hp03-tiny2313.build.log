@@ -2,66 +2,42 @@
 **** Build of configuration Release for project rh10hp03-tiny2313 ****
 
 make all 
-Building file: ../twimaster.c
+Building file: ../main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny2313 -DF_CPU=12000000UL -MMD -MP -MF"twimaster.d" -MT"twimaster.d" -c -o "twimaster.o" "../twimaster.c"
-../twimaster.c: In function 'i2c_init':
-../twimaster.c:31: error: 'TWSR' undeclared (first use in this function)
-../twimaster.c:31: error: (Each undeclared identifier is reported only once
-../twimaster.c:31: error: for each function it appears in.)
-../twimaster.c:32: error: 'TWBR' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_start':
-../twimaster.c:46: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:46: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:46: error: 'TWSTA' undeclared (first use in this function)
-../twimaster.c:46: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWSR' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWS7' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWS6' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWS5' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWS4' undeclared (first use in this function)
-../twimaster.c:52: error: 'TWS3' undeclared (first use in this function)
-../twimaster.c:56: error: 'TWDR' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_start_wait':
-../twimaster.c:85: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:85: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:85: error: 'TWSTA' undeclared (first use in this function)
-../twimaster.c:85: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWSR' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWS7' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWS6' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWS5' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWS4' undeclared (first use in this function)
-../twimaster.c:91: error: 'TWS3' undeclared (first use in this function)
-../twimaster.c:95: error: 'TWDR' undeclared (first use in this function)
-../twimaster.c:106: error: 'TWSTO' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_stop':
-../twimaster.c:141: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:141: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:141: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:141: error: 'TWSTO' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_write':
-../twimaster.c:161: error: 'TWDR' undeclared (first use in this function)
-../twimaster.c:162: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:162: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:162: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWSR' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWS7' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWS6' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWS5' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWS4' undeclared (first use in this function)
-../twimaster.c:168: error: 'TWS3' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_readAck':
-../twimaster.c:182: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:182: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:182: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:182: error: 'TWEA' undeclared (first use in this function)
-../twimaster.c:185: error: 'TWDR' undeclared (first use in this function)
-../twimaster.c: In function 'i2c_readNak':
-../twimaster.c:197: error: 'TWCR' undeclared (first use in this function)
-../twimaster.c:197: error: 'TWINT' undeclared (first use in this function)
-../twimaster.c:197: error: 'TWEN' undeclared (first use in this function)
-../twimaster.c:200: error: 'TWDR' undeclared (first use in this function)
-make: *** [twimaster.o] Fehler 1
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: rh10hp03-tiny2313.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,rh10hp03-tiny2313.map,--cref -mmcu=atmega8 -o "rh10hp03-tiny2313.elf"  ./main.o ./rf12.o ./twimaster.o ./uart.o   
+Finished building target: rh10hp03-tiny2313.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S rh10hp03-tiny2313.elf  >"rh10hp03-tiny2313.lss"
+Finished building: rh10hp03-tiny2313.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex rh10hp03-tiny2313.elf  "rh10hp03-tiny2313.hex"
+Finished building: rh10hp03-tiny2313.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex rh10hp03-tiny2313.elf  "rh10hp03-tiny2313.eep"
+Finished building: rh10hp03-tiny2313.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 rh10hp03-tiny2313.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    2916 bytes (35.6% Full)
+(.text + .data + .bootloader)
+
+Data:        149 bytes (14.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
 
 **** Build Finished ****

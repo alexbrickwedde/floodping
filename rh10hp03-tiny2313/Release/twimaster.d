@@ -1,3 +1,1 @@
-twimaster.d twimaster.o: ../twimaster.c ../i2cmaster.h
-
-../i2cmaster.h:
+twimaster.d twimaster.o: ../twimaster.c

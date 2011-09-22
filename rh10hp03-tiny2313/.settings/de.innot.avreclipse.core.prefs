@@ -1,8 +1,8 @@
-#Sat Sep 10 18:46:18 CEST 2011
-avrtarget/ClockFrequency=12000000
+#Thu Sep 22 21:56:42 CEST 2011
+avrtarget/ClockFrequency=8000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
-avrtarget/MCUType=attiny2313
+avrtarget/MCUType=atmega8
 avrtarget/UseEEPROM=false
 avrtarget/UseExtendedRAMforHeap=true
 avrtarget/avrdude/BitBangDelay=
@@ -11,9 +11,9 @@ avrtarget/avrdude/EEPROMFile=
 avrtarget/avrdude/EEPROMFromConfig=true
 avrtarget/avrdude/FlashFile=
 avrtarget/avrdude/FlashFromConfig=true
-avrtarget/avrdude/Fuses/ByteValues=222\:159\:255
+avrtarget/avrdude/Fuses/ByteValues=212\:209
 avrtarget/avrdude/Fuses/FileName=
-avrtarget/avrdude/Fuses/MCUid=attiny2313
+avrtarget/avrdude/Fuses/MCUid=atmega8
 avrtarget/avrdude/Fuses/UseFile=false
 avrtarget/avrdude/Fuses/Write=true
 avrtarget/avrdude/NoChipErase=false

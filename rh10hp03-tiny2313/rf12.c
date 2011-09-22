@@ -13,15 +13,15 @@
 #define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
 
-#define RF_PORT         PORTB
-#define RF_DDR          DDRB
-#define RF_PIN          PINB
+#define RF_PORT         PORTD
+#define RF_DDR          DDRD
+#define RF_PIN          PIND
 
 #define SDI                     2
-#define SCK                     1
-#define CS                      0
-#define SDO                     3
-#define FSK             4
+#define SCK                     3
+#define CS                      4
+#define SDO                     5
+//define FSK             		6
 
 char airid[4];
 
@@ -60,10 +60,10 @@ unsigned short noinline rf12_readytrans(unsigned short wert)
 void rf12_preinit(const char *AirId)
 {
   memcpy(airid, AirId, 4);
-  RF_DDR = (1 << SDI) | (1 << SCK) | (1 << CS) | (1 << FSK);
+  RF_DDR = (1 << SDI) | (1 << SCK) | (1 << CS);// | (1 << FSK);
   RF_PORT = (1 << CS);
 
-  sbi(RF_PORT, FSK);
+//  sbi(RF_PORT, FSK);
 
   for (unsigned int i = 0; i < 100; i++)
     _delay_ms(10); // wait until POR done
