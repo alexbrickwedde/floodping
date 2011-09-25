@@ -2,64 +2,26 @@
 **** Build of configuration Release for project netio ****
 
 make -j4 all 
-/bin/sh core/portio/cfgpp pinning/named_pin/default
 Build meta files
 sed -ne '/Ethersex META/{n;:loop p;n;/\*\//!bloop }' ethersex.c core/eeprom.c  core/util/fixedpoint.c core/util/string_parsing.c network.c core/debug.c core/periodic.c core/spi.c hardware/avr/dump_ecmd.c hardware/avr/fuse.c hardware/avr/hostname.c hardware/avr/reset_ecmd.c hardware/avr/bootloader_ecmd.c hardware/ethernet/ethernet_config.c hardware/ethernet/enc28j60.c hardware/ethernet/enc28j60_process.c hardware/ethernet/enc28j60_transmit.c hardware/radio/rfm12/rfm12.c hardware/radio/rfm12/process.c protocols/uip/uip.c protocols/uip/uip_multi.c protocols/uip/uip_router.c protocols/uip/uip_arp.c protocols/uip/check_cache.c protocols/uip/uip_rfm12.c protocols/dns/dns_net.c protocols/dns/resolv.c protocols/dns/dns_ecmd.c > meta.m4.tmp
-m4 -I./pinning `scripts/m4-defines` pinning/internals/header.m4 pinning/controllers/atmega644p.m4 pinning/internals/hackery_atmega644p.m4 pinning/hardware/netio.m4 pinning/internals/footer.m4 > pinning.c
-Copying to meta.m4
-m4 `scripts/m4-defines` scripts/meta_magic.m4 meta.m4 > meta.c
-m4 `scripts/m4-defines` scripts/meta_header_magic.m4 meta.m4 > meta.h
-m4  ./control6/control6-header.m4 ./control6/control6.src > control6/control6.h
-Build meta files
-sed -ne '/Ethersex META/{n;:loop p;n;/\*\//!bloop }' ethersex.c core/eeprom.c  core/util/fixedpoint.c core/util/string_parsing.c network.c core/debug.c core/periodic.c core/spi.c hardware/avr/dump_ecmd.c hardware/avr/fuse.c hardware/avr/hostname.c hardware/avr/reset_ecmd.c hardware/avr/bootloader_ecmd.c hardware/ethernet/ethernet_config.c hardware/ethernet/enc28j60.c hardware/ethernet/enc28j60_process.c hardware/ethernet/enc28j60_transmit.c hardware/radio/rfm12/rfm12.c hardware/radio/rfm12/process.c protocols/uip/uip.c protocols/uip/uip_multi.c protocols/uip/uip_router.c protocols/uip/uip_arp.c protocols/uip/check_cache.c protocols/uip/uip_rfm12.c protocols/dns/dns_net.c protocols/dns/resolv.c protocols/dns/dns_ecmd.c > meta.m4.tmp
-In file included from ./core/usart.h:90,
-                 from core/debug.c:50:
-./core/setbaud.h:213:4: warning: #warning "Baud rate achieved is higher than allowed"
 hardware/radio/rfm12/rfm12.c: In function 'udpsend':
-hardware/radio/rfm12/rfm12.c:253: warning: assignment discards qualifiers from pointer target type
 Copying to meta.m4
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o ethersex.o ethersex.c
+hardware/radio/rfm12/rfm12.c:253: warning: assignment discards qualifiers from pointer target type
+Build meta files
 hardware/radio/rfm12/rfm12.c: In function 'x':
-hardware/radio/rfm12/rfm12.c:439: warning: passing argument 1 of 'uip_send' discards qualifiers from pointer target type
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/eeprom.o core/eeprom.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/util/fixedpoint.o core/util/fixedpoint.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/util/string_parsing.o core/util/string_parsing.c
-meta.c: In function 'ethersex_meta_mainloop':
-meta.c:87: warning: implicit declaration of function 'rfm12_int_process'
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o network.o network.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/debug.o core/debug.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/periodic.o core/periodic.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o core/spi.o core/spi.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/dump_ecmd.o hardware/avr/dump_ecmd.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/fuse.o hardware/avr/fuse.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/hostname.o hardware/avr/hostname.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/reset_ecmd.o hardware/avr/reset_ecmd.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/avr/bootloader_ecmd.o hardware/avr/bootloader_ecmd.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/ethernet_config.o hardware/ethernet/ethernet_config.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60.o hardware/ethernet/enc28j60.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60_process.o hardware/ethernet/enc28j60_process.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/ethernet/enc28j60_transmit.o hardware/ethernet/enc28j60_transmit.c
+sed -ne '/Ethersex META/{n;:loop p;n;/\*\//!bloop }' ethersex.c core/eeprom.c  core/util/fixedpoint.c core/util/string_parsing.c network.c core/debug.c core/periodic.c core/spi.c hardware/avr/dump_ecmd.c hardware/avr/fuse.c hardware/avr/hostname.c hardware/avr/reset_ecmd.c hardware/avr/bootloader_ecmd.c hardware/ethernet/ethernet_config.c hardware/ethernet/enc28j60.c hardware/ethernet/enc28j60_process.c hardware/ethernet/enc28j60_transmit.c hardware/radio/rfm12/rfm12.c hardware/radio/rfm12/process.c protocols/uip/uip.c protocols/uip/uip_multi.c protocols/uip/uip_router.c protocols/uip/uip_arp.c protocols/uip/check_cache.c protocols/uip/uip_rfm12.c protocols/dns/dns_net.c protocols/dns/resolv.c protocols/dns/dns_ecmd.c > meta.m4.tmp
+hardware/radio/rfm12/rfm12.c:442: warning: passing argument 1 of 'uip_send' discards qualifiers from pointer target type
+Copying to meta.m4
 avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/radio/rfm12/rfm12.o hardware/radio/rfm12/rfm12.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o hardware/radio/rfm12/process.o hardware/radio/rfm12/process.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip.o protocols/uip/uip.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_multi.o protocols/uip/uip_multi.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_router.o protocols/uip/uip_router.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_arp.o protocols/uip/uip_arp.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/check_cache.o protocols/uip/check_cache.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/uip/uip_rfm12.o protocols/uip/uip_rfm12.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/dns_net.o protocols/dns/dns_net.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/resolv.o protocols/dns/resolv.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o protocols/dns/dns_ecmd.o protocols/dns/dns_ecmd.c
-avr-gcc -Wall -W -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -g -Os -std=gnu99 -fdata-sections -ffunction-sections -fshort-enums -fno-strict-aliasing -Iprotocols/usb/usbdrv -Iprotocols/usb -DAVR_BUILD -DF_CPU=16000000UL -mmcu=atmega644p -I.  -c -o meta.o meta.c
 avr-gcc -mmcu=atmega644p -Wl,--gc-sections -o ethersex ethersex.o core/eeprom.o core/util/fixedpoint.o core/util/string_parsing.o network.o core/debug.o core/periodic.o core/spi.o hardware/avr/dump_ecmd.o hardware/avr/fuse.o hardware/avr/hostname.o hardware/avr/reset_ecmd.o hardware/avr/bootloader_ecmd.o hardware/ethernet/ethernet_config.o hardware/ethernet/enc28j60.o hardware/ethernet/enc28j60_process.o hardware/ethernet/enc28j60_transmit.o hardware/radio/rfm12/rfm12.o hardware/radio/rfm12/process.o protocols/uip/uip.o protocols/uip/uip_multi.o protocols/uip/uip_router.o protocols/uip/uip_arp.o protocols/uip/check_cache.o protocols/uip/uip_rfm12.o protocols/dns/dns_net.o protocols/dns/resolv.o protocols/dns/dns_ecmd.o meta.o  -lc -lm # Pixie Dust!!! (Bug in avr-binutils)
 avr-objcopy -O ihex -R .eeprom ethersex ethersex.hex
 avr-objcopy -O binary -R .eeprom ethersex ethersex.bin
 =======The ethersex project========
 Compiled for: atmega644p at 16000000Hz
-Imagesize: 17378/65536 bytes (26.52%)
+Imagesize: 17384/65536 bytes (26.53%)
   [=======-----------------------]
 
-Program (.text + .data)	: 17378 bytes
+Program (.text + .data)	: 17384 bytes
 Data (.data + .bss)	:  2197 bytes
 
 ===================================

@@ -30,10 +30,10 @@ AVR Memory Usage
 ----------------
 Device: atmega8
 
-Program:    2916 bytes (35.6% Full)
+Program:    3220 bytes (39.3% Full)
 (.text + .data + .bootloader)
 
-Data:        149 bytes (14.6% Full)
+Data:        281 bytes (27.4% Full)
 (.data + .bss + .noinit)
 
 

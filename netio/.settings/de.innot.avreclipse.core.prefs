@@ -1,4 +1,4 @@
-#Tue Sep 07 19:08:36 CEST 2010
+#Sat Sep 24 21:51:50 CEST 2011
 avrtarget/ClockFrequency=16000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -11,6 +11,11 @@ avrtarget/avrdude/EEPROMFile=
 avrtarget/avrdude/EEPROMFromConfig=true
 avrtarget/avrdude/FlashFile=${workspace_loc\:/netio/ethersex.hex}
 avrtarget/avrdude/FlashFromConfig=false
+avrtarget/avrdude/Fuses/ByteValues=255\:217\:253
+avrtarget/avrdude/Fuses/FileName=
+avrtarget/avrdude/Fuses/MCUid=atmega644p
+avrtarget/avrdude/Fuses/UseFile=false
+avrtarget/avrdude/Fuses/Write=true
 avrtarget/avrdude/NoChipErase=false
 avrtarget/avrdude/NoSigCheck=false
 avrtarget/avrdude/NoVerify=false

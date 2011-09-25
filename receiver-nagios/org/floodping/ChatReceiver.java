@@ -30,6 +30,9 @@ public class ChatReceiver
           sResult += Main.GetValue ("0004", "Terasse:", "°C");
           sResult += Main.GetValue ("0005", "Schlafen:", "°C");
           sResult += Main.GetValue ("0101", "Wasserstand:", "cm");
+          sResult += Main.GetValue ("0102T", "Temperatur:", "°C");
+          sResult += Main.GetValue ("0102P", "Luftdruck:", "hPa");
+          sResult += Main.GetValue ("0102RH", "Luftfeuchte:", "%");
           final Message msg = new org.jivesoftware.smack.packet.Message (message.getFrom (), org.jivesoftware.smack.packet.Message.Type.chat);
           msg.setBody (sResult);
           chat.sendMessage (msg);

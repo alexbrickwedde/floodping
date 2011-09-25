@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/wdt.h>
 #include <string.h>
 #include "rf12.h"
 
@@ -13,15 +14,31 @@
 #define sbi(sfr, bit)     (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
 
-#define RF_PORT         PORTD
-#define RF_DDR          DDRD
-#define RF_PIN          PIND
+#define RF_PORT_SDI         PORTD
+#define RF_DDR_SDI          DDRD
+#define RF_PIN_SDI          PIND
 
-#define SDI                     2
-#define SCK                     3
-#define CS                      4
-#define SDO                     5
-//define FSK             		6
+#define RF_PORT_SCK         PORTB
+#define RF_DDR_SCK          DDRB
+#define RF_PIN_SCK          PINB
+
+#define RF_PORT_CS          PORTD
+#define RF_DDR_CS           DDRD
+#define RF_PIN_CS           PIND
+
+#define RF_PORT_SDO         PORTD
+#define RF_DDR_SDO          DDRD
+#define RF_PIN_SDO          PIND
+
+#define RF_PORT_FSK         PORTD
+#define RF_DDR_FSK          DDRD
+#define RF_PIN_FSK          PIND
+
+#define SDI                     PD5
+#define SCK                     PB7
+#define CS                      PD4
+#define SDO                     PD6
+#define FSK             		PD7
 
 char airid[4];
 
@@ -32,22 +49,22 @@ unsigned short noinline rf12_trans(unsigned short wert)
         unsigned short werti = 0;
         unsigned char i;
 
-        cbi(RF_PORT, CS);
+        cbi(RF_PORT_CS, CS);
         for (i = 0; i < 16; i++)
         {
                 if (wert & 32768)
-                        sbi(RF_PORT, SDI);
+                        sbi(RF_PORT_SDI, SDI);
                 else
-                        cbi(RF_PORT, SDI);
+                        cbi(RF_PORT_SDI, SDI);
                 werti <<= 1;
-                if (RF_PIN & (1 << SDO))
+                if (RF_PIN_SDO & (1 << SDO))
                         werti |= 1;
-                sbi(RF_PORT, SCK);
+                sbi(RF_PORT_SCK, SCK);
                 wert <<= 1;
-                _delay_us(0.3);
-                cbi(RF_PORT, SCK);
+                _delay_us(1);
+                cbi(RF_PORT_SCK, SCK);
         }
-        sbi(RF_PORT, CS);
+        sbi(RF_PORT_CS, CS);
         return werti;
 }
 
@@ -60,13 +77,19 @@ unsigned short noinline rf12_readytrans(unsigned short wert)
 void rf12_preinit(const char *AirId)
 {
   memcpy(airid, AirId, 4);
-  RF_DDR = (1 << SDI) | (1 << SCK) | (1 << CS);// | (1 << FSK);
-  RF_PORT = (1 << CS);
+  RF_DDR_FSK |= (1 << FSK);
+  RF_DDR_CS  |= (1 << CS);
+  RF_DDR_SCK |= (1 << SCK);
+  RF_DDR_SDI |= (1 << SDI);
+  RF_PORT_CS |= (1 << CS);
 
-//  sbi(RF_PORT, FSK);
+  sbi(RF_PORT_FSK, FSK);
 
   for (unsigned int i = 0; i < 100; i++)
-    _delay_ms(10); // wait until POR done
+  {
+	  _delay_ms(20); // wait until POR done
+	  wdt_reset();
+  }
 }
 
 void rf12_init(void)
@@ -119,16 +142,16 @@ void noinline rf12_ready(void)
         //    ; // wait until FIFO ready
         int timeout = 100;
 
-        cbi(RF_PORT, SDI);
-        cbi(RF_PORT, CS);
+        cbi(RF_PORT_SDI, SDI);
+        cbi(RF_PORT_CS, CS);
         asm( "nop" );
         asm( "nop" );
-        while (!(RF_PIN & (1 << SDO)) && timeout)
+        while (!(RF_PIN_SDO & (1 << SDO)) && timeout)
         {
                 timeout--;
                 _delay_ms(1); // wait until FIFO ready
         }
-        sbi(PORTB, CS);
+        sbi(RF_PORT_CS, CS);
         //        return 0;
         //     else
         //         return 1;
@@ -170,7 +193,8 @@ void rf12_txdata_send(const char *data, unsigned char number)
         unsigned char i;
         for (i = 0; i < number; i++)
         {
-                rf12_readytrans(0xB800 | (*data++));
+        	wdt_reset();
+        	rf12_readytrans(0xB800 | (*data++));
         }
 }
 

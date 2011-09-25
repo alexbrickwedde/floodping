@@ -333,6 +333,9 @@ void rfm12_int_process(void) {
       case 'e':
         size = 9;
         break;
+      case 'f':
+        size = 19;
+        break;
       case 'T':
         size = 25;
         break;

@@ -101,7 +101,9 @@ void readHH10() {
 	if (RHcount > 15) {
 		RHcount = 0;
 	}
-	RH[RHcount] = ((HH10_Cal.off - freq) * HH10_Cal.sens) >> 12;
+
+	int RHvalue = ((HH10_Cal.off - freq) * HH10_Cal.sens) >> 12;
+	RH[RHcount] = RHvalue;
 }
 
 void send() {
@@ -111,16 +113,22 @@ void send() {
 		RHsumme += RH[i];
 	}
 	int RHvalue = RHsumme >> 4;
+	int ttemp = t;
+	int ptemp = p;
 
+//	char s[100];
+//	sprintf(s, "t:%d p:%d", ttemp, ptemp);
+//	uart_puts(s);
+//
 	char buf[32]; // = "g123456789012345678901234567890\0\0\0";
-	buf[0] = 'g';
+	buf[0] = 'f';
 	memcpy(buf + 1, &RHvalue, 2);
-	memcpy(buf + 3, &t, 2);
-	memcpy(buf + 5, &p, 2);
+	memcpy(buf + 3, &ttemp, 2);
+	memcpy(buf + 5, &ptemp, 2);
 	buf[7] = 0;
 	memcpy(buf + 8, &RHvalue, 2);
-	memcpy(buf + 10, &t, 2);
-	memcpy(buf + 12, &p, 2);
+	memcpy(buf + 10, &ttemp, 2);
+	memcpy(buf + 12, &ptemp, 2);
 	buf[14] = 0;
 
 	rf12_init();
@@ -131,20 +139,23 @@ void send() {
 
 	rf12_txdata(buf, 15);
 
-	rf12_trans(0x8201);
+	rf12_trans(0x8200);
 	rf12_trans(0x0);
 
-	_delay_ms(200);
+	_delay_ms(2);
 }
+
+#define TIMEOUT 1600000l
 
 int main() {
 	uart_init(UART_BAUD_SELECT(9600, F_CPU));
-	uart_puts("Boot...");
+	uart_puts("Boot...\r\n\r\n");
 
 	cli();
 	wdt_reset();
 	wdt_enable(WDTO_2S);
 
+	TCCR1B = (1 << CS10);
 	TCCR2 = (1 << COM20) | (1 << CS20) | (1 << WGM21);
 	TIMSK = (1 << TICIE1) | (1 << OCIE2);
 	TIFR = (1 << ICF1);
@@ -156,15 +167,28 @@ int main() {
 
 	sei();
 
-	rf12_preinit(AIRID);
+	uart_puts("i2c_init...");
+	i2c_init();
+	uart_puts("...done\r\n\r\n");
+	wdt_reset();
 
 	PORTD &= ~(1 << PD7); // XCLR low
+	uart_puts("i2c wait HH10...");
+	i2c_start_wait(HH10_CAL_ADDR_W);
+	i2c_write(0x0A);
+	i2c_rep_start(HH10_CAL_ADDR_R);
+	HH10_Cal.sens = (i2c_readAck() << 8) | i2c_readAck();
+	HH10_Cal.off = (i2c_readAck() << 8) | i2c_readNak();
+	i2c_stop();
+	uart_puts("done\r\n\r\n");
+	PORTD |= (1 << PD7); // XCLR high
+	wdt_reset();
 
-	i2c_init();
-
+	uart_puts("i2c wait HP03...");
 	i2c_start_wait(HP03_CAL_ADDR_W);
 	i2c_write(0x10);
 	i2c_rep_start(HP03_CAL_ADDR_R);
+	wdt_reset();
 
 	for (int i = 0; i < 7; i++) {
 		HP03_Cal.bytes[(i << 1) + 1] = i2c_readAck();
@@ -175,34 +199,83 @@ int main() {
 	}
 	HP03_Cal.bytes[17] = i2c_readNak();
 	i2c_stop();
+	uart_puts("done\r\n\r\n");
+	wdt_reset();
 
-	i2c_start_wait(HH10_CAL_ADDR_W);
-	i2c_write(0x0A);
-	i2c_rep_start(HH10_CAL_ADDR_R);
-	HH10_Cal.sens = (i2c_readAck() << 8) | i2c_readAck();
-	HH10_Cal.off = (i2c_readAck() << 8) | i2c_readNak();
-	i2c_stop();
-
-	PORTD |= (1 << PD7); // XCLR high
-
+	uart_puts("read HH10...");
 	for (int uiTemp=0; uiTemp < 16; uiTemp++) {
 		readHH10();
 		_delay_ms(1);
+		uart_puts(".");
 	}
+	uart_puts("done\r\n\r\n");
+	wdt_reset();
 
-	long uiC = 0;
+	uart_puts("rf12_preinit...");
+	rf12_preinit(AIRID);
+	wdt_reset();
+	uart_puts("...done\r\n\r\n");
+	wdt_reset();
+
+	rf12_init();
+	rf12_setfreq(RF12FREQ868(868.3));
+	rf12_setbandwidth(4, 1, 4);
+	rf12_setbaud(666);
+	rf12_setpower(0, 6);
+	rf12_trans(0x8201);
+	rf12_trans(0x0);
+
+//	while(1)
+//	{
+//
+//		uart_puts("rf12:i");
+//		while(1)
+//		{
+//			uart_puts(".");
+//			//sbi(RF_PORT_CS, CS);
+//			uart_puts(".");
+//		    _delay_us(100);
+//			cbi(RF_PORT_CS, CS);
+//	        //rf12_trans(0xC0E0); // AVR CLK: 10MHz
+//	        _delay_us(100);
+//		}
+//
+//		wdt_reset();
+//
+//		uart_puts("t");
+//		rf12_txdata("xxx", 3);
+//
+//		wdt_reset();
+//
+//		uart_puts("u");
+//		rf12_trans(0x8200);
+//		rf12_trans(0x0);
+//
+//	}
+
+	long uiC = TIMEOUT-1;
 	while (1) {
 		wdt_reset();
 
 		uiC++;
-		if ((uiC % 16000) == 0) {
-			uiC = 0;
-			uart_puts(".");
+		if ((uiC % (TIMEOUT) ) == 0) {
+			uart_puts("preparing (");
 
+			uiC = 0;
+
+			uart_puts("HP03, ");
 			readHP03();
+			uart_puts("HH10) ");
 			readHH10();
+
+			uart_puts("S(");
+			wdt_reset();
+			send();
+			uart_puts(")R");
+			uart_puts("done\r\n\r\n");
 		}
-		set_sleep_mode(SLEEP_MODE_IDLE);
+
+		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
 		sleep_enable();
 		sleep_cpu();
 	}

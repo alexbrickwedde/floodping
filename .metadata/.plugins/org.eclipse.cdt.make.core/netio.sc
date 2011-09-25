@@ -367,6 +367,9 @@
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.release.1804518303;de.innot.avreclipse.configuration.app.release.1804518303.;de.innot.avreclipse.tool.compiler.winavr.app.release.404181526;de.innot.avreclipse.compiler.winavr.input.1245703855">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="/home/alex/workspace/floodping/netio/protocols/usb/usbdrv"/>
+<includePath path="/home/alex/workspace/floodping/netio/protocols/usb"/>
+<includePath path="/home/alex/workspace/floodping/netio"/>
 <includePath path="/root/floodping/netio/protocols/usb/usbdrv"/>
 <includePath path="/root/floodping/netio/protocols/usb"/>
 <includePath path="/root/floodping/netio"/>

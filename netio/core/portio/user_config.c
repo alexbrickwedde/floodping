@@ -3,17 +3,17 @@
 #define INPUT 1
 #define LOW 0
 #define HIGH 1
-const char named_pin_text3201[] PROGMEM = "p1";
-const char named_pin_text8604[] PROGMEM = "p2";
-const char named_pin_text16376[] PROGMEM = "p3";
-const char named_pin_text31282[] PROGMEM = "p4";
+const char named_pin_text6791[] PROGMEM = "p1";
+const char named_pin_text5023[] PROGMEM = "p2";
+const char named_pin_text16633[] PROGMEM = "p3";
+const char named_pin_text9091[] PROGMEM = "p4";
 
 const struct PinConfiguration portio_pincfg[] PROGMEM = {
     /*  port	pin	input	reverse? */
-	{	0,	0,	OUTPUT,	HIGH,	named_pin_text3201 }, 	/* p1	*/ 
-	{	0,	1,	OUTPUT,	HIGH,	named_pin_text8604 }, 	/* p2	*/ 
-	{	0,	2,	OUTPUT,	HIGH,	named_pin_text16376 }, 	/* p3	*/ 
-	{	0,	3,	OUTPUT,	HIGH,	named_pin_text31282 }, 	/* p4	*/ 
+	{	0,	0,	OUTPUT,	HIGH,	named_pin_text6791 }, 	/* p1	*/ 
+	{	0,	1,	OUTPUT,	HIGH,	named_pin_text5023 }, 	/* p2	*/ 
+	{	0,	2,	OUTPUT,	HIGH,	named_pin_text16633 }, 	/* p3	*/ 
+	{	0,	3,	OUTPUT,	HIGH,	named_pin_text9091 }, 	/* p4	*/ 
 
     /* mark the end of the list */
     { 255, 255, 255, 255, NULL}

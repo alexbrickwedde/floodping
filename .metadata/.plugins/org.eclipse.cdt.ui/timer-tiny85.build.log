@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project timer-tiny85 ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny85 timer-tiny85.elf
+AVR Memory Usage
+----------------
+Device: attiny85
+
+Program:     942 bytes (11.5% Full)
+(.text + .data + .bootloader)
+
+Data:         47 bytes (9.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
