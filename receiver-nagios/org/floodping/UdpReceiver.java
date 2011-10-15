@@ -143,11 +143,11 @@ public class UdpReceiver
           break;
         case 'f':
         {
-          final int rh1 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
+          final int rh1 = ((dis.readByte () & 0xff) | (dis.readByte ()) << 8);
           final int t1 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
           final int p1 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
           dis.readByte ();
-          final int rh2 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
+          final int rh2 = ((dis.readByte () & 0xff) | (dis.readByte ()) << 8);
           final int t2 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
           final int p2 = ((dis.readByte () & 0xff) | (dis.readByte () & 0xff) << 8);
           if ((p1 != p2) || (t1 != t2) || (rh1 != rh2))
@@ -157,54 +157,68 @@ public class UdpReceiver
           }
           final double T = (t1 * 1.0) / 10;
           final int P = p1;
-          final int RH = rh1;
+          int RH = rh1 + 55;
+
+          if (RH < 0)
+          {
+            System.out.println ("RH < 0: " + rh1);
+            RH = -1;
+          }
+          if (RH > 100)
+          {
+            System.out.println ("RH > 100: " + rh1);
+            RH = 101;
+          }
 
           System.out.println ("" + airid + " F:" + T + "," + P + "," + RH);
 
-          SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
-          df.setTimeZone (TimeZone.getDefault ());
-          Main.PutValue (airid + "T", new Double (T).toString (), df.format (new Date ()));
-          Main.PutValue (airid + "P", new Integer (P).toString (), df.format (new Date ()));
-          Main.PutValue (airid + "RH", new Integer (RH).toString (), df.format (new Date ()));
+          if ((RH >= 0) && (RH <= 100))
+          {
+            SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
+            df.setTimeZone (TimeZone.getDefault ());
+            Main.PutValue (airid + "T", new Double (T).toString (), df.format (new Date ()));
+            Main.PutValue (airid + "P", new Integer (P).toString (), df.format (new Date ()));
+            Main.PutValue (airid + "RH", new Integer (RH).toString (), df.format (new Date ()));
 
-          try
-          {
-            final String sFile = "/tmp/airid" + airid + "T";
-            final FileWriter fstream = new FileWriter (sFile);
-            final BufferedWriter out = new BufferedWriter (fstream);
-            final Formatter cmdf = new Formatter ();
-            out.write (cmdf.format ("%+3.1f", T).toString ());
-            out.close ();
-          }
-          catch (final Exception e)
-          {
-            System.err.println ("Error: " + e.getMessage ());
-          }
-          try
-          {
-            final String sFile = "/tmp/airid" + airid + "P";
-            final FileWriter fstream = new FileWriter (sFile);
-            final BufferedWriter out = new BufferedWriter (fstream);
-            final Formatter cmdf = new Formatter ();
-            out.write (cmdf.format ("%+4d", P).toString ());
-            out.close ();
-          }
-          catch (final Exception e)
-          {
-            System.err.println ("Error: " + e.getMessage ());
-          }
-          try
-          {
-            final String sFile = "/tmp/airid" + airid + "RH";
-            final FileWriter fstream = new FileWriter (sFile);
-            final BufferedWriter out = new BufferedWriter (fstream);
-            final Formatter cmdf = new Formatter ();
-            out.write (cmdf.format ("%+3d", RH).toString ());
-            out.close ();
-          }
-          catch (final Exception e)
-          {
-            System.err.println ("Error: " + e.getMessage ());
+            try
+            {
+              final String sFile = "/tmp/airid" + airid + "T";
+              final FileWriter fstream = new FileWriter (sFile);
+              final BufferedWriter out = new BufferedWriter (fstream);
+              final Formatter cmdf = new Formatter ();
+              out.write (cmdf.format ("%+3.1f", T).toString ());
+              out.close ();
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Error: " + e.getMessage ());
+            }
+            try
+            {
+              final String sFile = "/tmp/airid" + airid + "P";
+              final FileWriter fstream = new FileWriter (sFile);
+              final BufferedWriter out = new BufferedWriter (fstream);
+              final Formatter cmdf = new Formatter ();
+              out.write (cmdf.format ("%+4d", P).toString ());
+              out.close ();
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Error: " + e.getMessage ());
+            }
+            try
+            {
+              final String sFile = "/tmp/airid" + airid + "RH";
+              final FileWriter fstream = new FileWriter (sFile);
+              final BufferedWriter out = new BufferedWriter (fstream);
+              final Formatter cmdf = new Formatter ();
+              out.write (cmdf.format ("%+3d", RH).toString ());
+              out.close ();
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Error: " + e.getMessage ());
+            }
           }
 
         }

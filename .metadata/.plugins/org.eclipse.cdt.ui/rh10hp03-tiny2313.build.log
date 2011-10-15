@@ -2,38 +2,16 @@
 **** Build of configuration Release for project rh10hp03-tiny2313 ****
 
 make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
-Finished building: ../main.c
- 
-Building target: rh10hp03-tiny2313.elf
-Invoking: AVR C++ Linker
-avr-g++ -Wl,-Map,rh10hp03-tiny2313.map,--cref -mmcu=atmega8 -o "rh10hp03-tiny2313.elf"  ./main.o ./rf12.o ./twimaster.o ./uart.o   
-Finished building target: rh10hp03-tiny2313.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S rh10hp03-tiny2313.elf  >"rh10hp03-tiny2313.lss"
-Finished building: rh10hp03-tiny2313.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -O ihex rh10hp03-tiny2313.elf  "rh10hp03-tiny2313.hex"
-Finished building: rh10hp03-tiny2313.hex
- 
-Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex rh10hp03-tiny2313.elf  "rh10hp03-tiny2313.eep"
-Finished building: rh10hp03-tiny2313.eep
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega8 rh10hp03-tiny2313.elf
 AVR Memory Usage
 ----------------
 Device: atmega8
 
-Program:    3220 bytes (39.3% Full)
+Program:    4760 bytes (58.1% Full)
 (.text + .data + .bootloader)
 
-Data:        281 bytes (27.4% Full)
+Data:        299 bytes (29.2% Full)
 (.data + .bss + .noinit)
 
 

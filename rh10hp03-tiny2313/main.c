@@ -36,6 +36,9 @@ static struct {
 #define HH10_CAL_ADDR_W  0xA2
 #define HH10_CAL_ADDR_R  0xA3
 
+#define TIMER_ADDR_W	0xAA
+#define TIMER_ADDR_R	0xAB
+
 int RH[16];
 int RHcount = 0;
 
@@ -116,10 +119,10 @@ void send() {
 	int ttemp = t;
 	int ptemp = p;
 
-//	char s[100];
-//	sprintf(s, "t:%d p:%d", ttemp, ptemp);
-//	uart_puts(s);
-//
+	char s[100];
+	sprintf(s, "rh: %d, t:%d p:%d", RHvalue, ttemp, ptemp);
+	uart_puts(s);
+
 	char buf[32]; // = "g123456789012345678901234567890\0\0\0";
 	buf[0] = 'f';
 	memcpy(buf + 1, &RHvalue, 2);
@@ -273,6 +276,19 @@ int main() {
 			send();
 			uart_puts(")R");
 			uart_puts("done\r\n\r\n");
+
+//			i2c_start_wait(TIMER_ADDR_W);
+//			i2c_write(0x99);
+//			i2c_write(0x99);
+//			i2c_write(0x99);
+//			i2c_stop();
+//
+//			while(1)
+//			{
+//				set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+//				sleep_enable();
+//				sleep_cpu();
+//			}
 		}
 
 		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
