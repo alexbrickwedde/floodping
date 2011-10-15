@@ -34,6 +34,14 @@ public class UdpReceiver
     }
   }
 
+  public double calc_dewpoint (int h, int t)
+  {
+    double H, dew_point;
+    H = (Math.log10 (h) - 2.0) / 0.4343 + (17.62 * t) / (243.12 + t);
+    dew_point = 243.12 * H / (17.62 - H);
+    return dew_point;
+  }
+
   private void internal_run ()
   {
     DatagramSocket serverSocket;
@@ -174,9 +182,13 @@ public class UdpReceiver
 
           if ((RH >= 0) && (RH <= 100))
           {
+
+            double Dew = this.calc_dewpoint (RH, new Double (T).intValue ());
+
             SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
             df.setTimeZone (TimeZone.getDefault ());
             Main.PutValue (airid + "T", new Double (T).toString (), df.format (new Date ()));
+            Main.PutValue (airid + "D", new Double (Dew).toString (), df.format (new Date ()));
             Main.PutValue (airid + "P", new Integer (P).toString (), df.format (new Date ()));
             Main.PutValue (airid + "RH", new Integer (RH).toString (), df.format (new Date ()));
 
@@ -187,6 +199,19 @@ public class UdpReceiver
               final BufferedWriter out = new BufferedWriter (fstream);
               final Formatter cmdf = new Formatter ();
               out.write (cmdf.format ("%+3.1f", T).toString ());
+              out.close ();
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Error: " + e.getMessage ());
+            }
+            try
+            {
+              final String sFile = "/tmp/airid" + airid + "D";
+              final FileWriter fstream = new FileWriter (sFile);
+              final BufferedWriter out = new BufferedWriter (fstream);
+              final Formatter cmdf = new Formatter ();
+              out.write (cmdf.format ("%+3.1f", Dew).toString ());
               out.close ();
             }
             catch (final Exception e)
