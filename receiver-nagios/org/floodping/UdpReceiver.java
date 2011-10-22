@@ -39,7 +39,7 @@ public class UdpReceiver
     double H, dew_point;
     H = (Math.log10 (h) - 2.0) / 0.4343 + (17.62 * t) / (243.12 + t);
     dew_point = 243.12 * H / (17.62 - H);
-    return dew_point;
+    return Math.round (dew_point * 10) / 10;
   }
 
   private void internal_run ()
