@@ -621,3 +621,63 @@ HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.apply.refactoring.script
 HandlerActivation(commandId=org.eclipse.ltk.ui.refactor.apply.refactoring.script,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.ltk.ui.refactoring.actions.ApplyRefactoringScriptAction),
 	expression=AndExpression(ActionSetExpression(org.eclipse.cdt.ui.CodingActionSet,org.eclipse.ui.internal.WorkbenchWindow@4d74f02c),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@4d74f02c)),sourcePriority=16640)
+!SESSION 2011-10-23 15:08:09.084 -----------------------------------------------
+eclipse.buildId=M20110912-1510
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:09:22.194
+!MESSAGE Indexed 'avrusb' (4 sources, 14 headers) in 0,21 sec: 136 declarations; 963 references; 29 unresolved inclusions; 1 syntax errors; 134 unresolved names (10,87 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:09:36.077
+!MESSAGE Indexed 'bma020-tiny2313' (3 sources, 12 headers) in 0,07 sec: 104 declarations; 379 references; 36 unresolved inclusions; 0 syntax errors; 47 unresolved names (8,87 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:09:53.159
+!MESSAGE Indexed 'CAN1' (33 sources, 39 headers) in 0,75 sec: 873 declarations; 2.206 references; 6 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:10:08.996
+!MESSAGE Indexed 'distancesensor-tiny85' (2 sources, 31 headers) in 0,25 sec: 290 declarations; 1.003 references; 9 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:10:47.313
+!MESSAGE Indexed 'kerze-tiny2313' (1 sources, 8 headers) in 0,01 sec: 7 declarations; 25 references; 13 unresolved inclusions; 0 syntax errors; 24 unresolved names (42,86 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:11:01.668
+!MESSAGE Indexed 'klinke' (1 sources, 8 headers) in 0,01 sec: 13 declarations; 45 references; 14 unresolved inclusions; 0 syntax errors; 35 unresolved names (37,63 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:11:18.247
+!MESSAGE Indexed 'marderschreck' (1 sources, 8 headers) in 0,01 sec: 8 declarations; 28 references; 14 unresolved inclusions; 0 syntax errors; 14 unresolved names (28,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:11:32.882
+!MESSAGE Indexed 'MiniWordClock' (2 sources, 10 headers) in 0,05 sec: 57 declarations; 630 references; 13 unresolved inclusions; 0 syntax errors; 53 unresolved names (7,16 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:11:53.430
+!MESSAGE Indexed 'netio' (327 sources, 286 headers) in 3,88 sec: 11.815 declarations; 51.231 references; 105 unresolved inclusions; 166 syntax errors; 3.675 unresolved names (5,51 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:12:04.406
+!MESSAGE Indexed 'rfid-reader' (3 sources, 10 headers) in 0,02 sec: 59 declarations; 288 references; 18 unresolved inclusions; 2 syntax errors; 135 unresolved names (28,01 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:12:16.553
+!MESSAGE Indexed 'rfm12-tiny2313' (5 sources, 34 headers) in 0,16 sec: 745 declarations; 1.059 references; 6 unresolved inclusions; 6 syntax errors; 87 unresolved names (4,60 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:12:28.458
+!MESSAGE Indexed 'rh10hp03-tiny2313' (4 sources, 37 headers) in 0,25 sec: 856 declarations; 1.845 references; 9 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:12:39.931
+!MESSAGE Indexed 'Schlafzimmer' (3 sources, 10 headers) in 0,07 sec: 232 declarations; 726 references; 19 unresolved inclusions; 0 syntax errors; 212 unresolved names (18,12 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:12:52.982
+!MESSAGE Indexed 'serverraum-tiny2313' (6 sources, 20 headers) in 0,08 sec: 263 declarations; 1.243 references; 31 unresolved inclusions; 13 syntax errors; 192 unresolved names (11,31 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:13:06.601
+!MESSAGE Indexed 'timer-tiny85' (2 sources, 35 headers) in 0,17 sec: 553 declarations; 1.232 references; 9 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:13:18.998
+!MESSAGE Indexed 'usbavrlab' (27 sources, 24 headers) in 0,20 sec: 884 declarations; 4.204 references; 152 unresolved inclusions; 20 syntax errors; 831 unresolved names (14,04 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:13:31.024
+!MESSAGE Indexed 'usb-mega32' (3 sources, 26 headers) in 0,16 sec: 372 declarations; 1.193 references; 6 unresolved inclusions; 3 syntax errors; 7 unresolved names (0,45 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-23 15:13:44.705
+!MESSAGE Indexed 'wordclock' (5 sources, 37 headers) in 0,19 sec: 908 declarations; 3.279 references; 9 unresolved inclusions; 1 syntax errors; 0 unresolved names (0,00 %)
