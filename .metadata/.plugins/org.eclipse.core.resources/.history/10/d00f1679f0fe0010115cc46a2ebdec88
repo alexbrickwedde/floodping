@@ -16,10 +16,11 @@
 
 #include <inttypes.h>
 #include <avr/io.h>
+#include <avr/wdt.h>
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
-#include "irmp.h"
+//#include "irmp.h"
 
 //####################################################################### Macros
 
@@ -41,27 +42,27 @@ uint8_t high, low = 0; // Variables used with uniq (high and low byte)
 #error F_CPU unkown
 #endif
 
-#define F_INTERRUPT   10000                                                     // 10000 interrupts per second
-void timer_init(void) {
-#define PRESCALER 8
-	TCCR0A = (1 << WGM01); /* IR polling timer */
-	TCCR0B = (1 << CS01); // switch CTC Mode on, set prescaler to 1
+//#define F_INTERRUPT   10000                                                     // 10000 interrupts per second
+//void timer_init(void) {
+//#define PRESCALER 8
+//	TCCR0A = (1 << WGM01); /* IR polling timer */
+//	TCCR0B = (1 << CS01); // switch CTC Mode on, set prescaler to 1
+//
+//	// may adjust IR polling rate here to optimize IR receiving:
+//	OCR0A = (F_CPU / F_INTERRUPT / PRESCALER) - 1; // compare value: 1/10000 of CPU frequency
+//
+//	// enable Timer1 for IR polling
+//	TIMSK = 1 << OCIE0A; // Timer0A ISR activate
+//}
 
-	// may adjust IR polling rate here to optimize IR receiving:
-	OCR0A = (F_CPU / F_INTERRUPT / PRESCALER) - 1; // compare value: 1/10000 of CPU frequency
-
-	// enable Timer1 for IR polling
-	TIMSK = 1 << OCIE0A; // Timer0A ISR activate
-}
-
-/*---------------------------------------------------------------------------------------------------------------------------------------------------
- * timer 1 compare handler, should be called every 1/10000 sec
- *---------------------------------------------------------------------------------------------------------------------------------------------------
- */
-void TIMER0_COMPA_vect(void) __attribute__((interrupt));
-void TIMER0_COMPA_vect(void) {
-	irmp_ISR();
-}
+///*---------------------------------------------------------------------------------------------------------------------------------------------------
+// * timer 1 compare handler, should be called every 1/10000 sec
+// *---------------------------------------------------------------------------------------------------------------------------------------------------
+// */
+//void TIMER0_COMPA_vect(void) __attribute__((interrupt));
+//void TIMER0_COMPA_vect(void) {
+//	irmp_ISR();
+//}
 
 uint16_t adc_read(void) {
 	uint16_t temp;
@@ -89,11 +90,15 @@ uint16_t adc_read_avg(uint8_t average) {
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
 int main(void) {
+
+	wdt_reset();
+	WDTCR = (1 << WDP3) | (1 << WDP0) | (1 << WDE);
+
 	cli();
 
-	IRMP_DATA irmp_data;
-	irmp_init(); // initialize rc5
-	timer_init();
+//	IRMP_DATA irmp_data;
+//	irmp_init(); // initialize rc5
+//	timer_init();
 
 	DDRB = (1 << PB0);
 
@@ -107,38 +112,40 @@ int main(void) {
 
 	for (;;) {
 
-		int iRes = adc_read_avg(10);
-		if (iRes > 240)
-		{
-		  OCR1A = 255;
-		}
-		else if (iRes > 200)
-		{
-		  OCR1A = 200;
-		}
-		else if (iRes > 200)
-		{
-		  OCR1A = 100;
-		}
+		wdt_reset();
 
+#define STEP_OFF     700
+#define STEP_1       600
+#define STEP_2       500
 
-		OCR1A = adc_read_avg(10) >> 2;
+		int iRes = adc_read_avg(4);
+		if (iRes > STEP_OFF)
+		{
+			OCR1A = 255;
+		} else if (iRes > STEP_1)
+		{
+			OCR1A = 100;
+		} else if (iRes > STEP_2)
+		{
+			OCR1A = 220;
+		} else {
+			OCR1A = 250;
+		}
 
 		_delay_ms(1);
 
-		if (irmp_get_data(&irmp_data)) {
-			cli();
-			switch (irmp_data.address) {
-			case 0:
-				switch (irmp_data.command) {
-				case 0:
-					break;
-				}
-				break;
-			}
-			sei();
-			_delay_ms(500);
-		}
+//		if (irmp_get_data(&irmp_data)) {
+//			switch (irmp_data.address) {
+//			case 0b1110111100000000:
+//				switch (irmp_data.command) {
+//				case 20:
+//					bOn = bOn ? 0 : 1;
+//					break;
+//				}
+//				break;
+//			}
+//			_delay_ms(500);
+//		}
 	}
 	return 0;
 }

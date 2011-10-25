@@ -137,7 +137,7 @@ Disassembly of section .text:
   c2:	80 ec       	ldi	r24, 0xC0	; 192
   c4:	86 b9       	out	0x06, r24	; 6
   c6:	78 94       	sei
-  c8:	9a ef       	ldi	r25, 0xFA	; 250
+  c8:	9c ef       	ldi	r25, 0xFC	; 252
   ca:	e9 2e       	mov	r14, r25
   cc:	8c ed       	ldi	r24, 0xDC	; 220
   ce:	f8 2e       	mov	r15, r24

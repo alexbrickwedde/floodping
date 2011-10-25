@@ -129,7 +129,7 @@ int main(void) {
 		{
 			OCR1A = 220;
 		} else {
-			OCR1A = 250;
+			OCR1A = 252;
 		}
 
 		_delay_ms(1);
