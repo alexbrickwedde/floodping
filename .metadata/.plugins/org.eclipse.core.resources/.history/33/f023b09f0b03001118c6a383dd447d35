@@ -123,29 +123,37 @@ int main(void) {
 		int uiSoll = 255;
 
 		int iRes = adc_read_avg(4);
-		if (iRes > STEP_OFF) {
-			uiSoll = 255;
-			uiIst = 255;
-		} else if (iRes > STEP_1) {
+		if (iRes > STEP_OFF)
+		{
+			uiSoll =255;
+			uiIst =255;
+		} else if (iRes > STEP_1)
+		{
 			uiSoll = 100;
-		} else if (iRes > STEP_2) {
+		} else if (iRes > STEP_2)
+		{
 			uiSoll = 220;
 		} else {
 			uiSoll = 252;
 		}
 
-		if (uiSoll < uiIst) {
-			if (uiIst > 220) {
-				uiIst = 0;
-			} else {
+		if (uiSoll < uiIst)
+		{
+			if(uiIst>=220)
+			{
+			  uiIst = 0;
+			}
+			else
+			{
 				uiIst--;
 			}
-		} else if (uiSoll > uiIst) {
-			uiIst++;
+		} else if (uiSoll> uiIst)
+		{
+		  uiIst++;
 		}
 
 		OCR1A = uiIst;
-		_delay_ms(400);
+		_delay_ms(40);
 
 //		if (irmp_get_data(&irmp_data)) {
 //			switch (irmp_data.address) {

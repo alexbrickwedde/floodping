@@ -145,7 +145,7 @@ int main(void) {
 		}
 
 		OCR1A = uiIst;
-		_delay_ms(400);
+		_delay_ms(40);
 
 //		if (irmp_get_data(&irmp_data)) {
 //			switch (irmp_data.address) {

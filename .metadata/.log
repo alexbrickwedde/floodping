@@ -849,3 +849,24 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.ui 4 4 2011-10-25 12:01:57.208
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-10-26 09:49:06.795 -----------------------------------------------
+eclipse.buildId=M20110912-1510
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-10-26 09:49:29.530
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-10-30 16:17:06.734 -----------------------------------------------
+eclipse.buildId=M20110912-1510
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2011-10-30 16:17:12.437
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 4 4 2011-10-30 16:23:35.774
+!MESSAGE Invalid preference page path: XML Syntax
