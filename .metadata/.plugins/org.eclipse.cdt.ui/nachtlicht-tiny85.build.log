@@ -1,0 +1,43 @@
+
+**** Build of configuration Release for project nachtlicht-tiny85 ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny85 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: nachtlicht-tiny85.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,nachtlicht-tiny85.map,--cref -mmcu=attiny85 -o "nachtlicht-tiny85.elf"  ./irmp.o ./main.o   
+Finished building target: nachtlicht-tiny85.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S nachtlicht-tiny85.elf  >"nachtlicht-tiny85.lss"
+Finished building: nachtlicht-tiny85.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex nachtlicht-tiny85.elf  "nachtlicht-tiny85.hex"
+Finished building: nachtlicht-tiny85.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex nachtlicht-tiny85.elf  "nachtlicht-tiny85.eep"
+Finished building: nachtlicht-tiny85.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny85 nachtlicht-tiny85.elf
+AVR Memory Usage
+----------------
+Device: attiny85
+
+Program:     346 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          6 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

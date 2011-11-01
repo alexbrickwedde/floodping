@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="23" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="100" y="70">
 <fastViewData fastViewLocation="1024"/>
@@ -40,13 +40,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UdpReceiver.java" partName="UdpReceiver.java" path="/home/alex/workspace/floodping/receiver-nagios/org/floodping/UdpReceiver.java" title="UdpReceiver.java" tooltip="receiver-nagios/org/floodping/UdpReceiver.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/receiver-nagios/org/floodping/UdpReceiver.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5515" selectionTopPixel="2574"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1040" selectionTopPixel="323"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChatReceiver.java" partName="ChatReceiver.java" path="/home/alex/workspace/floodping/receiver-nagios/org/floodping/ChatReceiver.java" title="ChatReceiver.java" tooltip="receiver-nagios/org/floodping/ChatReceiver.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/receiver-nagios/org/floodping/ChatReceiver.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1502" selectionTopPixel="126"/>
 </editor>
 </editors>
 <views>
@@ -412,103 +417,17 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/timer-tiny85/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/rh10hp03-tiny2313/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/rh10hp03-tiny2313/twimaster.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/timer-tiny85/usiTwiSlave.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/timer-tiny85/usiTwiSlave.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/receiver-nagios/org/floodping/UdpReceiver.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/rh10hp03-tiny2313/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/receiver-nagios/org/floodping/ChatReceiver.java"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="421" y="10"/>
+<item historyLabel="UdpReceiver.java" index="0">
+<position info="not_deleted" x="542" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
-<position/>
+<item historyLabel="ChatReceiver.java" index="1">
+<position info="not_deleted" x="1502" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1539" y="4"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="twimaster.c" index="2">
-<position info="not_deleted" x="3762" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="twimaster.c" index="2">
-<position info="not_deleted" x="3762" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2469" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2469" y="0"/>
-</item>
-<item historyLabel="usiTwiSlave.c" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usiTwiSlave.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usiTwiSlave.c" index="3">
-<position info="not_deleted" x="884" y="0"/>
-</item>
-<item historyLabel="usiTwiSlave.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="usiTwiSlave.c" index="3">
-<position info="not_deleted" x="884" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2469" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="4306" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="2373" y="0"/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="4240" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="2152" y="0"/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="4240" y="0"/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position/>
-</item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="2374" y="0"/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="5100" y="0"/>
-</item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="2552" y="0"/>
-</item>
-<item historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="5086" y="0"/>
-</item>
-<item active="true" historyLabel="UdpReceiver.java" index="5">
-<position info="not_deleted" x="5514" y="0"/>
+<item active="true" historyLabel="UdpReceiver.java" index="0">
+<position info="not_deleted" x="542" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -527,11 +446,23 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="rh10hp03-tiny2313/main.c">
-<persistable path="/rh10hp03-tiny2313/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChatReceiver.java" tooltip="receiver-nagios/org/floodping/ChatReceiver.java">
+<persistable path="/receiver-nagios/org/floodping/ChatReceiver.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UdpReceiver.java" tooltip="receiver-nagios/org/floodping/UdpReceiver.java">
 <persistable path="/receiver-nagios/org/floodping/UdpReceiver.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="irmp.c" tooltip="nachtlicht-tiny85/irmp.c">
+<persistable path="/nachtlicht-tiny85/irmp.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="nachtlicht-tiny85/main.c">
+<persistable path="/nachtlicht-tiny85/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="irmpconfig.h" tooltip="ir-receiver-tiny85/irmpconfig.h">
+<persistable path="/ir-receiver-tiny85/irmpconfig.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="rh10hp03-tiny2313/main.c">
+<persistable path="/rh10hp03-tiny2313/main.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usiTwiSlave.h" tooltip="timer-tiny85/usiTwiSlave.h">
 <persistable path="/timer-tiny85/usiTwiSlave.h"/>
@@ -559,18 +490,6 @@
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="iom32.h" tooltip="/opt/cross/avr/avr/include/avr/iom32.h">
 <persistable path="/opt/cross/avr/avr/include/avr/iom32.h" project="rh10hp03-tiny2313"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="rh10hp03-tiny2313/uart.c">
-<persistable path="/rh10hp03-tiny2313/uart.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usiTwiSlave.c" tooltip="rh10hp03-tiny2313/usiTwiSlave.c">
-<persistable path="/rh10hp03-tiny2313/usiTwiSlave.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usiTwiSlave.h" tooltip="rh10hp03-tiny2313/usiTwiSlave.h">
-<persistable path="/rh10hp03-tiny2313/usiTwiSlave.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf12.c" tooltip="rh10hp03-tiny2313/rf12.c">
-<persistable path="/rh10hp03-tiny2313/rf12.c"/>
 </file>
 </mruList>
 </workbench>
