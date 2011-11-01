@@ -21,14 +21,14 @@
 		xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/gestures"
 		android:gestureStrokeType="multiple"
 		android:eventsInterceptionEnabled="true" android:layout_width="match_parent"
-		android:layout_height="200px" android:orientation="vertical"
-		android:layout_gravity="center" android:paddingLeft="50px">
+		android:layout_height="match_parent" android:orientation="vertical"
+		android:layout_gravity="center" >
 
 		<ImageView android:tint="#55ff0000" android:background="@drawable/zifferblatt"
 			android:layout_height="200px" android:layout_width="200px" />
+		<ListView android:layout_width="match_parent" android:id="@+id/in"
+			android:layout_height="match_parent" android:paddingTop="200px"></ListView>
 	</android.gesture.GestureOverlayView>
-	<ListView android:layout_width="wrap_content" android:id="@+id/in"
-		android:layout_height="200px"></ListView>
 	<!--
 		ScrollView android:id="@+id/widget54"
 		android:layout_width="fill_parent"
