@@ -1,5 +1,5 @@
-#Sat Oct 22 19:54:29 CEST 2011
-avrtarget/ClockFrequency=1000000
+#Tue Nov 01 11:40:28 CET 2011
+avrtarget/ClockFrequency=8000000
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
 avrtarget/MCUType=attiny85

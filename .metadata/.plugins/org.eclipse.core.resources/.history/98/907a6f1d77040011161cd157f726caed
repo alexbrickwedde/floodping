@@ -102,7 +102,7 @@ int main(void) {
 
 	DDRB = (1 << PB0);
 
-	TCCR1 = (1 << PWM1A) | (1 << COM1A0) | (1 << CS10) | (1 << CS13);
+	TCCR1 = (1 << PWM1A) | (1 << COM1A0) | (1 << CS11) | (1 << CS12) | (1 << CS13);
 	OCR1A = 240;
 
 	ADMUX = (1 << MUX0) | (1 << MUX1);
@@ -145,7 +145,7 @@ int main(void) {
 		}
 
 		OCR1A = uiIst;
-		_delay_ms(100);
+		_delay_ms(50);
 
 //		if (irmp_get_data(&irmp_data)) {
 //			switch (irmp_data.address) {

@@ -110,6 +110,8 @@ int main(void) {
 
 	sei ();
 
+	int uiIst = 255;
+
 	for (;;) {
 
 		wdt_reset();
@@ -118,21 +120,32 @@ int main(void) {
 #define STEP_1       600
 #define STEP_2       500
 
+		int uiSoll = 255;
+
 		int iRes = adc_read_avg(4);
-		if (iRes > STEP_OFF)
-		{
-			OCR1A = 255;
-		} else if (iRes > STEP_1)
-		{
-			OCR1A = 100;
-		} else if (iRes > STEP_2)
-		{
-			OCR1A = 220;
+		if (iRes > STEP_OFF) {
+			uiSoll = 255;
+			//uiIst = 255;
+		} else if (iRes > STEP_1) {
+			uiSoll = 100;
+		} else if (iRes > STEP_2) {
+			uiSoll = 220;
 		} else {
-			OCR1A = 252;
+			uiSoll = 254;
 		}
 
-		_delay_ms(1);
+		if (uiSoll < uiIst) {
+			if (uiIst > 220) {
+				uiIst = 0;
+			} else {
+				uiIst--;
+			}
+		} else if (uiSoll > uiIst) {
+			uiIst++;
+		}
+
+		OCR1A = uiIst;
+		_delay_ms(50);
 
 //		if (irmp_get_data(&irmp_data)) {
 //			switch (irmp_data.address) {

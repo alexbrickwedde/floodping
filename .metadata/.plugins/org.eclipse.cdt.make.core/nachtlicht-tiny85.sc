@@ -120,6 +120,7 @@
 <definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
 <definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
 <definedSymbol symbol="F_CPU=1000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.release.1561181561;de.innot.avreclipse.configuration.app.release.1561181561.;de.innot.avreclipse.tool.cppcompiler.app.release.883151941;de.innot.avreclipse.cppcompiler.input.1174274060">
@@ -244,6 +245,7 @@
 <definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
 <definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
 <definedSymbol symbol="F_CPU=1000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 <instance id="de.innot.avreclipse.configuration.app.release.1561181561;de.innot.avreclipse.configuration.app.release.1561181561.;de.innot.avreclipse.tool.compiler.winavr.app.release.251984429;de.innot.avreclipse.compiler.winavr.input.846193446">
@@ -364,6 +366,7 @@
 <definedSymbol symbol="__AVR_HAVE_MOVW__=1"/>
 <definedSymbol symbol="__AVR_HAVE_LPMX__=1"/>
 <definedSymbol symbol="F_CPU=1000000UL"/>
+<definedSymbol symbol="F_CPU=8000000UL"/>
 </collector>
 </instance>
 </scannerInfo>
