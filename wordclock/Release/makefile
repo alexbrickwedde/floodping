@@ -97,7 +97,7 @@ sizedummy: wordclock.elf
 
 avrdudedummy: wordclock.elf
 	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
+	avrdude -pnull -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
 	@echo 'Finished building: $@'
 	@echo ' '
 

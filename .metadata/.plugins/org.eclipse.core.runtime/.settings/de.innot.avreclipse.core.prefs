@@ -1,7 +1,7 @@
-#Fri Aug 19 22:37:19 CEST 2011
+#Mon Nov 07 22:39:36 CET 2011
 avrdudepropertypage/weight_preview_expanded=20
 avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
-avrpaths//systempath/AVRGCC=/usr/bin
+avrpaths//systempath/AVRGCC=
 avrdude/configs/programmerconfig.1/programmer=usbasp
 avrdude/configs/programmerconfig.2/ppvccline=
 avrdude/configs/programmerconfig.2/baudrate=57600
@@ -23,6 +23,6 @@ avrdudepropertypage/weight_top_expanded=80
 avrpaths//systempath/AVRINCLUDE=/opt/cross/avr/avr/include
 avrdude/configs/programmerconfig.1/name=usbasp
 avrdude/configs/programmerconfig.1/baudrate=
-avrpaths//systempath/AVRDUDE=/usr/bin
+avrpaths//systempath/AVRDUDE=
 avrpaths//systempath/MAKE=/usr/bin
 avrdude/configs/programmerconfig.2/name=STK500_COM34

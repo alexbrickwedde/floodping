@@ -2,33 +2,10 @@
 **** Build of configuration Release for project wordclock ****
 
 make all 
-Building target: wordclock.elf
-Invoking: AVR C++ Linker
-avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf"  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o   
-Finished building target: wordclock.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S wordclock.elf  >"wordclock.lss"
-Finished building: wordclock.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -O ihex wordclock.elf  "wordclock.hex"
-Finished building: wordclock.hex
- 
-Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex wordclock.elf  "wordclock.eep"
-Finished building: wordclock.eep
- 
-Invoking: Print Size
-avr-size --format=berkeley -t wordclock.elf
-   text	   data	    bss	    dec	    hex	filename
-  12382	   1216	     81	  13679	   356f	wordclock.elf
-  12382	   1216	     81	  13679	   356f	(TOTALS)
-Finished building: sizedummy
- 
-Invoking: AVRDude
-/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
-avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
-make: *** [avrdudedummy] Error 1
+/bin/sh: avr-gcc: command not found
+make: *** [main.o] Fehler 127
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
 
 **** Build Finished ****

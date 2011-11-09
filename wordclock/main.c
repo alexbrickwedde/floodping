@@ -484,13 +484,17 @@ main()
     ldr_read();
 
     uint8_t uiBright = 0xff;
-    if (uiBrightControl != 0)
+    if (uiBrightControl < 0)
     {
-      uiBright = ldr_get_brightness();
+      uiBright = 0;
     }
-    if (uiBright < 128)
+    else if (uiBrightControl > 0)
     {
-      uiBright = (uiBright >> 1) + 64;
+		uiBright = ldr_get_brightness();
+	    if (uiBright < 128)
+	    {
+	      uiBright = (uiBright >> 1) + 64;
+	    }
     }
     SetColor(uiBright, uiR, uiG, uiB);
 
@@ -610,11 +614,16 @@ main()
                 uiBrightControl = uiBrightControl != 0 ? 0 : 1;
                 save_byte(cBrightControl, uiBrightControl);
                 char s[100];
-                sprintf(s, "brightness control is %s\r\n", uiBrightControl != 0 ? "active" : "inactive");
+                sprintf(s, "brightness control is %s\r\n", uiBrightControl > 0 ? "active" : "inactive");
                 uartPuts(s);
               }
               break;
             }
+          }
+          break;
+        case 'o':
+          {
+            uiBrightControl = -1;
           }
           break;
         case 'c':
@@ -1100,6 +1109,11 @@ main()
       }
       else if (time.sunrise >= 100)
       {
+	    if ( (uiBrightControl == -1) )
+        {
+          uiBrightControl = 1;
+        }
+	    
         uiR = 0xff;
         uiG = 0xff;
         uiB = 0x80;
