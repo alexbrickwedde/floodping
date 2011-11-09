@@ -12722,3 +12722,253 @@ Finished building: sizedummy
  
 
 **** Build Finished ****
+
+**** Clean-only build of configuration Debug for project wordclock ****
+
+make clean 
+rm -rf  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o  ./i2c-master.d ./i2c-rtc.d ./ldr.d ./main.d ./timer.d  wordclock.lss  sizedummy  wordclock.elf
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project wordclock ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+In file included from ../i2c-master.c:23:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay.h:94:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../i2c-master.c
+ 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+In file included from ../i2c-rtc.c:19:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay.h:94:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../i2c-rtc.c
+ 
+Building file: ../ldr.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"ldr.d" -MT"ldr.d" -c -o "ldr.o" "../ldr.c"
+In file included from ../ldr.c:26:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay.h:94:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:4:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/delay.h:94:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ldr.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../timer.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"timer.d" -MT"timer.d" -c -o "timer.o" "../timer.c"
+Finished building: ../timer.c
+ 
+Building target: wordclock.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf"  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o   
+Finished building target: wordclock.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S wordclock.elf  >"wordclock.lss"
+Finished building: wordclock.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 wordclock.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   34516 bytes (105.3% Full)
+(.text + .data + .bootloader)
+
+Data:       1307 bytes (63.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Release for project wordclock ****
+
+make clean 
+rm -rf  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o  ./i2c-master.d ./i2c-rtc.d ./ldr.d ./main.d ./timer.d  wordclock.eep  wordclock.hex  wordclock.lss  avrdudedummy  sizedummy  wordclock.elf
+ 
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Release for project wordclock ****
+
+make clean 
+rm -rf  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o  ./i2c-master.d ./i2c-rtc.d ./ldr.d ./main.d ./timer.d  wordclock.eep  wordclock.hex  wordclock.lss  avrdudedummy  sizedummy  wordclock.elf
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Release for project wordclock ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+Finished building: ../i2c-rtc.c
+ 
+Building file: ../ldr.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"ldr.d" -MT"ldr.d" -c -o "ldr.o" "../ldr.c"
+Finished building: ../ldr.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../timer.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"timer.d" -MT"timer.d" -c -o "timer.o" "../timer.c"
+Finished building: ../timer.c
+ 
+Building target: wordclock.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf"  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o   
+Finished building target: wordclock.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S wordclock.elf  >"wordclock.lss"
+Finished building: wordclock.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex wordclock.elf  "wordclock.hex"
+Finished building: wordclock.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex wordclock.elf  "wordclock.eep"
+Finished building: wordclock.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 wordclock.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13618 bytes (41.6% Full)
+(.text + .data + .bootloader)
+
+Data:       1297 bytes (63.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project wordclock ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: wordclock.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf"  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o   
+Finished building target: wordclock.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S wordclock.elf  >"wordclock.lss"
+Finished building: wordclock.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex wordclock.elf  "wordclock.hex"
+Finished building: wordclock.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex wordclock.elf  "wordclock.eep"
+Finished building: wordclock.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 wordclock.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13718 bytes (41.9% Full)
+(.text + .data + .bootloader)
+
+Data:       1303 bytes (63.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project wordclock ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\WinAVR-20100110\avr\include" -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:442: warning: pointer targets in passing argument 2 of 'read_byte' differ in signedness
+Finished building: ../main.c
+ 
+Building target: wordclock.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,wordclock.map,--cref -mmcu=atmega32 -o "wordclock.elf"  ./i2c-master.o ./i2c-rtc.o ./ldr.o ./main.o ./timer.o   
+Finished building target: wordclock.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S wordclock.elf  >"wordclock.lss"
+Finished building: wordclock.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex wordclock.elf  "wordclock.hex"
+Finished building: wordclock.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex wordclock.elf  "wordclock.eep"
+Finished building: wordclock.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 wordclock.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13758 bytes (42.0% Full)
+(.text + .data + .bootloader)
+
+Data:       1307 bytes (63.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm32 -cusbasp -u -Uflash:w:wordclock.hex:a -Ueeprom:w:wordclock.eep:a -Ulfuse:w:0xde:m -Uhfuse:w:0x99:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****

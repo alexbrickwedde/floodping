@@ -7,11 +7,11 @@
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
-		<item value="598" key="DIALOG_WIDTH"/>
+		<item value="492" key="DIALOG_WIDTH"/>
 		<item value="143" key="DIALOG_Y_ORIGIN"/>
-		<item value="464" key="DIALOG_HEIGHT"/>
 		<item value="475" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="433" key="DIALOG_HEIGHT"/>
+		<item value="1|Sans Serif|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
 		<list key="Search.processedPageIds">

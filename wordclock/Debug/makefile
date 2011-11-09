@@ -70,7 +70,7 @@ wordclock.lss: wordclock.elf
 
 sizedummy: wordclock.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=berkeley -t wordclock.elf
+	-avr-size --format=avr --mcu=atmega32 wordclock.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

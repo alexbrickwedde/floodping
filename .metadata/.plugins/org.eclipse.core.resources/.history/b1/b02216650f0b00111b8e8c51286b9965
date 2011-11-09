@@ -438,7 +438,7 @@ main()
 
   wdt_reset();
 
-  int8_t uiBrightControl = 1;
+  uint8_t uiBrightControl = 1;
   read_byte(cBrightControl, &uiBrightControl);
 
   char s[100];
@@ -625,9 +625,6 @@ main()
           {
             uiBrightControl = -1;
             save_byte(cBrightControl, uiBrightControl);
-            char s[100];
-            sprintf(s, "brightness control is %s\r\n", uiBrightControl < 0 ? "off" : "other");
-            uartPuts(s);
           }
           break;
         case 'c':

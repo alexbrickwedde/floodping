@@ -438,7 +438,7 @@ main()
 
   wdt_reset();
 
-  int8_t uiBrightControl = 1;
+  uint8_t uiBrightControl = 1;
   read_byte(cBrightControl, &uiBrightControl);
 
   char s[100];
