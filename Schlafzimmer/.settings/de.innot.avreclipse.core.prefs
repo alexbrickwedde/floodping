@@ -1,4 +1,4 @@
-#Sun Aug 21 15:14:13 CEST 2011
+#Sat Nov 12 14:11:50 CET 2011
 avrtarget/ClockFrequency=14745600
 avrtarget/ExtRAMSize=0
 avrtarget/ExtendedRAM=false
@@ -11,7 +11,7 @@ avrtarget/avrdude/EEPROMFile=
 avrtarget/avrdude/EEPROMFromConfig=true
 avrtarget/avrdude/FlashFile=
 avrtarget/avrdude/FlashFromConfig=true
-avrtarget/avrdude/Fuses/ByteValues=255\:209
+avrtarget/avrdude/Fuses/ByteValues=63\:209
 avrtarget/avrdude/Fuses/FileName=
 avrtarget/avrdude/Fuses/MCUid=atmega8
 avrtarget/avrdude/Fuses/UseFile=false

@@ -1167,3 +1167,15 @@ org.eclipse.core.runtime.CoreException: Could not write file: /root/workspace/fl
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
 !SUBENTRY 1 org.eclipse.core.filesystem 4 272 2011-11-09 21:18:04.699
 !MESSAGE Could not write file: /root/workspace/floodping/.metadata/.plugins/org.eclipse.cdt.ui.
+!SESSION 2011-11-12 13:48:28.062 -----------------------------------------------
+eclipse.buildId=M20110912-1510
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-11-12 13:50:00.037
+!MESSAGE Indexed 'Schlafzimmer' (3 sources, 10 headers) in 0,41 sec: 232 declarations; 726 references; 19 unresolved inclusions; 0 syntax errors; 212 unresolved names (18,12 %)
+
+!ENTRY org.eclipse.ui 4 4 2011-11-12 13:52:12.462
+!MESSAGE Invalid preference page path: XML Syntax
