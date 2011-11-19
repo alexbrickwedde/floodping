@@ -25,14 +25,11 @@ bma020-tiny2313
 distancesensor-tiny85
  distance-sensor for "Schlafzimmer", measuring distance via sharp sensor, connection via I2C (this is slave)
 
-ethersex
- empty
-
 ir-receiver-tiny85
  ir receiver for "Schlafzimmer", via I2C (this is slave)
 
 kerze-tiny2313
- please ignore
+ for testing
 
 klinke
  project for moving a servo
@@ -41,7 +38,7 @@ librfm12
  library for RFM12
 
 marderschreck
- please ignore
+ for testing
 
 nachtlicht-tiny85
  night-light via LDR light sensor
@@ -62,14 +59,13 @@ rh10hp03-tiny2313
  pressure and moisture sensor, sending via RFM12 (for "netio")
 
 serverraum-tiny2313
- please ignore
+ for testing
 
 timer-tiny85
  power-saver, controllable via i2c
 
 usb-mega32
 usbavrlab
-vusb
 wordclock-bloader
 wordclock-bloader
  for testing
