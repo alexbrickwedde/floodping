@@ -30,10 +30,10 @@ AVR Memory Usage
 ----------------
 Device: atmega8
 
-Program:    5240 bytes (64.0% Full)
+Program:    6124 bytes (74.8% Full)
 (.text + .data + .bootloader)
 
-Data:        396 bytes (38.7% Full)
+Data:        524 bytes (51.2% Full)
 (.data + .bss + .noinit)
 
 
@@ -54,21 +54,21 @@ avrdude: erasing chip
 avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 avrdude: reading input file "Schlafzimmer.hex"
 avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
-avrdude: writing flash (5240 bytes):
+avrdude: writing flash (6124 bytes):
 
-Writing | ################################################## | 100% 3.63s
+Writing | ################################################## | 100% 4.27s
 
-avrdude: 5240 bytes of flash written
+avrdude: 6124 bytes of flash written
 avrdude: verifying flash memory against Schlafzimmer.hex:
 avrdude: load data flash data from input file Schlafzimmer.hex:
 avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
-avrdude: input file Schlafzimmer.hex contains 5240 bytes
+avrdude: input file Schlafzimmer.hex contains 6124 bytes
 avrdude: reading on-chip flash data:
 
-Reading | ################################################## | 100% 2.68s
+Reading | ################################################## | 100% 3.16s
 
 avrdude: verifying ...
-avrdude: 5240 bytes of flash verified
+avrdude: 6124 bytes of flash verified
 avrdude: reading input file "0x3f"
 avrdude: writing lfuse (1 bytes):
 
@@ -79,9 +79,9 @@ avrdude: 1 bytes of lfuse written
 avrdude: verifying lfuse memory against 0x3f:
 avrdude: load data lfuse data from input file 0x3f:
 avrdude: input file 0x3f contains 1 bytes
+ 
 avrdude: reading on-chip lfuse data:
 
- 
 Reading | ################################################## | 100% 0.00s
 
 avrdude: verifying ...

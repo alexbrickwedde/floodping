@@ -124,7 +124,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000     0x12fa
+.text           0x0000000000000000     0x15ee
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x0000000000000000                __vectors
@@ -200,71 +200,72 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x000000000000008c                __vector_10
                 0x000000000000008c                __vector_16
                 0x000000000000008c                __vector_18
- .text          0x000000000000008e       0xdc ./i2c-master.o
-                0x000000000000015c                i2c_master_read_nak
-                0x000000000000012e                i2c_master_write
+ .text          0x000000000000008e       0xfe ./i2c-master.o
+                0x000000000000017e                i2c_master_read_nak
+                0x0000000000000150                i2c_master_write
                 0x000000000000008e                i2c_master_init
                 0x00000000000000e2                i2c_master_start_wait
-                0x000000000000011e                i2c_master_rep_start
-                0x000000000000014e                i2c_master_read_ack
-                0x0000000000000122                i2c_master_stop
+                0x0000000000000140                i2c_master_rep_start
+                0x0000000000000170                i2c_master_read_ack
+                0x0000000000000144                i2c_master_stop
                 0x00000000000000a6                i2c_master_start
- .text          0x000000000000016a      0x860 ./i2c-rtc.o
-                0x00000000000001aa                add_year
-                0x00000000000003a4                i2c_rtc_read
-                0x000000000000098a                save_byte
-                0x00000000000001ee                add_day
-                0x000000000000086c                i2c_rtc_write
-                0x000000000000075a                i2c_rtc_sram_write
-                0x00000000000001b4                sub_year
-                0x000000000000016a                bcdtoi
-                0x00000000000009aa                set_offset
-                0x00000000000002c6                add_hour
-                0x000000000000031e                i2c_rtc_sram_read
-                0x00000000000001a4                i2c_rtc_get_status
-                0x0000000000000752                read_byte
-                0x0000000000000254                sub_day
-                0x00000000000007d0                i2c_rtc_init
-                0x000000000000017e                itobcd
-                0x00000000000002da                sub_hour
-                0x00000000000001d6                sub_month
-                0x00000000000001be                add_month
-                0x00000000000002f2                add_minute
-                0x0000000000000306                sub_minute
- .text          0x00000000000009ca      0x8c6 ./main.o
-                0x0000000000000b4e                read_distance
-                0x0000000000000b3a                SetColor
-                0x00000000000009e6                __vector_11
-                0x0000000000000b26                InitPWM
-                0x0000000000000b38                LinearizeForEye
-                0x0000000000000bee                main
-                0x00000000000009d2                uartPuts
-                0x0000000000000a52                hex2dez_c
-                0x0000000000000a90                hex2dez
-                0x00000000000009ca                uartPutc
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .text          0x0000000000001290        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
-                0x0000000000001290                . = ALIGN (0x2)
+ .text          0x000000000000018c      0x870 ./i2c-rtc.o
+                0x00000000000001cc                add_year
+                0x00000000000003ce                i2c_rtc_read
+                0x00000000000009bc                save_byte
+                0x0000000000000210                add_day
+                0x000000000000089e                i2c_rtc_write
+                0x0000000000000784                i2c_rtc_sram_write
+                0x00000000000001d6                sub_year
+                0x000000000000018c                bcdtoi
+                0x00000000000009dc                set_offset
+                0x00000000000002e8                add_hour
+                0x0000000000000340                i2c_rtc_sram_read
+                0x00000000000001c6                i2c_rtc_get_status
+                0x000000000000077c                read_byte
+                0x0000000000000276                sub_day
+                0x0000000000000802                i2c_rtc_init
+                0x00000000000001a0                itobcd
+                0x00000000000002fc                sub_hour
+                0x00000000000001f8                sub_month
+                0x00000000000001e0                add_month
+                0x0000000000000314                add_minute
+                0x0000000000000328                sub_minute
+ .text          0x00000000000009fc      0xb88 ./main.o
+                0x0000000000000dfc                read_distance
+                0x0000000000000b6c                SetColor
+                0x0000000000000a18                __vector_11
+                0x0000000000000b58                InitPWM
+                0x0000000000000b6a                LinearizeForEye
+                0x0000000000000eca                main
+                0x0000000000000a04                uartPuts
+                0x0000000000000a84                hex2dez_c
+                0x0000000000000ac2                hex2dez
+                0x00000000000009fc                uartPutc
+                0x0000000000000b80                readIr
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text          0x0000000000001584        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+                0x0000000000001584                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000000000001290       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
-                0x0000000000001290                __udivmodqi4
- .text.libgcc   0x00000000000012a8       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
-                0x00000000000012a8                __divmodhi4
-                0x00000000000012a8                _div
- .text.libgcc   0x00000000000012ce        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x00000000000012ce        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000000012ce        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000000012ce       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
-                0x00000000000012ce                __udivmodhi4
-                0x00000000000012f6                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000001584       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+                0x0000000000001584                __udivmodqi4
+ .text.libgcc   0x000000000000159c       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+                0x000000000000159c                __divmodhi4
+                0x000000000000159c                _div
+ .text.libgcc   0x00000000000015c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000000015c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000000015c2        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000000015c2       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+                0x00000000000015c2                __udivmodhi4
+                0x00000000000015ea                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000012f6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
-                0x00000000000012f6                exit
-                0x00000000000012f6                _exit
+ .fini9         0x00000000000015ea        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                0x00000000000015ea                exit
+                0x00000000000015ea                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -283,11 +284,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000012f6        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .fini0         0x00000000000015ea        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000012fa                _etext = .
+                0x00000000000015ee                _etext = .
 
-.data           0x0000000000800060      0x17e load address 0x00000000000012fa
+.data           0x0000000000800060      0x1fe load address 0x00000000000015ee
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -296,55 +297,56 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x0000000000800088                afall
                 0x000000000080006c                arise
                 0x0000000000800060                amziffer
- .data          0x00000000008000a4      0x13a ./main.o
-                0x0000000000800179                uart_string
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .data          0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+ .data          0x00000000008000a4      0x1b9 ./main.o
+                0x00000000008001f8                uart_string
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .data          0x000000000080025d        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00000000008001de                . = ALIGN (0x2)
-                0x00000000008001de                _edata = .
-                0x00000000008001de                PROVIDE (__data_end, .)
+                0x000000000080025e                . = ALIGN (0x2)
+ *fill*         0x000000000080025d        0x1 00
+                0x000000000080025e                _edata = .
+                0x000000000080025e                PROVIDE (__data_end, .)
 
-.bss            0x00000000008001de        0xe
-                0x00000000008001de                PROVIDE (__bss_start, .)
+.bss            0x000000000080025e        0xe
+                0x000000000080025e                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00000000008001de        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .bss           0x00000000008001de        0x1 ./i2c-master.o
- .bss           0x00000000008001df        0x4 ./i2c-rtc.o
-                0x00000000008001df                rtc_offset
- .bss           0x00000000008001e3        0x9 ./main.o
-                0x00000000008001e8                uiLastCmd
-                0x00000000008001e6                g_cPWMg
-                0x00000000008001e3                uart_str_complete
-                0x00000000008001e5                g_cPWMr
-                0x00000000008001e4                uart_str_count
-                0x00000000008001ea                uiLastCmdTimer
-                0x00000000008001e7                g_cPWMb
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
- .bss           0x00000000008001ec        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
+ .bss           0x000000000080025e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x000000000080025e        0x1 ./i2c-master.o
+ .bss           0x000000000080025f        0x4 ./i2c-rtc.o
+                0x000000000080025f                rtc_offset
+ .bss           0x0000000000800263        0x9 ./main.o
+                0x0000000000800268                uiLastCmd
+                0x0000000000800266                g_cPWMg
+                0x0000000000800263                uart_str_complete
+                0x0000000000800265                g_cPWMr
+                0x0000000000800264                uart_str_count
+                0x000000000080026a                uiLastCmdTimer
+                0x0000000000800267                g_cPWMb
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_divmodhi4.o)
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x000000000080026c        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodhi4.o)
  *(.bss*)
  *(COMMON)
-                0x00000000008001ec                PROVIDE (__bss_end, .)
-                0x00000000000012fa                __data_load_start = LOADADDR (.data)
-                0x0000000000001478                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000080026c                PROVIDE (__bss_end, .)
+                0x00000000000015ee                __data_load_start = LOADADDR (.data)
+                0x00000000000017ec                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00000000008001ec        0x0
-                0x00000000008001ec                PROVIDE (__noinit_start, .)
+.noinit         0x000000000080026c        0x0
+                0x000000000080026c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00000000008001ec                PROVIDE (__noinit_end, .)
-                0x00000000008001ec                _end = .
-                0x00000000008001ec                PROVIDE (__heap_start, .)
+                0x000000000080026c                PROVIDE (__noinit_end, .)
+                0x000000000080026c                _end = .
+                0x000000000080026c                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)

@@ -5,6 +5,11 @@
 #include "i2c-master.h"
 #include "i2c-rtc.h"
 
+
+#define DefaultR (0xff)
+#define DefaultG (0xef)
+#define DefaultB (0xbf)
+
 void uartPutc(char c) {
 	while (!(UCSRA & _BV(UDRE)))
 		;
@@ -90,9 +95,12 @@ void SetColor(uint8_t uiR, uint8_t uiG, uint8_t uiB) {
 	OCR2 = g_cPWMb;
 }
 
-void read_distance(int addr, int *puiLightCmd, int *puiTempLight) {
+uint8_t read_distance(int addr, int *puiLightCmd, int *puiTempLight) {
 	uint8_t i2c_rtc_status;
-	i2c_master_start_wait(addr + I2C_WRITE);
+	if (i2c_master_start_wait(addr + I2C_WRITE, 100) == 0) {
+		uartPuts("\r\nError: Read Distance\r\n");
+		return (0);
+	}
 	if (i2c_master_write(0, &i2c_rtc_status) == 0) {
 		if (i2c_master_rep_start(addr + I2C_READ, &i2c_rtc_status) == 0) {
 			*puiLightCmd = i2c_master_read_ack();
@@ -106,21 +114,167 @@ void read_distance(int addr, int *puiLightCmd, int *puiTempLight) {
 			_delay_ms(10);
 
 			if (*puiLightCmd > 0) {
-				i2c_master_start_wait(addr + I2C_WRITE);
+				if (i2c_master_start_wait(addr + I2C_WRITE, 100) == 0) {
+					return (0);
+				}
 				i2c_master_write(3, &i2c_rtc_status);
 				i2c_master_write(0xaa, &i2c_rtc_status);
 				i2c_master_stop();
 			}
 		}
 	}
+	return (1);
 }
-
-int uiLastCmd = 0;
-int uiLastCmdTimer = 0;
 
 #define         SLAVE_ADDR_IR         0b00110100
 #define         SLAVE_ADDR_DISTANCE1  0b00101100
 #define         SLAVE_ADDR_DISTANCE2  0b00100100
+
+
+#define 	I2C_ADDR_R       0x10
+#define 	I2C_ADDR_G       0x12
+#define 	I2C_ADDR_B       0x14
+#define 	I2C_ADDR_LIGHT   0x16
+#define 	I2C_ADDR_PERCENT 0x18
+
+uint8_t readIr(int16_t *puiLightPercent, int16_t *puiLight,
+		int16_t *puiLightFunction, int16_t *puiR, int16_t *puiG, int16_t *puiB) {
+	uint8_t i2c_rtc_status;
+	if (i2c_master_start_wait(SLAVE_ADDR_IR + I2C_WRITE, 100) == 0) {
+		uartPuts("\r\nError: Wait for IR\r\n");
+		return (0);
+	}
+	if (i2c_master_write(0, &i2c_rtc_status) == 0) {
+		if (i2c_master_rep_start(SLAVE_ADDR_IR + I2C_READ, &i2c_rtc_status)
+				== 0) {
+			int command = (i2c_master_read_ack() << 8) | i2c_master_read_ack();
+			int addr = (i2c_master_read_ack() << 8) | i2c_master_read_nak();
+			i2c_master_stop();
+
+			if (addr == 0b1110111100000000) {
+				if (i2c_master_start_wait(SLAVE_ADDR_IR + I2C_WRITE, 100) == 0) {
+					uartPuts("\r\nError: Wait for IR2\r\n");
+					return (0);
+				}
+				i2c_master_write(3, &i2c_rtc_status);
+				i2c_master_write(0xaa, &i2c_rtc_status);
+				i2c_master_stop();
+				switch (command) {
+				case 0:
+					(*puiLightPercent) += 2;
+					if ((*puiLightPercent) > 100) {
+						(*puiLightPercent) = 100;
+					}
+					break;
+				case 1:
+					(*puiLightPercent) -= 2;
+					if ((*puiLightPercent) < 5) {
+						(*puiLightPercent) = 5;
+					}
+					break;
+				case 2:
+					(*puiLight) = 0;
+					break;
+				case 3:
+					(*puiLightFunction) = 0;
+					(*puiLight) = 1;
+					break;
+				case 4:
+					(*puiLightFunction) = 0;
+					(*puiLightPercent) = 100;
+					(*puiR) = 0xff;
+					(*puiG) = 0x0;
+					(*puiB) = 0x0;
+					break;
+				case 5:
+					(*puiLightFunction) = 0;
+					(*puiLightPercent) = 100;
+					(*puiR) = 0x0;
+					(*puiG) = 0xff;
+					(*puiB) = 0x0;
+					break;
+				case 6:
+					(*puiLightFunction) = 0;
+					(*puiLightPercent) = 100;
+					(*puiR) = 0x0;
+					(*puiG) = 0x0;
+					(*puiB) = 0xff;
+					break;
+				case 7:
+					(*puiLightFunction) = 0;
+					(*puiLightPercent) = 100;
+					(*puiR) = DefaultR;
+					(*puiG) = DefaultG;
+					(*puiB) = DefaultB;
+					break;
+				case 8:
+					(*puiR) = (*puiR) + 0x08;
+					if((*puiR) > 0xff)
+					{
+						(*puiR) = 0xff;
+					}
+					break;
+				case 9:
+					(*puiG) = (*puiG) + 0x08;
+					if((*puiG) > 0xff)
+					{
+						(*puiG) = 0xff;
+					}
+					break;
+				case 10:
+					(*puiB) = (*puiB) + 0x08;
+					if((*puiB) > 0xff)
+					{
+						(*puiB) = 0xff;
+					}
+					break;
+				case 11:
+					(*puiLightFunction) = 1;
+					break;
+				case 12:
+					(*puiR) = (*puiR) - 0x08;
+					if((*puiR) < 0)
+					{
+						(*puiR) = 0;
+					}
+					break;
+				case 13:
+					(*puiG) = (*puiG) - 0x08;
+					if((*puiG) < 0)
+					{
+						(*puiG) = 0;
+					}
+					break;
+				case 14:
+					(*puiB) = (*puiB) - 0x08;
+					if((*puiB) < 0)
+					{
+						(*puiB) = 0;
+					}
+					break;
+				case 15:
+					(*puiLightFunction) = 2;
+					break;
+				case 19:
+					(*puiLightFunction) = 3;
+					break;
+				case 23:
+					(*puiLightFunction) = 4;
+					break;
+				}
+				i2c_rtc_sram_write (I2C_ADDR_R, puiR, 2);
+				i2c_rtc_sram_write (I2C_ADDR_G, puiG, 2);
+				i2c_rtc_sram_write (I2C_ADDR_B, puiB, 2);
+				i2c_rtc_sram_write (I2C_ADDR_PERCENT, puiLightPercent, 2);
+				i2c_rtc_sram_write (I2C_ADDR_LIGHT, puiLight, 2);
+			}
+		}
+	}
+	return (1);
+}
+
+int uiLastCmd = 0;
+int uiLastCmdTimer = 0;
 
 int main() {
 
@@ -154,6 +308,18 @@ int main() {
 		uartPuts("unknown\r\n");
 		break;
 	}
+
+	uartPuts("InitPWM...");
+
+	InitPWM();
+
+	PORTC &= ~(1 << PC1);
+	DDRC = (1 << PC1);
+	PORTC |= (1 << PC1);
+
+	uartPuts("OK\r\n");
+
+
 	if (MCUCSR & (1 << WDRF)) {
 		for (int xxx = 0; xxx < 255; xxx++) {
 			SetColor(xxx, 0, 0);
@@ -172,18 +338,6 @@ int main() {
 
 	wdt_reset();
 
-	uartPuts("InitPWM...");
-
-	InitPWM();
-
-	PORTC &= ~(1 << PC1);
-	DDRC = (1 << PC1);
-	PORTC |= (1 << PC1);
-
-	uartPuts("OK\r\n");
-
-	_delay_ms(100);
-
 	uartPuts("I2C Init...");
 	cli();
 	i2c_master_init();
@@ -193,22 +347,22 @@ int main() {
 
 	wdt_reset();
 
-//	uint8_t i2c_errorcode, i2c_status;
-//	if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) {
-//		while (1) {
-//			SetColor(0, 0, 0xff);
-//			_delay_ms(100);
-//			SetColor(0, 0, 0);
-//			_delay_ms(100);
-//		};
-//	}
+	uint8_t i2c_errorcode, i2c_status;
+	if (!i2c_rtc_init(&i2c_errorcode, &i2c_status)) {
+		while (1) {
+			SetColor(0, 0, 0xff);
+			_delay_ms(100);
+			SetColor(0, 0, 0);
+			_delay_ms(100);
+		};
+	}
 
 	uartPuts("Light Init...");
-	for (int xxx = 0; xxx < 255; xxx++) {
-		SetColor(xxx, xxx, xxx);
-		_delay_ms(10);
-		wdt_reset();
-	}
+//	for (int xxx = 0; xxx < 255; xxx+=10) {
+//		SetColor(xxx, xxx, xxx);
+//		_delay_ms(10);
+//		wdt_reset();
+//	}
 	SetColor(0, 0, 0);
 	uartPuts("OK\r\n");
 
@@ -220,12 +374,22 @@ int main() {
 
 	unsigned char uiFunctionX = 0;
 
-	int uiR = 0xff;
-	int uiG = 0xff;
-	int uiB = 0xff;
+	int uiR = DefaultR;
+	int uiG = DefaultG;
+	int uiB = DefaultB;
+
+	i2c_rtc_sram_read (I2C_ADDR_R, &uiR, 2);
+	i2c_rtc_sram_read (I2C_ADDR_G, &uiG, 2);
+	i2c_rtc_sram_read (I2C_ADDR_B, &uiB, 2);
+	i2c_rtc_sram_read (I2C_ADDR_LIGHT, &uiLight, 2);
+	i2c_rtc_sram_read (I2C_ADDR_PERCENT, &uiLightPercent, 2);
+
+	uint8_t uiErrorCount = 0;
 
 	while (1) {
 		uartPuts("\r\nLoop start: ");
+
+		uint8_t bHasError = 0;
 
 		uiFunctionX++;
 
@@ -234,14 +398,20 @@ int main() {
 
 		uartPuts("Read Distance1");
 		uiTempLight = 0;
-		read_distance(SLAVE_ADDR_DISTANCE1, &uiLightCmd, &uiTempLight);
-		switch (uiLightCmd) {
-		case 1:
-			uiLight = 0;
-			break;
-		case 2:
-			uiLight = 1;
-			break;
+		if (read_distance(SLAVE_ADDR_DISTANCE1, &uiLightCmd, &uiTempLight)) {
+			switch (uiLightCmd) {
+			case 1:
+				uiLight = 0;
+				i2c_rtc_sram_write (I2C_ADDR_LIGHT, &uiLight, 2);
+				break;
+			case 2:
+				uiLight = 1;
+				i2c_rtc_sram_write (I2C_ADDR_LIGHT, &uiLight, 2);
+				break;
+			}
+		} else {
+			bHasError = 1;
+			uartPuts(" error");
 		}
 		uartPuts(",");
 
@@ -249,14 +419,20 @@ int main() {
 		_delay_ms(10);
 
 		uartPuts("Read Distance2");
-		read_distance(SLAVE_ADDR_DISTANCE2, &uiLightCmd, &uiTempLight);
-		switch (uiLightCmd) {
-		case 1:
-			uiLight = 0;
-			break;
-		case 2:
-			uiLight = 1;
-			break;
+		if (read_distance(SLAVE_ADDR_DISTANCE2, &uiLightCmd, &uiTempLight)) {
+			switch (uiLightCmd) {
+			case 1:
+				uiLight = 0;
+				i2c_rtc_sram_write (I2C_ADDR_LIGHT, &uiLight, 2);
+				break;
+			case 2:
+				uiLight = 1;
+				i2c_rtc_sram_write (I2C_ADDR_LIGHT, &uiLight, 2);
+				break;
+			}
+		} else {
+			bHasError = 1;
+			uartPuts(" error");
 		}
 		uartPuts(",");
 
@@ -264,85 +440,13 @@ int main() {
 		_delay_ms(10);
 
 		uartPuts("Read IR");
-		uint8_t i2c_rtc_status;
-		i2c_master_start_wait(SLAVE_ADDR_IR + I2C_WRITE);
-		if (i2c_master_write(0, &i2c_rtc_status) == 0) {
-			if (i2c_master_rep_start(SLAVE_ADDR_IR + I2C_READ, &i2c_rtc_status)
-					== 0) {
-				int command = (i2c_master_read_ack() << 8)
-						| i2c_master_read_ack();
-				int addr = (i2c_master_read_ack() << 8) | i2c_master_read_nak();
-				i2c_master_stop();
 
-				if (addr == 0b1110111100000000) {
-					i2c_master_start_wait(SLAVE_ADDR_IR + I2C_WRITE);
-					i2c_master_write(3, &i2c_rtc_status);
-					i2c_master_write(0xaa, &i2c_rtc_status);
-					i2c_master_stop();
-					switch (command) {
-					case 0:
-						uiLightPercent += 2;
-						if (uiLightPercent > 100) {
-							uiLightPercent = 100;
-						}
-						break;
-					case 1:
-						uiLightPercent -= 2;
-						if (uiLightPercent < 5) {
-							uiLightPercent = 5;
-						}
-						break;
-					case 2:
-						uiLight = 0;
-						break;
-					case 3:
-						uiLightFunction = 0;
-						uiLight = 1;
-						break;
-					case 4:
-						uiLightFunction = 0;
-						uiLightPercent = 100;
-						uiR = 0xff;
-						uiG = 0x0;
-						uiB = 0x0;
-						break;
-					case 5:
-						uiLightFunction = 0;
-						uiLightPercent = 100;
-						uiR = 0x0;
-						uiG = 0xff;
-						uiB = 0x0;
-						break;
-					case 6:
-						uiLightFunction = 0;
-						uiLightPercent = 100;
-						uiR = 0x0;
-						uiG = 0x0;
-						uiB = 0xff;
-						break;
-					case 7:
-						uiLightFunction = 0;
-						uiLightPercent = 100;
-						uiR = 0xff;
-						uiG = 0xff;
-						uiB = 0xbf;
-						break;
-					case 11:
-						uiLightFunction = 1;
-						break;
-					case 15:
-						uiLightFunction = 2;
-						break;
-					case 19:
-						uiLightFunction = 3;
-						break;
-					case 23:
-						uiLightFunction = 4;
-						break;
-					}
-				}
-			}
+		if (!readIr(&uiLightPercent, &uiLight, &uiLightFunction, &uiR, &uiG, &uiB))
+		{
+			bHasError = 1;
+			uartPuts(" error");
 		}
+
 		uartPuts(",");
 
 		switch (uiTempLight) {
@@ -369,7 +473,6 @@ int main() {
 				SetColor(0, 0, 0);
 			} else if (uiLight == 1) {
 				int dFunctionFactor = 1;
-//				float dTemp;
 				switch (uiLightFunction) {
 				case 1:
 					dFunctionFactor = ((uiFunctionX % 10) == 0) ? 1 : 0;
@@ -377,19 +480,33 @@ int main() {
 				case 2:
 					dFunctionFactor = ((uiFunctionX % 2) == 0) ? 1 : 0;
 					break;
-//				case 3:
-//					dTemp = ((uiFunctionX * 1.0) / 128);
-//					dFunctionFactor = (dTemp > 1) ? 2 - dTemp : dTemp;
-//					break;
-//				case 4:
-//					dFunctionFactor = ((uiFunctionX * 1.0) / 256);
-//					break;
 				}
 				SetColor(dFunctionFactor * uiR * uiLightPercent / 100,
 						dFunctionFactor * uiG * uiLightPercent / 100,
 						dFunctionFactor * uiB * uiLightPercent / 100);
 			}
 		}
+
+		if (bHasError)
+		{
+			uiErrorCount++;
+		}
+		else
+		{
+			uiErrorCount = 0;
+		}
+		if (uiErrorCount > 10)
+		{
+			uartPuts("\r\n\r\nToo many errors, resetting via Watchdog\r\n\r\n");
+			while(1)
+			{
+				SetColor(0x22, 0x0, 0x0);
+				_delay_ms(200);
+				SetColor(0x0, 0x22, 0x0);
+				_delay_ms(200);
+			}
+		}
+
 		uartPuts("Loop End");
 	}
 	return 0;

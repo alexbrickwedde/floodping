@@ -15,8 +15,7 @@
  *   the Free Software Foundation; either version 2 of the License, or
  *   (at your option) any later version.
  */
- /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
-
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #include <inttypes.h>
 #include <compat/twi.h>
@@ -25,8 +24,7 @@
 
 #include "i2c-master.h"
 
-#define SCL_CLOCK  400000L                                                      // I2C clock in Hz, usually 100 kHz
-
+#define SCL_CLOCK  100000L                                                      // I2C clock in Hz, usually 100 kHz
 #define WAIT_UNTIL_TRANSMISSION_COMPLETED     while (!(TWCR & (1<<TWINT)))  { ; }
 #define WAIT_UNTIL_STOP_CONDITION_EXECUTED    while (TWCR & (1<<TWSTO))     { ; }
 
@@ -61,59 +59,56 @@
  *  @return    0 = successful, else failed
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-static uint8_t
-i2c_reset (void)
-{
-  uint8_t    rtc = 0;
+static uint8_t i2c_reset(void) {
+	uint8_t rtc = 0;
 #if HAS_RESET == 1
-  uint8_t    idx;
+	uint8_t idx;
 
-  SCL_PORT &= ~(1<<SCL_BIT);                                                    // deactivate intern pullup resistors, use extern resistor
-  SCL_DDR  &= ~(1<<SCL_BIT);                                                    // set SCL pin to input
-  SDA_PORT &= ~(1<<SDA_BIT);                                                    // deactivate intern pullup resistors, use extern resistor
-  SDA_DDR  &= ~(1<<SDA_BIT);                                                    // set SCL pin to input
-  _delay_ms (1);
+	SCL_PORT &= ~(1<<SCL_BIT); // deactivate intern pullup resistors, use extern resistor
+	SCL_DDR &= ~(1<<SCL_BIT);// set SCL pin to input
+	SDA_PORT &= ~(1<<SDA_BIT);// deactivate intern pullup resistors, use extern resistor
+	SDA_DDR &= ~(1<<SDA_BIT);// set SCL pin to input
+	_delay_ms (1);
 
-  if (SCL_IS_LOW)
-  {
-    rtc = I2C_ERROR_SCL_LOW;
-  }
-  else
-  {
-    if (SDA_IS_LOW)                                                             // SDA low?
-    {                                                                           // yes...
-      SCL_LOW;                                                                  // try to release it here....
-      _delay_ms (1);
+	if (SCL_IS_LOW)
+	{
+		rtc = I2C_ERROR_SCL_LOW;
+	}
+	else
+	{
+		if (SDA_IS_LOW) // SDA low?
+		{ // yes...
+			SCL_LOW;// try to release it here....
+			_delay_ms (1);
 
-      for (idx = 0; idx < 9; idx++)                                             // step 1...
-      {
-        SCL_HIGH;
-        _delay_ms (1);
+			for (idx = 0; idx < 9; idx++)// step 1...
+			{
+				SCL_HIGH;
+				_delay_ms (1);
 
-        if (SDA_IS_HIGH)                                                        // look for SDA = HIGH
-        {                                                                       // step 2!
-          break;
-        }
+				if (SDA_IS_HIGH) // look for SDA = HIGH
+				{ // step 2!
+					break;
+				}
 
-        SCL_LOW;
-        _delay_ms (1);
-      }
+				SCL_LOW;
+				_delay_ms (1);
+			}
 
-      SCL_DDR  &= ~(1<<SCL_BIT);                                                // set SCL pin again to input, step 3 will be done by app-init
-    }
+			SCL_DDR &= ~(1<<SCL_BIT); // set SCL pin again to input, step 3 will be done by app-init
+		}
 
-    SCL_HIGH;
-    _delay_ms (1);
+		SCL_HIGH;
+		_delay_ms (1);
 
-    if (SDA_IS_LOW)                                                              // SDA still low?
-    {                                                                            // yes...
-      rtc = I2C_ERROR_SDA_LOW;
-    }
-  }
+		if (SDA_IS_LOW) // SDA still low?
+		{ // yes...
+			rtc = I2C_ERROR_SDA_LOW;
+		}
+	}
 #endif
-  return rtc;
+	return rtc;
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Initializes the I2C hardware
@@ -121,27 +116,21 @@ i2c_reset (void)
  *  @return    TRUE if successful, FALSE, if not
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-uint8_t
-i2c_master_init(void)
-{
-  static uint8_t  already_called;
-  uint8_t         rtc;
+uint8_t i2c_master_init(void) {
+	static uint8_t already_called;
+	uint8_t rtc;
 
-  if (! already_called)
-  {
-    rtc = i2c_reset ();                                                         // try to reset I2C bus
+	if (!already_called) {
+		rtc = i2c_reset(); // try to reset I2C bus
 
-    TWSR = 0;                                                                   // no prescaler
-    TWBR = ((F_CPU/SCL_CLOCK)-16)/2;                                            // must be > 10 for stable operation
-    already_called = 1;
-  }
-  else
-  {
-    rtc = 0;
-  }
-  return rtc;
+		TWSR = 0; // no prescaler
+		TWBR = ((F_CPU / SCL_CLOCK) - 16) / 2; // must be > 10 for stable operation
+		already_called = 1;
+	} else {
+		rtc = 0;
+	}
+	return rtc;
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Start I2C transfer
@@ -151,35 +140,30 @@ i2c_master_init(void)
  *  @return    1 = failed to access device, 0 = device accessible
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-unsigned char
-i2c_master_start(uint8_t address, uint8_t * status_p)
-{
-  uint8_t   twst;
+unsigned char i2c_master_start(uint8_t address, uint8_t * status_p) {
+	uint8_t twst;
 
-  TWCR = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);                                   // send START condition
-  WAIT_UNTIL_TRANSMISSION_COMPLETED;                                            // wait until transmission completed
-  twst = TW_STATUS & 0xF8;                                                      // check value of TWI Status Register. Mask prescaler bits.
+	TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN); // send START condition
+	WAIT_UNTIL_TRANSMISSION_COMPLETED; // wait until transmission completed
+	twst = TW_STATUS & 0xF8; // check value of TWI Status Register. Mask prescaler bits.
 
-  if ((twst != TW_START) && (twst != TW_REP_START))
-  {
-    *status_p = twst;                                                           // store status
-    return 1;                                                                   // ERROR
-  }
+	if ((twst != TW_START) && (twst != TW_REP_START)) {
+		*status_p = twst; // store status
+		return 1; // ERROR
+	}
 
-  TWDR = address;                                                               // send device address
-  TWCR = (1<<TWINT) | (1<<TWEN);
-  WAIT_UNTIL_TRANSMISSION_COMPLETED                                             // wail until transmission completed and ACK/NACK has been received
-  twst = TW_STATUS & 0xF8;                                                      // check value of TWI Status Register. Mask prescaler bits.
+	TWDR = address; // send device address
+	TWCR = (1 << TWINT) | (1 << TWEN);
+	WAIT_UNTIL_TRANSMISSION_COMPLETED // wail until transmission completed and ACK/NACK has been received
+	twst = TW_STATUS & 0xF8; // check value of TWI Status Register. Mask prescaler bits.
 
-  if ((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK) )
-  {
-    *status_p = twst;                                                           // store status
-    return 1;                                                                   // ERROR
-  }
+	if ((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
+		*status_p = twst; // store status
+		return 1; // ERROR
+	}
 
-  return 0;                                                                     // OK
+	return 0; // OK
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Start I2C transfer and wait until device is ready
@@ -188,40 +172,40 @@ i2c_master_start(uint8_t address, uint8_t * status_p)
  *  @param    I2C address
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-void
-i2c_master_start_wait (uint8_t address)
-{
-  uint8_t   twst;
+uint8_t i2c_master_start_wait(uint8_t address, uint16_t uiMaxErrors) {
+	uint8_t twst;
 
-  while (1)
-  {
-    TWCR = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);                                 // send START condition
-    WAIT_UNTIL_TRANSMISSION_COMPLETED;                                          // wait until transmission completed
-    twst = TW_STATUS & 0xF8;                                                    // check value of TWI Status Register. Mask prescaler bits.
+	uint16_t uiErrors = 0;
+	while (1) {
+		if (uiErrors > uiMaxErrors) {
+			return (0);
+		}
+		_delay_us(10);
+		TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN); // send START condition
+		WAIT_UNTIL_TRANSMISSION_COMPLETED; // wait until transmission completed
+		twst = TW_STATUS & 0xF8; // check value of TWI Status Register. Mask prescaler bits.
 
-    if ((twst != TW_START) && (twst != TW_REP_START))
-    {
-      continue;
-    }
+		if ((twst != TW_START) && (twst != TW_REP_START)) {
+			uiErrors++;
+			continue;
+		}
 
-    TWDR = address;                                                             // send device address
-    TWCR = (1<<TWINT) | (1<<TWEN);
-    WAIT_UNTIL_TRANSMISSION_COMPLETED;                                          // wail until transmission completed
-    twst = TW_STATUS & 0xF8;                                                    // check value of TWI Status Register. Mask prescaler bits.
+		TWDR = address; // send device address
+		TWCR = (1 << TWINT) | (1 << TWEN);
+		WAIT_UNTIL_TRANSMISSION_COMPLETED; // wail until transmission completed
+		twst = TW_STATUS & 0xF8; // check value of TWI Status Register. Mask prescaler bits.
 
-    if ((twst == TW_MT_SLA_NACK) || (twst == TW_MR_DATA_NACK))
-    {
-      TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);                               // device busy, send stop condition to terminate write operation
-      WAIT_UNTIL_STOP_CONDITION_EXECUTED;                                       // wait until stop condition is executed and bus released
+		if ((twst == TW_MT_SLA_NACK) || (twst == TW_MR_DATA_NACK)) {
+			TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO); // device busy, send stop condition to terminate write operation
+			WAIT_UNTIL_STOP_CONDITION_EXECUTED; // wait until stop condition is executed and bus released
+			uiErrors++;
+			continue;
+		}
 
-      continue;
-    }
-
-    // if (twst != TW_MT_SLA_ACK) return 1;
-    break;
-   }
+		// if (twst != TW_MT_SLA_ACK) return 1;
+		return (1);
+	}
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Start I2C transfer (repeated)
@@ -231,10 +215,8 @@ i2c_master_start_wait (uint8_t address)
  *  @return    1 = failed to access device, 0 = device accessible
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-uint8_t
-i2c_master_rep_start (uint8_t address, uint8_t * status_p)
-{
-  return i2c_master_start (address, status_p);
+uint8_t i2c_master_rep_start(uint8_t address, uint8_t * status_p) {
+	return i2c_master_start(address, status_p);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -242,13 +224,10 @@ i2c_master_rep_start (uint8_t address, uint8_t * status_p)
  *  @details  Terminates the data transfer and releases the I2C bus
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-void
-i2c_master_stop (void)
-{
-  TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);                                   // send stop condition
-  WAIT_UNTIL_STOP_CONDITION_EXECUTED;                                           // wait until stop condition is executed and bus released
+void i2c_master_stop(void) {
+	TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO); // send stop condition
+	WAIT_UNTIL_STOP_CONDITION_EXECUTED; // wait until stop condition is executed and bus released
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Send one byte to I2C device
@@ -258,25 +237,21 @@ i2c_master_stop (void)
  *  @return    0 write successful, 1 write failed
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-uint8_t
-i2c_master_write (uint8_t data, uint8_t * status_p)
-{
-  uint8_t   twst;
+uint8_t i2c_master_write(uint8_t data, uint8_t * status_p) {
+	uint8_t twst;
 
-  TWDR = data;                                                                  // send data to the previously addressed device
-  TWCR = (1<<TWINT) | (1<<TWEN);
-  WAIT_UNTIL_TRANSMISSION_COMPLETED;                                            // wait until transmission completed
-  twst = TW_STATUS & 0xF8;                                                      // check value of TWI Status Register. Mask prescaler bits
+	TWDR = data; // send data to the previously addressed device
+	TWCR = (1 << TWINT) | (1 << TWEN);
+	WAIT_UNTIL_TRANSMISSION_COMPLETED; // wait until transmission completed
+	twst = TW_STATUS & 0xF8; // check value of TWI Status Register. Mask prescaler bits
 
-  if (twst != TW_MT_DATA_ACK)
-  {
-    *status_p = twst;
-    return 1;
-  }
+	if (twst != TW_MT_DATA_ACK) {
+		*status_p = twst;
+		return 1;
+	}
 
-  return 0;
+	return 0;
 }
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Read one byte, request more data
@@ -284,14 +259,11 @@ i2c_master_write (uint8_t data, uint8_t * status_p)
  *  @return    byte read
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-uint8_t
-i2c_master_read_ack (void)
-{
-  TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWEA);
-  WAIT_UNTIL_TRANSMISSION_COMPLETED;
-  return TWDR;
+uint8_t i2c_master_read_ack(void) {
+	TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWEA);
+	WAIT_UNTIL_TRANSMISSION_COMPLETED;
+	return TWDR;
 }/* i2c_master_readAck */
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
  *  Read one byte, followed by a stop condition
@@ -299,10 +271,8 @@ i2c_master_read_ack (void)
  *  @return    byte read
  *---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-uint8_t
-i2c_master_read_nak (void)
-{
-  TWCR = (1<<TWINT) | (1<<TWEN);
-  WAIT_UNTIL_TRANSMISSION_COMPLETED;
-  return TWDR;
+uint8_t i2c_master_read_nak(void) {
+	TWCR = (1 << TWINT) | (1 << TWEN);
+	WAIT_UNTIL_TRANSMISSION_COMPLETED;
+	return TWDR;
 }

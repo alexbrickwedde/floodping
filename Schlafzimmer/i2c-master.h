@@ -55,7 +55,7 @@ extern uint8_t                i2c_master_start(uint8_t address, uint8_t * status
  *            If device is busy, use ack polling to wait until device is ready
  *  @param    address I2C address
  */
-extern void                   i2c_master_start_wait (uint8_t address);
+extern uint8_t i2c_master_start_wait (uint8_t address, uint16_t uiMaxErrors);
 
 /**
  *  Start I2C transfer (repeated)

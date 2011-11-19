@@ -14057,3 +14057,2403 @@ avrdude done.  Thank you.
 
 
 **** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5240 bytes (64.0% Full)
+(.text + .data + .bootloader)
+
+Data:        396 bytes (38.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+../i2c-master.c:175: error: conflicting types for 'i2c_master_start_wait'
+../i2c-master.h:58: error: previous declaration of 'i2c_master_start_wait' was here
+make: *** [i2c-master.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+../i2c-rtc.c: In function 'i2c_rtc_sram_write':
+../i2c-rtc.c:478: error: too few arguments to function 'i2c_master_start_wait'
+../i2c-rtc.c: In function 'i2c_rtc_sram_read':
+../i2c-rtc.c:519: error: too few arguments to function 'i2c_master_start_wait'
+make: *** [i2c-rtc.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+Finished building: ../i2c-rtc.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'read_distance':
+../main.c:95: error: too few arguments to function 'i2c_master_start_wait'
+../main.c:109: error: too few arguments to function 'i2c_master_start_wait'
+../main.c: In function 'main':
+../main.c:268: error: too few arguments to function 'i2c_master_start_wait'
+../main.c:278: error: too few arguments to function 'i2c_master_start_wait'
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+../i2c-master.c:175: error: conflicting types for 'i2c_master_start_wait'
+../i2c-master.h:58: error: previous declaration of 'i2c_master_start_wait' was here
+make: *** [i2c-master.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+Finished building: ../i2c-rtc.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:275: error: too few arguments to function 'i2c_master_start_wait'
+../main.c:285: error: too few arguments to function 'i2c_master_start_wait'
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:284: error: too few arguments to function 'i2c_master_start_wait'
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5332 bytes (65.1% Full)
+(.text + .data + .bootloader)
+
+Data:        396 bytes (38.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5340 bytes (65.2% Full)
+(.text + .data + .bootloader)
+
+Data:        396 bytes (38.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5340 bytes (65.2% Full)
+(.text + .data + .bootloader)
+
+Data:        396 bytes (38.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+Finished building: ../i2c-rtc.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5348 bytes (65.3% Full)
+(.text + .data + .bootloader)
+
+Data:        396 bytes (38.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5410 bytes (66.0% Full)
+(.text + .data + .bootloader)
+
+Data:        418 bytes (40.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:126: error: 'SLAVE_ADDR_IR' undeclared (first use in this function)
+../main.c:126: error: (Each undeclared identifier is reported only once
+../main.c:126: error: for each function it appears in.)
+../main.c:144: error: 'uiLightPercent' undeclared (first use in this function)
+../main.c:156: error: 'uiLight' undeclared (first use in this function)
+../main.c:159: error: 'uiLightFunction' undeclared (first use in this function)
+../main.c:165: error: 'uiR' undeclared (first use in this function)
+../main.c:166: error: 'uiG' undeclared (first use in this function)
+../main.c:167: error: 'uiB' undeclared (first use in this function)
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:126: error: 'SLAVE_ADDR_IR' undeclared (first use in this function)
+../main.c:126: error: (Each undeclared identifier is reported only once
+../main.c:126: error: for each function it appears in.)
+../main.c:147: error: 'uiLightPercent' undeclared (first use in this function)
+../main.c:159: error: 'uiLight' undeclared (first use in this function)
+../main.c:162: error: 'uiLightFunction' undeclared (first use in this function)
+../main.c:168: error: 'uiR' undeclared (first use in this function)
+../main.c:169: error: 'uiG' undeclared (first use in this function)
+../main.c:170: error: 'uiB' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:210: error: expected identifier or '(' before '}' token
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:151: error: 'uiLightPercent' undeclared (first use in this function)
+../main.c:151: error: (Each undeclared identifier is reported only once
+../main.c:151: error: for each function it appears in.)
+../main.c:163: error: 'uiLight' undeclared (first use in this function)
+../main.c:166: error: 'uiLightFunction' undeclared (first use in this function)
+../main.c:172: error: 'uiR' undeclared (first use in this function)
+../main.c:173: error: 'uiG' undeclared (first use in this function)
+../main.c:174: error: 'uiB' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:214: error: expected identifier or '(' before '}' token
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:157: error: 'uiLightPercent' undeclared (first use in this function)
+../main.c:157: error: (Each undeclared identifier is reported only once
+../main.c:157: error: for each function it appears in.)
+../main.c:163: error: 'uiLight' undeclared (first use in this function)
+../main.c:166: error: 'uiLightFunction' undeclared (first use in this function)
+../main.c:172: error: 'uiR' undeclared (first use in this function)
+../main.c:173: error: 'uiG' undeclared (first use in this function)
+../main.c:174: error: 'uiB' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:214: error: expected identifier or '(' before '}' token
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:158: error: 'uiLightPercent' undeclared (first use in this function)
+../main.c:158: error: (Each undeclared identifier is reported only once
+../main.c:158: error: for each function it appears in.)
+../main.c:163: error: 'uiLight' undeclared (first use in this function)
+../main.c:166: error: 'uiLightFunction' undeclared (first use in this function)
+../main.c:172: error: 'uiR' undeclared (first use in this function)
+../main.c:173: error: 'uiG' undeclared (first use in this function)
+../main.c:174: error: 'uiB' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:214: error: expected identifier or '(' before '}' token
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:172: error: 'uiR' undeclared (first use in this function)
+../main.c:172: error: (Each undeclared identifier is reported only once
+../main.c:172: error: for each function it appears in.)
+../main.c:173: error: 'uiG' undeclared (first use in this function)
+../main.c:174: error: 'uiB' undeclared (first use in this function)
+../main.c: At top level:
+../main.c:214: error: expected identifier or '(' before '}' token
+make: *** [main.o] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:214: warning: control reaches end of non-void function
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5364 bytes (65.5% Full)
+(.text + .data + .bootloader)
+
+Data:        468 bytes (45.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:362: warning: pointer targets in passing argument 1 of 'readIr' differ in signedness
+../main.c:362: warning: pointer targets in passing argument 2 of 'readIr' differ in signedness
+../main.c:362: warning: pointer targets in passing argument 3 of 'readIr' differ in signedness
+../main.c:362: warning: pointer targets in passing argument 4 of 'readIr' differ in signedness
+../main.c:362: warning: pointer targets in passing argument 5 of 'readIr' differ in signedness
+../main.c:362: warning: pointer targets in passing argument 6 of 'readIr' differ in signedness
+../main.c: In function 'readIr':
+../main.c:214: warning: control reaches end of non-void function
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5652 bytes (69.0% Full)
+(.text + .data + .bootloader)
+
+Data:        468 bytes (45.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'readIr':
+../main.c:135: warning: pointer targets in passing argument 2 of 'i2c_master_write' differ in signedness
+../main.c:136: warning: pointer targets in passing argument 2 of 'i2c_master_rep_start' differ in signedness
+../main.c:147: warning: pointer targets in passing argument 2 of 'i2c_master_write' differ in signedness
+../main.c:148: warning: pointer targets in passing argument 2 of 'i2c_master_write' differ in signedness
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5658 bytes (69.1% Full)
+(.text + .data + .bootloader)
+
+Data:        468 bytes (45.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5658 bytes (69.1% Full)
+(.text + .data + .bootloader)
+
+Data:        468 bytes (45.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5718 bytes (69.8% Full)
+(.text + .data + .bootloader)
+
+Data:        476 bytes (46.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5742 bytes (70.1% Full)
+(.text + .data + .bootloader)
+
+Data:        476 bytes (46.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5824 bytes (71.1% Full)
+(.text + .data + .bootloader)
+
+Data:        476 bytes (46.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+avrdude: error: could not find USB device "USBasp" with vid=0x16c0 pid=0x5dc
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5886 bytes (71.9% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5886 bytes):
+
+Writing | ################################################## | 100% 3.95s
+
+avrdude: 5886 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5886 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.11s
+
+avrdude: verifying ...
+avrdude: verification error, first mismatch at byte 0x0000
+         0x2a != 0x00
+avrdude: verification error; content mismatch
+
+avrdude done.  Thank you.
+
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5886 bytes (71.9% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5886 bytes):
+
+Writing | ################################################## | 100% 4.09s
+
+avrdude: 5886 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5886 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.02s
+
+avrdude: verifying ...
+avrdude: 5886 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+Finished building: avrdudedummy
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+ 
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5886 bytes (71.9% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: error: programm enable: target doesn't answer. 1 
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+
+avrdude done.  Thank you.
+
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5886 bytes (71.9% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5886 bytes):
+
+Writing | ################################################## | 100% 4.09s
+
+avrdude: 5886 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5886 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.03s
+
+avrdude: verifying ...
+avrdude: 5886 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+Finished building: avrdudedummy
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+ 
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../i2c-master.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-master.d" -MT"i2c-master.d" -c -o "i2c-master.o" "../i2c-master.c"
+Finished building: ../i2c-master.c
+ 
+Building file: ../i2c-rtc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"i2c-rtc.d" -MT"i2c-rtc.d" -c -o "i2c-rtc.o" "../i2c-rtc.c"
+Finished building: ../i2c-rtc.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5884 bytes (71.8% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: error: programm enable: target doesn't answer. 1 
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+
+avrdude done.  Thank you.
+
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5884 bytes (71.8% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5884 bytes):
+
+Writing | ################################################## | 100% 4.08s
+
+avrdude: 5884 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5884 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.04s
+
+avrdude: verifying ...
+avrdude: 5884 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+Finished building: avrdudedummy
+
+ 
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5884 bytes (71.8% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5884 bytes):
+
+Writing | ################################################## | 100% 4.09s
+
+avrdude: 5884 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5884 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.03s
+
+avrdude: verifying ...
+avrdude: 5884 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+Finished building: avrdudedummy
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+ 
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5896 bytes (72.0% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5896 bytes):
+
+Writing | ################################################## | 100% 4.12s
+
+avrdude: 5896 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5896 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.03s
+
+avrdude: verifying ...
+avrdude: 5896 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+Finished building: avrdudedummy
+ 
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5956 bytes (72.7% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5956 bytes):
+
+Writing | ################################################## | 100% 4.15s
+
+avrdude: 5956 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5956 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.07s
+
+avrdude: verifying ...
+avrdude: 5956 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Finished building: avrdudedummy
+Reading | ################################################## | 100% 0.00s
+
+ 
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5956 bytes (72.7% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5956 bytes):
+
+Writing | ################################################## | 100% 4.15s
+
+avrdude: 5956 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5956 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.06s
+
+avrdude: verifying ...
+avrdude: 5956 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+Finished building: avrdudedummy
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+ 
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5956 bytes (72.7% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5956 bytes):
+
+Writing | ################################################## | 100% 4.14s
+
+avrdude: 5956 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5956 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.06s
+
+avrdude: verifying ...
+avrdude: 5956 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+Finished building: avrdudedummy
+avrdude: load data lfuse data from input file 0x3f:
+ 
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5956 bytes (72.7% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5956 bytes):
+
+Writing | ################################################## | 100% 4.13s
+
+avrdude: 5956 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5956 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.06s
+
+avrdude: verifying ...
+avrdude: 5956 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Finished building: avrdudedummy
+Reading | ################################################## | 100% 0.00s
+
+ 
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    5956 bytes (72.7% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (5956 bytes):
+
+Writing | ################################################## | 100% 4.15s
+
+avrdude: 5956 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 5956 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.06s
+
+avrdude: verifying ...
+avrdude: 5956 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Finished building: avrdudedummy
+ 
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6078 bytes (74.2% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: error: programm enable: target doesn't answer. 1 
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+
+avrdude done.  Thank you.
+
+make: *** [avrdudedummy] Fehler 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6078 bytes (74.2% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (6078 bytes):
+
+Writing | ################################################## | 100% 4.23s
+
+avrdude: 6078 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 6078 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.13s
+
+avrdude: verifying ...
+avrdude: 6078 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+Finished building: avrdudedummy
+ 
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6124 bytes (74.8% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (6124 bytes):
+
+Writing | ################################################## | 100% 4.27s
+
+avrdude: 6124 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 6124 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.14s
+
+avrdude: verifying ...
+avrdude: 6124 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+avrdude: reading on-chip lfuse data:
+Finished building: avrdudedummy
+
+ 
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
+
+**** Build of configuration Release for project Schlafzimmer ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Schlafzimmer.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Schlafzimmer.map -mmcu=atmega8 -o "Schlafzimmer.elf"  ./i2c-master.o ./i2c-rtc.o ./main.o   
+Finished building target: Schlafzimmer.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Schlafzimmer.elf  >"Schlafzimmer.lss"
+Finished building: Schlafzimmer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Schlafzimmer.elf  "Schlafzimmer.hex"
+Finished building: Schlafzimmer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Schlafzimmer.elf  "Schlafzimmer.eep"
+Finished building: Schlafzimmer.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 Schlafzimmer.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6124 bytes (74.8% Full)
+(.text + .data + .bootloader)
+
+Data:        524 bytes (51.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:Schlafzimmer.hex:a -Ulfuse:w:0x3f:m -Uhfuse:w:0xd1:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "Schlafzimmer.hex"
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: writing flash (6124 bytes):
+
+Writing | ################################################## | 100% 4.27s
+
+avrdude: 6124 bytes of flash written
+avrdude: verifying flash memory against Schlafzimmer.hex:
+avrdude: load data flash data from input file Schlafzimmer.hex:
+avrdude: input file Schlafzimmer.hex auto detected as Intel Hex
+avrdude: input file Schlafzimmer.hex contains 6124 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.16s
+
+avrdude: verifying ...
+avrdude: 6124 bytes of flash verified
+avrdude: reading input file "0x3f"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+Finished building: avrdudedummy
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0x3f:
+avrdude: load data lfuse data from input file 0x3f:
+avrdude: input file 0x3f contains 1 bytes
+ 
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd1"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd1:
+avrdude: load data hfuse data from input file 0xd1:
+avrdude: input file 0xd1 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****
