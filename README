@@ -1,1 +1,79 @@
-This is a complete eclipse 3.6 workspace containing various projects related to one-wire, bma020, rfm12 and avr controllers
+This is a complete eclipse 3.6 workspace containing various projects related to one-wire, bma020, rfm12 and avr controllers:
+
+
+CAN1
+ Project for testing only
+
+GIT
+ Contains commit-skript, please ignore
+
+MiniWordClock
+ WordClock based on Pong-Game by Conrad
+
+Schlafzimmer
+ Lamp with RGB LED stripes, IR-control and distance-sensors
+
+WordClockRemote
+ Android App for controlling the "wordclock" project via bluetooth and gestures
+
+avrusb
+ test project, please ignore
+
+bma020-tiny2313
+ level-meter via g-sensor, sending via RFM12 (for "netio")
+
+distancesensor-tiny85
+ distance-sensor for "Schlafzimmer", measuring distance via sharp sensor, connection via I2C (this is slave)
+
+ethersex
+ empty
+
+ir-receiver-tiny85
+ ir receiver for "Schlafzimmer", via I2C (this is slave)
+
+kerze-tiny2313
+ please ignore
+
+klinke
+ project for moving a servo
+
+librfm12
+ library for RFM12
+
+marderschreck
+ please ignore
+
+nachtlicht-tiny85
+ night-light via LDR light sensor
+
+netio
+ receiver for RFM12, transmitting received packets via UDP
+
+receiver-nagios
+ receiver for UDP packets, using data for icinga/google talk/munin
+
+rfid-reader
+ alternative firmware for rfid reader from pollin
+
+rfm12-tiny2313
+ temperatur reader (DS1820) and sender via RFM12 (for "netio")
+
+rh10hp03-tiny2313
+ pressure and moisture sensor, sending via RFM12 (for "netio")
+
+serverraum-tiny2313
+ please ignore
+
+timer-tiny85
+ power-saver, controllable via i2c
+
+usb-mega32
+usbavrlab
+vusb
+wordclock-bloader
+wordclock-bloader
+ for testing
+
+wordclock
+ wordclock with RTC and bluetooth-control (via "WordClockRemote")
+
