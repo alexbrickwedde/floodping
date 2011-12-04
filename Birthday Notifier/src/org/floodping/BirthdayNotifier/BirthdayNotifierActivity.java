@@ -2,7 +2,6 @@ package org.floodping.BirthdayNotifier;
 
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
 public class BirthdayNotifierActivity extends Activity {
@@ -11,9 +10,7 @@ public class BirthdayNotifierActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Intent serviceIntent = new Intent();
-		serviceIntent.setAction("org.floodping.BirthdayNotifier.BirthdayNotifierService");
-		this.startService(serviceIntent);
+		Helper.Schedule(this);
 		
 		this.finish();
 	}
