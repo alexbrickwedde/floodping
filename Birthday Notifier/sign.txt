@@ -1,0 +1,4 @@
+
+(Export unsigned apk with context-menu)
+"\Program Files\Java\jdk1.6.0_26\bin\jarsigner.exe"  -verbose -keystore android.keystore BirthdayNotifier-unsigned.apk android
+\opt\android\tools\zipalign.exe -f -v 4 BirthdayNotifier-unsigned.apk BirthdayNotifier.apk
