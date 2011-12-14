@@ -14,19 +14,19 @@
 //
 // Copyright (c) Martin Steppuhn (www.emsystech.de)
 //
-// Nur für den privaten Gebrauch / NON-COMMERCIAL USE ONLY
+// Nur fï¿½r den privaten Gebrauch / NON-COMMERCIAL USE ONLY
 //
-// Die Nutzung (auch auszugsweise) ist für den privaten und nichtkommerziellen 
-// Gebrauch erlaubt. Eine Veröffentlichung und Weiterverwendung des Quellcodes 
-// ist möglich wenn diese Nutzungsbedingungen incl. Copyright beiliegen
+// Die Nutzung (auch auszugsweise) ist fï¿½r den privaten und nichtkommerziellen 
+// Gebrauch erlaubt. Eine Verï¿½ffentlichung und Weiterverwendung des Quellcodes 
+// ist mï¿½glich wenn diese Nutzungsbedingungen incl. Copyright beiliegen
 // und die Quelle verlinkt ist. (www.emsystech.de)
 //
 // Bei kommerziellen Absichten nehmen Sie bitte Kontakt mit uns auf 
 // (info@emsystech.de)
 //
-// Keine Gewähr auf Fehlerfreiheit, Vollständigkeit oder Funktion. Benutzung 
-// auf eigene Gefahr. Es wird keinerlei Haftung für direkte oder indirekte 
-// Personen- oder Sachschäden übernommen.
+// Keine Gewï¿½hr auf Fehlerfreiheit, Vollstï¿½ndigkeit oder Funktion. Benutzung 
+// auf eigene Gefahr. Es wird keinerlei Haftung fï¿½r direkte oder indirekte 
+// Personen- oder Sachschï¿½den ï¿½bernommen.
 //              
 // Author:      Martin Steppuhn
 // History:     18.12.2009 Initial version
@@ -42,7 +42,6 @@
 /**** Preprocessing directives (#define) **************************************/
 
 //=== Portpins ===
-
 #define		DATA_SET		PORTB |=  (1<<4)
 #define		DATA_CLR		PORTB &= ~(1<<4)
 
@@ -114,33 +113,35 @@
 
 /**** Local constants  ********************************************************/
 
-const uint8  font[40] = 				// Digits
-{
-	0xFE,0x82,0x82,0xFE,		// 0
-	0x08,0x04,0xFE,0x00,		// 1
-	0xC4,0xA2,0x92,0x8C,		// 2
-	0x82,0x92,0x92,0x7C,		// 3		
-	0x1E,0x10,0xF8,0x10,		// 4
-	0x9E,0x92,0x92,0x62,		// 5
-	0x78,0x94,0x92,0x60,		// 6
-	0x02,0xF2,0x0A,0x06,		// 7
-	0xFE,0x92,0x92,0xFE, 		// 8
-	0x9E,0x92,0x92,0xFE 		// 9
-};
+const uint8 font[40] = // Digits
+		{ 0xFE, 0x82, 0x82, 0xFE, // 0
+				0x08, 0x04, 0xFE, 0x00, // 1
+				0xC4, 0xA2, 0x92, 0x8C, // 2
+				0x82, 0x92, 0x92, 0x7C, // 3
+				0x1E, 0x10, 0xF8, 0x10, // 4
+				0x9E, 0x92, 0x92, 0x62, // 5
+				0x78, 0x94, 0x92, 0x60, // 6
+				0x02, 0xF2, 0x0A, 0x06, // 7
+				0xFE, 0x92, 0x92, 0xFE, // 8
+				0x9E, 0x92, 0x92, 0xFE // 9
+		};
 
 /**** Local variables *********************************************************/
 
-uint8  		c;
-uint16		led[12];
-uint8		col_cnt;
-uint16		col;
-uint8 		button_mem;
-uint8		hour,minute,second;
-uint8		time_setup;
-uint8		time_setup_cnt0;
-uint8		time_setup_cnt1;
-uint16		loop_cnt;
-uint8		sec_flag,key_flag;
+uint8 c;
+uint16 led[12];
+uint8 col_cnt;
+uint16 col;
+uint8 button_mem;
+uint8 hour, minute, second;
+uint8 time_setup_cnt0;
+uint8 time_setup_cnt1;
+uint16 loop_cnt;
+uint8 sec_flag, key_flag;
+
+enum {
+	Idle, StartHour, InputHour, StartMinute, InputMinute
+} e_SetupState;
 
 /**** Local function prototypes ***********************************************/
 
@@ -151,175 +152,266 @@ uint8		sec_flag,key_flag;
 // Parameter: 
 // Return:    
 //------------------------------------------------------------------------------
-void draw_time(void)
-{
-	uint8	i,h;
+void draw_time(void) {
+	uint8 i, h;
 
-	if(time_setup == 2)
-	{
+	if (e_SetupState == InputHour || e_SetupState == StartHour) {
 		i = (hour / 10) * 4;
 		led[0] = font[i];
-		led[1] = font[i+1];
-		led[2] = font[i+2];
-		led[3] = font[i+3];
+		led[1] = font[i + 1];
+		led[2] = font[i + 2];
+		led[3] = font[i + 3];
 		led[4] = 0;
 		i = (hour % 10) * 4;
 		led[5] = font[i];
-		led[6] = font[i+1];
-		led[7] = font[i+2];
-		led[8] = font[i+3];
+		led[6] = font[i + 1];
+		led[7] = font[i + 2];
+		led[8] = font[i + 3];
 		led[9] = 0;
 
-		if(second & 1)	{	led[10] = 0x44;	led[11] = 0;	}
-			else					{	led[10] = 0;	led[11] = 0x44;	}
-	}
-	else if(time_setup == 1)
-	{
-		if(second & 1)	{	led[0] = 0x44;	led[1] = 0;	}
-			else					{	led[0] = 0;	led[1] = 0x44;	}
+		if (second & 1) {
+			led[10] = 0x44;
+			led[11] = 0;
+		} else {
+			led[10] = 0;
+			led[11] = 0x44;
+		}
+	} else if (e_SetupState == InputMinute || e_SetupState == StartMinute) {
+		if (second & 1) {
+			led[0] = 0x44;
+			led[1] = 0;
+		} else {
+			led[0] = 0;
+			led[1] = 0x44;
+		}
 		led[2] = 0;
 		i = (minute / 10) * 4;
 		led[3] = font[i];
-		led[4] = font[i+1];
-		led[5] = font[i+2];
-		led[6] = font[i+3];
+		led[4] = font[i + 1];
+		led[5] = font[i + 2];
+		led[6] = font[i + 3];
 		led[7] = 0;
 		i = (minute % 10) * 4;
 		led[8] = font[i];
-		led[9] = font[i+1];
-		led[10] = font[i+2];
-		led[11] = font[i+3];
-	}
-	else
-	{
+		led[9] = font[i + 1];
+		led[10] = font[i + 2];
+		led[11] = font[i + 3];
+	} else {
 		CLEAR_ALL;
 		WORD_ES_IST;
 		WORD_UHR;
 
 		h = 0;
-		if(     minute <   5)	{	                                					h = hour; }
-		else if(minute <  10)	{	WORD_FUENF;   WORD_NACH; 							h = hour; }
-		else if(minute <  15)	{	WORD_ZEHN;    WORD_NACH; 							h = hour; }
-		else if(minute <  20)	{	WORD_VIERTEL; WORD_NACH; 							h = hour; }
-		else if(minute <  25)	{	WORD_ZEHN;  	WORD_VOR_1;	WORD_HALB;	h = hour + 1; }
-		else if(minute <  30)	{	WORD_FUENF;   WORD_VOR_1; WORD_HALB;	h = hour + 1; }
-		else if(minute <  35)	{	WORD_HALB;  													h = hour + 1; }
-		else if(minute <  40)	{	WORD_FUENF; 	WORD_NACH; 	WORD_HALB;	h = hour + 1; }
-		else if(minute <  45)	{	WORD_ZEHN; 		WORD_NACH; 	WORD_HALB;	h = hour + 1; }
-		else if(minute <  50)	{	WORD_VIERTEL;	WORD_VOR_2;							h = hour + 1; }
-		else if(minute <  55)	{	WORD_ZEHN; 		WORD_VOR_1;							h = hour + 1; }
-		else if(minute <  60)	{	WORD_FUENF; 	WORD_VOR_1;							h = hour + 1; }
+		if (minute < 5) {
+			h = hour;
+		} else if (minute < 10) {
+			WORD_FUENF;
+			WORD_NACH;
+			h = hour;
+		} else if (minute < 15) {
+			WORD_ZEHN;
+			WORD_NACH;
+			h = hour;
+		} else if (minute < 20) {
+			WORD_VIERTEL;
+			WORD_NACH;
+			h = hour;
+		} else if (minute < 25) {
+			WORD_ZEHN;
+			WORD_VOR_1;
+			WORD_HALB;
+			h = hour + 1;
+		} else if (minute < 30) {
+			WORD_FUENF;
+			WORD_VOR_1;
+			WORD_HALB;
+			h = hour + 1;
+		} else if (minute < 35) {
+			WORD_HALB;
+			h = hour + 1;
+		} else if (minute < 40) {
+			WORD_FUENF;
+			WORD_NACH;
+			WORD_HALB;
+			h = hour + 1;
+		} else if (minute < 45) {
+			WORD_ZEHN;
+			WORD_NACH;
+			WORD_HALB;
+			h = hour + 1;
+		} else if (minute < 50) {
+			WORD_VIERTEL;
+			WORD_VOR_2;
+			h = hour + 1;
+		} else if (minute < 55) {
+			WORD_ZEHN;
+			WORD_VOR_1;
+			h = hour + 1;
+		} else if (minute < 60) {
+			WORD_FUENF;
+			WORD_VOR_1;
+			h = hour + 1;
+		}
 
-		switch(minute % 5)
-		{
+		switch (minute % 5) {
 		case 1:
-			WORD_PLUS1;
+			WORD_PLUS1
+			;
 			break;
 		case 2:
-			WORD_PLUS2;
+			WORD_PLUS2
+			;
 			break;
 		case 3:
-			WORD_PLUS3;
+			WORD_PLUS3
+			;
 			break;
 		case 4:
-			WORD_PLUS4;
+			WORD_PLUS4
+			;
 			break;
 		}
 
-		if(     h ==  0) { WORD_12; }
-		else if(h ==  1) { WORD_1;  }
-		else if(h ==  2) { WORD_2;  }
-		else if(h ==  3) { WORD_3;  }
-		else if(h ==  4) { WORD_4;  }
-		else if(h ==  5) { WORD_5;  }
-		else if(h ==  6) { WORD_6;  }
-		else if(h ==  7) { WORD_7;  }
-		else if(h ==  8) { WORD_8;  }
-		else if(h ==  9) { WORD_9;  }
-		else if(h == 10) { WORD_10; }
-		else if(h == 11) { WORD_11; }
-		else if(h == 12) { WORD_12; }
+		if (h == 0) {
+			WORD_12
+			;
+		} else if (h == 1) {
+			WORD_1
+			;
+		} else if (h == 2) {
+			WORD_2
+			;
+		} else if (h == 3) {
+			WORD_3
+			;
+		} else if (h == 4) {
+			WORD_4
+			;
+		} else if (h == 5) {
+			WORD_5
+			;
+		} else if (h == 6) {
+			WORD_6
+			;
+		} else if (h == 7) {
+			WORD_7
+			;
+		} else if (h == 8) {
+			WORD_8
+			;
+		} else if (h == 9) {
+			WORD_9
+			;
+		} else if (h == 10) {
+			WORD_10
+			;
+		} else if (h == 11) {
+			WORD_11
+			;
+		} else if (h == 12) {
+			WORD_12
+			;
+		}
 	}
 }
-
 
 //------------------------------------------------------------------------------
 //		MAIN
 //------------------------------------------------------------------------------
-int main(void)
-{
- 	DDRC = 0x0F;
+int main(void) {
+	DDRC = 0x0F;
 	DDRD = 0xF0;
-	DDRB = 0x03 + (1<<2) + (1<<3) + (1<<4);
-	PORTD |= (1<<2);		// für Pullup
-	SFIOR &= (1<<PUD);
+	DDRB = 0x03 + (1 << 2) + (1 << 3) + (1 << 4);
+	PORTD |= (1 << 2); // fï¿½r Pullup
+	SFIOR &= (1 << PUD);
 
 	// Timer 2 mit externem 32kHz Quarz betreiben
-	ASSR |= (1<<AS2);
-	TCCR2	= (1<<CS22) + (1<<CS20);			// /128 für 1Hz Int
+	ASSR |= (1 << AS2);
+	TCCR2 = (1 << CS22) + (1 << CS20); // /128 fï¿½r 1Hz Int
 
-	// Timer 1 für LED INT mit ca. 1,2kHz 		
+	// Timer 1 fï¿½r LED INT mit ca. 1,2kHz 		
 	TCCR1A = 0;
-  TCCR1B = (1<<WGM12) + (1<<CS10);     
-  OCR1A = 6667;
+	TCCR1B = (1 << WGM12) + (1 << CS10);
+	OCR1A = 6667;
 
 	// Timer Interrupts
 
-  TIMSK  = (1<<OCIE1A) + (1<<TOIE2);   // set interrupt mask
- 
+	TIMSK = (1 << OCIE1A) + (1 << TOIE2); // set interrupt mask
 
 	uart_init();
-	uart_puts_p("\r\nWordClock V1.0.0, Dez.2009 Martin Steppuhn (www.emsystech.de)\r\n");
+	uart_puts_p(
+			"\r\nWordClock V1.0.0, Dez.2009 Martin Steppuhn (www.emsystech.de)\r\n");
 
 	hour = 0;
 	minute = 0;
 	second = 0;
-	time_setup = 0;
 
-	sei();	// Interrupt ein	
+	sei();
+	// Interrupt ein
 
-	while(1)
-	{
-		if(sec_flag)	//=== 1 Sekunde ===
+	while (1) {
+		if (sec_flag) //=== 1 Sekunde ===
 		{
 			sec_flag = false;
-			if(BUTTON)
-			{
+			if (BUTTON) {
 				time_setup_cnt1++;
-				if(time_setup_cnt1 > 3)
-				{
-					time_setup++;
-					if(time_setup > 2) time_setup = 0;
+				if (time_setup_cnt1 > 3) {
+					switch (e_SetupState) {
+					case Idle:
+						e_SetupState = StartHour;
+						break;
+					case InputHour:
+						e_SetupState = StartMinute;
+						break;
+					case InputMinute:
+						e_SetupState = Idle;
+						break;
+					case StartHour:
+					case StartMinute:
+						break;
+					}
 				}
-			}
-			else
-			{
+			} else {
 				time_setup_cnt0++;
-				if(time_setup_cnt0 > 5) time_setup = 0;
+				if (time_setup_cnt0 > 5) {
+					e_SetupState = Idle;
+				}
 			}
 			draw_time();
 		}
-		
-			
-		if(key_flag)	//=== 10ms ===	
+
+		if (key_flag) //=== 10ms ===
 		{
 			key_flag = false;
-			if(!BUTTON && button_mem)			// falling Edge
-			{
+			if (!BUTTON && button_mem) // falling Edge
+					{
 				button_mem = false;
-				if(time_setup == 1)	minute = (minute<59) ?minute+1 : 0;
-				if(time_setup == 2) hour = (hour < 11) ? hour+1 :	0;
+
+				switch (e_SetupState) {
+				case Idle:
+					break;
+				case StartHour:
+					e_SetupState = InputHour;
+					break;
+				case StartMinute:
+					e_SetupState = InputMinute;
+					break;
+				case InputHour:
+					hour = (hour < 11) ? hour + 1 : 0;
+					break;
+				case InputMinute:
+					minute = (minute < 59) ? minute + 1 : 0;
+					break;
+				}
+
 			}
-			if(BUTTON)
-			{
+			if (BUTTON) {
 				button_mem = true;
 				time_setup_cnt0 = 0;
+			} else {
+				time_setup_cnt1 = 0;
 			}
-			else
-			{
-				time_setup_cnt1 = 0; 
-			}
-			draw_time();		
+			draw_time();
 		}
 
 		// if(uart_kbhit())	{	c = uart_getc();	uart_putc(c);	}
@@ -333,20 +425,18 @@ int main(void)
 // Parameter: 
 // Return:    
 //------------------------------------------------------------------------------
-ISR(TIMER2_OVF_vect)    
-{
+ISR(TIMER2_OVF_vect) {
 	second++;
-	if(second > 59)
-	{
-		second=0;
+	if (second > 59) {
+		second = 0;
 		minute++;
-		if(minute > 59)
-		{
+		if (minute > 59) {
 			minute = 0;
 			hour++;
-			if(hour > 11) hour = 0;
+			if (hour > 11)
+				hour = 0;
 		}
-	}		
+	}
 	sec_flag = true;
 }
 
@@ -357,17 +447,13 @@ ISR(TIMER2_OVF_vect)
 // Parameter: 
 // Return:    
 //------------------------------------------------------------------------------
-ISR(TIMER1_COMPA_vect)    
-{
+ISR(TIMER1_COMPA_vect) {
 	col_cnt++;
-	if(col_cnt > 11)
-	{
-		key_flag = true;			// zum sampeln/entprellen der Taste
-		col_cnt=0;
+	if (col_cnt > 11) {
+		key_flag = true; // zum sampeln/entprellen der Taste
+		col_cnt = 0;
 		DATA_CLR;
-	}
-	else
-	{
+	} else {
 		DATA_SET;
 	}
 	CLK_SET;
@@ -386,7 +472,4 @@ ISR(TIMER1_COMPA_vect)
 	PORTD |= col & 0xF0;
 	PORTB |= (col >> 8) & 0x03;
 }
-
-
-
 
