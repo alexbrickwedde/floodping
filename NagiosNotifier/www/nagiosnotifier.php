@@ -53,7 +53,7 @@ function googleAuthenticate($username, $password, $source="org.floodping-NagiosN
     return $matches[2];
 }
 
-$auth = googleAuthenticate("alex@nfsroot.de", file_get_contents ("../password.txt"));
+$auth = googleAuthenticate(file_get_contents ("../account.txt"), file_get_contents ("../password.txt"));
 
 function sendMessageToPhone($authCode, $deviceRegistrationId, $msgType, $messageText) {
 
