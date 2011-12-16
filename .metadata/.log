@@ -1197,3 +1197,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.ui 4 4 2011-11-19 17:51:46.571
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-12-14 19:30:37.403 -----------------------------------------------
+eclipse.buildId=M20110912-1510
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=de_DE
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-12-14 19:32:17.725
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-12-14 19:32:22.087
+!MESSAGE Indexed 'MiniWordClock' (2 sources, 10 headers) in 0,65 sec: 57 declarations; 630 references; 13 unresolved inclusions; 0 syntax errors; 53 unresolved names (7,16 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-12-14 19:34:37.015
+!MESSAGE Indexed 'MiniWordClock' (2 sources, 22 headers) in 0,31 sec: 422 declarations; 1.079 references; 6 unresolved inclusions; 1 syntax errors; 53 unresolved names (3,41 %)
