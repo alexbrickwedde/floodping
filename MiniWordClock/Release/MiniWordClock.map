@@ -137,7 +137,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xe1c
+.text           0x0000000000000000      0xe12
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x0000000000000000                __vectors
@@ -211,34 +211,34 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x000000000000009e                __vector_10
                 0x000000000000009e                __vector_16
                 0x000000000000009e                __vector_18
- .text          0x00000000000000a0      0xd08 ./main.o
-                0x0000000000000be8                __vector_6
+ .text          0x00000000000000a0      0xcfe ./main.o
+                0x0000000000000bde                __vector_6
                 0x00000000000000a0                draw_time
-                0x0000000000000c80                main
-                0x0000000000000b94                __vector_4
- .text          0x0000000000000da8       0x58 ./uart.o
-                0x0000000000000dd0                uart_puts
-                0x0000000000000da8                uart_init
-                0x0000000000000de4                uart_puts_P
-                0x0000000000000df8                uart_getc
-                0x0000000000000dc8                uart_putc
-                0x0000000000000dc2                uart_kbhit
- .text          0x0000000000000e00        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .text          0x0000000000000e00        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text          0x0000000000000e00        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text          0x0000000000000e00        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
-                0x0000000000000e00                . = ALIGN (0x2)
+                0x0000000000000c76                main
+                0x0000000000000b8a                __vector_4
+ .text          0x0000000000000d9e       0x58 ./uart.o
+                0x0000000000000dc6                uart_puts
+                0x0000000000000d9e                uart_init
+                0x0000000000000dda                uart_puts_P
+                0x0000000000000dee                uart_getc
+                0x0000000000000dbe                uart_putc
+                0x0000000000000db8                uart_kbhit
+ .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000df6                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000000000000e00       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
-                0x0000000000000e00                __udivmodqi4
- .text.libgcc   0x0000000000000e18        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000e18        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000e18        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
-                0x0000000000000e18                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000000df6       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+                0x0000000000000df6                __udivmodqi4
+ .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000e0e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000e18        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
-                0x0000000000000e18                exit
-                0x0000000000000e18                _exit
+ .fini9         0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                0x0000000000000e0e                exit
+                0x0000000000000e0e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -257,11 +257,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000e18        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000e0e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000e1c                _etext = .
+                0x0000000000000e12                _etext = .
 
-.data           0x0000000000800060       0x28 load address 0x0000000000000e1c
+.data           0x0000000000800060       0x28 load address 0x0000000000000e12
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -308,8 +308,8 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x00000000008000ad                e_SetupState
                 0x00000000008000ae                time_setup_cnt1
                 0x00000000008000af                PROVIDE (__bss_end, .)
-                0x0000000000000e1c                __data_load_start = LOADADDR (.data)
-                0x0000000000000e44                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000000e12                __data_load_start = LOADADDR (.data)
+                0x0000000000000e3a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00000000008000af        0x0
                 0x00000000008000af                PROVIDE (__noinit_start, .)

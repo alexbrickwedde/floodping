@@ -30,7 +30,7 @@ AVR Memory Usage
 ----------------
 Device: atmega8
 
-Program:    3652 bytes (44.6% Full)
+Program:    3642 bytes (44.5% Full)
 (.text + .data + .bootloader)
 
 Data:         79 bytes (7.7% Full)
@@ -54,21 +54,21 @@ avrdude: erasing chip
 avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 avrdude: reading input file "MiniWordClock.hex"
 avrdude: input file MiniWordClock.hex auto detected as Intel Hex
-avrdude: writing flash (3652 bytes):
+avrdude: writing flash (3642 bytes):
 
 Writing | ################################################## | 100% 2.55s
 
-avrdude: 3652 bytes of flash written
+avrdude: 3642 bytes of flash written
 avrdude: verifying flash memory against MiniWordClock.hex:
 avrdude: load data flash data from input file MiniWordClock.hex:
 avrdude: input file MiniWordClock.hex auto detected as Intel Hex
-avrdude: input file MiniWordClock.hex contains 3652 bytes
+avrdude: input file MiniWordClock.hex contains 3642 bytes
 avrdude: reading on-chip flash data:
 
 Reading | ################################################## | 100% 1.87s
 
 avrdude: verifying ...
-avrdude: 3652 bytes of flash verified
+avrdude: 3642 bytes of flash verified
 avrdude: reading input file "0xe4"
 avrdude: writing lfuse (1 bytes):
 

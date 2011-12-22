@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="org.floodping.Main.UdpReceiver"/>
 <fullyQualifiedTypeName name="org.floodping.ChatReceiver"/>
 <fullyQualifiedTypeName name="java.net.SocketTimeoutException"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

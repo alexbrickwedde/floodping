@@ -17535,3 +17535,118 @@ avrdude done.  Thank you.
 
 
 **** Build Finished ****
+
+**** Build of configuration Default for project TestJNI ****
+
+make all 
+make: *** Keine Regel, um »all« zu erstellen.  Schluss.
+
+**** Build Finished ****
+
+**** Build of configuration Release for project MiniWordClock ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=32768UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: MiniWordClock.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MiniWordClock.map -mmcu=atmega8 -o "MiniWordClock.elf"  ./main.o ./uart.o   
+Finished building target: MiniWordClock.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MiniWordClock.elf  >"MiniWordClock.lss"
+Finished building: MiniWordClock.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex MiniWordClock.elf  "MiniWordClock.hex"
+Finished building: MiniWordClock.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MiniWordClock.elf  "MiniWordClock.eep"
+Finished building: MiniWordClock.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 MiniWordClock.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    3642 bytes (44.5% Full)
+(.text + .data + .bootloader)
+
+Data:         79 bytes (7.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:MiniWordClock.hex:a -Ulfuse:w:0xe4:m -Uhfuse:w:0xc9:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "MiniWordClock.hex"
+avrdude: input file MiniWordClock.hex auto detected as Intel Hex
+avrdude: writing flash (3642 bytes):
+
+Writing | ################################################## | 100% 2.55s
+
+avrdude: 3642 bytes of flash written
+avrdude: verifying flash memory against MiniWordClock.hex:
+avrdude: load data flash data from input file MiniWordClock.hex:
+avrdude: input file MiniWordClock.hex auto detected as Intel Hex
+avrdude: input file MiniWordClock.hex contains 3642 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 1.87s
+
+avrdude: verifying ...
+avrdude: 3642 bytes of flash verified
+avrdude: reading input file "0xe4"
+avrdude: writing lfuse (1 bytes):
+
+Finished building: avrdudedummy
+Writing | ################################################## | 100% 0.00s
+
+ 
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xe4:
+avrdude: load data lfuse data from input file 0xe4:
+avrdude: input file 0xe4 contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xc9"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xc9:
+avrdude: load data hfuse data from input file 0xc9:
+avrdude: input file 0xc9 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****

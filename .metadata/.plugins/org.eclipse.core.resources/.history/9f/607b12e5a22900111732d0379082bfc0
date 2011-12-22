@@ -1,0 +1,9 @@
+package org.floodping.testjni;
+
+public class TestJNI {
+
+  static {
+    System.loadLibrary ("example");
+  }
+	public static native String test();
+}
