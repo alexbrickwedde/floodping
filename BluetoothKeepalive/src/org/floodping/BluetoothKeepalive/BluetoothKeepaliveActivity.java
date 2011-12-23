@@ -20,7 +20,7 @@ public class BluetoothKeepaliveActivity extends Activity {
 			public void run() {
 				BluetoothKeepaliveActivity.this.finish();
 			}
-		},20000);
+		},2000);
 		
 		Intent serviceIntent = new Intent();
 		serviceIntent.setAction("org.floodping.BluetoothKeepalive.BluetoothKeepaliveService");
