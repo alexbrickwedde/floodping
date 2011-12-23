@@ -87,7 +87,7 @@
 
 #define		WORD_5				led[0]|=ROW_4; led[1]|=ROW_4; led[2]|=ROW_4; led[3]|=ROW_4
 #define		WORD_2				led[6]|=ROW_4; led[7]|=ROW_4; led[8]|=ROW_4; led[9]|=ROW_4
-#define		WORD_1				led[8]|=ROW_4; led[9]|=ROW_4; led[10]|=ROW_4; led[11]|=ROW_4
+#define		WORD_1				led[8]|=ROW_4; led[9]|=ROW_4; led[10]|=ROW_4
 
 #define		WORD_7				led[0]|=ROW_5; led[1]|=ROW_5; led[2]|=ROW_5; led[3]|=ROW_5; led[4]|=ROW_5; led[5]|=ROW_5
 #define		WORD_6				led[7]|=ROW_5; led[8]|=ROW_5; led[9]|=ROW_5; led[10]|=ROW_5; led[11]|=ROW_5

@@ -9,6 +9,9 @@
 	<item value="1139" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="3" key="formatter_page.modify_dialog_tab_page.last_focus_index"/>
 	<item value="0" key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner"/>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="1" key="askReindex.detail"/>
+	</section>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="PDOMSearchPage">

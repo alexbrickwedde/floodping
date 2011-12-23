@@ -1,0 +1,7 @@
+
+**** Build of configuration Default for project TestJNI ****
+
+make all 
+make: *** Keine Regel, um »all« zu erstellen.  Schluss.
+
+**** Build Finished ****
