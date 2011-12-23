@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BluetoothKeepalive</string>
+    <string name="StartingService">BluetoothKeepalive Dienst wird gestartet</string>
+    <string name="BtDisconn">BluetoothKeepalive hat eine BT-Trennung erkannt</string>
+    <string name="GotWakeLock">BluetoothKeepalive hält ein Wakelock</string>
+    <string name="TickerText">BTKA hat Wakelock</string>
+    <string name="RecogConnect">BluetoothKeepalive hat eine Verbindung festgestellt</string>
+
+</resources>
