@@ -44,9 +44,7 @@ public class BluetoothKeepaliveService extends Service {
 			}
 		}
 
-		if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-			// Device found
-		} else if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
+		if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
 			Toast.makeText(context, R.string.RecogConnect, Toast.LENGTH_SHORT).show();
 			if (!wl.isHeld()) {
 				Notification notification = null;
@@ -75,8 +73,20 @@ public class BluetoothKeepaliveService extends Service {
 //				mNotificationManager.cancel(1);
 				this.stopForeground(true);
 			}
-		} else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-		} else if (BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED.equals(action)) {
+		} else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+			int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
+			switch (state) {
+			case BluetoothAdapter.STATE_ON:
+				break;
+			case BluetoothAdapter.STATE_TURNING_OFF:
+				if (wl.isHeld()) {
+					wl.release();
+				}
+				if (!wl.isHeld()) {
+					this.stopForeground(true);
+				}
+				break;
+			}
 		}
 	}
 
@@ -94,11 +104,10 @@ public class BluetoothKeepaliveService extends Service {
 	public void onStart(Intent intent, int startId) {
 //		Toast.makeText(this, "BluetoothKeepalive Service started", Toast.LENGTH_SHORT).show();
 		IntentFilter filter1 = new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED);
-		IntentFilter filter2 = new IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);
-		IntentFilter filter3 = new IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+		filter1.addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);
+		filter1.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+		filter1.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
 		this.registerReceiver(mReceiver, filter1);
-		this.registerReceiver(mReceiver, filter2);
-		this.registerReceiver(mReceiver, filter3);
 	}
 
 	@Override
