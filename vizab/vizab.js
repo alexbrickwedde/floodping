@@ -36,6 +36,7 @@ FHEM.prototype.SetValue = function SetValue(oValue, sValue)
 
 FHEM.prototype.Update = function Update()
 {
+	try {
         var Request = new ServerConnection ();
         Request.m_sUrl = "/fhem?cmd=jsonlist&XHR=1";
         Request.m_bAsync = false;
@@ -66,6 +67,8 @@ FHEM.prototype.Update = function Update()
                 }
         }
         }
+	}
+	catch (e) {}
 }
 
 FHEM.prototype.GetValue = function GetValue(sName)

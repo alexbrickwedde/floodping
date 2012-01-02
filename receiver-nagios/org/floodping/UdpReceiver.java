@@ -43,7 +43,7 @@ public class UdpReceiver
 	  
 	try {
 	  URL uUrl;
-      uUrl = new URL(URLEncoder.encode(sUrl));
+      uUrl = new URL(sUrl);
 	  BufferedReader in = new BufferedReader(new InputStreamReader(uUrl.openStream()));
 
 	  String inputLine;

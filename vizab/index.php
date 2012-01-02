@@ -1,6 +1,8 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-</head>
+<title>BA3.0</title>
+<meta name="viewport" content="initial-scale=1, width=650"/>
 <script type="text/javascript" src="index.js"></script>
 <script type="text/javascript" src="vizab.js"></script>
 <script type="text/javascript">
@@ -14,6 +16,7 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 }
 
 </script>
+</head>
 
 <body style="font-family:helvetica;font-size:12px;">
 
@@ -35,16 +38,16 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 <input onclick="showgraph('0102T');" style="border:0px;background-color:transparent;position:absolute;top:90px;left:540px;width:60px;" unit="°C" type="text" value="x" name="0102T" id="airid0102T">
 <input onclick="showgraph('0102D');" style="border:0px;background-color:transparent;position:absolute;top:110px;left:540px;width:60px;" unit="°C" type="text" value="x" name="0102D" id="airid0102D">
 
-<span style="position:absolute;top:34px;left:460">Wasserstand</span>
-<span style="position:absolute;top:54px;left:460">Luftfeuchte</span>
-<span style="position:absolute;top:74px;left:460">Luftdruck</span>
-<span style="position:absolute;top:94px;left:460">Temperatur</span>
-<span style="position:absolute;top:114px;left:460">Taupunkt</span>
+<span style="position:absolute;top:34px;left:460px">Wasserstand</span>
+<span style="position:absolute;top:54px;left:460px">Luftfeuchte</span>
+<span style="position:absolute;top:74px;left:460px">Luftdruck</span>
+<span style="position:absolute;top:94px;left:460px">Temperatur</span>
+<span style="position:absolute;top:114px;left:460px">Taupunkt</span>
 
-<img style="position:absolute;top:700px;left:20px" id="graph1">
-<img style="position:absolute;top:970px;left:20px" id="graph2">
-<img style="position:absolute;top:1240px;left:20px" id="graph3">
-<img style="position:absolute;top:1510px;left:20px" id="graph4">
+<img style="position:absolute;top:700px;left:20px;width:495px" src="about:blank" id="graph1">
+<img style="position:absolute;top:970px;left:20px;width:495px" src="about:blank" id="graph2">
+<img style="position:absolute;top:1240px;left:20px;width:495px" src="about:blank" id="graph3">
+<img style="position:absolute;top:1510px;left:20px;width:495px" src="about:blank" id="graph4">
 
 <a style="position:absolute;top:170px;left:500px" href="/icinga/">Icinga</a>
 <a style="position:absolute;top:190px;left:500px" href="/intern/munin/localdomain/localhost.localdomain.html#Sensoren">Munin</a>
