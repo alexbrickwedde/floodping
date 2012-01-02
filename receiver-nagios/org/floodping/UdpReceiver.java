@@ -1,14 +1,18 @@
 package org.floodping;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
@@ -32,6 +36,29 @@ public class UdpReceiver
         e.printStackTrace ();
       }
     }
+  }
+
+  public String GetUrl(String sUrl)
+  {
+	  
+	try {
+	  URL uUrl;
+      uUrl = new URL(URLEncoder.encode(sUrl));
+	  BufferedReader in = new BufferedReader(new InputStreamReader(uUrl.openStream()));
+
+	  String inputLine;
+	  String sRes = "";
+	  while ((inputLine = in.readLine()) != null)
+	      {
+		  	sRes += inputLine;
+	      }
+
+	  in.close();	  
+	  return sRes;
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return null;
   }
 
   public double calc_dewpoint (int h, int t)
@@ -140,10 +167,12 @@ public class UdpReceiver
             final Formatter cmdf = new Formatter ();
             out.write (cmdf.format ("%+3.1f", x).toString ());
             out.close ();
+
+            final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "%20" + cmdf.toString () + "&XHR=1";
+            System.out.println (this.GetUrl(sUrl));
           }
           catch (final Exception e)
-          {// Catch exception if
-           // any
+          {
             System.err.println ("Error: " + e.getMessage ());
           }
 
@@ -200,6 +229,9 @@ public class UdpReceiver
               final Formatter cmdf = new Formatter ();
               out.write (cmdf.format ("%+3.1f", T).toString ());
               out.close ();
+
+              final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "T%20" + cmdf.toString () + "&XHR=1";
+              System.out.println (this.GetUrl(sUrl));
             }
             catch (final Exception e)
             {
@@ -213,6 +245,8 @@ public class UdpReceiver
               final Formatter cmdf = new Formatter ();
               out.write (cmdf.format ("%+3.1f", Dew).toString ());
               out.close ();
+              final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "D%20" + cmdf.toString () + "&XHR=1";
+              System.out.println (this.GetUrl(sUrl));
             }
             catch (final Exception e)
             {
@@ -226,6 +260,8 @@ public class UdpReceiver
               final Formatter cmdf = new Formatter ();
               out.write (cmdf.format ("%+4d", P).toString ());
               out.close ();
+              final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "P%20" + cmdf.toString () + "&XHR=1";
+              System.out.println (this.GetUrl(sUrl));
             }
             catch (final Exception e)
             {
@@ -239,6 +275,8 @@ public class UdpReceiver
               final Formatter cmdf = new Formatter ();
               out.write (cmdf.format ("%+3d", RH).toString ());
               out.close ();
+              final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "RH%20" + cmdf.toString () + "&XHR=1";
+              System.out.println (this.GetUrl(sUrl));
             }
             catch (final Exception e)
             {
@@ -289,6 +327,8 @@ public class UdpReceiver
             final Formatter cmdf = new Formatter ();
             out.write (cmdf.format ("%+3.1f", t).toString ());
             out.close ();
+            final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "%20" + cmdf.toString () + "&XHR=1";
+            System.out.println (this.GetUrl(sUrl));
           }
           catch (final Exception e)
           {// Catch exception if
