@@ -1,4 +1,3 @@
-
 function ServerConnection()
 {
         this.m_HttpReq = new XMLHttpRequest();
@@ -164,7 +163,7 @@ LampButton.prototype.OnValueChanged = function OnValueChanged(oValue)
 {
         var sValue = oValue.GetValue();
         var iValue = parseInt(sValue);
-        if(isNaN(iValue))
+        if(isFinite(iValue))
         {
                 this.m_Div.src = "/fhem/icons/" + sValue + ".png";
         }
