@@ -9,12 +9,12 @@ function FPF_Init()
         var oValue = g_FHEM.GetValue("WZ_SofaLampe");
         var Button = new LampButton(Div, oValue);
 
-        Div = document.getElementById("WZDecke");
-        oValue = g_FHEM.GetValue("WZ_Deckenlampe");
+        Div = document.getElementById("WZKugeln");
+        oValue = g_FHEM.GetValue("WZ_Leuchtkugeln");
         Button = new LampButton(Div, oValue);
 
-        Div = document.getElementById("EZDecke");
-        oValue = g_FHEM.GetValue("EZ_Deckenlampe");
+        Div = document.getElementById("WZHeizung");
+        oValue = g_FHEM.GetValue("WZ_Heizung");
         Button = new LampButton(Div, oValue);
 
         Div = document.getElementById("WZSofaText");

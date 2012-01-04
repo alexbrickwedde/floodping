@@ -23,8 +23,8 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 <img style="position:absolute;top:0px;left:0px" src="zuhause.png">
 
 <img style="position:absolute;top:80px;left:400px" src="about:blank" id="WZSofa">
-<img style="position:absolute;top:150px;left:340px" src="about:blank" id="WZDecke">
-<img style="position:absolute;top:150px;left:210px" src="about:blank" id="EZDecke">
+<img style="position:absolute;top:230px;left:300px" src="about:blank" id="WZKugeln">
+<img style="position:absolute;top:210px;left:410px" src="about:blank" id="WZHeizung">
 <input type="text" style="position:absolute;top:100px;left:400px;width:45px" id="WZSofaText">
 
 <input onclick="showgraph('0001');" style="border:0px;background-color:transparent;position:absolute;top:100px;left:170px;width:60px;" unit="°C" type="text" value="x" name="0001" id="airid0001">
