@@ -163,7 +163,7 @@ LampButton.prototype.OnValueChanged = function OnValueChanged(oValue)
 {
         var sValue = oValue.GetValue();
         var iValue = parseInt(sValue);
-        if(isFinite(iValue))
+        if(!isFinite(iValue))
         {
                 this.m_Div.src = "/fhem/icons/" + sValue + ".png";
         }
