@@ -1,9 +1,12 @@
 
-window.addEventListener("load", FPF_Init);
+var g_FHEM = null;
 
-function FPF_Init()
+window.addEventListener("load", Init);
+
+function Init()
 {
         g_FHEM = new FHEM();
+	g_FHEM.m_oObj = window;
 
         var Div = document.getElementById("WZSofa");
         var oValue = g_FHEM.GetValue("WZ_SofaLampe");
@@ -60,15 +63,15 @@ function FPF_Init()
         Div = document.getElementById("airid0102T");
         oValue = g_FHEM.GetValue("airid0102T");
         Button = new TextValue(Div, oValue);
-
-        setTimeout(UpdateFHEM, 1000);
 }
 
-
-function UpdateFHEM()
+function OnValuesLoaded (oFHEM)
 {
-        g_FHEM.Update ();
-        setTimeout(UpdateFHEM, 200);
+}
+
+function OnValuesUpdated(oFHEM)
+{
+        setTimeout("g_FHEM.Update ()", 200);
 }
 
 

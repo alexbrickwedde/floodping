@@ -1,15 +1,26 @@
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
 function ServerConnection()
 {
         this.m_HttpReq = new XMLHttpRequest();
         this.m_sMethod = "GET";
         this.m_sUrl = "";
         this.m_bAsync = false;
+	this.m_Target = null;
 }
 
 ServerConnection.prototype.Request = function Request()
 {
         this.m_HttpReq.open(this.m_sMethod, this.m_sUrl, this.m_bAsync);
+
+        this.m_HttpReq.onreadystatechange = Vizab_OnReadyStateChange;
+        this.m_HttpReq.m_oObj = this;
+
         this.m_HttpReq.send();
+
         if(this.m_bAsync)
         {
                 return (true);
@@ -20,9 +31,34 @@ ServerConnection.prototype.Request = function Request()
         }
 }
 
+ServerConnection.prototype.OnReadyStateChanged = function OnReadyStateChanged()
+{
+	switch(this.m_HttpReq.readyState )
+	{
+	case 4:
+		if (this.m_Target)
+		{
+			if (this.m_HttpReq.status == 0)
+			{
+				//
+			}
+			else
+			{
+				this.m_Target.OnReady (this, this.m_HttpReq.responseText);
+			}
+		}
+		break;
+	}
+};
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
 function FHEM()
 {
         this.m_aValues = [];
+	this.m_bValuesLoaded = false;
         this.Update ();
 }
 
@@ -30,44 +66,63 @@ FHEM.prototype.SetValue = function SetValue(oValue, sValue)
 {
         var Request = new ServerConnection ();
         Request.m_sUrl = "/fhem?cmd=set%20" + oValue.m_sName + "%20" + sValue + "&XHR=1";
+        Request.m_bAsync = true;
         var sResult = Request.Request ();
 }
 
 FHEM.prototype.Update = function Update()
 {
-	try {
         var Request = new ServerConnection ();
         Request.m_sUrl = "/fhem?cmd=jsonlist&XHR=1";
-        Request.m_bAsync = false;
+        Request.m_bAsync = true;
+	Request.m_Target = this;
         var sValues = Request.Request ();
-        var aResultSet = JSON.parse (sValues);
-        var aResults = aResultSet["Results"];
-        for(var uiListIndex = 0; uiListIndex < aResults.length; uiListIndex++)
-        {
-                var oList = aResults[uiListIndex];
-                var aDevices = oList["devices"];
-        for(var uiIndex = 0; uiIndex < aDevices.length; uiIndex++)
-        {
-                if (!aDevices[uiIndex]) continue;
+};
 
-                var oNewValue = new FHEMValue (aDevices[uiIndex], this);
-                var oOldValue = this.GetValue (oNewValue.m_sName);
-                if (!oOldValue)
-                {
-                        this.m_aValues.push (oNewValue);
-                        oNewValue.Internal_SendUpdate ();
-                        continue;
-                }
-                var sOld = oOldValue.GetValue ();
-                var sNew = oNewValue.GetValue ();
-                if (sOld != sNew )
-                {
-                        oOldValue.Internal_SetValue (oNewValue.GetValue ());
-                }
-        }
-        }
+FHEM.prototype.OnReady = function OnReady(Request, sResult)
+{
+	var bOk = false;
+	try {
+        	var aResultSet = JSON.parse (sResult);
+
+	        var aResults = aResultSet["Results"];
+	        for(var uiListIndex = 0; uiListIndex < aResults.length; uiListIndex++)
+       		{
+	                var oList = aResults[uiListIndex];
+	                var aDevices = oList["devices"];
+			for(var uiIndex = 0; uiIndex < aDevices.length; uiIndex++)
+		        {
+		                if (!aDevices[uiIndex]) continue;
+		
+		                var oNewValue = new FHEMValue (aDevices[uiIndex], this);
+		                var oOldValue = this.GetValue (oNewValue.m_sName);
+		                if (!oOldValue)
+		                {
+		                        this.m_aValues.push (oNewValue);
+		                        oNewValue.Internal_SendUpdate ();
+		                        continue;
+		                }
+		                var sOld = oOldValue.GetValue ();
+		                var sNew = oNewValue.GetValue ();
+		                if (sOld != sNew )
+		                {
+		                        oOldValue.Internal_SetValue (oNewValue.GetValue ());
+		                }
+		        }
+	        }
+
+		bOk = true;
 	}
-	catch (e) {}
+	catch (e) {
+		//
+	}
+
+	if (bOk && !this.m_bValuesLoaded)
+	{
+		this.m_oObj.OnValuesLoaded (this);
+		this.m_bValuesLoaded = true;
+	}
+	this.m_oObj.OnValuesUpdated (this);
 }
 
 FHEM.prototype.GetValue = function GetValue(sName)
@@ -80,7 +135,14 @@ FHEM.prototype.GetValue = function GetValue(sName)
                         return this.m_aValues[uiIndex];
                 }
         }
+        var oNewValue = new FHEMValue ({NAME:sName, STATE:"???"}, this);
+        this.m_aValues.push (oNewValue);
+	return (oNewValue);
 }
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 
 function FHEMValue (oValue, oFHEM)
 {
@@ -124,9 +186,18 @@ FHEMValue.prototype.SetValue = function SetValue(sValue)
         return this.m_oFHEM.SetValue(this, sValue);
 }
 
-var g_FHEM = null;
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 
-/*****************************************************************************************/
+function Vizab_OnReadyStateChange(e)
+{
+        var oObj = this.m_oObj;
+	if (oObj && oObj.OnReadyStateChanged)
+	{
+		oObj.OnReadyStateChanged ();
+	}
+}
 
 function Vizab_OnClick(e)
 {
@@ -136,6 +207,10 @@ function Vizab_OnClick(e)
                 oObject.OnClick();
         }
 }
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 
 function LampButton(Div, oValue)
 {
@@ -240,6 +315,10 @@ LampButton.prototype.OnValueChanged = function OnValueChanged(oValue)
                 this.m_Div.src = "/fhem/icons/" + sValue + ".png";
         }
 }
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 
 function TextValue(Div, oValue)
 {
