@@ -199,13 +199,24 @@ function Vizab_OnReadyStateChange(e)
 	}
 }
 
+function Vizab_OnMouseDown(e)
+{
+        var oObject = e.currentTarget.oObject;
+        if(oObject && oObject.OnMouseDown)
+        {
+                oObject.OnMouseDown(e);
+        }
+        return (false);
+}
+
 function Vizab_OnClick(e)
 {
         var oObject = e.currentTarget.oObject;
         if(oObject && oObject.OnClick)
         {
-                oObject.OnClick();
+                oObject.OnClick(e);
         }
+	return (false);
 }
 
 // ----------------------------------------------------------------------------------------------
@@ -218,19 +229,35 @@ function LampButton(Div, oValue)
         this.m_oValue = oValue;
 
         Div.onclick = Vizab_OnClick;
+        Div.onmousedown = Vizab_OnMouseDown;
         Div.oObject = this;
         oValue.Register (this);
 }
 
-LampButton.prototype.OnClick = function OnClick()
+LampButton.prototype.OnMouseDown = function OnMouseDown(Event)
 {
-        if ( this.m_oValue.GetValue() == "on")
+        if (Event.button == 2)
         {
-                this.m_oValue.SetValue("off");
+                Event.stopPropagation()
+                var sValue = prompt ("Enter new dim value:","50%");
+                var iValue = parseInt(sValue, 10);
+                if (isFinite(iValue))
+                {
+                  this.m_oValue.SetValue(iValue + "%");
+                }
+                return (false);
+        }
+}
+
+LampButton.prototype.OnClick = function OnClick(Event)
+{
+        if ( this.m_oValue.GetValue() == "off")
+        {
+                this.m_oValue.SetValue("on");
         }
         else
         {
-                this.m_oValue.SetValue("on");
+                this.m_oValue.SetValue("off");
         }
 }
 
