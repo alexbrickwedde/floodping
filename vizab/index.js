@@ -11,6 +11,7 @@ function Init()
         var Div = document.getElementById("WZSofa");
         var oValue = g_FHEM.GetValue("WZ_SofaLampe");
         var Button = new LampButton(Div, oValue);
+	Button.m_bDimmable = true;
 
         Div = document.getElementById("WZKugeln");
         oValue = g_FHEM.GetValue("WZ_Leuchtkugeln");

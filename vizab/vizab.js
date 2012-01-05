@@ -227,6 +227,7 @@ function LampButton(Div, oValue)
 {
         this.m_Div = Div;
         this.m_oValue = oValue;
+	this.m_bDimmable = false;
 
         Div.onclick = Vizab_OnClick;
         Div.onmousedown = Vizab_OnMouseDown;
@@ -236,7 +237,7 @@ function LampButton(Div, oValue)
 
 LampButton.prototype.OnMouseDown = function OnMouseDown(Event)
 {
-        if (Event.button == 2)
+        if ( ( Event.button == 2 ) && ( this.m_bDimmable ) )
         {
                 Event.stopPropagation()
                 var sValue = prompt ("Enter new dim value:","50%");
