@@ -196,39 +196,6 @@ FHEMValue.prototype.SetValue = function SetValue (sValue)
 // ----------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------
 
-function Vizab_OnReadyStateChange (e)
-{
-  var oObj = this.m_oObj;
-  if (oObj && oObj.OnReadyStateChanged)
-  {
-    oObj.OnReadyStateChanged();
-  }
-}
-
-function Vizab_OnMouseDown (e)
-{
-  var oObject = e.currentTarget.oObject;
-  if (oObject && oObject.OnMouseDown)
-  {
-    oObject.OnMouseDown(e);
-  }
-  return (false);
-}
-
-function Vizab_OnClick (e)
-{
-  var oObject = e.currentTarget.oObject;
-  if (oObject && oObject.OnClick)
-  {
-    oObject.OnClick(e);
-  }
-  return (false);
-}
-
-// ----------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------
-
 function LampButton (Div, oValue)
 {
   this.m_Div = Div;
@@ -380,3 +347,36 @@ TextValue.prototype.OnValueChanged = function OnValueChanged (oValue)
   var sAtt = this.m_Div.getAttribute("unit");
   this.m_Div.value = sValue ? (sValue + (sAtt ? " " + sAtt : "")) : "???";
 };
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
+function Vizab_OnReadyStateChange (e)
+{
+  var oObj = this.m_oObj;
+  if (oObj && oObj.OnReadyStateChanged)
+  {
+    oObj.OnReadyStateChanged();
+  }
+}
+
+function Vizab_OnMouseDown (e)
+{
+  var oObject = e.currentTarget.oObject;
+  if (oObject && oObject.OnMouseDown)
+  {
+    oObject.OnMouseDown(e);
+  }
+  return (false);
+}
+
+function Vizab_OnClick (e)
+{
+  var oObject = e.currentTarget.oObject;
+  if (oObject && oObject.OnClick)
+  {
+    oObject.OnClick(e);
+  }
+  return (false);
+}
