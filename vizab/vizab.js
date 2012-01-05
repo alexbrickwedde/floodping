@@ -267,7 +267,18 @@ LampButton.prototype.OnValueChanged = function OnValueChanged(oValue)
         var iValue = parseInt(sValue);
         if(!isFinite(iValue))
         {
-                this.m_Div.src = "/fhem/icons/" + sValue + ".png";
+		switch(sValue)
+		{
+                case "on":
+                case "off":
+			this.m_Div.src = "png/" + sValue + ".png";
+			break;
+		
+		case "MISSING ACK":
+		default:
+			this.m_Div.src = "png/error.png";
+			break;
+		}
         }
         else
         {
@@ -339,7 +350,7 @@ LampButton.prototype.OnValueChanged = function OnValueChanged(oValue)
                 {
                         sValue = "on";
                 }
-                this.m_Div.src = "/fhem/icons/" + sValue + ".png";
+                this.m_Div.src = "png/" + sValue + ".png";
         }
 }
 
