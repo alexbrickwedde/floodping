@@ -22,9 +22,9 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 
 <img style="position:absolute;top:0px;left:0px" src="zuhause.png">
 
-<img style="position:absolute;top:80px;left:400px" src="about:blank" id="WZSofa">
-<img style="position:absolute;top:230px;left:300px" src="about:blank" id="WZKugeln">
-<img style="position:absolute;top:210px;left:410px" src="about:blank" id="WZHeizung">
+<img style="position:absolute;top:80px;left:400px" src="png/transparent.png" id="WZSofa">
+<img style="position:absolute;top:230px;left:300px" src="png/transparent.png" id="WZKugeln">
+<img style="position:absolute;top:210px;left:410px" src="png/transparent.png" id="WZHeizung">
 <input type="text" style="position:absolute;top:100px;left:400px;width:45px" id="WZSofaText">
 
 <input onclick="showgraph('0001');" style="border:0px;background-color:transparent;position:absolute;top:100px;left:170px;width:60px;" unit="°C" type="text" value="x" name="0001" id="airid0001">
@@ -44,10 +44,10 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 <span style="position:absolute;top:94px;left:460px">Temperatur</span>
 <span style="position:absolute;top:114px;left:460px">Taupunkt</span>
 
-<img style="position:absolute;top:700px;left:20px;width:495px" src="about:blank" id="graph1">
-<img style="position:absolute;top:970px;left:20px;width:495px" src="about:blank" id="graph2">
-<img style="position:absolute;top:1240px;left:20px;width:495px" src="about:blank" id="graph3">
-<img style="position:absolute;top:1510px;left:20px;width:495px" src="about:blank" id="graph4">
+<img style="position:absolute;top:700px;left:20px;width:495px" src="png/transparent.png" id="graph1">
+<img style="position:absolute;top:970px;left:20px;width:495px" src="png/transparent.png" id="graph2">
+<img style="position:absolute;top:1240px;left:20px;width:495px" src="png/transparent.png" id="graph3">
+<img style="position:absolute;top:1510px;left:20px;width:495px" src="png/transparent.png" id="graph4">
 
 <a style="position:absolute;top:170px;left:500px" href="/icinga/">Icinga</a>
 <a style="position:absolute;top:190px;left:500px" href="/intern/munin/localdomain/localhost.localdomain.html#Sensoren">Munin</a>

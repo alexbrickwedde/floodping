@@ -23,6 +23,7 @@ function Init ()
   Div = document.getElementById("WZSofaText");
   oValue = g_FHEM.GetValue("WZ_SofaLampe");
   Button = new TextValue(Div, oValue);
+  Button.m_bReadOnly = false;
 
   Div = document.getElementById("airid0001");
   oValue = g_FHEM.GetValue("airid0001");

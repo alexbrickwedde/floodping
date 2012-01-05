@@ -335,8 +335,11 @@ LampButton.prototype.OnValueChanged = function OnValueChanged (oValue)
 function TextValue (Div, oValue)
 {
   this.m_Div = Div;
+  Div.onclick = Vizab_OnClick;
+  Div.oObject = this;
   this.m_oValue = oValue;
   // Div.disabled = "disabled";
+  this.m_bReadOnly = true;
 
   oValue.Register(this);
 }
@@ -346,6 +349,19 @@ TextValue.prototype.OnValueChanged = function OnValueChanged (oValue)
   var sValue = oValue.GetValue();
   var sAtt = this.m_Div.getAttribute("unit");
   this.m_Div.value = sValue ? (sValue + (sAtt ? " " + sAtt : "")) : "???";
+};
+
+TextValue.prototype.OnClick = function TextValue_OnClick (Event)
+{
+  if (this.m_bReadOnly)
+  {
+    return (false);
+  }
+  var sValue = prompt("Enter new value (on|off|50%):", "");
+  if(sValue)
+  {
+    this.m_oValue.SetValue(sValue);
+  }
 };
 
 // ----------------------------------------------------------------------------------------------
