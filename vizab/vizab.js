@@ -75,6 +75,7 @@ function TimeoutObject(uiJSObjectIndex, sFunction)
 
 function DoTimeout(oObj, sFunction, uiTimeout)
 {
+  console.log("DoTimeout sFunction=" + sFunction + ", uiTimeout=" + uiTimeout);
   return setTimeout("TimeoutObject(" + oObj.m_uiJSObjectIndex + ",'" + sFunction + "');", uiTimeout);
 }
 
