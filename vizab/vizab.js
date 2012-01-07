@@ -50,81 +50,149 @@ ServerConnection.prototype.OnReadyStateChanged = function OnReadyStateChanged ()
   }
 };
 
-// ----------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+
+var g_aJSObjects = [];
+var g_uiJSObjectCounter = 0;
+
+function RegisterObject(oObj)
+{
+  g_aJSObjects[g_uiJSObjectCounter] = oObj;
+  oObj.m_uiJSObjectIndex = g_uiJSObjectCounter;
+  g_uiJSObjectCounter++;
+}
+
+function TimeoutObject(uiJSObjectIndex, sFunction)
+{
+  var oObj = g_aJSObjects[uiJSObjectIndex];
+  if (oObj && oObj[sFunction])
+  {
+    oObj[sFunction]();
+  }
+}
+
+function DoTimeout(oObj, sFunction, uiTimeout)
+{
+  return setTimeout("TimeoutObject(" + oObj.m_uiJSObjectIndex + ",'" + sFunction + "');", uiTimeout);
+}
+
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
 
 function FHEM ()
 {
+  console.log("FHEM.construct");
+  RegisterObject(this);
   this.m_aValues = [];
   this.m_bValuesLoaded = false;
-  this.Update();
+  this.Update(true);
+  this.Inform ();
 }
+
+FHEM.prototype.OnTimeoutUpdate = function OnTimeoutUpdate ()
+{
+  console.log("FHEM.OnTimeoutUpdate");
+  this.Update (true);
+};
 
 FHEM.prototype.SetValue = function SetValue (oValue, sValue)
 {
+  console.log("FHEM.SetValue");
   var Request = new ServerConnection();
   Request.m_sUrl = "/fhem?cmd=set%20" + oValue.m_sName + "%20" + sValue + "&XHR=1";
   Request.m_bAsync = true;
-  /* var sResult = */Request.Request();
+  Request.Request();
 };
 
-FHEM.prototype.Update = function Update ()
+FHEM.prototype.Update = function Update (bRestartTimeout)
 {
+  console.log("FHEM.Update, bRestartTimeout=" + bRestartTimeout);
   var Request = new ServerConnection();
   Request.m_sUrl = "/fhem?cmd=jsonlist&XHR=1";
   Request.m_bAsync = true;
   Request.m_Target = this;
-  /* var sValues = */Request.Request();
+  Request.m_sType = "jsonlist";
+  Request.m_bRestartTimeout = (bRestartTimeout == true);
+  Request.Request();
+};
+
+FHEM.prototype.Inform = function Inform ()
+{
+  console.log("FHEM.Inform");
+  var Request = new ServerConnection();
+  Request.m_sUrl = "/fhem?room=all&inform=on";
+  Request.m_bAsync = true;
+  Request.m_Target = this;
+  Request.m_sType = "inform";
+  Request.Request();
 };
 
 FHEM.prototype.OnReady = function OnReady (Request, sResult)
 {
-  var bOk = false;
-  try
+  switch (Request.m_sType)
   {
-    var aResultSet = JSON.parse(sResult);
-
-    var aResults = aResultSet["Results"];
-    for ( var uiListIndex = 0; uiListIndex < aResults.length; uiListIndex++)
+  case "inform":
+    console.log("FHEM.OnReady inform");
+    this.Update (false);
+    this.Inform ();
+    break;
+  case "jsonlist":
+    console.log("FHEM.OnReady jsonlist");
+    var bOk = false;
+    try
     {
-      var oList = aResults[uiListIndex];
-      var aDevices = oList["devices"];
-      for ( var uiIndex = 0; uiIndex < aDevices.length; uiIndex++)
+      var aResultSet = JSON.parse(sResult);
+  
+      var aResults = aResultSet["Results"];
+      for ( var uiListIndex = 0; uiListIndex < aResults.length; uiListIndex++)
       {
-        if (!aDevices[uiIndex])
-          continue;
-
-        var oNewValue = new FHEMValue(aDevices[uiIndex], this);
-        var oOldValue = this.GetValue(oNewValue.m_sName);
-        if (!oOldValue)
+        var oList = aResults[uiListIndex];
+        var aDevices = oList["devices"];
+        for ( var uiIndex = 0; uiIndex < aDevices.length; uiIndex++)
         {
-          this.m_aValues.push(oNewValue);
-          oNewValue.Internal_SendUpdate();
-          continue;
-        }
-        var sOld = oOldValue.GetValue();
-        var sNew = oNewValue.GetValue();
-        if (sOld != sNew)
-        {
-          oOldValue.Internal_SetValue(oNewValue.GetValue());
+          if (!aDevices[uiIndex])
+            continue;
+  
+          var oNewValue = new FHEMValue(aDevices[uiIndex], this);
+          var oOldValue = this.GetValue(oNewValue.m_sName);
+          if (!oOldValue)
+          {
+            this.m_aValues.push(oNewValue);
+            oNewValue.Internal_SendUpdate();
+            continue;
+          }
+          var sOld = oOldValue.GetValue();
+          var sNew = oNewValue.GetValue();
+          if (sOld != sNew)
+          {
+            oOldValue.Internal_SetValue(oNewValue.GetValue());
+          }
         }
       }
+  
+      bOk = true;
     }
-
-    bOk = true;
+    catch (e)
+    {
+      //
+    }
+  
+    if (bOk && !this.m_bValuesLoaded)
+    {
+      this.m_oObj.OnValuesLoaded(this);
+      this.m_bValuesLoaded = true;
+    }
+    this.m_oObj.OnValuesUpdated(this);
+    
+    if (  Request.m_bRestartTimeout )
+    {
+      this.m_tTimeoutUpdate = DoTimeout(this, "OnTimeoutUpdate", 20000);
+    }
+    break;
   }
-  catch (e)
-  {
-    //
-  }
-
-  if (bOk && !this.m_bValuesLoaded)
-  {
-    this.m_oObj.OnValuesLoaded(this);
-    this.m_bValuesLoaded = true;
-  }
-  this.m_oObj.OnValuesUpdated(this);
 };
 
 FHEM.prototype.GetValue = function GetValue (sName)

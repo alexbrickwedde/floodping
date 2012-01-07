@@ -72,5 +72,4 @@ function OnValuesLoaded (oFHEM)
 
 function OnValuesUpdated (oFHEM)
 {
-  setTimeout("g_FHEM.Update ()", 200);
 }
