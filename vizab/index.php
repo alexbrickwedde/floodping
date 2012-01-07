@@ -9,10 +9,10 @@
 
 function showgraph(airid)
 {
-document.getElementById("graph1").src="/intern/munin/localdomain/localhost.localdomain-airid" + airid + "-day.png"
-document.getElementById("graph2").src="/intern/munin/localdomain/localhost.localdomain-airid" + airid + "-week.png"
-document.getElementById("graph3").src="/intern/munin/localdomain/localhost.localdomain-airid" + airid + "-month.png"
-document.getElementById("graph4").src="/intern/munin/localdomain/localhost.localdomain-airid" + airid + "-year.png"
+document.getElementById("graph1").src="/intern/munin/localdomain/localhost.localdomain/airid" + airid + "-day.png"
+document.getElementById("graph2").src="/intern/munin/localdomain/localhost.localdomain/airid" + airid + "-week.png"
+document.getElementById("graph3").src="/intern/munin/localdomain/localhost.localdomain/airid" + airid + "-month.png"
+document.getElementById("graph4").src="/intern/munin/localdomain/localhost.localdomain/airid" + airid + "-year.png"
 }
 
 </script>
@@ -50,7 +50,7 @@ document.getElementById("graph4").src="/intern/munin/localdomain/localhost.local
 <img style="position:absolute;top:1510px;left:20px;width:495px" src="png/transparent.png" id="graph4">
 
 <a style="position:absolute;top:170px;left:500px" href="/icinga/">Icinga</a>
-<a style="position:absolute;top:190px;left:500px" href="/intern/munin/localdomain/localhost.localdomain.html#Sensoren">Munin</a>
+<a style="position:absolute;top:190px;left:500px" href="/intern/munin/localdomain/localhost.localdomain/index.html#sensoren">Munin</a>
 
 </body>
 </html>
