@@ -239,6 +239,18 @@ public class UdpReceiver
             }
             try
             {
+              final Formatter cmdf = new Formatter ();
+              final String command = cmdf.format ("/usr/bin/submit_check_result ned %sT 0 %+3.1fdegC", airid, T).toString ();
+              System.out.println ("" + command);
+              Runtime.getRuntime ().exec (command);
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Errore: " + e.getMessage ());
+            }
+
+            try
+            {
               final String sFile = "/tmp/airid" + airid + "D";
               final FileWriter fstream = new FileWriter (sFile);
               final BufferedWriter out = new BufferedWriter (fstream);
@@ -252,6 +264,18 @@ public class UdpReceiver
             {
               System.err.println ("Error: " + e.getMessage ());
             }
+            try
+            {
+              final Formatter cmdf = new Formatter ();
+              final String command = cmdf.format ("/usr/bin/submit_check_result ned %sD 0 %+3.1fdegC", airid, Dew).toString ();
+              System.out.println ("" + command);
+              Runtime.getRuntime ().exec (command);
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Errore: " + e.getMessage ());
+            }
+
             try
             {
               final String sFile = "/tmp/airid" + airid + "P";
@@ -269,6 +293,19 @@ public class UdpReceiver
             }
             try
             {
+              final Formatter cmdf = new Formatter ();
+              final String command = cmdf.format ("/usr/bin/submit_check_result ned %sP 0 %+4dhPa", airid, P).toString ();
+              System.out.println ("" + command);
+              Runtime.getRuntime ().exec (command);
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Errore: " + e.getMessage ());
+            }
+
+            
+            try
+            {
               final String sFile = "/tmp/airid" + airid + "RH";
               final FileWriter fstream = new FileWriter (sFile);
               final BufferedWriter out = new BufferedWriter (fstream);
@@ -282,6 +319,19 @@ public class UdpReceiver
             {
               System.err.println ("Error: " + e.getMessage ());
             }
+
+            try
+            {
+              final Formatter cmdf = new Formatter ();
+              final String command = cmdf.format ("/usr/bin/submit_check_result ned %sRH 0 %+3d%%rH", airid, RH).toString ();
+              System.out.println ("" + command);
+              Runtime.getRuntime ().exec (command);
+            }
+            catch (final Exception e)
+            {
+              System.err.println ("Errore: " + e.getMessage ());
+            }
+            
           }
 
         }
