@@ -331,7 +331,7 @@ void rfm12_int_process(void) {
       }
       switch (buf[4]) {
       case 'M':
-        size = 9;
+        size = 11;
         break;
       case 'e':
         size = 9;

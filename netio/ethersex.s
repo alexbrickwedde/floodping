@@ -47,7 +47,7 @@ __c.2803:
 	.type	__c.2801, @object
 	.size	__c.2801, 47
 __c.2801:
-	.string	"D: Ethersex Jun 30 2012 22:05:25 (Debug mode)\n"
+	.string	"D: Ethersex Jun 30 2012 22:18:55 (Debug mode)\n"
 	.text
 .global	main
 	.type	main, @function

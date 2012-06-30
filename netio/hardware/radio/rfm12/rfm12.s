@@ -2016,8 +2016,8 @@ rfm12_int_process:
 	breq .L160
 	rjmp .L155
 .L156:
-	ldi r24,lo8(9)
-	ldi r25,hi8(9)
+	ldi r24,lo8(11)
+	ldi r25,hi8(11)
 	std Y+18,r25
 	std Y+17,r24
 	rjmp .L162
