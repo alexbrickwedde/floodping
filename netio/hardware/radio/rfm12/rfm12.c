@@ -330,6 +330,9 @@ void rfm12_int_process(void) {
       {
       }
       switch (buf[4]) {
+      case 'M':
+        size = 11;
+        break;
       case 'e':
         size = 9;
         break;
@@ -388,31 +391,31 @@ void rfm12_int_process(void) {
 //      RFM12_DEBUG ("no conn\n");
 //    }
 
-    switch (buf[4]) {
-    case 'T': {
-      unsigned int temp;
-      memcpy(&temp, buf + 5, 2);
-      char *id = buf + 7;
-      RFM12_DEBUG ("%c%c%c%c %2x:%2x:%2x:%2x:%2x:%2x:%2x:%2x  %4d.%01d C\n", buf[0], buf[1], buf[2], buf[3], id[0], id[1], id[2], id[3], id[4], id[5], id[6], id[7], temp >> 4, (temp << 12) / 6553 );
-    }
-      break;
-    case 'g': {
-      signed int x, y, z;
-      memcpy(&x, buf + 5, 2);
-      memcpy(&y, buf + 7, 2);
-      memcpy(&z, buf + 9, 2);
-
-      int x1 = ((x / 2.3));
-      int y1 = ((y / 2.3));
-      int z1 = ((z / 2.3));
-
-      RFM12_DEBUG ("g %4d %4d %4d\n", x1, y1, z1 );
-    }
-      break;
-    default:
-      RFM12_DEBUG ("unknown symbol %c %2x\n", buf[4], buf[4]);
-      RFM12_DEBUG ("content %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x \n", buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7], buf[8], buf[9], buf[10], buf[11]);
-    }
+//    switch (buf[4]) {
+//    case 'T': {
+//      unsigned int temp;
+//      memcpy(&temp, buf + 5, 2);
+//      char *id = buf + 7;
+//      RFM12_DEBUG ("%c%c%c%c %2x:%2x:%2x:%2x:%2x:%2x:%2x:%2x  %4d.%01d C\n", buf[0], buf[1], buf[2], buf[3], id[0], id[1], id[2], id[3], id[4], id[5], id[6], id[7], temp >> 4, (temp << 12) / 6553 );
+//    }
+//      break;
+//    case 'g': {
+//      signed int x, y, z;
+//      memcpy(&x, buf + 5, 2);
+//      memcpy(&y, buf + 7, 2);
+//      memcpy(&z, buf + 9, 2);
+//
+//      int x1 = ((x / 2.3));
+//      int y1 = ((y / 2.3));
+//      int z1 = ((z / 2.3));
+//
+//      RFM12_DEBUG ("g %4d %4d %4d\n", x1, y1, z1 );
+//    }
+//      break;
+//    default:
+//      RFM12_DEBUG ("unknown symbol %c %2x\n", buf[4], buf[4]);
+//      RFM12_DEBUG ("content %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x \n", buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7], buf[8], buf[9], buf[10], buf[11]);
+//    }
   }
   return;
 

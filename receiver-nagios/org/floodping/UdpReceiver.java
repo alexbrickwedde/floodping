@@ -16,6 +16,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class UdpReceiver
@@ -165,7 +166,7 @@ public class UdpReceiver
             final FileWriter fstream = new FileWriter (sFile);
             final BufferedWriter out = new BufferedWriter (fstream);
             final Formatter cmdf = new Formatter ();
-            out.write (cmdf.format ("%+3.1f", x).toString ());
+            out.write (cmdf.format (Locale.ENGLISH,"%+3.1f", x).toString ());
             out.close ();
 
             final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "%20" + cmdf.toString () + "&XHR=1";
@@ -376,6 +377,53 @@ public class UdpReceiver
             final BufferedWriter out = new BufferedWriter (fstream);
             final Formatter cmdf = new Formatter ();
             out.write (cmdf.format ("%+3.1f", t).toString ());
+            out.close ();
+            final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "%20" + cmdf.toString () + "&XHR=1";
+            System.out.println (this.GetUrl(sUrl));
+          }
+          catch (final Exception e)
+          {// Catch exception if
+           // any
+            System.err.println ("Error: " + e.getMessage ());
+          }
+        }
+          break;
+        case 'M':
+        {
+          byte x1 = dis.readByte ();
+          byte x2 = dis.readByte ();
+          final short move = (short) (((x2 & 0xff) << 8) | (x1 & 0xff));
+          x1 = dis.readByte ();
+          x2 = dis.readByte ();
+          final short move2 = (short) (((x2 & 0xff) << 8) | (x1 & 0xff));
+          if (move != move2)
+          {
+//            break;
+          }
+
+          System.out.println ("" + airid + " M:" + move);
+          SimpleDateFormat df = new SimpleDateFormat ("dd.MM HH:mm:ss");
+          df.setTimeZone (TimeZone.getDefault ());
+          Main.PutValue (airid, new Integer (move).toString (), df.format (new Date ()));
+          try
+          {
+            final Formatter cmdf = new Formatter ();
+            final String command = cmdf.format ("/usr/bin/submit_check_result ned %s 0 %+1ddegC", airid, move).toString ();
+            System.out.println ("" + command);
+            Runtime.getRuntime ().exec (command);
+          }
+          catch (final Exception e)
+          {
+            System.err.println ("Errore: " + e.getMessage ());
+          }
+
+          try
+          {
+            final String sFile = "/tmp/airid" + airid;
+            final FileWriter fstream = new FileWriter (sFile);
+            final BufferedWriter out = new BufferedWriter (fstream);
+            final Formatter cmdf = new Formatter ();
+            out.write (cmdf.format ("%+1d", move).toString ());
             out.close ();
             final String sUrl = "http://10.1.0.3:8083/fhem?cmd=set%20airid" + airid + "%20" + cmdf.toString () + "&XHR=1";
             System.out.println (this.GetUrl(sUrl));
