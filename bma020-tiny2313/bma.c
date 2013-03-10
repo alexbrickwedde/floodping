@@ -18,8 +18,8 @@
 #define SDI		4
 #define SCK		3
 #define CS		2
-#define SDO    5
-#define FSK    1
+#define SDO     5
+#define FSK     1
 
 unsigned int BMA_trans(unsigned int wert)
 {

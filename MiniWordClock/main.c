@@ -418,6 +418,8 @@ int main(void) {
 	}
 }
 
+int volatile correction = 0;
+
 //------------------------------------------------------------------------------
 // Name:      TIMER2_OVF_vect
 // Function:  TIMER2 Overflow mit 1Hz (32kHz Uhrenquarz /128 /256
@@ -426,6 +428,12 @@ int main(void) {
 // Return:    
 //------------------------------------------------------------------------------
 ISR(TIMER2_OVF_vect) {
+	correction++;
+	if(correction > 10000)
+	{
+		correction = 0;
+		second++;
+	}
 	second++;
 	if (second > 59) {
 		second = 0;

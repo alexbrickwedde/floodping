@@ -137,7 +137,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xe12
+.text           0x0000000000000000      0xe4c
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x0000000000000000                __vectors
@@ -211,34 +211,34 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x000000000000009e                __vector_10
                 0x000000000000009e                __vector_16
                 0x000000000000009e                __vector_18
- .text          0x00000000000000a0      0xcfe ./main.o
-                0x0000000000000bde                __vector_6
+ .text          0x00000000000000a0      0xd38 ./main.o
+                0x0000000000000c18                __vector_6
                 0x00000000000000a0                draw_time
-                0x0000000000000c76                main
+                0x0000000000000cb0                main
                 0x0000000000000b8a                __vector_4
- .text          0x0000000000000d9e       0x58 ./uart.o
-                0x0000000000000dc6                uart_puts
-                0x0000000000000d9e                uart_init
-                0x0000000000000dda                uart_puts_P
-                0x0000000000000dee                uart_getc
-                0x0000000000000dbe                uart_putc
-                0x0000000000000db8                uart_kbhit
- .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text          0x0000000000000df6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
-                0x0000000000000df6                . = ALIGN (0x2)
+ .text          0x0000000000000dd8       0x58 ./uart.o
+                0x0000000000000e00                uart_puts
+                0x0000000000000dd8                uart_init
+                0x0000000000000e14                uart_puts_P
+                0x0000000000000e28                uart_getc
+                0x0000000000000df8                uart_putc
+                0x0000000000000df2                uart_kbhit
+ .text          0x0000000000000e30        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000e30        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000e30        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000e30        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000e30                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000000000000df6       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
-                0x0000000000000df6                __udivmodqi4
- .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
-                0x0000000000000e0e                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000000e30       0x18 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+                0x0000000000000e30                __udivmodqi4
+ .text.libgcc   0x0000000000000e48        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000e48        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000e48        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000e48                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000e0e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
-                0x0000000000000e0e                exit
-                0x0000000000000e0e                _exit
+ .fini9         0x0000000000000e48        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+                0x0000000000000e48                exit
+                0x0000000000000e48                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -257,11 +257,11 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000e0e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000e48        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000e12                _etext = .
+                0x0000000000000e4c                _etext = .
 
-.data           0x0000000000800060       0x28 load address 0x0000000000000e12
+.data           0x0000000000800060       0x28 load address 0x0000000000000e4c
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -280,43 +280,44 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a
                 0x0000000000800088                _edata = .
                 0x0000000000800088                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800088       0x27
+.bss            0x0000000000800088       0x29
                 0x0000000000800088                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0000000000800088        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .bss           0x0000000000800088        0x0 ./main.o
- .bss           0x0000000000800088        0x0 ./uart.o
- .bss           0x0000000000800088        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
- .bss           0x0000000000800088        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
- .bss           0x0000000000800088        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
- .bss           0x0000000000800088        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000800088        0x2 ./main.o
+                0x0000000000800088                correction
+ .bss           0x000000000080008a        0x0 ./uart.o
+ .bss           0x000000000080008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_udivmodqi4.o)
+ .bss           0x000000000080008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_exit.o)
+ .bss           0x000000000080008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_copy_data.o)
+ .bss           0x000000000080008a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr4/libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0000000000800088       0x27 ./main.o
-                0x0000000000800088                sec_flag
-                0x0000000000800089                key_flag
-                0x000000000080008a                time_setup_cnt0
-                0x000000000080008b                second
-                0x000000000080008c                col_cnt
-                0x000000000080008d                minute
-                0x000000000080008e                button_mem
-                0x000000000080008f                led
-                0x00000000008000a7                c
-                0x00000000008000a8                hour
-                0x00000000008000a9                col
-                0x00000000008000ab                loop_cnt
-                0x00000000008000ad                e_SetupState
-                0x00000000008000ae                time_setup_cnt1
-                0x00000000008000af                PROVIDE (__bss_end, .)
-                0x0000000000000e12                __data_load_start = LOADADDR (.data)
-                0x0000000000000e3a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x000000000080008a       0x27 ./main.o
+                0x000000000080008a                sec_flag
+                0x000000000080008b                key_flag
+                0x000000000080008c                time_setup_cnt0
+                0x000000000080008d                second
+                0x000000000080008e                col_cnt
+                0x000000000080008f                minute
+                0x0000000000800090                button_mem
+                0x0000000000800091                led
+                0x00000000008000a9                c
+                0x00000000008000aa                hour
+                0x00000000008000ab                col
+                0x00000000008000ad                loop_cnt
+                0x00000000008000af                e_SetupState
+                0x00000000008000b0                time_setup_cnt1
+                0x00000000008000b1                PROVIDE (__bss_end, .)
+                0x0000000000000e4c                __data_load_start = LOADADDR (.data)
+                0x0000000000000e74                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00000000008000af        0x0
-                0x00000000008000af                PROVIDE (__noinit_start, .)
+.noinit         0x00000000008000b1        0x0
+                0x00000000008000b1                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00000000008000af                PROVIDE (__noinit_end, .)
-                0x00000000008000af                _end = .
-                0x00000000008000af                PROVIDE (__heap_start, .)
+                0x00000000008000b1                PROVIDE (__noinit_end, .)
+                0x00000000008000b1                _end = .
+                0x00000000008000b1                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)

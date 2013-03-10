@@ -1,10 +1,11 @@
-#Fri Jul 15 22:19:05 CEST 2011
+#Thu May 10 20:10:00 CEST 2012
 useQuickDiffPrefPage=true
 useAnnotationsPrefPage=true
 sourceHoverBackgroundColor=255,255,225
 org.eclipse.cdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 formatter_settings_version=1
 formatter_profile=org.eclipse.cdt.ui.default.allman_profile
+markOccurrences=false
 spelling_locale_initialized=true
 eclipse.preferences.version=1
 content_assist_disabled_computers=org.eclipse.cdt.ui.parserProposalCategory\u0000org.eclipse.cdt.ui.textProposalCategory\u0000
