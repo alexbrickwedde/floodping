@@ -64,9 +64,6 @@ void rf12_preinit(const char *AirId)
   RF_PORT = (1 << CS);
 
   sbi(RF_PORT, FSK);
-
-  for (unsigned int i = 0; i < 100; i++)
-    _delay_ms(10); // wait until POR done
 }
 
 void rf12_init(void)
@@ -80,34 +77,26 @@ void rf12_init(void)
         rf12_trans(0xC4F7); // AFC settings: autotuning: -10kHz...+7,5kHz
 }
 
-void rf12_setbandwidth(unsigned char bandwidth, unsigned char gain, unsigned char drssi)
-{
-        rf12_trans(0x9400 | ((bandwidth & 7) << 5) | ((gain & 3) << 3)
-                        | (drssi & 7));
-}
-
-void rf12_setfreq(unsigned short freq)
+void rf12_setall(unsigned short freq, unsigned char bandwidth, unsigned char gain, unsigned char drssi, unsigned short baud, unsigned char power, unsigned char mod)
 {
         if (freq < 96) // 430,2400MHz
                 freq = 96;
         else if (freq > 3903) // 439,7575MHz
                 freq = 3903;
         rf12_trans(0xA000 | freq);
-}
 
-void rf12_setbaud(unsigned short baud)
-{
-//      if (baud < 663)
+
+        rf12_trans(0x9400 | ((bandwidth & 7) << 5) | ((gain & 3) << 3)
+                        | (drssi & 7));
+
+        //      if (baud < 663)
 //              return;
 //      if (baud < 5400) // Baudrate= 344827,58621/(R+1)/(1+CS*7)
                 rf12_trans(0xC680 | ((43104 / baud) - 1));
 //      else
 //              rf12_trans(0xC600 | ((344828UL / baud) - 1));
-}
 
-void rf12_setpower(unsigned char power, unsigned char mod)
-{
-        rf12_trans(0x9800 | (power & 7) | ((mod & 15) << 4));
+                rf12_trans(0x9800 | (power & 7) | ((mod & 15) << 4));
 }
 
 void noinline rf12_ready(void)
@@ -134,13 +123,13 @@ void noinline rf12_ready(void)
         //         return 1;
 }
 
-void rf12_txdataa(char *airid1, char *data, unsigned char number)
-{
-  rf12_txdata_start();
-  rf12_txdata_send(airid1, 4);
-  rf12_txdata_send(data, number);
-  rf12_txdata_end();
-}
+//void rf12_txdataa(char *airid1, char *data, unsigned char number)
+//{
+//  rf12_txdata_start();
+//  rf12_txdata_send(airid1, 4);
+//  rf12_txdata_send(data, number);
+//  rf12_txdata_end();
+//}
 
 void rf12_txdata(char *data, unsigned char number)
 {
@@ -181,16 +170,16 @@ void rf12_txdata_end()
 
 
 
-void rf12_rxdata(unsigned char *data, unsigned char number)
-{
-        unsigned char i;
-        rf12_trans(0x82C8); // RX on
-        rf12_trans(0xCA81); // set FIFO mode
-        rf12_trans(0xCA83); // enable FIFO
-        for (i = 0; i < number; i++)
-        {
-                *data++ = rf12_readytrans(0xB000);
-        }
-        rf12_trans(0x8208); // RX off
-}
-
+//void rf12_rxdata(unsigned char *data, unsigned char number)
+//{
+//        unsigned char i;
+//        rf12_trans(0x82C8); // RX on
+//        rf12_trans(0xCA81); // set FIFO mode
+//        rf12_trans(0xCA83); // enable FIFO
+//        for (i = 0; i < number; i++)
+//        {
+//                *data++ = rf12_readytrans(0xB000);
+//        }
+//        rf12_trans(0x8208); // RX off
+//}
+//

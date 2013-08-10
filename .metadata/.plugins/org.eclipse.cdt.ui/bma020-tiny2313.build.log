@@ -1,12 +1,128 @@
 
-**** Build of configuration Debug for project bma020-tiny2313 ****
+**** Build of configuration Release for project bma020-tiny2313 ****
 
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny2313 -DF_CPU=14745600UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'measure':
+../main.c:34: warning: implicit declaration of function 'TransmitIntAsAscii'
+../main.c: At top level:
+../main.c:136: warning: conflicting types for 'TransmitIntAsAscii'
+../main.c:34: warning: previous implicit declaration of 'TransmitIntAsAscii' was here
+Finished building: ../main.c
+ 
 Building target: bma020-tiny2313.elf
 Invoking: AVR C Linker
 avr-gcc -Wl,-Map,bma020-tiny2313.map -mmcu=attiny2313 -o "bma020-tiny2313.elf"  ./bma.o ./main.o ./rf12.o   
-/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/bin/ld: bma020-tiny2313.elf section .text will not fit in region text
-/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/bin/ld: region text overflowed by 1386 bytes
-make: *** [bma020-tiny2313.elf] Fehler 1
+Finished building target: bma020-tiny2313.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S bma020-tiny2313.elf  >"bma020-tiny2313.lss"
+Finished building: bma020-tiny2313.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex bma020-tiny2313.elf  "bma020-tiny2313.hex"
+Finished building: bma020-tiny2313.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex bma020-tiny2313.elf  "bma020-tiny2313.eep"
+Finished building: bma020-tiny2313.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny2313 bma020-tiny2313.elf
+AVR Memory Usage
+----------------
+Device: attiny2313
+
+Program:    1928 bytes (94.1% Full)
+(.text + .data + .bootloader)
+
+Data:         20 bytes (15.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pt2313 -cusbasp -F -u -Uflash:w:bma020-tiny2313.hex:a -Ulfuse:w:0xce:m -Uhfuse:w:0xdf:m -Uefuse:w:0xff:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e910a
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "bma020-tiny2313.hex"
+avrdude: input file bma020-tiny2313.hex auto detected as Intel Hex
+avrdude: writing flash (1928 bytes):
+
+Writing | ################################################## | 100% 1.52s
+
+avrdude: 1928 bytes of flash written
+avrdude: verifying flash memory against bma020-tiny2313.hex:
+avrdude: load data flash data from input file bma020-tiny2313.hex:
+avrdude: input file bma020-tiny2313.hex auto detected as Intel Hex
+avrdude: input file bma020-tiny2313.hex contains 1928 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 1.01s
+
+avrdude: verifying ...
+avrdude: 1928 bytes of flash verified
+avrdude: reading input file "0xce"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xce:
+avrdude: load data lfuse data from input file 0xce:
+avrdude: input file 0xce contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xdf"
+avrdude: writing hfuse (1 bytes):
+
+Finished building: avrdudedummy
+ 
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xdf:
+avrdude: load data hfuse data from input file 0xdf:
+avrdude: input file 0xdf contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xff"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xff:
+avrdude: load data efuse data from input file 0xff:
+avrdude: input file 0xff contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+
+avrdude done.  Thank you.
+
 
 **** Build Finished ****

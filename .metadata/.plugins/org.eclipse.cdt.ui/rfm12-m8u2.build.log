@@ -1,0 +1,60 @@
+
+**** Build of configuration Release for project rfm12-m8u2 ****
+
+make all 
+Building file: ../Arduino-usbserial.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=16000000UL -MMD -MP -MF"Arduino-usbserial.d" -MT"Arduino-usbserial.d" -c -o "Arduino-usbserial.o" "../Arduino-usbserial.c"
+In file included from ../Arduino-usbserial.h:45,
+                 from ../Arduino-usbserial.c:37:
+../Descriptors.h:42:36: warning: LUFA/Drivers/USB/USB.h: No such file or directory
+../Descriptors.h:43:42: warning: LUFA/Drivers/USB/Class/CDC.h: No such file or directory
+In file included from ../Arduino-usbserial.h:45,
+                 from ../Arduino-usbserial.c:37:
+../Descriptors.h:72: error: expected specifier-qualifier-list before 'USB_Descriptor_Configuration_Header_t'
+../Descriptors.h: In function 'CALLBACK_USB_GetDescriptor':
+../Descriptors.h:86: error: expected declaration specifiers before 'ATTR_WARN_UNUSED_RESULT'
+In file included from ../Lib/LightweightRingBuff.h:40,
+                 from ../Arduino-usbserial.h:47,
+                 from ../Arduino-usbserial.c:37:
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/atomic.h:43: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/atomic.h:49: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/atomic.h:55: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/atomic.h:62: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+/opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/include/util/atomic.h:69: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+In file included from ../Arduino-usbserial.h:47,
+                 from ../Arduino-usbserial.c:37:
+../Lib/LightweightRingBuff.h:76: error: storage class specified for parameter 'RingBuff_t'
+../Lib/LightweightRingBuff.h:85: error: expected ')' before '*' token
+../Lib/LightweightRingBuff.h:107: error: expected ')' before '*' token
+../Lib/LightweightRingBuff.h:127: error: expected ')' before '*' token
+../Lib/LightweightRingBuff.h:144: error: expected ')' before '*' token
+../Lib/LightweightRingBuff.h:158: error: expected ')' before '*' token
+../Lib/LightweightRingBuff.h:182: error: expected ')' before '*' token
+In file included from ../Arduino-usbserial.c:37:
+../Arduino-usbserial.h:49:28: warning: LUFA/Version.h: No such file or directory
+../Arduino-usbserial.h:50:39: warning: LUFA/Drivers/Board/LEDs.h: No such file or directory
+../Arduino-usbserial.h:51:46: warning: LUFA/Drivers/Peripheral/Serial.h: No such file or directory
+In file included from ../Arduino-usbserial.c:37:
+../Arduino-usbserial.h:76: error: expected ')' before '*' token
+../Arduino-usbserial.h:77: error: expected ')' before '*' token
+../Arduino-usbserial.c:40: error: expected declaration specifiers before 'RingBuff_t'
+../Arduino-usbserial.c:43: error: expected declaration specifiers before 'RingBuff_t'
+../Arduino-usbserial.c:57: error: expected declaration specifiers before 'USB_ClassInfo_CDC_Device_t'
+../Arduino-usbserial.c:75: error: expected declaration specifiers before ';' token
+../Arduino-usbserial.c:81: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../Arduino-usbserial.c:140: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../Arduino-usbserial.c:160: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../Arduino-usbserial.c:166: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../Arduino-usbserial.c:174: error: expected ')' before '*' token
+../Arduino-usbserial.c:222: warning: 'signal' attribute only applies to functions
+../Arduino-usbserial.c:222: warning: 'used' attribute ignored
+../Arduino-usbserial.c:222: warning: 'externally_visible' attribute ignored
+../Arduino-usbserial.c:223: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../Arduino-usbserial.c:234: error: expected ')' before '*' token
+../Arduino-usbserial.c:242: error: old-style parameter declarations in prototyped function definition
+../Arduino-usbserial.c:242: error: expected '{' at end of input
+../Arduino-usbserial.c:242: warning: no return statement in function returning non-void
+make: *** [Arduino-usbserial.o] Fehler 1
+
+**** Build Finished ****

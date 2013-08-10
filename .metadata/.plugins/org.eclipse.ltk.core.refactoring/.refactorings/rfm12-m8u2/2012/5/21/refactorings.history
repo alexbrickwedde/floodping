@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;rfm12-m8u2/main.c&apos; to &apos;Arduino-usbserial.c&apos;" description="Rename resource &apos;main.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main.c" name="Arduino-usbserial.c" stamp="1337789751953" updateReferences="true"/>
+</session>

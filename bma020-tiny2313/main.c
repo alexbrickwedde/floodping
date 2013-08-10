@@ -17,74 +17,54 @@
 
 unsigned int volatile WDTcounter = 0;
 
-ISR(WDT_OVERFLOW_vect)
-{
-  cli();
-  WDTCSR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
-  WDTcounter++;
-  sei();
+ISR(WDT_OVERFLOW_vect) {
+	cli();
+	WDTCSR |= _BV(WDIE);// | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
+	WDTcounter++;
+	sei();
 }
 
-void
-send()
-{
-  unsigned char results[6];
+signed int x;
+signed int y;
+signed int z;
 
-  long x = 0;
-  long y = 0;
-  long z = 0;
-  BMA_init();
-  _delay_ms(1);
-  for (int c2 = 0; c2 < 32; c2++)
-  {
-    long yi = 0;
-    long zi = 0;
-    long xi = 0;
-    for (int c = 0; c < 32; c++)
-    {
-      results[0] = BMA_trans(0x8200);
-      results[1] = BMA_trans(0x8300);
-      results[2] = BMA_trans(0x8400);
-      results[3] = BMA_trans(0x8500);
-      results[4] = BMA_trans(0x8600);
-      results[5] = BMA_trans(0x8700);
-      xi += ((results[0]) | ((results[1]) << 8)) >> 6;
-      yi += ((results[2]) | ((results[3]) << 8)) >> 6;
-      zi += ((results[4]) | ((results[5]) << 8)) >> 6;
-      _delay_us(100);
-    }
-    x += xi >> 5;
-    y += yi >> 5;
-    z += zi >> 5;
-  }
+void measure() {
+	int l = (BMA_trans(0x8200));
 
-  x >>= 5;
-  y >>= 5;
-  z >>= 5;
+	TransmitIntAsAscii (l);
+	l = l >> 6;
 
-  BMA_uninit();
+	int m = (BMA_trans(0x8300));
+	TransmitIntAsAscii (l);
+	m = m << 2;
 
-  if (x == 0 && y == 0 && z == 0)
-    return;
+	x = ( m | l);
 
-  if (x & 0x0200)
-  {
-    x |= 0xfe00;
-  }
-  if (y & 0x0200)
-  {
-    y |= 0xfe00;
-  }
-  if (z & 0x0200)
-  {
-    z |= 0xfe00;
-  }
+	l = (BMA_trans(0x8400) >> 6);
+	m = (BMA_trans(0x8500) << 2);
+	y = ( m | l);
 
-  x -= 36;
-  y += 32;
-  z -= 8;
+	l = (BMA_trans(0x8600) >> 6);
+	m = (BMA_trans(0x8700) << 2);
+	z = ( m | l);
 
-  char buf[32];// = "g123456789012345678901234567890\0\0\0";
+	if (x & 0x0200) {
+		x |= 0xfe00;
+	}
+	if (y & 0x0200) {
+		y |= 0xfe00;
+	}
+	if (z & 0x0200) {
+		z |= 0xfe00;
+	}
+
+//	x -= 36;
+//	y += 32;
+//	z -= 8;
+}
+
+void send() {
+  char buf[16];// = "g123456789012345678901234567890\0\0\0";
   buf[0] = 'g';
   memcpy(buf + 1, &x, 2);
   memcpy(buf + 3, &y, 2);
@@ -96,10 +76,7 @@ send()
   buf[14] = 0;
 
   rf12_init();
-  rf12_setfreq(RF12FREQ868(868.3));
-  rf12_setbandwidth(4, 1, 4);
-  rf12_setbaud(666);
-  rf12_setpower(0, 6);
+  rf12_setall(RF12FREQ868(868.3), 4, 1, 4, 666, 0, 6);
 
   rf12_txdata(buf, 15);
 
@@ -107,36 +84,139 @@ send()
   rf12_trans(0x0);
 }
 
-#define MAXCOUNT 30
+//#define MAXCOUNT 30
+//
+//int
+//main111111111111(void)
+//{
+//  rf12_preinit(AIRID);
+//
+//  send();
+//
+//  cli();
+//  wdt_reset();
+//  wdt_enable (WDTO_1S);
+//  WDTCSR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
+//  sei();
+//
+//  for (;;)
+//  {
+//    if (WDTcounter >= MAXCOUNT)
+//    {
+//      send();
+//      WDTcounter = 0;
+//    }
+//
+//    wdt_reset();
+//
+//    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+//    sleep_enable();
+//
+//    sleep_cpu ();
+//    sleep_disable ();
+//    wdt_reset();
+//  }
+//}
+//
 
-int
-main(void)
+void InitUART(unsigned char baudrate) {
+	_delay_ms(10);
+	UBRRL = baudrate;
+	UCSRB = (1 << TXEN);
+	UCSRC = (1 << UCSZ1) | (1 << UCSZ0);
+}
+
+void TransmitByte(unsigned char data) {
+	while (!(UCSRA & (1 << UDRE)))
+		;
+	UDR = data;
+	_delay_ms(10);
+}
+
+void TransmitIntAsAscii(unsigned int data)
 {
-  rf12_preinit(AIRID);
+	int e1 = data % 10;
+	data /= 10;
+	int e10 = data % 10;
+	data /= 10;
+	int e100 = data % 10;
+	data /= 10;
+	int e1000 = data % 10;
+	data /= 10;
+	int e10000 = data % 10;
 
-  send();
+	TransmitByte(e10000 + '0');
+	TransmitByte(e1000 + '0');
+	TransmitByte(e100 + '0');
+	TransmitByte(e10 + '0');
+	TransmitByte(e1 + '0');
+	TransmitByte(' ');
+}
 
-  cli();
-  wdt_reset();
-  wdt_enable (WDTO_1S);
-  WDTCSR |= _BV(WDIE) | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
-  sei();
+#define c_State_Boot 0
+#define c_State_Idle 1
+#define c_State_DoSend_Init 2
+#define c_State_DoSend_Init2 3
+#define c_State_DoSend_Measure 4
+#define c_State_DoSend_Send 5
 
-  for (;;)
-  {
-    if (WDTcounter >= MAXCOUNT)
-    {
-      send();
-      WDTcounter = 0;
-    }
+int uiState;
 
-    wdt_reset();
+int main(void) {
+	InitUART(95); //95 = 9600 bei 14,7
 
-    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-    sleep_enable();
+	BMA_uninit(0);
+	uiState = c_State_Boot;
+	rf12_preinit(AIRID);
 
-    sleep_cpu ();
-    sleep_disable ();
-    wdt_reset();
-  }
+	cli();
+	wdt_reset();
+	WDTCSR |= _BV(WDIE);// | _BV(WDP2) | _BV(WDP1) | _BV(WDP0);
+	sei();
+
+	for (;;) {
+		if (uiState == c_State_Boot) {
+			if (WDTcounter >= 100) {
+				uiState = c_State_DoSend_Init;
+			}
+		}
+
+		if (uiState == c_State_DoSend_Init) {
+			BMA_init();
+			uiState = c_State_DoSend_Init2;
+		} else if (uiState == c_State_DoSend_Init2) {
+			BMA_init2();
+			uiState = c_State_DoSend_Measure;
+		} else if (uiState == c_State_DoSend_Measure) {
+			measure();
+			_delay_ms(100);
+			measure();
+			_delay_ms(100);
+			measure();
+			BMA_uninit(1);
+			uiState = c_State_DoSend_Send;
+
+			TransmitIntAsAscii (x);
+		}
+
+		if (uiState == c_State_DoSend_Send) {
+			send();
+			uiState = c_State_Idle;
+			WDTcounter = 0;
+		}
+
+		if (uiState == c_State_Idle) {
+			if (WDTcounter >= 5000) {
+				uiState = c_State_DoSend_Init;
+				WDTcounter = 0;
+			}
+		}
+
+		wdt_reset();
+		set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+		sleep_enable();
+		sleep_cpu ();
+		sleep_disable ();
+		wdt_reset();
+	}
 }

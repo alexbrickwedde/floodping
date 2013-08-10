@@ -1,0 +1,109 @@
+
+**** Build of configuration Release for project usb-cdc ****
+
+make all 
+Building file: ../receiver.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=12000000UL -MMD -MP -MF"receiver.d" -MT"receiver.d" -c -o "receiver.o" "../receiver.c"
+../receiver.c:80: warning: 'usartTimeout' defined but not used
+Finished building: ../receiver.c
+ 
+Building target: usb-cdc.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,usb-cdc.map,--cref -mmcu=atmega8 -o "usb-cdc.elf"  ./main.o ./oddebug.o ./receiver.o ./usbdrv.o ./usbdrvasm.o   
+Finished building target: usb-cdc.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S usb-cdc.elf  >"usb-cdc.lss"
+Finished building: usb-cdc.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex usb-cdc.elf  "usb-cdc.hex"
+Finished building: usb-cdc.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex usb-cdc.elf  "usb-cdc.eep"
+Finished building: usb-cdc.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 usb-cdc.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    1828 bytes (22.3% Full)
+(.text + .data + .bootloader)
+
+Data:        113 bytes (11.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+Invoking: AVRDude
+/usr/bin/avrdude -pm8 -cusbasp -u -Uflash:w:usb-cdc.hex:a -Ulfuse:w:0xcf:m -Uhfuse:w:0xd9:m
+
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9307
+avrdude: NOTE: FLASH memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+avrdude: reading input file "usb-cdc.hex"
+avrdude: input file usb-cdc.hex auto detected as Intel Hex
+avrdude: writing flash (1828 bytes):
+
+Writing | ################################################## | 100% 1.30s
+
+avrdude: 1828 bytes of flash written
+avrdude: verifying flash memory against usb-cdc.hex:
+avrdude: load data flash data from input file usb-cdc.hex:
+avrdude: input file usb-cdc.hex auto detected as Intel Hex
+avrdude: input file usb-cdc.hex contains 1828 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.98s
+
+avrdude: verifying ...
+avrdude: 1828 bytes of flash verified
+avrdude: reading input file "0xcf"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xcf:
+avrdude: load data lfuse data from input file 0xcf:
+Finished building: avrdudedummy
+avrdude: input file 0xcf contains 1 bytes
+ 
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0xd9"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xd9:
+avrdude: load data hfuse data from input file 0xd9:
+avrdude: input file 0xd9 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+
+avrdude done.  Thank you.
+
+
+**** Build Finished ****

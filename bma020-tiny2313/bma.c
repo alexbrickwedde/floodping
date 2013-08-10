@@ -19,7 +19,7 @@
 #define SCK		3
 #define CS		2
 #define SDO     5
-#define FSK     1
+#define FSK     0
 
 unsigned int BMA_trans(unsigned int wert)
 {
@@ -50,9 +50,12 @@ unsigned int BMA_trans(unsigned int wert)
 	return werti;
 }
 
-void BMA_uninit(void)
+void BMA_uninit(int sleep)
 {
-	BMA_trans(0x0A01);
+	if (sleep)
+	{
+	  BMA_trans(0x0A01);
+	}
 	BMA_DDR = (1 << SDI) | (1 << SCK) | (1 << CS) | (1 << FSK) | (1 << SDO);
 
 	cbi(BMA_PORT, FSK);
@@ -74,12 +77,13 @@ void BMA_init(void)
 	cbi(BMA_PORT, SCK);
 	cbi(BMA_PORT, SDO);
 
-	_delay_ms(10); // wait until POR done
 	BMA_trans(0x0A00);
+}
 
-	_delay_ms(10); // wait until POR done
-
+void BMA_init2(void)
+{
 	BMA_trans(0x1580);
+	BMA_trans(0x1400);
 }
 
 

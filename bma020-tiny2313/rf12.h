@@ -1,6 +1,7 @@
 extern unsigned short rf12_trans(unsigned short wert); // transfer 1 word to/from module
 extern void rf12_init(void); // initialize module
 extern void rf12_preinit(const char *AirId); // initialize module
+extern void rf12_setall(unsigned short freq, unsigned char bandwidth, unsigned char gain, unsigned char drssi, unsigned short baud, unsigned char power, unsigned char mod);
 extern void rf12_setfreq(unsigned short freq); // set center frequency
 extern void rf12_setbaud(unsigned short baud); // set baudrate
 extern void rf12_setpower(unsigned char power, unsigned char mod); // set transmission settings

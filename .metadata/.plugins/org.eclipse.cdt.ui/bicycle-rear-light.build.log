@@ -1,0 +1,43 @@
+
+**** Build of configuration Release for project bicycle-rear-light ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny85 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: bicycle-rear-light.elf
+Invoking: AVR C++ Linker
+avr-g++ -Wl,-Map,bicycle-rear-light.map,--cref -mmcu=attiny85 -o "bicycle-rear-light.elf"  ./main.o   
+Finished building target: bicycle-rear-light.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S bicycle-rear-light.elf  >"bicycle-rear-light.lss"
+Finished building: bicycle-rear-light.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex bicycle-rear-light.elf  "bicycle-rear-light.hex"
+Finished building: bicycle-rear-light.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex bicycle-rear-light.elf  "bicycle-rear-light.eep"
+Finished building: bicycle-rear-light.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny85 bicycle-rear-light.elf
+AVR Memory Usage
+----------------
+Device: attiny85
+
+Program:     528 bytes (6.4% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
