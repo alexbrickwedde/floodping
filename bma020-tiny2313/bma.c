@@ -83,7 +83,9 @@ void BMA_init(void)
 void BMA_init2(void)
 {
 	BMA_trans(0x1580);
-	BMA_trans(0x1400);
+	int x = BMA_trans(0x9400) & 0xff;
+	x &= ~31;
+	BMA_trans(0x1400 | x);
 }
 
 

@@ -14,6 +14,7 @@
 #include <util/delay.h>
 
 #define AIRID "0101"
+#define xDEBUG 1
 
 unsigned int volatile WDTcounter = 0;
 
@@ -29,38 +30,65 @@ signed int y;
 signed int z;
 
 void measure() {
-	int l = (BMA_trans(0x8200));
+	signed long x1 = 0;
+	signed long y1 = 0;
+	signed long z1 = 0;
 
-	TransmitIntAsAscii (l);
-	l = l >> 6;
+	for(int u = 0; u < 16; u++)
+	{
+		signed int mx;
+		signed int my;
+		signed int mz;
 
-	int m = (BMA_trans(0x8300));
-	TransmitIntAsAscii (l);
-	m = m << 2;
+		int l = (BMA_trans(0x8200) & 0xff) >> 6;
+		int m = (BMA_trans(0x8300) & 0xff) << 2;
+		mx = ( m | l);
 
-	x = ( m | l);
+		l = (BMA_trans(0x8400) & 0xff) >> 6;
+		m = (BMA_trans(0x8500) & 0xff) << 2;
+		my = ( m | l);
 
-	l = (BMA_trans(0x8400) >> 6);
-	m = (BMA_trans(0x8500) << 2);
-	y = ( m | l);
+		l = (BMA_trans(0x8600) & 0xff) >> 6;
+		m = (BMA_trans(0x8700) & 0xff) << 2;
+		mz = ( m | l);
 
-	l = (BMA_trans(0x8600) >> 6);
-	m = (BMA_trans(0x8700) << 2);
-	z = ( m | l);
-
-	if (x & 0x0200) {
-		x |= 0xfe00;
+		if (mx & 0x0200) {
+			mx |= 0xfe00;
+		}
+		if (my & 0x0200) {
+			my |= 0xfe00;
+		}
+		if (mz & 0x0200) {
+			mz |= 0xfe00;
+		}
+		x1 += mx;
+		y1 += my;
+		z1 += mz;
 	}
-	if (y & 0x0200) {
-		y |= 0xfe00;
-	}
-	if (z & 0x0200) {
-		z |= 0xfe00;
-	}
 
-//	x -= 36;
-//	y += 32;
-//	z -= 8;
+	x = x1 >> 4;
+	y = y1 >> 4;
+	z = z1 >> 4;
+
+	x -= 30;
+	y += 0;
+	z += 6;
+
+#ifdef DEBUG
+	TransmitByte('x');
+	TransmitIntAsAscii(x);
+	TransmitByte('\r');
+	TransmitByte('\n');
+	TransmitByte('y');
+	TransmitIntAsAscii(y);
+	TransmitByte('\r');
+	TransmitByte('\n');
+	TransmitByte('z');
+	TransmitIntAsAscii(z);
+	TransmitByte('\r');
+	TransmitByte('\n');
+#endif
+
 }
 
 void send() {
@@ -119,6 +147,7 @@ void send() {
 //}
 //
 
+#ifdef DEBUG
 void InitUART(unsigned char baudrate) {
 	_delay_ms(10);
 	UBRRL = baudrate;
@@ -152,6 +181,7 @@ void TransmitIntAsAscii(unsigned int data)
 	TransmitByte(e1 + '0');
 	TransmitByte(' ');
 }
+#endif
 
 #define c_State_Boot 0
 #define c_State_Idle 1
@@ -163,7 +193,14 @@ void TransmitIntAsAscii(unsigned int data)
 int uiState;
 
 int main(void) {
-	InitUART(95); //95 = 9600 bei 14,7
+
+#ifdef DEBUG
+	InitUART(47); //95 = 9600 bei 14,7   47 = 9600 bei 7,3       12 = 38400 bei 8mhz
+
+	TransmitByte('I');
+	TransmitByte('\r');
+	TransmitByte('\n');
+#endif
 
 	BMA_uninit(0);
 	uiState = c_State_Boot;
@@ -189,14 +226,9 @@ int main(void) {
 			uiState = c_State_DoSend_Measure;
 		} else if (uiState == c_State_DoSend_Measure) {
 			measure();
-			_delay_ms(100);
-			measure();
-			_delay_ms(100);
-			measure();
 			BMA_uninit(1);
 			uiState = c_State_DoSend_Send;
 
-			TransmitIntAsAscii (x);
 		}
 
 		if (uiState == c_State_DoSend_Send) {
@@ -206,7 +238,11 @@ int main(void) {
 		}
 
 		if (uiState == c_State_Idle) {
+#ifdef DEBUG
+			if (WDTcounter >= 300) {
+#else
 			if (WDTcounter >= 5000) {
+#endif
 				uiState = c_State_DoSend_Init;
 				WDTcounter = 0;
 			}

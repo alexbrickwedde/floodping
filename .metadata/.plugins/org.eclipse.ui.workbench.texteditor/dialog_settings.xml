@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="CMD_WHO" key="selection"/>
+		<item value="TransmitIntAsAscii" key="selection"/>
 		<list key="findhistory">
+			<item value="TransmitIntAsAscii"/>
+			<item value="BMA_trans"/>
+			<item value="  if (x == 0 &amp;&amp; y == 0 &amp;&amp; z == 0)"/>
 			<item value="CMD_WHO"/>
 			<item value="usbCrc16Append"/>
 			<item value="usbSetInterrupt3"/>
 			<item value="uartPoll"/>
 			<item value="resetUart"/>
-			<item value="rfm12_init"/>
-			<item value="rfm12_bandwidth"/>
-			<item value="Error:"/>
 		</list>
 		<list key="replacehistory">
 			<item value="=ROW_0"/>

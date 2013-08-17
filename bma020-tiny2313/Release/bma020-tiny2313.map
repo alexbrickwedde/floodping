@@ -1,7 +1,5 @@
 Archive member included because of file (symbol)
 
-/opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                              ./main.o (__udivmodhi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
                               ./rf12.o (__divmodsi4)
 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
@@ -133,7 +131,7 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x782
+.text           0x0000000000000000      0x6fe
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
                 0x0000000000000000                __vectors
@@ -207,52 +205,46 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
                 0x0000000000000058                __vector_14
                 0x0000000000000058                __vector_10
                 0x0000000000000058                __vector_16
- .text          0x000000000000005a       0x86 ./bma.o
+ .text          0x000000000000005a       0x8e ./bma.o
                 0x000000000000005a                BMA_trans
                 0x00000000000000bc                BMA_init
                 0x00000000000000a2                BMA_uninit
                 0x00000000000000d2                BMA_init2
- .text          0x00000000000000e0      0x3ea ./main.o
-                0x000000000000012c                TransmitByte
-                0x000000000000029e                measure
-                0x0000000000000204                send
-                0x000000000000013c                TransmitIntAsAscii
-                0x0000000000000376                main
-                0x0000000000000118                InitUART
-                0x00000000000000e0                __vector_18
- .text          0x00000000000004ca      0x212 ./rf12.o
-                0x000000000000061c                rf12_txdata_start
-                0x00000000000004ca                rf12_trans
-                0x0000000000000692                rf12_txdata
-                0x000000000000060a                rf12_readytrans
-                0x00000000000006b6                rf12_preinit
-                0x000000000000065c                rf12_txdata_send
-                0x0000000000000502                rf12_init
-                0x000000000000052e                rf12_setall
-                0x000000000000068a                rf12_txdata_end
-                0x00000000000005e0                rf12_ready
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x00000000000006dc        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
-                0x00000000000006dc                . = ALIGN (0x2)
+ .text          0x00000000000000e8      0x386 ./main.o
+                0x00000000000001ba                measure
+                0x0000000000000120                send
+                0x0000000000000362                main
+                0x00000000000000e8                __vector_18
+ .text          0x000000000000046e      0x212 ./rf12.o
+                0x00000000000005c0                rf12_txdata_start
+                0x000000000000046e                rf12_trans
+                0x0000000000000636                rf12_txdata
+                0x00000000000005ae                rf12_readytrans
+                0x000000000000065a                rf12_preinit
+                0x0000000000000600                rf12_txdata_send
+                0x00000000000004a6                rf12_init
+                0x00000000000004d2                rf12_setall
+                0x000000000000062e                rf12_txdata_end
+                0x0000000000000584                rf12_ready
+ .text          0x0000000000000680        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
+ .text          0x0000000000000680        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text          0x0000000000000680        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x0000000000000680        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000680        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                0x0000000000000680                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000000000006dc       0x28 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
-                0x00000000000006dc                __udivmodhi4
- .text.libgcc   0x0000000000000704       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
-                0x0000000000000704                __divmodsi4
- .text.libgcc   0x000000000000073a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x000000000000073a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x000000000000073a        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
- .text.libgcc   0x000000000000073a       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
-                0x000000000000073a                __udivmodsi4
-                0x000000000000077e                . = ALIGN (0x2)
+ .text.libgcc   0x0000000000000680       0x36 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
+                0x0000000000000680                __divmodsi4
+ .text.libgcc   0x00000000000006b6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000000006b6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000000006b6        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000000006b6       0x44 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodsi4.o)
+                0x00000000000006b6                __udivmodsi4
+                0x00000000000006fa                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000000000077e        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
-                0x000000000000077e                exit
-                0x000000000000077e                _exit
+ .fini9         0x00000000000006fa        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+                0x00000000000006fa                exit
+                0x00000000000006fa                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -271,18 +263,17 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000000000077e        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x00000000000006fa        0x4 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000782                _etext = .
+                0x00000000000006fe                _etext = .
 
-.data           0x0000000000800060        0x6 load address 0x0000000000000782
+.data           0x0000000000800060        0x6 load address 0x00000000000006fe
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn2313.o
  .data          0x0000000000800060        0x0 ./bma.o
  .data          0x0000000000800060        0x5 ./main.o
  .data          0x0000000000800065        0x0 ./rf12.o
- .data          0x0000000000800065        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
  .data          0x0000000000800065        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
  .data          0x0000000000800065        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  .data          0x0000000000800065        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
@@ -305,7 +296,6 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  .bss           0x0000000000800066        0x2 ./main.o
                 0x0000000000800066                WDTcounter
  .bss           0x0000000000800068        0x0 ./rf12.o
- .bss           0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_udivmodhi4.o)
  .bss           0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_divmodsi4.o)
  .bss           0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_exit.o)
  .bss           0x0000000000800068        0x0 /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a(_copy_data.o)
@@ -321,8 +311,8 @@ LOAD /opt/cross/avr/lib/gcc/avr/4.3.3/avr25/libgcc.a
  COMMON         0x0000000000800070        0x4 ./rf12.o
                 0x0000000000800070                airid
                 0x0000000000800074                PROVIDE (__bss_end, .)
-                0x0000000000000782                __data_load_start = LOADADDR (.data)
-                0x0000000000000788                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000000006fe                __data_load_start = LOADADDR (.data)
+                0x0000000000000704                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800074        0x0
                 0x0000000000800074                PROVIDE (__noinit_start, .)
